@@ -65,14 +65,28 @@ subvolid=5
    └── @...
 ```
 
+also los:
+Ein btrfs raid1 kann man mounten indem man einfach ein device des raids mounted, in der fstab wird später auf nummer sicher gegangen.
+```bash
+mount /dev/mapper/phobos /mnt
+btrfs subvolume create /mnt/@
+btrfs subvolume create /mnt/@snapshots
+
+
+
+
 
 
 
 
 ## fstab 
 ```bash
-mkdir -p /vault
-echo "UUID=`blkid -s UUID -o value /dev/mapper/phobos`   /vault  btrfs   device=/dev/mapper/deimos,device=/dev/mapper/phobos,defaults,rw,user,nofail,nodev,nosuid,noexec   0   2" >> /etc/fstab
+mkdir /vault
+echo "UUID=`blkid -s UUID -o value /dev/mapper/phobos`   /vault  btrfs   subvol=@,device=/dev/mapper/deimos,device=/dev/mapper/phobos,defaults,rw,user,nofail,nodev,nosuid,noexec   0   2" >> /etc/fstab
+echo "UUID=`blkid -s UUID -o value /dev/mapper/phobos`   /vault  btrfs   subvol=@snapshots,device=/dev/mapper/deimos,device=/dev/mapper/phobos,defaults,rw,user,nofail,nodev,nosuid,noexec   0   2" >> /etc/fstab
+mount /vault
+
+
 ```
 
 
