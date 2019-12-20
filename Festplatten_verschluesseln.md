@@ -52,7 +52,7 @@ UUID der Partitionen ermitteln
 
 folgendes einfügen:
 
-echo "phobos UUID=\"`blkid -s UUID -o value /dev/sda1`\" /etc/luks-keys/phobos luks" >> /etc/crypttab
+echo "phobos UUID=\\"\`blkid -s UUID -o value /dev/sda1\`\\" /etc/luks-keys/phobos luks" >> /etc/crypttab
 
 deimos UUID="UUID AUS BEFEHL OBEN (SDB1)" /etc/luks-keys/deimos luks
 
