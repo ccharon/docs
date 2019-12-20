@@ -1,24 +1,11 @@
-# Festplatte partitionieren
-1. neue GPT Partitionstabelle
-    
-    `fdisk /dev/sda`
-    
-    in fdisk dann `g` create empty gpt partition table
+# Festplatten partitionieren
+```bash
+ parted --script /dev/sda "mklabel gpt"
+ parted --script /dev/sda "mkpart primary 1 max"
 
-
-2. eine Partition anlegen
-
-    in fdisk `n` 
-
-3. typ der Partition auf Linux 
-    
-    in fdisk `t`
-
-4. speichern
-
-    in fdisk `w`
-
-5. für sdb wiederholen
+ parted --script /dev/sdb "mklabel gpt"
+ parted --script /dev/sdb "mkpart primary 1 max"
+```
 
 # Cryptsetup
 ## Partition verschlüsseln
