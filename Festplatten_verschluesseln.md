@@ -71,13 +71,8 @@ Ein btrfs raid1 kann man mounten indem man einfach ein device des raids mounted,
 mount /dev/mapper/phobos /mnt
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@snapshots
-
-
-
-
-
-
-
+umount /mnt
+```
 
 ## fstab 
 ```bash
