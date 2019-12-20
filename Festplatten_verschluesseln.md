@@ -69,6 +69,10 @@ also los:
 Ein btrfs raid1 kann man mounten indem man einfach ein device des raids mounted, in der fstab wird später auf nummer sicher gegangen.
 ```bash
 mount /dev/mapper/phobos /mnt
+
+# zwischendurch kann man einfach mal schauen ob das anlegen des Dateisystems soweit gut war. es müsste Data, Metadata und System RAID1 dabei sein
+btrfs fi usage /vault
+
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@snapshots
 umount /mnt
@@ -90,6 +94,9 @@ mount /vault
 chown root:users /vault/.
 chmod 0770 /vault/.
 
+
+
+
 # snapper installieren und config anlegen
 apt-get install snapper
 snapper -c vault create-config /vault
@@ -108,6 +115,7 @@ usermod -a -G users username
 
 ```
 
+# regelmäßiges Dateisystem aufräumen (scrub)
 
 
 
