@@ -74,12 +74,19 @@ btrfs subvolume create /mnt/@snapshots
 umount /mnt
 ```
 
-## fstab 
+## Mountpunkte in der richtigen Reihenfolge anlegen und snapper konfigurieren 
 ```bash
 mkdir /vault
 echo "UUID=`blkid -s UUID -o value /dev/mapper/phobos`   /vault  btrfs   subvol=@,device=/dev/mapper/deimos,device=/dev/mapper/phobos,defaults,rw,user,nofail,nodev,nosuid,noexec   0   2" >> /etc/fstab
 echo "UUID=`blkid -s UUID -o value /dev/mapper/phobos`   /vault/.snapshots  btrfs   subvol=@snapshots,device=/dev/mapper/deimos,device=/dev/mapper/phobos,defaults,rw,user,nofail,nodev,nosuid,noexec   0   2" >> /etc/fstab
 mount /vault
+
+# snapper config anlegen
+
+# das Verzeichnis das Snapper angelegt hat löschen
+rm -rf /vault/.snapshots
+
+# und neu anlegen und jetzt das subvolume reinmounten
 mkdir /vault/.snapshots
 mount /vault/.snapshots
 chmod 0750 /vault/.snapshots
