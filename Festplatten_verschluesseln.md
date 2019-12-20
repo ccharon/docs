@@ -44,17 +44,9 @@
 `cryptsetup luksDump /dev/sda1`
 
 ## Crypttab anpassen
-UUID der Partitionen ermitteln
+`echo "phobos UUID=\\"\`blkid -s UUID -o value /dev/sda1\`\\" /etc/luks-keys/phobos luks" >> /etc/crypttab`
 
-`blkid /dev/sda1 /dev/sdb1`
-
-`mcedit /etc/crypttab`
-
-folgendes einfügen:
-
-echo "phobos UUID=\\"\`blkid -s UUID -o value /dev/sda1\`\\" /etc/luks-keys/phobos luks" >> /etc/crypttab
-
-deimos UUID="UUID AUS BEFEHL OBEN (SDB1)" /etc/luks-keys/deimos luks
+`echo "deimos UUID=\\"\`blkid -s UUID -o value /dev/sdb1\`\\" /etc/luks-keys/deimos luks" >> /etc/crypttab`
 
 ## cryptdisks starten
 
