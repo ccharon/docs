@@ -116,6 +116,25 @@ usermod -a -G users username
 ```
 
 # regelmäßiges Dateisystem aufräumen (scrub)
+Dazu wird ein systemd Timer gebaut der einen Job monatlich ausführt
+https://gist.github.com/ccharon/16de3a18a077d3033776f7166a41122d
 
+Dateien hier ablegen
+/usr/local/bin/btrfs-scrub
+/etc/systemd/system/btrfs-scrub.service
+/etc/systemd/system/btrfs-scrub.timer
 
+danach
+```bash
+systemctl daemon-reload
+systemctl enable btrfs-scrub.service
+systemctl enable btrfs-scrub.timer
+systemctl start btrfs-scrub.timer
+```
 
+https://gist.github.com/ccharon/16de3a18a077d3033776f7166a41122d
+
+# quellen aus denen ich das hab
+https://computingforgeeks.com/working-with-btrfs-filesystem-in-linux/
+https://blog.bmarwell.de/zwei-festplatten-in-einem-btrfs-raid1-zusammenfuehren/
+https://wiki.archlinux.org/index.php/Snapper
