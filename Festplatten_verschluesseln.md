@@ -116,6 +116,7 @@ usermod -a -G users username
 apt-get install btrfsmaintenance
 
 dann die /etc/default/btrfsmaintenance anpassen
+https://github.com/kdave/btrfsmaintenance/blob/master/README.md
 
 # was kann man noch machen
 snapper-gui installieren
