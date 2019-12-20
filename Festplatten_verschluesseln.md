@@ -43,11 +43,39 @@ cryptdisk_start phobos deimos
 mkfs.btrfs -f -L vault -m raid1 -d raid1 /dev/mapper/phobos /dev/mapper/phobos
 ```
 
+
+## subvolume layout aufbauen
+Um sicherzustellen das man an die Snapshots rankommt wenn das eigentliche Volume Probleme hat kommt das Snapshot Subvolume @snapshots auf das gleiche Level wie das eigentliche Daten Subvolume (@) später wird dann @snapshots unter ./snapshots ins Datenvolume gemounted
+
+```
+subvolid=5
+   |
+   ├── @
+   |       |
+   |       ├── /.snapshots
+   |       |
+   |       ├── /daten
+   |       |
+   |       ├── blubbb
+   |       |
+   |       ├── ...
+   |
+   ├── @snapshots
+   |
+   └── @...
+```
+
+
+
+
+
 ## fstab 
 ```bash
 mkdir -p /vault
 echo "UUID=`blkid -s UUID -o value /dev/mapper/phobos`   /vault  btrfs   device=/dev/mapper/deimos,device=/dev/mapper/phobos,defaults,rw,user,nofail,nodev,nosuid,noexec   0   2" >> /etc/fstab
 ```
+
+
 
 ## mounten
 ```bash
@@ -59,23 +87,6 @@ mount /vault
 apt-get install snapper
 ```
 
-## subvolume layout aufbauen
-```
-subvolid=5
-   |
-   ├── @
-   |       |
-   |       ├── /usr
-   |       |
-   |       ├── /bin
-   |       |
-   |       ├── /.snapshots
-   |       |
-   |       ├── ...
-   |
-   ├── @snapshots
-   |
-   └── @...
-```
+
 
 
