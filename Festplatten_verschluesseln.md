@@ -134,6 +134,14 @@ systemctl start btrfs-scrub.timer
 
 https://gist.github.com/ccharon/16de3a18a077d3033776f7166a41122d
 
+# was kann man noch machen
+snapper-gui installieren
+```bash
+apt-get install snapper-gui
+```
+
+und was man noch angucken kann ist wie man btrfs snapshots transferieren kann auf eine backup platte zum Beispiel
+
 # quellen aus denen ich das hab
 https://computingforgeeks.com/working-with-btrfs-filesystem-in-linux/
 https://blog.bmarwell.de/zwei-festplatten-in-einem-btrfs-raid1-zusammenfuehren/
