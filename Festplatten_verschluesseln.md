@@ -76,13 +76,19 @@ umount /mnt
 
 ## Mountpunkte in der richtigen Reihenfolge anlegen und snapper konfigurieren 
 ```bash
+# Mountpunkt anlegen
 mkdir /vault
+
+# /etc/fstab Eintrag für Subvolume @ (die eigentlichen Daten)
 echo "UUID=`blkid -s UUID -o value /dev/mapper/phobos`   /vault  btrfs   subvol=@,device=/dev/mapper/deimos,device=/dev/mapper/phobos,defaults,rw,user,nofail,nodev,nosuid,noexec   0   2" >> /etc/fstab
+
+# /etc/fstab Eintrag für Subvolume @snapshots
 echo "UUID=`blkid -s UUID -o value /dev/mapper/phobos`   /vault/.snapshots  btrfs   subvol=@snapshots,device=/dev/mapper/deimos,device=/dev/mapper/phobos,defaults,rw,user,nofail,nodev,nosuid,noexec   0   2" >> /etc/fstab
+
+# jetzt Datenvolume mounten und Berechtigungen anpassen
 mount /vault
 chown root:users /vault/.
 chmod 0770 /vault/.
-
 
 # snapper installieren und config anlegen
 apt-get install snapper
@@ -97,18 +103,6 @@ mount /vault/.snapshots
 chmod 0750 /vault/.snapshots
 chown root:users /vault/.snapshots
 
-```
-
-
-
-## mounten
-```bash
-mount /vault
-```
-
-## automatische Snapshots konfigurieren
-```bash
-apt-get install snapper
 ```
 
 
