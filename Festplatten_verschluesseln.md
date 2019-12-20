@@ -103,6 +103,9 @@ mount /vault/.snapshots
 chmod 0750 /vault/.snapshots
 chown root:users /vault/.snapshots
 
+# falls der normale Benutzer noch nicht in der users gruppe ist ...
+usermod -a -G users username
+
 ```
 
 
