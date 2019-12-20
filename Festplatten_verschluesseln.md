@@ -45,8 +45,8 @@
 
 ## Crypttab anpassen
 ```bash
-echo \"phobos UUID=\\"\`blkid -s UUID -o value /dev/sda1 \`\\" /etc/luks-keys/phobos luks\" >> /etc/crypttab
-echo \"deimos UUID=\\"\`blkid -s UUID -o value /dev/sdb1 \`\\" /etc/luks-keys/deimos luks\" >> /etc/crypttab
+echo "phobos UUID="`blkid -s UUID -o value /dev/sda1`" /etc/luks-keys/phobos luks" >> /etc/crypttab
+echo "deimos UUID="`blkid -s UUID -o value /dev/sdb1`" /etc/luks-keys/deimos luks" >> /etc/crypttab
 ```
 
 ## cryptdisks starten
