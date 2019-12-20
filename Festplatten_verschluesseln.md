@@ -94,9 +94,6 @@ mount /vault
 chown root:users /vault/.
 chmod 0770 /vault/.
 
-
-
-
 # snapper installieren und config anlegen
 apt-get install snapper
 snapper -c vault create-config /vault
@@ -127,7 +124,6 @@ Dateien hier ablegen
 danach
 ```bash
 systemctl daemon-reload
-systemctl enable btrfs-scrub.service
 systemctl enable btrfs-scrub.timer
 systemctl start btrfs-scrub.timer
 ```
@@ -144,5 +140,7 @@ und was man noch angucken kann ist wie man btrfs snapshots transferieren kann au
 
 # quellen aus denen ich das hab
 https://computingforgeeks.com/working-with-btrfs-filesystem-in-linux/
+
 https://blog.bmarwell.de/zwei-festplatten-in-einem-btrfs-raid1-zusammenfuehren/
+
 https://wiki.archlinux.org/index.php/Snapper
