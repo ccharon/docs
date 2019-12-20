@@ -40,13 +40,11 @@ cryptdisk_start phobos deimos
 
 # dateisysteme erzeugen
 ```bash
-mkfs.ext4 -L phobos -m 0 /dev/mapper/phobos
-mkfs.ext4 -L deimos -m 0 /dev/mapper/deimos
+mkfs.btrfs -f -L vault -m raid1 -d raid1 /dev/mapper/phobos /dev/mapper/phobos
 ```
 
 ## fstab 
 ```bash
-mkdir -p /vault/phobos /vault/deimos 
-echo "/dev/mapper/phobos  /vault/phobos   ext4    defaults,nodev,nosuid,noexec 0 0" >> /etc/fstab
-echo "/dev/mapper/deimos  /vault/deimos   ext4    defaults,nodev,nosuid,noexec 0 0" >> /etc/fstab
+mkdir -p /vault
+echo "UUID=`blkid -s UUID -o value /dev/mapper/phobos`   /media/nextcloud      btrfs   device=/dev/mapper/phobos,device=/dev/mapper/phobos ,defaults,rw,user,nofail,nodev,nosuid,noexec   0   2" >> /etc/fstab
 ```
