@@ -62,4 +62,4 @@ mkfs.ext4 -L deimos -m 0 /dev/mapper/deimos
 mkdir -p /vault/phobos /vault/deimos 
 echo "/dev/mapper/phobos  /vault/phobos   ext4    defaults,nodev,nosuid,noexec 0 0" >> /etc/fstab
 echo "/dev/mapper/deimos  /vault/deimos   ext4    defaults,nodev,nosuid,noexec 0 0" >> /etc/fstab
-´´´
+```
