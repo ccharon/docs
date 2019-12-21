@@ -29,8 +29,8 @@ cryptsetup luksAddKey /dev/sdb1 --key-size 512 --iter-time 2000 --hash sha512 /e
 
 ## Crypttab anpassen
 ```bash
-echo "phobos UUID=\"`blkid -s UUID -o value /dev/sda1`\" /etc/luks-keys/phobos luks" >> /etc/crypttab
-echo "deimos UUID=\"`blkid -s UUID -o value /dev/sdb1`\" /etc/luks-keys/deimos luks" >> /etc/crypttab
+echo "phobos UUID=\"`blkid -s UUID -o value /dev/sda1`\" /etc/luks-keys/phobos luks,key-slot=1" >> /etc/crypttab
+echo "deimos UUID=\"`blkid -s UUID -o value /dev/sdb1`\" /etc/luks-keys/deimos luks,key-slot=1" >> /etc/crypttab
 ```
 
 ## Cryptdisks starten
