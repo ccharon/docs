@@ -1,15 +1,20 @@
 # Systemplatte
 es wird davon ausgegangen das es schon irgendwas installiertes gibt das nicht verschlüsselt ist.
-Ziel ist es eine verschlüsselte Installation zu haben bei der alles ausser der EFI Partition verschlüsselt wird.
 
 ```
 GPT
    |
    ├── EFI (fat32)
    |
-   ├── Luks encrypted root (btrfs)
+   ├── boot (ext4)
    |
-   └── Luks encrypted swap (swap)
+   └── Luks encrypted
+       |   
+       └── LVM
+           |
+           ├── root (btrfs)
+           |   
+           └── swap (swap)
 ```
 
 ## Booten des Systems per Rettungsystem 
@@ -81,14 +86,15 @@ parted --script /dev/nvme0n1 "mklabel gpt"
 parted --script /dev/nvme0n1 "mkpart primary fat32 1MiB 513MiB"
 parted --script /dev/nvme0n1 "set 1 esp on"
 
-# 384GB Root Partition 
-parted --script /dev/nvme0n1 "mkpart primary btrfs 513MiB 393729MiB"
-# parted --script /dev/nvme0n1 "mkpart primary btrfs 513MiB 10753MiB"
+# 512MB boot Partition
+parted --script /dev/nvme0n1 "mkpart primary fat32 513MiB 1025MiB"
+
+# der Rest wird Luks
+parted --script /dev/nvme0n1 "mkpart primary luks 1025MiB 100%"
 
 
-# 38GB (32GB für Syspend to Disk + 6 GB man weiss ja nie) SWAP Partition 
-parted --script /dev/nvme0n1 "mkpart primary linux-swap 393729MiB 432641MiB"
-# parted --script /dev/nvme0n1 "mkpart primary linux-swap 10753MiB 14849MiB"
+
+
 ```
 
 ## Verschlüsselung und formatieren
