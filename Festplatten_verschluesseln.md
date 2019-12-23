@@ -203,6 +203,11 @@ echo "RESUME=/dev/mapper/swap" > /etc/initramfs-tools/conf.d/resume
 echo "UMASK=0077" >> /etc/initramfs-tools/initramfs.conf
 echo "KEYFILE_PATTERN=/etc/luks-keys/system" >> /etc/cryptsetup-initramfs/conf-hook 
 ```
+/etc/initramfs-tools/hooks/crypto_keyfile   [----]  0 L:[  1+ 3   4/  4] *(97  /  97b) <EOF>                                  [*][X]
+#!/bin/sh
+mkdir -p "${DESTDIR}/etc/luks-keys"
+cp /etc/luks-keys/bosko "${DESTDIR}/etc/luks-keys"
+
 
 
 ### grub.cfg auf der EFI Partition ersetzen
