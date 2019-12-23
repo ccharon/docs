@@ -181,6 +181,9 @@ neue Einträge für root, efi und swap hinzufügen
 # root
 echo "UUID=`blkid -s UUID -o value /dev/ares/root`   /  btrfs   defaults,subvol=@,compress=zstd,noatime,autodefrag 0  0" >> /etc/fstab
 
+# boot
+echo "UUID=`blkid -s UUID -o value /dev/nvme0n1p2`   /boot  ext4  defaults 0  1" >> /etc/fstab
+
 # efi
 echo "UUID=`blkid -s UUID -o value /dev/nvme0n1p1`   /boot/efi  vfat  umask=0077 0  1" >> /etc/fstab
 
