@@ -87,12 +87,10 @@ parted --script /dev/nvme0n1 "mkpart primary fat32 1MiB 513MiB"
 parted --script /dev/nvme0n1 "set 1 esp on"
 
 # 512MB boot Partition
-parted --script /dev/nvme0n1 "mkpart primary fat32 513MiB 1025MiB"
+parted --script /dev/nvme0n1 "mkpart primary ext4 513MiB 1025MiB"
 
 # der Rest wird Luks
-parted --script /dev/nvme0n1 "mkpart primary luks 1025MiB 100%"
-
-
+parted --script /dev/nvme0n1 "mkpart primary ext4 1025MiB 100%"
 
 
 ```
@@ -104,8 +102,11 @@ swap ist später dran
 # erst mal die efi partition formatieren
 mkfs.fat -F32 -n EFI /dev/nvme0n1p1
 
-# mit luks die root partition verschluesseln
-cryptsetup -y -v luksFormat /dev/nvme0n1p2 --hash sha512 --cipher aes-xts-plain64 --key-size 512 --iter-time 10000
+# boot partition formatieren
+mkfs.ext4 -L boot /dev/nvme0n1p2
+
+# mit luks die lvm partition verschluesseln
+cryptsetup -y -v luksFormat /dev/nvme0n1p3 --hash sha512 --cipher aes-xts-plain64 --key-size 512 --iter-time 10000
 
 # verschluesselte partition zum formatieren öffnen
 cryptsetup luksOpen /dev/nvme0n1p2 ares
