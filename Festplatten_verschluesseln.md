@@ -96,8 +96,6 @@ parted --script /dev/nvme0n1 "mkpart primary ext4 1025MiB 100%"
 ```
 
 ## Verschlüsselung und formatieren
-swap ist später dran
-
 ```bash
 # erst mal die efi partition formatieren
 mkfs.fat -F32 -n EFI /dev/nvme0n1p1
@@ -141,17 +139,14 @@ mount /dev/ares/root /new/root -t btrfs -o subvol=@,compress=zstd
 
 ```bash
 cd /new/root
-
 tar xpvf /backup/root.tar.bz2 --xattrs-include='*.*' --numeric-owner
 
-mount /dev/nvme0n1p1 /new/root/boot/efi
-
+mount /dev/nvme0n1p2 /new/root/boot
 cd boot
-
 tar xpvf /backup/boot.tar.bz2 --xattrs-include='*.*' --numeric-owner
 
+mount /dev/nvme0n1p1 /new/root/boot/efi
 cd efi
-
 tar xpvf /backup/efi.tar.bz2 --xattrs-include='*.*' --numeric-owner
 
 ```
