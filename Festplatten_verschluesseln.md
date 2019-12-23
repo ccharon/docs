@@ -118,18 +118,21 @@ lvcreate --name root --size 384G ares
 lvcreate --name swap --size 38G ares
 
 # formatieren des root Dateisystems
-mkfs.btrfs -f -L root /dev/mapper/ares
+mkfs.btrfs -f -L root /dev/ares/root
 
-#subvolume layout aufbauen
-mount /dev/mapper/ares /mnt
+# subvolume layout aufbauen
+mount /dev/ares/root /mnt
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@snapshots
 umount /mnt
 
+# swap formatieren
+mkswap /dev/ares/swap
+
 # neue dateisysteme an temporäre stelle mounten
 mkdir -p /new/root
 
-mount /dev/mapper/ares /new/root -t btrfs -o subvol=@,compress=zstd
+mount /dev/ares/root /new/root -t btrfs -o subvol=@,compress=zstd
 
 
 ```
