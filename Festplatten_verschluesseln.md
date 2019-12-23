@@ -214,6 +214,22 @@ echo "GRUB_ENABLE_CRYPTODISK=y" >> /etc/default/grub
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=debian
 ```
 
+jetzt kann man neustarten!
+
+## nach dem neustart noch snapper konfigurieren
+### /etc/fstab Eintrag für Subvolume @snapshots
+echo "UUID=`blkid -s UUID -o value /dev/ares/root`   /.snapshots  btrfs   subvol=@snapshots,defaults,compress=zstd,noatime,autodefrag  0  0" >> /etc/fstab
+
+### snapper installieren und config anlegen
+apt-get install snapper
+snapper -c root create-config /
+
+### das Verzeichnis das Snapper angelegt hat löschen
+rm -rf /.snapshots
+
+### und neu anlegen und jetzt das subvolume reinmounten
+mkdir /.snapshots
+mount /.snapshots
 
 # Datenfestplatten
 ## Festplatten partitionieren
