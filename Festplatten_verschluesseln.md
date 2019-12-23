@@ -204,8 +204,8 @@ echo "UMASK=0077" >> /etc/initramfs-tools/initramfs.conf
 
 cat <<EOF > /etc/initramfs-tools/hooks/crypto_keyfile
 #!/bin/sh
-mkdir -p "${DESTDIR}/etc/luks-keys"
-cp /etc/luks-keys/system "${DESTDIR}/etc/luks-keys"
+mkdir -p "\${DESTDIR}/etc/luks-keys"
+cp /etc/luks-keys/system "\${DESTDIR}/etc/luks-keys"
 EOF
 
 chmod +x /etc/initramfs-tools/hooks/crypto_keyfile
