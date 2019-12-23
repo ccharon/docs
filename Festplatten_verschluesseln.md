@@ -168,25 +168,10 @@ source /etc/profile
 ```
 
 ## wieder bootfähig machen
-### Dateisysteme vorbereiten
-```bash
-
-# keyfile zur root partition hinzufuegen
-cryptsetup luksAddKey /dev/nvme0n1p2 --key-size 512 --iter-time 2000 --hash sha512 /etc/luks-keys/system
-
-# verschlusselte swap partition mit keyfile generieren
-cryptsetup -y -v luksFormat /dev/nvme0n1p3 --hash sha512 --cipher aes-xts-plain64 --key-size 512 --iter-time 2000 --key-file=/etc/luks-keys/system
-
-# verschluesselte swap partition einbinden und formatieren
-cryptsetup luksOpen /dev/nvme0n1p3 swap --key-file=/etc/luks-keys/system
-mkswap /dev/mapper/swap
-
-```
 ### Crypttab anpassen
 ```bash
-echo "ares UUID=\"`blkid -s UUID -o value /dev/nvme0n1p2`\" /etc/luks-keys/system luks,discard,key-slot=1,keyscript=/bin/cat" >> /etc/crypttab
+echo "luks-`blkid -s UUID -o value /dev/nvme0n1p3` UUID=\"`blkid -s UUID -o value /dev/nvme0n1p3`\" none luks,discard" >> /etc/crypttab
 
-echo "swap UUID=\"`blkid -s UUID -o value /dev/nvme0n1p3`\" /etc/luks-keys/system luksdiscard,key-slot=0,keyscript=/bin/cat" >> /etc/crypttab
 ```
 
 ### fstab anpassen
@@ -194,13 +179,13 @@ echo "swap UUID=\"`blkid -s UUID -o value /dev/nvme0n1p3`\" /etc/luks-keys/syste
 neue Einträge für root, efi und swap hinzufügen
 ```bash
 # root
-echo "UUID=`blkid -s UUID -o value /dev/mapper/ares`   /  btrfs   defaults,subvol=@,compress=zstd,noatime,autodefrag 0  0" >> /etc/fstab
+echo "UUID=`blkid -s UUID -o value /dev/ares/root`   /  btrfs   defaults,subvol=@,compress=zstd,noatime,autodefrag 0  0" >> /etc/fstab
 
 # efi
 echo "UUID=`blkid -s UUID -o value /dev/nvme0n1p1`   /boot/efi  vfat  umask=0077 0  1" >> /etc/fstab
 
 # swap
-echo "UUID=`blkid -s UUID -o value /dev/mapper/swap`   none  swap  sw 0  0" >> /etc/fstab
+echo "UUID=`blkid -s UUID -o value /dev/ares/swap`   none  swap  sw 0  0" >> /etc/fstab
 
 ```
 jetzt die fstab mit einem editor öffnen und die alten Werte für root, efi, swap und evtl boot rauswerfen.
