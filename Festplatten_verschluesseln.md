@@ -109,7 +109,7 @@ mkfs.ext4 -L boot /dev/nvme0n1p2
 cryptsetup -y -v luksFormat /dev/nvme0n1p3 --hash sha512 --cipher aes-xts-plain64 --key-size 512 --iter-time 10000
 
 # verschluesselte partition zum formatieren öffnen
-cryptsetup luksOpen /dev/nvme0n1p2 ares
+cryptsetup luksOpen /dev/nvme0n1p3 luks-`blkid -s UUID -o value /dev/nvme0n1p3`
 
 # formatieren des root Dateisystems
 mkfs.btrfs -f -L root /dev/mapper/ares
