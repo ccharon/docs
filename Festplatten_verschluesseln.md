@@ -195,18 +195,10 @@ jetzt die fstab mit einem editor öffnen und die alten Werte für root, efi, swa
 
 ### initramfs an die neue config anpassen
 ```bash
-apt-get install cryptsetup-initramfs
+apt-get install --reinstall cryptsetup-initramfs
 
-echo "RESUME=/dev/mapper/swap" > /etc/initramfs-tools/conf.d/resume
+echo "RESUME=/dev/ares/swap" > /etc/initramfs-tools/conf.d/resume
 echo "UMASK=0077" >> /etc/initramfs-tools/initramfs.conf
-
-cat <<EOF > /etc/initramfs-tools/hooks/crypto_keyfile
-#!/bin/sh
-mkdir -p "\${DESTDIR}/etc/luks-keys"
-cp /etc/luks-keys/system "\${DESTDIR}/etc/luks-keys"
-EOF
-
-chmod +x /etc/initramfs-tools/hooks/crypto_keyfile
 ```
 
 
@@ -214,16 +206,12 @@ chmod +x /etc/initramfs-tools/hooks/crypto_keyfile
 
 ### grub.cfg auf der EFI Partition ersetzen
 ```bash
-cat <<EOF > /boot/efi/EFI/debian/grub.cfg
-cryptomount -u `blkid -s UUID -o value /dev/nvme0n1p2`
-search.fs_uuid `blkid -s UUID -o value /dev/mapper/ares` root cryptouuid/`blkid -s UUID -o value /dev/nvme0n1p2`
-set prefix=(\$root)'/@/boot/grub'
-configfile \$prefix/grub.cfg
-EOF
 
 ### grub.cfg anpassen damit verschluesselte partitionen beachtet werden
 echo "GRUB_ENABLE_CRYPTODISK=y" >> /etc/default/grub
 
+# grub installieren
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=debian
 ```
 
 
