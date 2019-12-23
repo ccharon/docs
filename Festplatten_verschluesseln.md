@@ -199,6 +199,8 @@ jetzt die fstab mit einem editor öffnen und die alten Werte für root, efi, swa
 
 ### initramfs an die neue config anpassen
 ```bash
+apt-get install cryptsetup-initramfs
+
 echo "RESUME=/dev/mapper/swap" > /etc/initramfs-tools/conf.d/resume
 echo "UMASK=0077" >> /etc/initramfs-tools/initramfs.conf
 
