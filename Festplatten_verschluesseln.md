@@ -201,12 +201,16 @@ jetzt die fstab mit einem editor öffnen und die alten Werte für root, efi, swa
 ```bash
 echo "RESUME=/dev/mapper/swap" > /etc/initramfs-tools/conf.d/resume
 echo "UMASK=0077" >> /etc/initramfs-tools/initramfs.conf
-echo "KEYFILE_PATTERN=/etc/luks-keys/system" >> /etc/cryptsetup-initramfs/conf-hook 
-```
-/etc/initramfs-tools/hooks/crypto_keyfile   [----]  0 L:[  1+ 3   4/  4] *(97  /  97b) <EOF>                                  [*][X]
+
+cat <<EOF > /etc/initramfs-tools/hooks/crypto_keyfile
 #!/bin/sh
 mkdir -p "${DESTDIR}/etc/luks-keys"
-cp /etc/luks-keys/bosko "${DESTDIR}/etc/luks-keys"
+cp /etc/luks-keys/system "${DESTDIR}/etc/luks-keys"
+EOF
+
+chmod +x /etc/initramfs-tools/hooks/crypto_keyfile
+```
+
 
 
 
