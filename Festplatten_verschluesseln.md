@@ -111,6 +111,12 @@ cryptsetup -y -v luksFormat /dev/nvme0n1p3 --hash sha512 --cipher aes-xts-plain6
 # verschluesselte partition zum formatieren öffnen
 cryptsetup luksOpen /dev/nvme0n1p3 luks-`blkid -s UUID -o value /dev/nvme0n1p3`
 
+# LVM Setup
+pvcreate /dev/mapper/luks-`blkid -s UUID -o value /dev/nvme0n1p3`
+vgcreate ares /dev/mapper/luks-`blkid -s UUID -o value /dev/nvme0n1p3`
+lvcreate --name root --size 384G ares
+lvcreate --name swap --size 38G ares
+
 # formatieren des root Dateisystems
 mkfs.btrfs -f -L root /dev/mapper/ares
 
@@ -166,9 +172,6 @@ source /etc/profile
 ## wieder bootfähig machen
 ### Dateisysteme vorbereiten
 ```bash
-# keyfile für root und swap generieren
-mkdir -p /etc/luks-keys/; dd if=/dev/urandom of=/etc/luks-keys/system bs=64 count=1
-chmod 0400 /etc/luks-keys/*
 
 # keyfile zur root partition hinzufuegen
 cryptsetup luksAddKey /dev/nvme0n1p2 --key-size 512 --iter-time 2000 --hash sha512 /etc/luks-keys/system
