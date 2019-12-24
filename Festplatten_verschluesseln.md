@@ -108,11 +108,11 @@ mkfs.ext4 -L boot /dev/nvme0n1p2
 cryptsetup -y -v luksFormat /dev/nvme0n1p3 --hash sha512 --cipher aes-xts-plain64 --key-size 512 --iter-time 10000
 
 # verschluesselte partition zum formatieren öffnen
-cryptsetup luksOpen /dev/nvme0n1p3 luks-`blkid -s UUID -o value /dev/nvme0n1p3`
+cryptsetup luksOpen /dev/nvme0n1p3 ares
 
 # LVM Setup
-pvcreate /dev/mapper/luks-`blkid -s UUID -o value /dev/nvme0n1p3`
-vgcreate ares /dev/mapper/luks-`blkid -s UUID -o value /dev/nvme0n1p3`
+pvcreate /dev/mapper/ares
+vgcreate ares /dev/mapper/ares
 lvcreate --name root --size 384G ares
 lvcreate --name swap --size 38G ares
 
