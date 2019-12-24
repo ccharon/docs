@@ -1,5 +1,6 @@
 # Systemplatte
 es wird davon ausgegangen das es schon irgendwas installiertes gibt das nicht verschlüsselt ist.
+Ziel ist es dieses Layout anzulegen:
 
 ```
 GPT
