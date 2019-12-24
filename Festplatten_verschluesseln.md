@@ -218,18 +218,21 @@ jetzt kann man neustarten!
 
 ## nach dem neustart noch snapper konfigurieren
 ### /etc/fstab Eintrag für Subvolume @snapshots
+```bash
 echo "UUID=`blkid -s UUID -o value /dev/ares/root`   /.snapshots  btrfs   subvol=@snapshots,defaults,compress=zstd,noatime,autodefrag  0  0" >> /etc/fstab
-
+```
 ### snapper installieren und config anlegen
+```bash
 apt-get install snapper
 snapper -c root create-config /
-
-### das Verzeichnis das Snapper angelegt hat löschen
+```
+### das Verzeichnis das Snapper angelegt hat löschen und neu anlegen
+```bash
 rm -rf /.snapshots
-
-### und neu anlegen und jetzt das subvolume reinmounten
 mkdir /.snapshots
+rm -rf /.snapshots
 mount /.snapshots
+```
 
 # Datenfestplatten
 ## Festplatten partitionieren
