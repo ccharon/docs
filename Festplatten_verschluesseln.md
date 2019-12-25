@@ -48,7 +48,7 @@ tar cvjf /backup/efi.tar.bz2 *
 
 # nur falls man eine boot partition hatte
 cd /old/boot
-tar cvjf /backup/boot.tar.bz2 /old/boot/
+tar cvjf /backup/boot.tar.bz2 *
 
 cd /old/root
 tar --exclude=dev/* \
@@ -87,11 +87,11 @@ parted --script /dev/nvme0n1 "mklabel gpt"
 parted --script /dev/nvme0n1 "mkpart primary fat32 1MiB 513MiB"
 parted --script /dev/nvme0n1 "set 1 esp on"
 
-# 512MB boot Partition
-parted --script /dev/nvme0n1 "mkpart primary ext4 513MiB 1025MiB"
+# 1024MB boot Partition
+parted --script /dev/nvme0n1 "mkpart primary ext4 513MiB 1537MiB"
 
 # der Rest wird Luks
-parted --script /dev/nvme0n1 "mkpart primary ext4 1025MiB 100%"
+parted --script /dev/nvme0n1 "mkpart primary ext4 1537MiB 100%"
 
 
 ```
