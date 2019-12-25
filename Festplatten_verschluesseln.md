@@ -62,6 +62,7 @@ tar --exclude=dev/* \
 --exclude=.bash_history \
 --exclude=lost+found \
 --exclude=var/cache/apt/packages/* \
+--exclude=var/cache/apt/archives/* \
 -cvjf /backup/root.tar.bz2 *
 
 # Swap wird nicht gesichert ... warum auch
