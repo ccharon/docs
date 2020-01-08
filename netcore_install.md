@@ -13,3 +13,20 @@ apt-get install  dotnet-sdk-3.1
 Wenn man noch die Telemetriedaten abschalten möchte dann das hier in die .bashrc oder .zshrc oder was auch immer
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 Damit es in der aktuellen Shell auch geht, dort direkt ausführen
+
+## Beispielprojekt anlegen
+```bash
+mkdir Projects  
+cd Projects
+
+dotnet new classlib -o SampleProject.Data  
+dotnet new webapi -o SampleProject.Web.Api  
+      
+dotnet sln SampleProject.sln add SampleProject.Data/SampleProject.Data.csproj  
+dotnet sln SampleProject.sln add SampleProject.Web.Api/SampleProject.Web.Api.csproj  
+```
+## vs code plugins installieren
+```bash
+code --install-extension ms-vscode.csharp
+code --install-extension fernandoescolar.vscode-solution-explorer  
+```
