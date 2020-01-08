@@ -18,6 +18,10 @@ Damit es in der aktuellen Shell auch geht, dort direkt ausführen
 ```bash
 mkdir Projects  
 cd Projects
+mkdir SampleProject
+cd SampleProject
+
+dotnet new sln
 
 dotnet new classlib -o SampleProject.Data  
 dotnet new webapi -o SampleProject.Web.Api  
