@@ -240,10 +240,10 @@ mount /.snapshots
 ## Festplatten partitionieren
 ```bash
  parted --script /dev/sda "mklabel gpt"
- parted --script /dev/sda "mkpart primary 1 max"
+ parted --script /dev/sda "mkpart primary 1 100%"
 
  parted --script /dev/sdb "mklabel gpt"
- parted --script /dev/sdb "mkpart primary 1 max"
+ parted --script /dev/sdb "mkpart primary 1 100%"
 ```
 
 ## Cryptsetup
@@ -365,16 +365,29 @@ apt-get install snapper-gui
 
 ## backups mit snap-sync
 Einen Backup Datenträger mit btrfs formatieren und mounten
-Snapsync herunterladen https://github.com/wesbarnett/snap-sync/releases und installieren
-Dann kann man die btrfs Dateisysteme mit incrementellen Snapshots sichern
 ```bash
-snap-sync -c root -u <uuid des backup ziel btrfs> 
+# partitionieren
+parted --script /dev/sda "mklabel gpt"
+parted --script /dev/sda "mkpart primary 1 100%"
+
+# formatieren
+mkfs.btrfs -f -L backup /dev/sda1
+
+# mounten
+mount /dev/sda1 /mnt
 ```
 
-Uuid kann man mit lsblk -f sehen.
-Wichtig: hinter Parameter -c ... der Wert ist die snapper config
+Snapsync herunterladen https://github.com/wesbarnett/snap-sync/releases entpacken und als root make install ausführen
+Dann kann man die btrfs Dateisysteme mit incrementellen Snapshots sichern
 
-und was man noch angucken kann ist wie man btrfs snapshots transferieren kann auf eine backup platte zum Beispiel
+```bash
+# das Zieldateisystem muss irgendwo gemoutet sein
+# -c name der snapper config
+# -u uuid des backup ziels, wird mit blkid ermittelt, auf device achten!
+snap-sync -c root -u `blkid -s UUID -o value /dev/sda1`
+```
+
+
 
 ## quellen aus denen ich das hab
 https://computingforgeeks.com/working-with-btrfs-filesystem-in-linux/
