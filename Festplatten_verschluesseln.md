@@ -363,6 +363,17 @@ snapper-gui installieren
 apt-get install snapper-gui
 ```
 
+## backups mit snap-sync
+Einen Backup Datenträger mit btrfs formatieren und mounten
+Snapsync herunterladen https://github.com/wesbarnett/snap-sync/releases und installieren
+Dann kann man die btrfs Dateisysteme mit incrementellen Snapshots sichern
+```bash
+snap-sync -c root -u <uuid des backup ziel btrfs> 
+```
+
+Uuid kann man mit lsblk -f sehen.
+Wichtig: hinter Parameter -c ... der Wert ist die snapper config
+
 und was man noch angucken kann ist wie man btrfs snapshots transferieren kann auf eine backup platte zum Beispiel
 
 ## quellen aus denen ich das hab
