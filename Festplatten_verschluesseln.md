@@ -367,14 +367,20 @@ apt-get install snapper-gui
 Einen Backup Datenträger mit btrfs formatieren und mounten
 ```bash
 # partitionieren
-parted --script /dev/sda "mklabel gpt"
-parted --script /dev/sda "mkpart primary 1 100%"
+parted --script /dev/sdc "mklabel gpt"
+parted --script /dev/sdc "mkpart primary 1 100%"
+
+# verschlüsseln
+cryptsetup -y -v luksFormat /dev/sdc1 --hash sha512 --cipher aes-xts-plain64 --key-size 512 --iter-time 10000
+
+# verschlüsseltes Volume öffnen
+cryptsetup luksOpen /dev/sdc1 backup
 
 # formatieren
-mkfs.btrfs -f -L backup /dev/sda1
+mkfs.btrfs -f -L backup /dev/mapper/backup
 
 # mounten
-mount /dev/sda1 /mnt
+mount /dev/mapper/backup /mnt
 ```
 
 Snapsync herunterladen https://github.com/wesbarnett/snap-sync/releases entpacken und als root make install ausführen
@@ -384,7 +390,11 @@ Dann kann man die btrfs Dateisysteme mit incrementellen Snapshots sichern
 # das Zieldateisystem muss irgendwo gemoutet sein
 # -c name der snapper config
 # -u uuid des backup ziels, wird mit blkid ermittelt, auf device achten!
-snap-sync -c root -u `blkid -s UUID -o value /dev/sda1`
+snap-sync -c root -u `blkid -s UUID -o value /dev/mapper/backup`
+
+# wenn fertig
+umount /mnt
+cryptsetup luksClose /dev/mapper/backup
 ```
 
 
