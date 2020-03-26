@@ -83,9 +83,9 @@ Man kann dieses Verhalten durch "" überschreiben, dann wird so angelegt wie man
 create table DeinEMUtter ... -- legt die Tabelle deinemutter an
 create table "DeinEMUtter" ... -- legt die Tabelle DeinEMUtter an
 
-delete table DeinEMUtter ... -- löscht die Tabelle deinemutter!!!
+delete table DeinEMUtter ... -- löscht die Tabelle deinemutter!
 
-delete table "DeinEMUtter" ... -- löscht die Tabelle deinemutter!!!
+delete table "DeinEMUtter" ... -- löscht die Tabelle deinemutter!
 ```
 
 ## PGAdmin
