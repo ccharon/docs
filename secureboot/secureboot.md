@@ -89,3 +89,34 @@ GPG public key which will be used for verification
 
 #### Signed grub image
 [grub-initial.cfg](./grub-initial.cfg)
+
+Replace the first TODO with the result of grub-mkpasswd-pbkdf2 with your custom passphrase.
+The user/password is required to restrict access to the GRUB shell which allows running arbitrary
+commands. The GRUB documentation states that check_signatures=enforce will prevent
+any future loading of unsigned files so an attacker shouldn’t be able to load any modified files, but
+better be safe.
+
+Replace the second TODO with the UUID of your EFI system partition. With the following output
+of lsblk -f , replace it with 891F-FF86 .
+
+NAME
+sda
+├─sda1
+...
+FSTYPE
+vfat
+LABEL UUID
+891F-FF86
+MOUNTPOINT
+/boot/efi
+
+The mentioned grub.cfg will contain the current list of kernels and is not stored in the EFI file
+directly so the Secure Boot db key doesn’t have to be available when a new kernel is installed.
+Only the GPG key used by GRUB is necessary. The grub.cfg is of course also signed with this
+GPG key.
+
+The following script will use a Secure Boot db key (generated above) to provide a single GRUB
+EFI binary which contains the grub-initial.cfg . Adapt the GPG key id and the paths as
+necessary.
+
+[createAioGrubEfi.sh](./createAioGrubEfi.sh)
