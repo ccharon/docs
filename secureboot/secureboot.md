@@ -120,3 +120,23 @@ EFI binary which contains the grub-initial.cfg . Adapt the GPG key id and the pa
 necessary.
 
 [grub-efi.sh](./grub-efi.sh)
+[grub-signed-config.sh](./grub-signed-config.sh)
+
+After running both scripts, /boot should look something like this:
+```
+/boot
+├── ...
+├── efi
+│   ├── EFI
+│   │   └── boot
+│   │       └── bootx64.efi
+│   ├── grub.cfg
+│   ├── grub.cfg.sig
+│   ├── initrd.img-4.5.0-2-amd64
+│   ├── initrd.img-4.5.0-2-amd64.sig
+│   ├── vmlinuz-4.5.0-2-amd64
+│   └── vmlinuz-4.5.0-2-amd64.sig
+├── ...
+├── initrd.img-4.5.0-2-amd64
+└── vmlinuz-4.5.0-2-amd64
+```
