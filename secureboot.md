@@ -42,18 +42,18 @@ luks ..
 
 ## Where to start...
 
-* Enable Setup Mode in your UEFI firmware (delete all existing keys) to add your custom keys.
-* Install efitools and sbsigntool on your system.
+### Enable Setup Mode in your UEFI firmware (delete all existing keys) to add your custom keys.
+#### Install efitools and sbsigntool on your system.
 ```bash
 sudo apt install efitools sbsigntool -s
 ``` 
-* Create required keys
+#### Create required keys
 ```bash
 openssl req -new -x509 -newkey rsa:2048 -subj "/CN=PK/" -keyout PK.key -out PK.crt -days 7300 -nodes -sha256
 openssl req -new -x509 -newkey rsa:2048 -subj "/CN=KEK/" -keyout KEK.key -out KEK.crt -days 7300 -nodes -sha256
 openssl req -new -x509 -newkey rsa:2048 -subj "/CN=db/" -keyout db.key -out db.crt -days 7300 -nodes -sha256
 ``` 
-* Prepare installation in EFI
+#### Prepare installation in EFI
 ```bash
 cert-to-efi-sig-list PK.crt PK.esl
 sign-efi-sig-list -k PK.key -c PK.crt PK PK.esl PK.auth
@@ -62,7 +62,7 @@ sign-efi-sig-list -k PK.key -c PK.crt KEK KEK.esl KEK.auth
 cert-to-efi-sig-list db.crt db.esl
 sign-efi-sig-list -k KEK.key -c KEK.crt db db.esl db.auth
 ``` 
-* Install keys into EFI ( PK last as it will enable Custom Mode locking out further unsigned
+#### Install keys into EFI ( PK last as it will enable Custom Mode locking out further unsigned
 changes)
 ```bash
 efi-updatevar -f db.auth db
@@ -81,3 +81,5 @@ chattr -i /sys/firmware/efi/efivars/{PK,KEK,db,dbx}-*
 sbsign --key /path/to/db.key --cert /path/to/db.crt /path/to/efi
 # Then use the .signed file to boot.
 ```
+
+### Grub
