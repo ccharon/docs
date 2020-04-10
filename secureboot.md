@@ -62,3 +62,22 @@ sign-efi-sig-list -k PK.key -c PK.crt KEK KEK.esl KEK.auth
 cert-to-efi-sig-list db.crt db.esl
 sign-efi-sig-list -k KEK.key -c KEK.crt db db.esl db.auth
 ``` 
+* Install keys into EFI ( PK last as it will enable Custom Mode locking out further unsigned
+changes)
+```bash
+efi-updatevar -f db.auth db
+efi-updatevar -f KEK.auth KEK
+efi-updatevar -f PK.auth PK
+```
+The EFI variables may be immutable ( i -flag in lsattr output) in recent kernels (e.g. 4.5.4). Use
+```bash
+chattr -i to make them mutable again if you can’t update the variables with the commands
+```
+above
+
+```bash
+chattr -i /sys/firmware/efi/efivars/{PK,KEK,db,dbx}-*
+# From now on only EFI binaries signed with any db key can be loaded. To sign a binary use:
+sbsign --key /path/to/db.key --cert /path/to/db.crt /path/to/efi
+# Then use the .signed file to boot.
+```
