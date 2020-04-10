@@ -6,6 +6,7 @@ This Guide will help to setup a secured Linux Environment using Secureboot, TPM 
 In the End you will have a System with an encrypted harddrive using secureboot to load a signed grub image that loads a signed kernel and a signed initrd which decrypts your harddrive using a password stored in you TPM Device. 
 
 After this is finished the harddrive layout will be the following:
+```
 GPT
    |
    ├── EFI (fat32)
@@ -21,7 +22,7 @@ GPT
            |   └── @home (btrfs)
            |   
            └── swap (swap)
-
+```
 
 If someone disables Secureboot ... the TPM will not allow access to the key to the harddrive
 If someone manipulates the grub.cfg ... grub will not load it, as the signature gets invalid
