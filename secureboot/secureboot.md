@@ -119,4 +119,4 @@ The following script will use a Secure Boot db key (generated above) to provide 
 EFI binary which contains the grub-initial.cfg . Adapt the GPG key id and the paths as
 necessary.
 
-[createAioGrubEfi.sh](./createAioGrubEfi.sh)
+[grub-efi.sh](./grub-efi.sh)
