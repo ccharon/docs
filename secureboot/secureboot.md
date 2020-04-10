@@ -120,6 +120,7 @@ EFI binary which contains the grub-initial.cfg . Adapt the GPG key id and the pa
 necessary.
 
 [grub-efi.sh](./grub-efi.sh)
+
 [grub-signed-config.sh](./grub-signed-config.sh)
 
 After running both scripts, /boot should look something like this:
