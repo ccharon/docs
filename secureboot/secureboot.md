@@ -88,3 +88,4 @@ also embed an initial grub.cfg (however this file must be signed!). The --pubkey
 GPG public key which will be used for verification
 
 #### Signed grub image
+[grub-initial.cfg](./grub-initial.cfg)
