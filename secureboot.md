@@ -83,3 +83,8 @@ sbsign --key /path/to/db.key --cert /path/to/db.crt /path/to/efi
 ```
 
 ### Grub
+GRUB 2 supports loading of GPG signed files only (e.g. config or kernels) through the verifymodule. The grub-mkstandalone command can be used to create a single GRUB binary. It can
+also embed an initial grub.cfg (however this file must be signed!). The --pubkey option adds a
+GPG public key which will be used for verification
+
+#### Signed grub image
