@@ -18,7 +18,7 @@ Damit es in der aktuellen Shell auch geht, dort direkt ausführen
 ```bash
 mkdir Projects  
 cd Projects
-mkdir SampleProject
+mkdir SampleProjectaaaa
 cd SampleProject
 
 dotnet new sln
