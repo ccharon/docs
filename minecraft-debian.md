@@ -1,6 +1,7 @@
 # Minecraft unter Debian Buster installieren.
 Download the official Minecraft.deb
-https://www.minecraft.net/de-de/download/
+
+wget https://launcher.mojang.com/download/Minecraft.deb
 
 The Minecraft.deb has a deprecated dependency "default-jdk" so we fix the package by replacing the dependency with "openjdk-11-jre"
 
