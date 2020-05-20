@@ -1,4 +1,4 @@
-# Minecraft unter Debian Buster installieren.
+# Minecraft (Java) unter Debian Buster installieren.
 Download the official Minecraft.deb
 
 wget https://launcher.mojang.com/download/Minecraft.deb
