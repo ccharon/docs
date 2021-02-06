@@ -109,30 +109,30 @@ mkfs.ext4 -L boot /dev/nvme0n1p2
 cryptsetup -y -v luksFormat /dev/nvme0n1p3 --hash sha512 --cipher aes-xts-plain64 --key-size 512 --iter-time 10000
 
 # verschluesselte partition zum formatieren öffnen
-cryptsetup luksOpen /dev/nvme0n1p3 ares
+cryptsetup luksOpen /dev/nvme0n1p3 luks-`blkid -s UUID -o value /dev/nvme0n1p3`
 
 # LVM Setup
-pvcreate /dev/mapper/ares
-vgcreate ares /dev/mapper/ares
-lvcreate --name root --size 384G ares
-lvcreate --name swap --size 38G ares
+pvcreate /dev/mapper/luks-`blkid -s UUID -o value /dev/nvme0n1p3`
+vgcreate system /dev/mapper/luks-`blkid -s UUID -o value /dev/nvme0n1p3`
+lvcreate --name root --size 384G system
+lvcreate --name swap --size 38G system
 
 # formatieren des root Dateisystems
-mkfs.btrfs -f -L root /dev/ares/root
+mkfs.btrfs -f -L root /dev/system/root
 
 # subvolume layout aufbauen
-mount /dev/ares/root /mnt
+mount /dev/system/root /mnt
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@snapshots
 umount /mnt
 
 # swap formatieren
-mkswap /dev/ares/swap
+mkswap /dev/system/swap
 
 # neue dateisysteme an temporäre stelle mounten
 mkdir -p /new/root
 
-mount /dev/ares/root /new/root -t btrfs -o subvol=@,compress=zstd
+mount /dev/system/root /new/root -t btrfs -o subvol=@,compress=zstd
 
 
 ```
@@ -221,7 +221,7 @@ jetzt kann man neustarten!
 ## nach dem neustart noch snapper konfigurieren
 ### /etc/fstab Eintrag für Subvolume @snapshots
 ```bash
-echo "UUID=`blkid -s UUID -o value /dev/ares/root`   /.snapshots  btrfs   subvol=@snapshots,defaults,compress=zstd,noatime,autodefrag  0  0" >> /etc/fstab
+echo "UUID=`blkid -s UUID -o value /dev/system/root`   /.snapshots  btrfs   subvol=@snapshots,defaults,compress=zstd,noatime,autodefrag  0  0" >> /etc/fstab
 ```
 ### snapper installieren und config anlegen
 ```bash
