@@ -92,7 +92,7 @@ parted --script /dev/nvme0n1 "set 1 esp on"
 parted --script /dev/nvme0n1 "mkpart primary ext4 513MiB 1537MiB"
 
 # der Rest wird Luks
-parted --script /dev/nvme0n1 "mkpart primary ext4 1537MiB 100%"
+parted --script /dev/nvme0n1 "mkpart primary ext4 1537MiB 394753MiB"
 
 
 ```
@@ -103,7 +103,7 @@ parted --script /dev/nvme0n1 "mkpart primary ext4 1537MiB 100%"
 mkfs.fat -F32 -n EFI /dev/nvme0n1p1
 
 # boot partition formatieren
-mkfs.ext4 -L boot /dev/nvme0n1p2
+mkfs.ext4 -L boot -T small /dev/nvme0n1p2
 
 # mit luks die lvm partition verschluesseln
 cryptsetup -y -v luksFormat /dev/nvme0n1p3 --hash sha512 --cipher aes-xts-plain64 --key-size 512 --iter-time 10000
