@@ -4,7 +4,6 @@
 ```bash
 zpool create -f \
  -o ashift=12 \
- -o cachefile=/tmp/zpool.cache \ 
  -O acltype=posixacl \ 
  -O aclinherit=passthrough \ 
  -O atime=off \ 
