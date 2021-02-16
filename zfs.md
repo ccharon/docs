@@ -47,7 +47,7 @@ zfs create -o canmount=off -o compression=lz4 -o encryption=aes-256-gcm -o keyfo
 
 ## creating as many datasets for backups as needed, for documents or sorted by machine that gets backed up
 ```bash
-zfs create -o canmount=on -o ccompression=lz4 -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=/backup/documents rpool/BACKUP/documents
+zfs create -o canmount=on -o compression=lz4 -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=/backup/documents rpool/BACKUP/documents
 zfs create -o canmount=on -o compression=lz4 -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=/backup/pictures rpool/BACKUP/pictures
 ```
 
