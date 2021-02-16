@@ -1,6 +1,6 @@
-# ZFS Backup einrichten
+# ZFS Backup Pool Creation
 
-## alle laufwerke sammeln ... nehmen wir mal 5
+## creating a "container" zpool 
 ```bash
 zpool create -f \
  -o ashift=12 \
@@ -25,7 +25,7 @@ zpool create -f \
     
 ```
 
-|Option|Bedeutung|
+|Option|Meaning|
 |------|---------|
 |autotrim=on|falls die Laufwerke SSDs sind aktiviert man so trim|
 |ashift=12|erzwingt eine Sektorgrösse von 4,096 byte für den pool|
@@ -39,6 +39,16 @@ zpool create -f \
 |normalization=formD|Indicates whether the file system should perform a unicode normalization of file names whenever two file names are compared, and which normalization algorithm should be used. File names are always stored unmodified, names are normalized as part of any comparison process. If this property is set to a legal value other than none and the utf8only property was left unspecified, the utf8only property is automatically set to on The default value of the normalization property is none This property cannot be changed after the file system is created.|
 |-R /mnt/alternate|alternative to mountpoint specified by "mountpount=/mount/point" it is used when the first mountpoint is in use"|
 
+## creating a dataset BACKUP another container for all the datasets concerning backups 
+this dataset also specifies lz4 as compression and aes encryption with password
 ```bash
-
+zfs create -o canmount=off -o compression=lz4 -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=none rpool/BACKUP
 ```
+
+## creating as many datasets for backups as needed, for documents or sorted by machine that gets backed up
+```bash
+zfs create -o canmount=on -o ccompression=lz4 -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=/backup/documents rpool/BACKUP/documents
+zfs create -o canmount=on -o compression=lz4 -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=/backup/pictures rpool/BACKUP/pictures
+```
+
+
