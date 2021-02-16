@@ -92,7 +92,7 @@ parted --script /dev/nvme0n1 "set 1 esp on"
 parted --script /dev/nvme0n1 "mkpart primary ext4 513MiB 1537MiB"
 
 # der Rest wird Luks
-parted --script /dev/nvme0n1 "mkpart primary ext4 1537MiB 100%"
+parted --script /dev/nvme0n1 "mkpart primary ext4 1537MiB 394753MiB"
 
 
 ```
@@ -103,36 +103,36 @@ parted --script /dev/nvme0n1 "mkpart primary ext4 1537MiB 100%"
 mkfs.fat -F32 -n EFI /dev/nvme0n1p1
 
 # boot partition formatieren
-mkfs.ext4 -L boot /dev/nvme0n1p2
+mkfs.ext4 -L boot -T small /dev/nvme0n1p2
 
 # mit luks die lvm partition verschluesseln
 cryptsetup -y -v luksFormat /dev/nvme0n1p3 --hash sha512 --cipher aes-xts-plain64 --key-size 512 --iter-time 10000
 
-# verschluesselte partition zum formatieren öffnen
-cryptsetup luksOpen /dev/nvme0n1p3 ares
+# verschluesselte partition zum formatieren öffnen (die findet man dann unter /dev/mapper/luks-<uuid der partition>)
+cryptsetup luksOpen /dev/nvme0n1p3 luks-`blkid -s UUID -o value /dev/nvme0n1p3`
 
 # LVM Setup
-pvcreate /dev/mapper/ares
-vgcreate ares /dev/mapper/ares
-lvcreate --name root --size 384G ares
-lvcreate --name swap --size 38G ares
+pvcreate /dev/mapper/luks-`blkid -s UUID -o value /dev/nvme0n1p3`
+vgcreate system /dev/mapper/luks-`blkid -s UUID -o value /dev/nvme0n1p3`
+lvcreate --name root --size 256G system
+lvcreate --name swap --size 64G system
 
 # formatieren des root Dateisystems
-mkfs.btrfs -f -L root /dev/ares/root
+mkfs.btrfs -f -L root /dev/system/root
 
 # subvolume layout aufbauen
-mount /dev/ares/root /mnt
+mount /dev/system/root /mnt
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@snapshots
 umount /mnt
 
 # swap formatieren
-mkswap /dev/ares/swap
+mkswap /dev/system/swap
 
 # neue dateisysteme an temporäre stelle mounten
 mkdir -p /new/root
 
-mount /dev/ares/root /new/root -t btrfs -o subvol=@,compress=zstd
+mount /dev/system/root /new/root -t btrfs -o subvol=@,compress=zstd
 
 
 ```
@@ -181,7 +181,7 @@ echo "luks-`blkid -s UUID -o value /dev/nvme0n1p3` UUID=\"`blkid -s UUID -o valu
 neue Einträge für root, efi und swap hinzufügen
 ```bash
 # root
-echo "UUID=`blkid -s UUID -o value /dev/ares/root`   /  btrfs   defaults,subvol=@,compress=zstd,noatime,autodefrag 0  0" >> /etc/fstab
+echo "UUID=`blkid -s UUID -o value /dev/system/root`   /  btrfs   defaults,subvol=@,compress=zstd,noatime,autodefrag 0  0" >> /etc/fstab
 
 # boot
 echo "UUID=`blkid -s UUID -o value /dev/nvme0n1p2`   /boot  ext4  defaults 0  1" >> /etc/fstab
@@ -190,7 +190,7 @@ echo "UUID=`blkid -s UUID -o value /dev/nvme0n1p2`   /boot  ext4  defaults 0  1"
 echo "UUID=`blkid -s UUID -o value /dev/nvme0n1p1`   /boot/efi  vfat  umask=0077 0  1" >> /etc/fstab
 
 # swap
-echo "UUID=`blkid -s UUID -o value /dev/ares/swap`   none  swap  sw 0  0" >> /etc/fstab
+echo "UUID=`blkid -s UUID -o value /dev/system/swap`   none  swap  sw 0  0" >> /etc/fstab
 
 ```
 jetzt die fstab mit einem editor öffnen und die alten Werte für root, efi, swap und evtl boot rauswerfen.
@@ -214,6 +214,7 @@ echo "GRUB_ENABLE_CRYPTODISK=y" >> /etc/default/grub
 
 # grub installieren
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=debian
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 jetzt kann man neustarten!
@@ -221,7 +222,7 @@ jetzt kann man neustarten!
 ## nach dem neustart noch snapper konfigurieren
 ### /etc/fstab Eintrag für Subvolume @snapshots
 ```bash
-echo "UUID=`blkid -s UUID -o value /dev/ares/root`   /.snapshots  btrfs   subvol=@snapshots,defaults,compress=zstd,noatime,autodefrag  0  0" >> /etc/fstab
+echo "UUID=`blkid -s UUID -o value /dev/system/root`   /.snapshots  btrfs   subvol=@snapshots,defaults,compress=zstd,noatime,autodefrag  0  0" >> /etc/fstab
 ```
 ### snapper installieren und config anlegen
 ```bash
