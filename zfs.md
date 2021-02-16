@@ -2,23 +2,10 @@
 
 ## creating a "container" zpool 
 ```bash
-zpool create -f \
- -o ashift=12 \
- -O acltype=posixacl \ 
- -O aclinherit=passthrough \ 
- -O atime=off \ 
- -O canmount=off \ 
- -O devices=off \ 
- -O dnodesize=auto \ 
- -O mountpoint=/ \ 
- -O normalization=formD \ 
- -O xattr=sa \ 
- -R /mnt/gentoo \ 
- rpool raidz2 \
-  /dev/disk/by-id/ata-harddrive1_serialnr \
-  /dev/disk/by-id/ata-harddrive2_serialnr \
-  /dev/disk/by-id/ata-harddrive3_serialnr \
-  /dev/disk/by-id/ata-harddrive4_serialnr \
+zpool create -f -o ashift=12 -O acltype=posixacl -O aclinherit=passthrough -O atime=off -O canmount=off -O devices=off -O dnodesize=auto -O mountpoint=/backup -O normalization=formD -O xattr=sa rpool raidz2 /dev/disk/by-id/ata-harddrive1_serialnr \ 
+  /dev/disk/by-id/ata-harddrive2_serialnr \ 
+  /dev/disk/by-id/ata-harddrive3_serialnr \ 
+  /dev/disk/by-id/ata-harddrive4_serialnr \ 
   /dev/disk/by-id/ata-harddrive5_serialnr 
   
     
