@@ -25,16 +25,47 @@ zpool create -f -o ashift=12 -O acltype=posixacl -O aclinherit=passthrough -O at
 |normalization=formD|Indicates whether the file system should perform a unicode normalization of file names whenever two file names are compared, and which normalization algorithm should be used. File names are always stored unmodified, names are normalized as part of any comparison process. If this property is set to a legal value other than none and the utf8only property was left unspecified, the utf8only property is automatically set to on The default value of the normalization property is none This property cannot be changed after the file system is created.|
 |-R /mnt/alternate|alternative to mountpoint specified by "mountpount=/mount/point" it is used when the first mountpoint is in use"|
 
-## creating a dataset BACKUP another container for all the datasets concerning backups 
+## creating a dataset BACKUP, another container for all the datasets concerning backups 
+this dataset also specifies lz4 as compression
+```bash
+zfs create -o canmount=off -o compression=lz4 -o mountpoint=none rpool/BACKUP
+```
+## creating a dataset VAULT, another container
 this dataset also specifies lz4 as compression and aes encryption with password
 ```bash
-zfs create -o canmount=off -o compression=lz4 -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=none rpool/BACKUP
+zfs create -o canmount=off -o compression=lz4 -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=none rpool/VAULT
 ```
 
-## creating as many datasets for backups as needed, for documents or sorted by machine that gets backed up
+## creating as many datasets in BACKUP as needed
+no need to set compression as all paramters will be inherited from rpool/BACKUP
 ```bash
-zfs create -o canmount=on -o compression=lz4 -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=/backup/documents rpool/BACKUP/documents
-zfs create -o canmount=on -o compression=lz4 -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=/backup/pictures rpool/BACKUP/pictures
+zfs create -o canmount=on -o mountpoint=/backup/documents rpool/BACKUP/documents
+zfs create -o canmount=on -o mountpoint=/backup/pictures rpool/BACKUP/pictures
 ```
+
+
+## creating as many datasets in VAULT as needed
+no need to set compression as all paramters will be inherited from rpool/BACKUP
+compression and encryption will be inherited
+```bash
+zfs create -o canmount=on -o mountpoint=/vault/stuff rpool/VAULT/stuff
+```
+
+## fun things to do with encryption
+```bash
+# checking encryption status
+zfs get -p encryption,keystatus
+
+# unloading keys
+zfs unload-key rpool/VAULT
+
+# loading keys
+zfs load-key rpool/VAULT
+
+# before unloading unmounting child datasets might be nessesary
+zfs umount rpool/VAULT/stuff
+```
+
+
 
 
