@@ -13,8 +13,8 @@ zpool create -f -o ashift=12 -O acltype=posixacl -O aclinherit=passthrough -O at
 
 |Option|Meaning|
 |------|---------|
-|autotrim=on|falls die Laufwerke SSDs sind aktiviert man so trim|
-|ashift=12|erzwingt eine Sektorgrösse von 4,096 byte für den pool|
+|autotrim=on|enables trim if running on ssd|
+|ashift=12|enforces a sectorsize of 4,096 byte for pool|
 |acltype=posixacl|enables the use of posix acl (getfacl, setfacl). This feature allows you to store additional access rights (per user and/or per group) on files and directories, adding to the regular access rights you set through chmod/chown. This additional information is stored as "extended atrributes" or xattr (along with other information like SELinux information and SAMBA vfs info).|
 |xattr=sa|By default, zfs sets the xattr flag to "on", which causes it to store the xattr information in hidden subdirectories it creates for every file or folder written to the dataset. Each subsequent read or write action will trigger an additional seek and read on the disk, which will take extra time and slow down IO significantly. Settings xattr=sa will store the extended attributes in the inode, so no additional read is needed to get the posixacls on the file. The reason xattr is set to on by default is because some older/exotic operating systems don’t play nice with storing xattr’s in the inode.|
 |atime=off|Controls whether the access time for files is updated when they are read. Turning this property off avoids producing write traffic when reading files and can result in significant performance gains, though it might confuse mailers and other similar utilities. The values on and off are equivalent to the atime and noatime mount options. The default value is on|
