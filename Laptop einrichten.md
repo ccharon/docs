@@ -130,7 +130,7 @@ mkswap /dev/notebook/swap
 
 ``` 
 
-## Betriebsystem Setup starten (nicht neustarten, ist doch gerade alles so schön gemounted)
+## Betriebssystem Setup starten (nicht neustarten, ist doch gerade alles so schön gemounted)
 Ubuntu hat eine Verknüpfung zum Installer auf dem Desktop
 
 Anwerfen und durchklicken bis "aktualisieren und andere Software"
@@ -166,17 +166,17 @@ Continue -> yes -> passwort das während der Installation für Secureboot konfig
 
 
 ### Fehler die man so macht.
-boah ich hab vergessen die crypttab zu aktualisieren und lande in ner busybox...
+vergessen die crypttab zu aktualisieren, dann landet man in busybox
 
 aber noch ist nicht aller Tage Abend.
-erst mit ```blkid /dev/sda3``` die UUID der Platte rausfinden, die erste UUID ist die die wir suchen.
+erst mit ```blkid /dev/sda3``` die UUID der Platte rausfinden, die erste UUID ist die Richtige
 
 dann ```cryptsetup luksOpen /dev/sda3 luks-<UUID von oben ohne Anführungszeichen>``` 
 
-dann ```exit```und die kiste bootet :)
+dann ```exit```und der Rechner bootet :)
 
 
-nach dem boot, den ganzen Ubuntu Schrott verneinen und bloss keine Snaps installieren (das kille ich gleich)
+nach dem Boot, den ganzen Ubuntu Schrott verneinen und bloss keine Snaps installieren
 
 dann einen Terminal auf und folgende Befehle als root ausführen, dann weiss Ubunut beim booten wie es an das Luks Device kommt
 ```bash
@@ -185,8 +185,7 @@ echo "luks-`blkid -s UUID -o value /dev/sda3` UUID=\"`blkid -s UUID -o value /de
 # danach noch das initramfs neu erzeugen.
 update-initramfs -c -k all
 ```
-jetzt sollte beim boot alle wunderbar klappen, gleich testen und danach weiter zum Betriebsystem tieferlegen.
-
+jetzt sollte beim Boot alles wunderbar klappen, restart!
 
 ## im Betriebssystem
 ### erstmal alles aktualisieren
@@ -225,8 +224,7 @@ sudo rm -rf /var/lib/snapd
 ```
 
 #### neuinstallation von snapd unterbinden
-ubuntu versucht bei ganz normalen paket installationen (zb. chrome) das snap zeug wieder zu installieren. damit man das merkt fügen wir folgende config ein.
-bisher gibt es immer snaplose alternativen.
+Ubuntu versucht bei ganz normalen Paket Installationen (zb. chromium) das Snap Zeug wieder zu installieren. Damit man das merkt (Install schlägt fehl) folgende Konfiguration.
 ```
 cat <<EOF | sudo tee /etc/apt/preferences.d/nosnap.pref
 # To prevent repository packages from triggering the installation of Snap,
