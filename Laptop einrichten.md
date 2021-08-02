@@ -262,6 +262,51 @@ runterladen und entpacken. dann einmal ausführen ... das ist ein Appimage das s
 naja wers mag .. auf jedenfall ists dann immer an und man kann konfigurieren was man halt so konfiguriert.
 
 
+### BTRFS ... inkrementelle Snapshots (zeitgesteuert und bei System Updates)
+das machen wir mit snapper und ich mag meine Config speziell ... wie immer alles als root
+... als erstes brauchen wir eigene subvolumes für die root und home snapshots, dazu mounten wir das root des btrfs dateisystems. da liegen schon @, also root und @home
+```
+# Dateisystem mounten
+mount /dev/mapper/notebook-system /mnt
 
+# Neue Subvolumes
+btrfs subvolume create /mnt/@snapshots-root
+btrfs subvolume create /mnt/@snapshots-home
+
+# und wieder weg
+umount /mnt
+
+# fstab mountpunkte fuer die snapshots hinzufuegen
+echo "/dev/mapper/notebook-system   /.snapshots  btrfs   defaults,subvol=@snapshots-root 0        2" >> /etc/fstab
+echo "/dev/mapper/notebook-system   /home/.snapshots  btrfs   defaults,subvol=@snapshots-home 0        2" >> /etc/fstab
+
+#snapper installieren und konfigurieren
+apt-get install snapper
+
+# root config anlegen
+snapper -c root create-config /
+
+# snapper legt ein eigenes .snapshot subvolume an, ich will aber meins nutzen
+rm -rf /.snapshots
+mkdir /.snapshots
+mount /.snapshots
+
+# und das gleiche für home nochmal
+snapper -c home create-config /home
+
+# snapper legt ein eigenes .snapshot subvolume an, ich will aber meins nutzen
+rm -rf /home/.snapshots
+mkdir /home/.snapshots
+mount /home/.snapshots
+
+# gucken ob alles geklappt hat. sollte 4 btrfs Subvolumes zeigen immer das eigentliche + das snapshot volume
+mount | grep btrfs
+
+``` 
+
+
+
+
+```
 
 
