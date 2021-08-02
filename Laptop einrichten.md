@@ -54,6 +54,27 @@ Dann Apply und "Save as Custom User Settings" einen Haken rein
 
 
 ## Festplatte manuell einrichten
+Ziel ist es eine verschlüsselte Platte (ausser EFI und BOOT) zu bekommen. EFI geht nicht verschlüsselt, muss ja booten.
+BOOT zu verschlüsseln .. da glaub ich nicht dran. der Rest wird mit LUKs verschlüsselt und dann wird auf dem Luks Volume ein LVM erstellt damit wir "Partitionen" (logical volumes) unterbekommen und die bekommen dann ein Dateisystem. Ich hab mich für BTRFS entschieden weil man dann super Subvolumes trennen kann ohne vorher eine starre Aufteilung des Plattenplatzes zu machen.
+
+Ziel ist es dieses Layout anzulegen:
+
+```
+GPT
+   |
+   ├── EFI (fat32)
+   |
+   ├── boot (ext4)
+   |
+   └── Luks encrypted
+       |   
+       └── LVM
+           |
+           ├── system (btrfs)
+           |   
+           └── swap (swap)
+```
+
 Booten .. z.B.: Ubuntu LTS 20.04 ... F12 drücken und Boot Device auswählen
 
 checken welche platte die interne ist ... bei mir war es sda (beim Boot von externer Platte kann es auch anders sein) 
