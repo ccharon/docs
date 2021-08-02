@@ -198,7 +198,19 @@ apt dist-upgrade
 ```
 ### snaps killen
 ```
+```
 
+#### neuinstallation von snapd unterbinden
+ubuntu versucht bei ganz normalen paket installationen (zb. chrome) das snap zeug wieder zu installieren. damit man das merkt fügen wir folgende config ein.
+bisher gibt es immer snaplose alternativen.
+```
+cat <<EOF | sudo tee /etc/apt/preferences.d/nosnap.pref
+# To prevent repository packages from triggering the installation of Snap,
+# this file forbids snapd from being installed by APT.
+# For more information: https://linuxmint-user-guide.readthedocs.io/en/latest/snap.html
 
-
-
+Package: snapd
+Pin: release a=*
+Pin-Priority: -10
+EOF
+```
