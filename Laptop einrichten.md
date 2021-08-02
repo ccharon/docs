@@ -169,9 +169,12 @@ Continue -> yes -> passwort das während der Installation für Secureboot konfig
 boah ich hab vergessen die crypttab zu aktualisieren und lande in ner busybox...
 
 aber noch ist nicht aller Tage Abend.
-erst mit ```lsblk /dev/sda3``` die UUID der Platte rausfinden, die erste UUID ist die die wir suchen.
+erst mit ```blkid /dev/sda3``` die UUID der Platte rausfinden, die erste UUID ist die die wir suchen.
+
 dann ```cryptsetup luksOpen /dev/sda3 luks-<UUID von oben ohne Anführungszeichen>``` 
+
 dann ```exit```und die kiste bootet :)
+
 
 nach dem boot, den ganzen Ubuntu Schrott verneinen und bloss keine Snaps installieren (das kille ich gleich)
 
