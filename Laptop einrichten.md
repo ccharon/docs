@@ -241,6 +241,6 @@ EOF
 
 ### Firewall aktivieren
 ```bash 
-# damit sind die lokalen Ports dicht. Vorsicht Docker wurschtelt sich an der Firewall vorbei.
+# damit sind die lokalen Ports dicht. Vorsicht Docker wurschtelt sich an der Firewall vorbei. Besser nur ports auf lokalhost legen.
 ufw enable
 ```
