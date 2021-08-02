@@ -128,6 +128,25 @@ mkfs.btrfs -f -L system /dev/notebook/system
 # swap formatieren
 mkswap /dev/notebook/swap
 
+## Betriebsystem Setup starten (nicht neustarten, ist doch gerade alles so schön gemounted)
+Ubuntu hat eine Verknüpfung zum Installer auf dem Desktop
 
+Anwerfen und durchklicken bis "aktualisieren und andere Software"
 
+### Aktualisieren und andere Software
+- Minimale Installation (Weniger Schrott zum löschen nachher)
+- Aktualisierungen runterladen
+- "Installieren Sie Software von Drittanbiet...", anschalten. Dann wird man gefragt ob man Secureboot konfigurieren will. Das will man.
+  Das Passwort das hier gefragt wird muss nicht ganz schrecklick kompliziert sein. Es wird lediglich benutzt um den MOK (Machine Owner Key) zu installieren.
+  Dieser Key wird generiert und dann beim ersten Neustart (hier braucht man das Passwort) durch .. ich glaube SHIM mit auf die Liste der erlaubten Keys gesetzt. Beim Installieren von Kernel Modulen aus Paketen (zb. vom Nvidia Treiber oder Virtualbox wird dieser Key dann genutzt um die Kernel Module zu signieren. 
+
+Wenn alles angegeben dann auf weiter (Geduld, kann ein wenig dauern)
+
+### Festplatte einrichten
+Hier "Etwas Anderes" auswählen und weiter
+auf diesem Bildschirm sucht man jetzt die sorgfältig angelegten Partitionen etc.
+- ```/dev/sda1``` -> auswählen, und unten ändern anklicken. Der Formatieren Haken sollte aus sein und Benutzen als ```EFI Partition``` ausgewählt -> OK
+- ```/dev/sda2``` -> auswählen, und unten ändern anklicken. Der Formatieren Haken sollte aus sein und Benutzen als ```EXT4-Journaling-Dateisystem``` auswählen, Einbindungspunkt auf ```/boot``` setzen -> OK
+- ```/dev/mapper/notebook-swap``` -> auswählen, und unten ändern anklicken. Der Formatieren Haken sollte aus sein und Benutzen als ```Auslagerungsspeicher (SWAP)``` ausgewählt -> OK
+- ```/dev/mapper/notebook-system``` -> auswählen, und unten ändern anklicken. Der Formatieren Haken sollte aus sein und Benutzen als ```BTRFS-Journaling-Dateisystem``` auswählen, Einbindungspunkt auf ```/``` setzen -> OK
 
