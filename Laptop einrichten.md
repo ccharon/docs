@@ -159,4 +159,32 @@ auf "jetzt installieren" klicken .. und die Warnungen wegen nicht formatieren un
 - hier ist wichtig ein ordentliches Passwort zu vergeben und "Passwort zum Anmelden abfragen" muss an sein
 
 jetzt sollte die Installation endlich losgehn
+Wenn alles durch ist .."Jetzt neu starten" (Daumen drücken :))
+
+jetzt kommt ein feiner blauer bildschirm ... dort die Option "Enroll MOK" auswählen
+Continue -> yes -> passwort das während der Installation für Secureboot konfigurieren vergeben wurde -> reboot
+
+
+### Fehler die man so macht.
+boah ich hab vergessen die crypttab zu aktualisieren und lande in ner busybox...
+
+aber noch ist nicht aller Tage Abend.
+erst mit ```lsblk /dev/sda3``` die UUID der Platte rausfinden, die erste UUID ist die die wir suchen.
+dann ```cryptsetup luksOpen /dev/sda3 luks-<UUID von oben ohne Anführungszeichen>``` 
+dann ```exit```und die kiste bootet :)
+
+nach dem boot, den ganzen Ubuntu Schrott verneinen und bloss keine Snaps installieren (das kille ich gleich)
+
+dann einen Terminal auf und folgende Befehle als root ausführen, dann weiss Ubunut beim booten wie es an das Luks Device kommt
+```bash
+echo "luks-`blkid -s UUID -o value /dev/sda3` UUID=\"`blkid -s UUID -o value /dev/sda3`\" none luks,discard" >> /etc/crypttab
+
+# danach noch das initramfs neu erzeugen.
+update-initramfs -c -k all
+```
+jetzt sollte beim boot alle wunderbar klappen, gleich testen und danach weiter zum Betriebsystem tieferlegen.
+
+
+
+
 
