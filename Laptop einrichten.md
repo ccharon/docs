@@ -238,3 +238,9 @@ Pin: release a=*
 Pin-Priority: -10
 EOF
 ```
+
+### Firewall aktivieren
+```bash 
+# damit sind die lokalen Ports dicht. Vorsicht Docker wurschtelt sich an der Firewall vorbei.
+ufw enable
+```
