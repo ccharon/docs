@@ -18,7 +18,8 @@ alle Einstellungen die ich angepasst habe um meinen Laptop einzurichten
 #### SATA Operation
  - Check ob AHCI, wenn nicht gesetzt, dann auswählen
 #### Drives
- - Alles deaktivieren ausser SATA0 (vorher checken wenn eine m2 ssd drin ist dann die aktiv lassen :))
+ - Alles deaktivieren ausser SATA3 (vorher checken wenn eine m2 pcie ssd drin ist dann die aktiv lassen :))
+SATA3 scheint das Device wenn Es eine SATA SSD im M2 Slot ist.
 #### USB Configuration
  - Check ob "Enable USB Boot Support" an ist (für Setup wichtig, später deaktivieren)
  - Check ob "Enable External USB Port" an ist, sonst hat man kein USBC 
@@ -50,3 +51,29 @@ alle Einstellungen die ich angepasst habe um meinen Laptop einzurichten
   -
 
 Dann Apply und "Save as Custom User Settings" einen Haken rein
+
+
+## Festplatte manuell einrichten
+Booten .. z.B.: Ubuntu LTS 20.04 ... F12 drücken und Boot Device auswählen
+
+checken welche platte die interne ist ... bei mir war es sda (beim Boot von externer Platte kann es auch anders sein) 
+meine interne SSD ist eine Sandisk X400 
+ACHTUNG: hier gehen alle Daten flöten, also im Zweifelsfall nochmal die eben erstellten tar Dateien checken
+
+(500gb ssd die ein bisschen freien platz behält)
+```bash
+parted --script /dev/ "mklabel gpt"
+
+# 512MB EFI Partition
+parted --script /dev/nvme0n1 "mkpart primary fat32 1MiB 513MiB"
+parted --script /dev/nvme0n1 "set 1 esp on"
+
+# 1024MB boot Partition
+parted --script /dev/nvme0n1 "mkpart primary ext4 513MiB 1537MiB"
+
+# der Rest wird Luks
+parted --script /dev/nvme0n1 "mkpart primary ext4 1537MiB 394753MiB"
+
+```
+
+
