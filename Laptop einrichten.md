@@ -263,10 +263,9 @@ naja wers mag .. auf jedenfall ists dann immer an und man kann konfigurieren was
 
 
 ### BTRFS ... inkrementelle Snapshots (zeitgesteuert und bei System Updates)
-das machen wir mit snapper und ich mag meine Config speziell ... wie immer alles als root
-... als erstes brauchen wir eigene subvolumes für die root und home snapshots, dazu mounten wir das root des btrfs dateisystems. da liegen schon @, also root und @home
+mit snapper und ich mag meine Config speziell ... wie immer alles als root
 ```
-# Dateisystem mounten
+# Dateisystem ohne subvolume mounten
 mount /dev/mapper/notebook-system /mnt
 
 # Neue Subvolumes
