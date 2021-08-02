@@ -152,3 +152,11 @@ auf diesem Bildschirm sucht man jetzt die sorgfältig angelegten Partitionen etc
 - ```/dev/mapper/notebook-swap``` -> auswählen, und unten ändern anklicken. Der Formatieren Haken sollte aus sein und Benutzen als ```Auslagerungsspeicher (SWAP)``` ausgewählt -> OK
 - ```/dev/mapper/notebook-system``` -> auswählen, und unten ändern anklicken. Der Formatieren Haken sollte aus sein und Benutzen als ```BTRFS-Journaling-Dateisystem``` auswählen, Einbindungspunkt auf ```/``` setzen -> OK
 
+Das war es auch schon, das interessante ist, Ubuntu regelt das ganze Geraffel mit Luks (Frage nach Passwort) + LVM + BTRFS dann jetzt von selbst.
+auf "jetzt installieren" klicken .. und die Warnungen wegen nicht formatieren und wegen formatieren weiterklicken.
+
+### Wer sind sie
+- hier ist wichtig ein ordentliches Passwort zu vergeben und "Passwort zum Anmelden abfragen" muss an sein
+
+jetzt sollte die Installation endlich losgehn
+
