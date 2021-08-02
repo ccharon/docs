@@ -244,3 +244,24 @@ EOF
 # damit sind die lokalen Ports dicht. Vorsicht Docker wurschtelt sich an der Firewall vorbei. Besser nur ports auf lokalhost legen.
 ufw enable
 ```
+
+### Anwendungen installieren
+nur 2 Beispiele :P
+
+#### VSCode
+https://code.visualstudio.com/download
+.deb runterladen und dann mit apt-get install das runtergeladene .deb installieren ``` apt-get install /home/user/Download/code.deb``` Pfad und Namen anpassen wichtig, es ist ein absoluter Pfad notwendig. Die Installation installiert auch ein APT Repo, d.h. VSCode bleibt automatisch aktuell.
+
+#### Jetbrains Toolbox
+https://www.jetbrains.com/de-de/toolbox-app/
+runterladen und entpacken. dann einmal ausführen ... das ist ein Appimage das sich direkt "einnistet" .. es legt folgendes an:
+ - Verknüpfung im Menü: ./.local/share/applications/jetbrains-toolbox.desktop 
+ - Kopieren der Toolbox Anwendung nach: ./.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox
+ - Autostart Eintrag: ./.config/autostart/jetbrains-toolbox.desktop
+
+naja wers mag .. auf jedenfall ists dann immer an und man kann konfigurieren was man halt so konfiguriert.
+
+
+
+
+
