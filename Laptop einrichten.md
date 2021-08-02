@@ -191,13 +191,37 @@ jetzt sollte beim boot alle wunderbar klappen, gleich testen und danach weiter z
 ## im Betriebssystem
 ### erstmal alles aktualisieren
 als root
-```
+```bash
 apt update
 apt dist-upgrade
 
 ```
-### snaps killen
-```
+### snaps killen (wieder als root)
+```bash
+# existierende snaps angucken und dann weghauen
+snap list
+
+# installierte snaps deinstallieren (können auch mehr sein)
+snap remove snap-store
+snap remove gtk-common-themes
+snap remove gnome-3-34-1804
+snap remove core18
+snap remove snapd
+
+# alles weg? wenn ja dann weiter, wenn nicht dann noch snap remove
+snap list
+
+# ggf. noch was gemounted? wenn nicht dann nicht
+sudo umount /snap/core/xxxx
+
+# jetzt snap endlich weg
+sudo apt purge snapd
+
+# allen Müll noch entfernen
+rm -rf ~/snap
+sudo rm -rf /snap
+sudo rm -rf /var/snap
+sudo rm -rf /var/lib/snapd
 ```
 
 #### neuinstallation von snapd unterbinden
