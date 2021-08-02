@@ -60,6 +60,8 @@ checken welche platte die interne ist ... bei mir war es sda (beim Boot von exte
 meine interne SSD ist eine Sandisk X400 
 ACHTUNG: hier gehen alle Daten flöten, also im Zweifelsfall nochmal die eben erstellten tar Dateien checken
 
+Alle Befehle als Root ausführen, also vorher einmal ```sudo -i```
+
 (500gb ssd die ein bisschen freien platz behält)
 ```bash
 parted --script /dev/sda "mklabel gpt"
@@ -91,18 +93,19 @@ cryptsetup -y -v luksFormat /dev/sda3 --hash sha512 --cipher aes-xts-plain64 --k
 cryptsetup luksOpen /dev/sda3 luks-`blkid -s UUID -o value /dev/sda3`
 
 # LVM Setup
+# die Volumegroup "notebook" kann man an den passenden Stellen auch durch etwas Kreativeres ersetzen
 pvcreate /dev/mapper/luks-`blkid -s UUID -o value /dev/sda3`
-vgcreate system /dev/mapper/luks-`blkid -s UUID -o value /dev/sda3`
+vgcreate notebook /dev/mapper/luks-`blkid -s UUID -o value /dev/sda3`
 
 # geschmackssache, ich mag ein bisschen freien platz im volume und swap ein bisschen größer wegen evtl. suspend to disk.
-lvcreate --name root --size 320G system
-lvcreate --name swap --size 64G system
+lvcreate --name system --size 320G notebook
+lvcreate --name swap --size 64G notebook
 
 # formatieren des root Dateisystems
-mkfs.btrfs -f -L root /dev/system/root
+mkfs.btrfs -f -L system /dev/notebook/system
 
 # swap formatieren
-mkswap /dev/system/swap
+mkswap /dev/notebook/swap
 
 
 
