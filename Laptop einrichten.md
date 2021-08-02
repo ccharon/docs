@@ -71,9 +71,37 @@ parted --script /dev/sda "set 1 esp on"
 # 1024MB boot Partition
 parted --script /dev/sda "mkpart primary ext4 513MiB 1537MiB"
 
-# der Rest wird Luks (448GB) .. bleiben noch so 26gb platz
+# der Rest wird Luks (448GB) .. bleiben noch so 27gb platz
 parted --script /dev/sda "mkpart primary ext4 1537MiB 460289MiB"
 
 ```
+
+### Verschlüsselung und formatieren
+```bash
+# erst mal die efi partition formatieren
+mkfs.fat -F32 -n EFI /dev/sda1
+
+# boot partition formatieren
+mkfs.ext4 -L boot -T small /dev/sda2
+
+# mit luks die lvm partition verschluesseln ..itertime gern höher wenn cpu schneller :)
+cryptsetup -y -v luksFormat /dev/sda3 --hash sha512 --cipher aes-xts-plain64 --key-size 512 --iter-time 10000
+
+# verschluesselte partition zum formatieren öffnen (die findet man dann unter /dev/mapper/luks-<uuid der partition>)
+cryptsetup luksOpen /dev/sda3 luks-`blkid -s UUID -o value /dev/sda3`
+
+# LVM Setup
+pvcreate /dev/mapper/luks-`blkid -s UUID -o value /dev/sda3`
+vgcreate system /dev/mapper/luks-`blkid -s UUID -o value /dev/sda3`
+lvcreate --name root --size 320G system
+lvcreate --name swap --size 64G system
+
+# formatieren des root Dateisystems
+mkfs.btrfs -f -L root /dev/system/root
+
+# swap formatieren
+mkswap /dev/system/swap
+
+
 
 
