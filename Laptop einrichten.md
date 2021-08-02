@@ -128,6 +128,8 @@ mkfs.btrfs -f -L system /dev/notebook/system
 # swap formatieren
 mkswap /dev/notebook/swap
 
+``` 
+
 ## Betriebsystem Setup starten (nicht neustarten, ist doch gerade alles so schön gemounted)
 Ubuntu hat eine Verknüpfung zum Installer auf dem Desktop
 
