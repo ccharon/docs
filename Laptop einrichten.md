@@ -71,8 +71,8 @@ parted --script /dev/sda "set 1 esp on"
 # 1024MB boot Partition
 parted --script /dev/sda "mkpart primary ext4 513MiB 1537MiB"
 
-# der Rest wird Luks
-parted --script /dev/sda "mkpart primary ext4 1537MiB 394753MiB"
+# der Rest wird Luks (448GB) .. bleiben noch so 26gb platz
+parted --script /dev/sda "mkpart primary ext4 1537MiB 460289MiB"
 
 ```
 
