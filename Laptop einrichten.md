@@ -79,7 +79,7 @@ Booten .. z.B.: Ubuntu LTS 20.04 ... F12 drücken und Boot Device auswählen
 
 checken welche platte die interne ist ... bei mir war es sda (beim Boot von externer Platte kann es auch anders sein) 
 meine interne SSD ist eine Sandisk X400 
-ACHTUNG: hier gehen alle Daten flöten, also im Zweifelsfall nochmal die eben erstellten tar Dateien checken
+ACHTUNG: es gehen alle evtl. vorhandenen Daten auf der Festplatte verloren
 
 Alle Befehle als Root ausführen, also vorher einmal ```sudo -i```
 
@@ -107,10 +107,10 @@ mkfs.fat -F32 -n EFI /dev/sda1
 # boot partition formatieren
 mkfs.ext4 -L boot -T small /dev/sda2
 
-# mit luks die lvm partition verschluesseln ..itertime gern höher wenn cpu schneller :)
+# mit luks die lvm partition verschlüsseln ..itertime gern höher wenn cpu schneller :)
 cryptsetup -y -v luksFormat /dev/sda3 --hash sha512 --cipher aes-xts-plain64 --key-size 512 --iter-time 10000
 
-# verschluesselte partition zum formatieren öffnen (die findet man dann unter /dev/mapper/luks-<uuid der partition>)
+# verschlüsselte partition zum formatieren öffnen (die findet man dann unter /dev/mapper/luks-<uuid der partition>)
 cryptsetup luksOpen /dev/sda3 luks-`blkid -s UUID -o value /dev/sda3`
 
 # LVM Setup
@@ -173,12 +173,12 @@ erst mit ```blkid /dev/sda3``` die UUID der Platte rausfinden, die erste UUID is
 
 dann ```cryptsetup luksOpen /dev/sda3 luks-<UUID von oben ohne Anführungszeichen>``` 
 
-dann ```exit```und der Rechner bootet :)
+dann ```exit``` und der Rechner bootet :)
 
 
 nach dem Boot, den ganzen Ubuntu Schrott verneinen und bloss keine Snaps installieren
 
-dann einen Terminal auf und folgende Befehle als root ausführen, dann weiss Ubunut beim booten wie es an das Luks Device kommt
+dann einen Terminal auf und folgende Befehle als root ausführen, dann weiss Ubuntu beim Booten wie es an das Luks Device kommt
 ```bash
 echo "luks-`blkid -s UUID -o value /dev/sda3` UUID=\"`blkid -s UUID -o value /dev/sda3`\" none luks,discard" >> /etc/crypttab
 
@@ -316,14 +316,3 @@ TIMELINE_LIMIT_YEARLY="10"
 ``` 
 
 Wenn man mal neustartet und mit ```snapper -c root list``` guckt sieht man das snapshots entstehen.
-
-### GRUB bootet langsam
-kommt vom verschlüsselten lvm mit btrfs ...
-logs können nicht geschrieben werden und es gibt einen recordfail timeout, überschreiben mit:
-
-```bash
-echo "GRUB_RECORDFAIL_TIMEOUT=0" >> /etc/default/grub
-
-# grub config neu erstellen
-update-grub
-``` 
