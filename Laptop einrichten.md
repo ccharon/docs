@@ -93,6 +93,8 @@ cryptsetup luksOpen /dev/sda3 luks-`blkid -s UUID -o value /dev/sda3`
 # LVM Setup
 pvcreate /dev/mapper/luks-`blkid -s UUID -o value /dev/sda3`
 vgcreate system /dev/mapper/luks-`blkid -s UUID -o value /dev/sda3`
+
+# geschmackssache, ich mag ein bisschen freien platz im volume und swap ein bisschen größer wegen evtl. suspend to disk.
 lvcreate --name root --size 320G system
 lvcreate --name swap --size 64G system
 
