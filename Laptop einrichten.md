@@ -71,6 +71,14 @@ GPT
        └── LVM
            |
            ├── system (btrfs)
+           |   |
+           |   ├── @ (brfs subvolume /)
+           |   |  
+           |   ├── @home (brfs subvolume /home)
+           |   |
+           |   ├── @snapshots-root (brfs subvolume /.snapshots) 
+           |   |
+           |   └── @snapshots-home (brfs subvolume /home/.snapshots)          
            |   
            └── swap (swap)
 ```
