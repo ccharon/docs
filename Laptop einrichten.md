@@ -317,3 +317,13 @@ TIMELINE_LIMIT_YEARLY="10"
 
 Wenn man mal neustartet und mit ```snapper -c root list``` guckt sieht man das snapshots entstehen.
 
+### GRUB bootet langsam
+kommt vom verschlüsselten lvm mit btrfs ...
+logs können nicht geschrieben werden und es gibt einen recordfail timeout, überschreiben mit:
+
+```bash
+echo "GRUB_RECORDFAIL_TIMEOUT=0" >> /etc/default/grub
+
+# grub config neu erstellen
+update-grub
+``` 
