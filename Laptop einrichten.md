@@ -188,6 +188,17 @@ update-initramfs -c -k all
 jetzt sollte beim boot alle wunderbar klappen, gleich testen und danach weiter zum Betriebsystem tieferlegen.
 
 
+## im Betriebssystem
+### erstmal alles aktualisieren
+als root
+```
+apt update
+apt dist-upgrade
+
+```
+### snaps killen
+```
+
 
 
 
