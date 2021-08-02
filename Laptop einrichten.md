@@ -55,7 +55,7 @@ Dann Apply und "Save as Custom User Settings" einen Haken rein
 
 ## Festplatte manuell einrichten
 Ziel ist es eine verschlüsselte Platte (ausser EFI und BOOT) zu bekommen. EFI geht nicht verschlüsselt, muss ja booten.
-BOOT zu verschlüsseln .. da glaub ich nicht dran. der Rest wird mit LUKs verschlüsselt und dann wird auf dem Luks Volume ein LVM erstellt damit wir "Partitionen" (logical volumes) unterbekommen und die bekommen dann ein Dateisystem. Ich hab mich für BTRFS entschieden weil man dann super Subvolumes trennen kann ohne vorher eine starre Aufteilung des Plattenplatzes zu machen.
+BOOT zu verschlüsseln .. da glaub ich nicht dran. der Rest wird mit LUKs verschlüsselt und dann wird auf dem Luks Volume ein LVM erstellt damit wir "Partitionen" (logical volumes) unterbekommen und die bekommen dann ein Dateisystem. Ich hab mich für BTRFS entschieden weil man dann super Subvolumes trennen kann ohne vorher eine starre Aufteilung des Plattenplatzes zu machen. Wie man mit BTRFS umgeht wird hier nicht erklärt
 
 Ziel ist es dieses Layout anzulegen:
 
@@ -302,11 +302,21 @@ mount /home/.snapshots
 # gucken ob alles geklappt hat. sollte 4 btrfs Subvolumes zeigen immer das eigentliche + das snapshot volume
 mount | grep btrfs
 
+# snapshots anschauen. werden stündlich erzeugt, bei root config auch beim boot und beim apt update
+snapper -c root list
+snapper -c home list
+
 ``` 
 
-
-
-
+Weiterführend kann man noch steuern wieviele Snapshots wie lange erhalten bleiben. Dafür unter /etc/snapper/configs/ die Configs gewünscht anpassen
+ich mag folgende Config. Die letzten 24h dann einmal pro tag und 4 Wochen für 12 Monate :)
 ```
+TIMELINE_LIMIT_HOURLY="24"
+TIMELINE_LIMIT_DAILY="7"
+TIMELINE_LIMIT_WEEKLY="4"
+TIMELINE_LIMIT_MONTHLY="12"
+TIMELINE_LIMIT_YEARLY="10"
+``` 
 
+Wenn man mal neustartet und mit ```snapper -c root list``` guckt sieht man das snapshots entstehen.
 
