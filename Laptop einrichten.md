@@ -62,17 +62,17 @@ ACHTUNG: hier gehen alle Daten flöten, also im Zweifelsfall nochmal die eben er
 
 (500gb ssd die ein bisschen freien platz behält)
 ```bash
-parted --script /dev/ "mklabel gpt"
+parted --script /dev/sda "mklabel gpt"
 
 # 512MB EFI Partition
-parted --script /dev/nvme0n1 "mkpart primary fat32 1MiB 513MiB"
-parted --script /dev/nvme0n1 "set 1 esp on"
+parted --script /dev/sda "mkpart primary fat32 1MiB 513MiB"
+parted --script /dev/sda "set 1 esp on"
 
 # 1024MB boot Partition
-parted --script /dev/nvme0n1 "mkpart primary ext4 513MiB 1537MiB"
+parted --script /dev/sda "mkpart primary ext4 513MiB 1537MiB"
 
 # der Rest wird Luks
-parted --script /dev/nvme0n1 "mkpart primary ext4 1537MiB 394753MiB"
+parted --script /dev/sda "mkpart primary ext4 1537MiB 394753MiB"
 
 ```
 
