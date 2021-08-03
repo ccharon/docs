@@ -294,6 +294,18 @@ https://www.citrix.com/downloads/workspace-app/linux/workspace-app-for-linux-lat
 apt-get install /home/user/Downloads/icaclient_xxx.deb
 apt-get install /home/user/Downloads/ctxusb_xxx.deb
 ``` 
+#### Displaylink für Dockingstation
+Neueste Version runterladen, entpacken und dann mit diesem Befehl installieren
+```bash
+# evtl nötig die datei ausführbar zu machen
+chmod +x displaylink-driver-5.4.0.xx.run
+sudo ./displaylink-driver-5.4.0.xx.run
+```
+https://www.synaptics.com/products/displaylink-graphics/downloads/ubuntu
+
+Detailierte Installationsanleitung
+https://support.displaylink.com/knowledgebase/articles/1944022-how-to-install-displaylink-software-on-ubuntu-20-0
+
 #### Docker
 https://docs.docker.com/engine/install/ubuntu/
 
