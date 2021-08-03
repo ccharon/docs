@@ -250,6 +250,16 @@ EOF
 # damit sind die lokalen Ports dicht. Vorsicht Docker wurschtelt sich an der Firewall vorbei. Besser nur ports auf lokalhost legen.
 ufw enable
 ```
+### Proprietärer NVIDIA Treiber (optional)
+in der Anwendung für zusätzliche Treiber den NVIDIA Treiber (proprietär, tested) auswählen und installieren lassen.
+jetzt noch das laden den Open Source Treibers verhindern.
+```bash
+echo "blacklist nouveau" > /etc/modprobe.d/blacklist-nvidia-nouveau.conf
+echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf
+
+# weil grub den treiber sonst schon lädt
+update-initramfs -u
+```
 
 ### Anwendungen installieren
 #### VSCode
