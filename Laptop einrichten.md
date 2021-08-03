@@ -252,8 +252,6 @@ ufw enable
 ```
 
 ### Anwendungen installieren
-nur 2 Beispiele :P
-
 #### VSCode
 https://code.visualstudio.com/download
 .deb runterladen und dann mit apt-get install das runtergeladene .deb installieren ``` apt-get install /home/user/Download/code.deb``` Pfad und Namen anpassen wichtig, es ist ein absoluter Pfad notwendig. Die Installation installiert auch ein APT Repo, d.h. VSCode bleibt automatisch aktuell.
@@ -267,6 +265,16 @@ runterladen und entpacken. dann einmal ausführen ... das ist ein Appimage das s
 
 naja wers mag .. auf jedenfall ists dann immer an und man kann konfigurieren was man halt so konfiguriert.
 
+#### Citrix Workspace
+https://www.citrix.com/downloads/workspace-app/linux/workspace-app-for-linux-latest.html
+ - herunterladen Debian Packages -> Full Packages (Self Service Support) (x86_64)
+ - herunterladen USB Support Packages -> USB Support Package (x86_64)
+
+```bash
+# installieren, pfad und paketnamen anpassen :)
+apt-get install /home/user/Downloads/icaclient_xxx.deb
+apt-get install /home/user/Downloads/ctxusb_xxx.deb
+``` 
 
 ### BTRFS ... inkrementelle Snapshots (zeitgesteuert und bei System Updates)
 mit snapper und ich mag meine Config speziell ... wie immer alles als root
