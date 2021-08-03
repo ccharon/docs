@@ -353,3 +353,14 @@ TIMELINE_LIMIT_YEARLY="10"
 ``` 
 
 Wenn man mal neustartet und mit ```snapper -c root list``` guckt sieht man das snapshots entstehen.
+
+
+### Optimierungen
+
+#### Laptop geht nach Neustart mit geschlossenem Deckel direkt in den Ruhezustand
+Das verrückte Gerät bekommt in dem Fall ein "lidClosed" Event und denkt es soll direkt Strom sparen.
+Das Verhalten bekommt man in den Griff indem man in der Datei ```/etc/systemd/logind.conf``` die Zeile sucht in der ```HandleLidSwitchExternalPower``` steht.
+einfach das # wegnehmen und den Eintrag so anpassen das da ```HandleLidSwitchExternalPower=ignore``` steht. Nach einem Neustart schläft das Laptop nichtmehr wenn die Klappe zu ist, solange es am Strom hängt. Unterwegs ists dann immernoch schläfrig.
+
+#### kurzes "hängen" wenn man Anzeigeeinstellungen aufruft
+Wenn man den proprietären NVIDIA Treiber installiert hat, dann kann man in den "NVIDIA X Server Settings" unter "PRIME Profiles" auf On-Demand stellen dann gehts weg.
