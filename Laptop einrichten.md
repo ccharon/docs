@@ -254,10 +254,19 @@ ufw enable
 in der Anwendung für zusätzliche Treiber den NVIDIA Treiber (proprietär, tested) auswählen und installieren lassen.
 jetzt noch das laden den Open Source Treibers verhindern.
 ```bash
-echo "blacklist nouveau" > /etc/modprobe.d/blacklist-nvidia-nouveau.conf
-echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf
+cat <<EOF | sudo tee /etc/modprobe.d/nvidia.conf
+# nouveau treiber deaktivieren
+blacklist nouveau
+blacklist lbm-nouveau
+alias nouveau off
+alias lbm-nouveau off
+options nouveau modeset=0
 
-# weil grub den treiber sonst schon lädt
+# modeset 1 um screen tearing zu verhindern
+options nvidia-drm modeset=1
+EOF
+
+
 update-initramfs -u
 ```
 
