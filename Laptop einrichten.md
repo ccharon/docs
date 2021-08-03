@@ -275,6 +275,8 @@ https://www.citrix.com/downloads/workspace-app/linux/workspace-app-for-linux-lat
 apt-get install /home/user/Downloads/icaclient_xxx.deb
 apt-get install /home/user/Downloads/ctxusb_xxx.deb
 ``` 
+#### Docker
+https://docs.docker.com/engine/install/ubuntu/
 
 ### BTRFS ... inkrementelle Snapshots (zeitgesteuert und bei System Updates)
 mit snapper und ich mag meine Config speziell ... wie immer alles als root
