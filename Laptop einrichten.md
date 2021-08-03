@@ -366,3 +366,10 @@ einfach das # wegnehmen und den Eintrag so anpassen das da ```HandleLidSwitchExt
 
 #### kurzes "hängen" wenn man Anzeigeeinstellungen aufruft
 Wenn man den proprietären NVIDIA Treiber installiert hat, dann kann man in den "NVIDIA X Server Settings" unter "PRIME Profiles" auf On-Demand stellen dann gehts weg.
+
+#### strom sparen wenn auf batterie
+ganz einfach ... tlp installieren das guckt was man machen kann https://linrunner.de/tlp/
+
+```
+apt install tlp 
+```
