@@ -41,6 +41,7 @@ SATA3 scheint das Device wenn Es eine SATA SSD im M2 Slot ist.
  -
 #### Secure Boot Enable
  - auf enabled setzen. Secureboot ist doof, zwingt aber den Linux Kernel in einen Lockdown Mode, so können nurnoch signierte Kernel Module geladen werden. Zur Laufzeit nützlich
+(was alles im Lockdown Mode eingeschränkt wird kann man auch hier sehen [security.c](https://github.com/torvalds/linux/blob/master/security/security.c) ) ```*const lockdown_reasons``` suchen
 
 ### POST Behavior
 #### Adapter Warnings
