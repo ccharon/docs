@@ -383,6 +383,18 @@ Wenn man den proprietären NVIDIA Treiber installiert hat, dann kann man in den 
 #### strom sparen wenn auf batterie
 ganz einfach ... tlp installieren das guckt was man machen kann https://linrunner.de/tlp/
 
+
 ```
 apt install tlp 
+```
+
+
+#### git credentials mit libsecret ablegen
+Git Version 2.11+ unterstützt einen credential helper der auf libsecret basiert.
+
+```bash
+sudo apt-get install libsecret-1-0 libsecret-1-dev
+cd /usr/share/doc/git/contrib/credential/libsecret
+sudo make
+git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 ```
