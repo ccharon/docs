@@ -13,3 +13,5 @@ hdiutil detach /volumes/Install\ macOS\ Catalina
 hdiutil convert /tmp/Catalina.dmg -format UDTO -o ~/Desktop/Catalina.cdr
 ### Rename and Move to Desktop
 mv ~/Desktop/Catalina.cdr ~/Desktop/Catalina.iso
+### macports ... "Possible corrupt PortIndex ..."
+bash -c 'cd "$(dirname $(port file bashdb))/../../" && /opt/local/bin/portindex -f .'
