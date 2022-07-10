@@ -43,7 +43,6 @@ zfs create -o canmount=on -o mountpoint=/backup/documents rpool/BACKUP/documents
 zfs create -o canmount=on -o mountpoint=/backup/pictures rpool/BACKUP/pictures
 ```
 
-
 ## creating as many datasets in VAULT as needed
 no need to set compression or encryption as all paramters will be inherited from rpool/VAULT
 ```bash
