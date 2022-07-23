@@ -1,0 +1,5066 @@
+declare -x ABI="lp64d"
+declare -x ABI_MIPS=""
+declare -x ABI_S390=""
+declare -x ABI_X86=""
+declare -x ADA_TARGET=""
+declare -x ALSA_CARDS=""
+declare -x APACHE2_MODULES=""
+declare -x APACHE2_MPMS=""
+declare -x ARCH="riscv"
+declare BDEPEND="
+	|| ( >=dev-lang/python-3.11.0_beta4:3.11[xml(+)] >=dev-lang/python-3.10.4:3.10[xml(+)] >=dev-lang/python-3.9.12:3.9[xml(+)] >=dev-lang/python-3.8.13:3.8[xml(+)] )
+	|| (  dev-lang/ruby:2.7 dev-lang/ruby:3.0 dev-lang/ruby:3.1 ) virtual/rubygems
+	>=app-accessibility/at-spi2-core-2.5.3
+	dev-util/gdbus-codegen
+	dev-util/glib-utils
+	>=dev-util/gperf-3.0.1
+	>=sys-devel/bison-2.4.3
+	|| ( >=sys-devel/gcc-7.3 >=sys-devel/clang-5 )
+	sys-devel/gettext
+	virtual/pkgconfig
+
+	>=dev-lang/perl-5.10
+	virtual/perl-Data-Dumper
+	virtual/perl-Carp
+	virtual/perl-JSON-PP
+
+	gtk-doc? ( >=dev-util/gtk-doc-1.32 )
+ >=app-portage/elt-patches-20170815 app-arch/xz-utils >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5"
+declare -x BINPKG_FORMAT="xpak"
+declare -x BINPKG_GPG_SIGNING_BASE_COMMAND="/usr/bin/flock /run/lock/portage-binpkg-gpg.lock /usr/bin/gpg --sign --armor [PORTAGE_CONFIG]"
+declare -x BINPKG_GPG_SIGNING_DIGEST="SHA512"
+declare -x BINPKG_GPG_VERIFY_BASE_COMMAND="/usr/bin/gpg --verify --batch --no-tty --no-auto-check-trustdb --status-fd 2 [PORTAGE_CONFIG] [SIGNATURE]"
+declare -x BINPKG_GPG_VERIFY_GPG_HOME="/etc/portage/gnupg"
+declare -x BOOTSTRAP_USE="unicode internal-glib pkg-config split-usr xml python_targets_python3_10 systemd udev"
+declare -- BUILD_DIR="/var/tmp/portage/net-libs/webkit-gtk-2.36.4/work/webkit-gtk-2.36.4_build"
+declare -x CALLIGRA_FEATURES=""
+declare -x CAMERAS=""
+declare -x CBUILD="riscv64-unknown-linux-gnu"
+declare -x CC="riscv64-unknown-linux-gnu-gcc"
+declare -x CFLAGS="-march=rv64gc -O2 -pipe"
+declare -x CFLAGS_default
+declare -x CFLAGS_ilp32="-mabi=ilp32 -march=rv32imac"
+declare -x CFLAGS_ilp32d="-mabi=ilp32d -march=rv32imafdc"
+declare -x CFLAGS_lp64="-mabi=lp64"
+declare -x CFLAGS_lp64d="-mabi=lp64d"
+declare -- CHECKREQS_DISK_BUILD="18G"
+declare -x CHOST="riscv64-unknown-linux-gnu"
+declare -x CHOST_default="riscv64-unknown-linux-gnu"
+declare -x CHOST_ilp32="riscv32-unknown-linux-gnu"
+declare -x CHOST_ilp32d="riscv32-unknown-linux-gnu"
+declare -x CHOST_lp64="riscv64-unknown-linux-gnu"
+declare -x CHOST_lp64d="riscv64-unknown-linux-gnu"
+declare -- CMAKE_BINARY="cmake"
+declare -- CMAKE_BUILD_TYPE="Gentoo"
+declare -- CMAKE_MAKEFILE_GENERATOR="ninja"
+declare -a CMAKE_REMOVE_MODULES_LIST=([0]="FindBLAS" [1]="FindLAPACK")
+declare -- CMAKE_USE_DIR="/var/tmp/portage/net-libs/webkit-gtk-2.36.4/work/webkitgtk-2.36.4"
+declare -- CMAKE_VERBOSE="ON"
+declare -- CMAKE_WARN_UNUSED_CLI="yes"
+declare -x COLLECTD_PLUGINS=""
+declare -x COMMON_FLAGS="-march=rv64gc -O2 -pipe"
+declare -x CPPFLAGS=" -DNDEBUG"
+declare -x CPU_FLAGS_ARM=""
+declare -x CPU_FLAGS_PPC=""
+declare -x CPU_FLAGS_X86=""
+declare -x CTARGET_default="riscv64-unknown-linux-gnu"
+declare -x CURL_SSL=""
+declare -x CXXFLAGS="-march=rv64gc -O2 -pipe"
+declare -x DEFAULT_ABI="lp64d"
+declare -x DEFINED_PHASES=" compile configure install postinst postrm preinst prepare pretend setup test"
+declare DEPEND="
+	>=x11-libs/cairo-1.16.0:=[X?]
+	>=media-libs/fontconfig-2.13.0:1.0
+	>=media-libs/freetype-2.9.0:2
+	>=dev-libs/libgcrypt-1.7.0:0=
+	>=x11-libs/gtk+-3.22.0:3[aqua?,introspection?,wayland?,X?]
+	>=media-libs/harfbuzz-1.4.2:=[icu(+)]
+	>=dev-libs/icu-61.2:=
+	media-libs/libjpeg-turbo:0=
+	>=net-libs/libsoup-2.54:2.4[introspection?]
+	>=dev-libs/libxml2-2.8.0:2
+	>=media-libs/libpng-1.4:0=
+	dev-db/sqlite:3=
+	sys-libs/zlib:0
+	>=dev-libs/atk-2.16.0
+	media-libs/libwebp:=
+
+	>=dev-libs/glib-2.67.1:2
+	>=dev-libs/libxslt-1.1.7
+	media-libs/woff2
+	gnome-keyring? ( app-crypt/libsecret )
+	introspection? ( >=dev-libs/gobject-introspection-1.59.1:= )
+	dev-libs/libtasn1:=
+	spell? ( >=app-text/enchant-0.22:2 )
+	gstreamer? (
+		>=media-libs/gstreamer-1.20:1.0
+		>=media-libs/gst-plugins-base-1.20:1.0[egl?,X?]
+		gles2-only? ( media-libs/gst-plugins-base:1.0[gles2] )
+		!gles2-only? ( media-libs/gst-plugins-base:1.0[opengl] )
+		>=media-plugins/gst-plugins-opus-1.20:1.0
+		>=media-libs/gst-plugins-bad-1.20:1.0
+	)
+
+	X? (
+		x11-libs/libX11
+		x11-libs/libXcomposite
+		x11-libs/libXdamage
+		x11-libs/libXrender
+		x11-libs/libXt
+	)
+
+	libnotify? ( x11-libs/libnotify )
+	dev-libs/hyphen
+	jpeg2k? ( >=media-libs/openjpeg-2.2.0:2= )
+	avif? ( >=media-libs/libavif-0.9.0:= )
+	lcms? ( media-libs/lcms:2 )
+
+	egl? ( media-libs/mesa[egl(+)] )
+	gles2-only? ( media-libs/mesa[gles2] )
+	!gles2-only? ( virtual/opengl )
+	wayland? (
+		dev-libs/wayland
+		>=dev-libs/wayland-protocols-1.12
+		>=gui-libs/libwpe-1.5.0:1.0
+		>=gui-libs/wpebackend-fdo-1.7.0:1.0
+	)
+
+	seccomp? (
+		>=sys-apps/bubblewrap-0.3.1
+		sys-libs/libseccomp
+		sys-apps/xdg-dbus-proxy
+	)
+
+	systemd? ( sys-apps/systemd:= )
+	gamepad? ( >=dev-libs/libmanette-0.2.4 )
+ 
+	dev-util/desktop-file-utils
+	x11-misc/shared-mime-info
+"
+declare DESCRIPTION="Open source web browser engine"
+declare -- DESKTOP_DATABASE_DIR="/usr/share/applications"
+declare -x DIROPTIONS="-m0755"
+declare -x EAPI="7"
+declare -x ELIBC="glibc"
+declare -- ELTCONF=""
+declare -x ENV_UNSET="CARGO_HOME DBUS_SESSION_BUS_ADDRESS DISPLAY GOBIN GOPATH PERL5LIB PERL5OPT PERLPREFIX PERL_CORE PERL_MB_OPT PERL_MM_OPT XAUTHORITY XDG_CACHE_HOME XDG_CONFIG_HOME XDG_DATA_HOME XDG_RUNTIME_DIR"
+declare -- EPOCHREALTIME="1658462858,495484"
+declare -- EPOCHSECONDS="1658462858"
+declare -x EPYTHON="python3.11"
+declare -x EXEOPTIONS="-m0755"
+declare -x FCFLAGS="-march=rv64gc -O2 -pipe"
+declare -x FETCHCOMMAND_SSH="bash -c \"x=\\\${2#ssh://} ; host=\\\${x%%/*} ; port=\\\${host##*:} ; host=\\\${host%:*} ; [[ \\\${host} = \\\${port} ]] && port= ; exec rsync --rsh=\\\"ssh \\\${port:+-p\\\${port}} \\\${3}\\\" -avP \\\"\\\${host}:/\\\${x#*/}\\\" \\\"\\\$1\\\"\" rsync \"\${DISTDIR}/\${FILE}\" \"\${URI}\" \"\${PORTAGE_SSH_OPTS}\""
+declare -x FFLAGS="-march=rv64gc -O2 -pipe"
+declare -x FFTOOLS=""
+declare -x GCC_SPECS=""
+declare -- GCONFTOOL_BIN="/usr/bin/gconftool-2"
+declare -- GLIB_COMPILE_SCHEMAS="/usr/bin/glib-compile-schemas"
+declare -- GNOME2_EAUTORECONF=""
+declare -- GNOME2_LA_PUNT=""
+declare -- GNOME_ORG_MODULE="webkit-gtk"
+declare -- GNOME_ORG_PVP="2.36"
+declare -- GNOME_TARBALL_SUFFIX="xz"
+declare -x GPG_VERIFY_GROUP_DROP="nogroup"
+declare -x GPG_VERIFY_USER_DROP="nobody"
+declare -x GPSD_PROTOCOLS=""
+declare -x GRUB_PLATFORMS=""
+declare -x GSETTINGS_BACKEND="memory"
+declare -x GST_INSPECT="/bin/true"
+declare -x GST_REGISTRY="/var/tmp/portage/net-libs/webkit-gtk-2.36.4/temp/registry.xml"
+declare -x G_HOME="/var/tmp/portage/net-libs/webkit-gtk-2.36.4/temp"
+declare HOMEPAGE="https://www.webkitgtk.org"
+declare -x HUSHLOGIN="FALSE"
+declare IDEPEND=""
+declare -x INHERITED=" check-reqs toolchain-funcs multilib edos2unix strip-linguas wrapper eutils flag-o-matic libtool gnome.org xdg-utils gnome2-utils xdg gnome2 optfeature eapi8-dosym multiprocessing python-utils-r1 python-any-r1 ruby-utils ruby-single ninja-utils cmake"
+declare -x INPUT_DEVICES=""
+declare -x INSOPTIONS="-m0644"
+declare -x INVOCATION_ID="d7a1f9dbb51c416f9633e7ee560a0660"
+declare IUSE="aqua avif +egl examples gamepad gles2-only gnome-keyring +gstreamer gtk-doc +introspection +jpeg2k +jumbo-build lcms libnotify seccomp spell systemd test wayland X "
+declare -x IUSE_EFFECTIVE="X alpha amd64 amd64-linux aqua arm arm64 arm64-macos avif egl elibc_Cygwin elibc_Darwin elibc_SunOS elibc_Winnt elibc_bionic elibc_glibc elibc_mingw elibc_musl examples gamepad gles2-only gnome-keyring gstreamer gtk-doc hppa ia64 introspection jpeg2k jumbo-build kernel_Darwin kernel_SunOS kernel_Winnt kernel_linux lcms libnotify loong m68k mips ppc ppc-macos ppc64 ppc64-linux prefix prefix-guest prefix-stack riscv s390 seccomp sparc sparc-solaris sparc64-solaris spell systemd test userland_BSD userland_GNU wayland x64-cygwin x64-macos x64-solaris x64-winnt x86 x86-linux x86-solaris x86-winnt"
+declare -x IUSE_IMPLICIT="prefix prefix-guest prefix-stack"
+declare -x KERNEL="linux"
+declare -x KERNEL_ABI="lp64d"
+declare -x KEYWORDS="~amd64 arm arm64 ~ppc ~ppc64 ~riscv ~sparc x86"
+declare -x L10N=""
+declare -x LANG="de_DE.utf8"
+declare -x LCD_DEVICES=""
+declare -x LC_COLLATE="C"
+declare -x LC_MESSAGES="C"
+declare -x LDFLAGS="-Wl,-O1 -Wl,--as-needed -Wl,--no-keep-memory"
+declare -x LDFLAGS_default
+declare -x LDFLAGS_ilp32="-m elf32lriscv_ilp32"
+declare -x LDFLAGS_ilp32d="-m elf32lriscv"
+declare -x LDFLAGS_lp64="-m elf64lriscv_lp64"
+declare -x LDFLAGS_lp64d="-m elf64lriscv"
+declare -x LIBDIR_default="lib"
+declare -x LIBDIR_ilp32="lib32/ilp32"
+declare -x LIBDIR_ilp32d="lib32/ilp32d"
+declare -x LIBDIR_lp64="lib64/lp64"
+declare -x LIBDIR_lp64d="lib64"
+declare -x LIBOPTIONS="-m0644"
+declare -x LIBREOFFICE_EXTENSIONS=""
+declare -x LICENSE="LGPL-2+ BSD"
+declare -x LLVM_TARGETS=""
+declare -x LUA_SINGLE_TARGET=""
+declare -x LUA_TARGETS=""
+declare -x MAIL="/var/mail/root"
+declare -x MAKEOPTS="-j12"
+declare -x MANPAGER="manpager"
+declare -- MIMEINFO_DATABASE_DIR="/usr/share/mime"
+declare -x MONKEYD_PLUGINS=""
+declare -x MOTD_SHOWN="pam"
+declare -x MULTILIB_ABIS="lp64d"
+declare -- MY_P="webkitgtk-2.36.4"
+declare -x NGINX_MODULES_HTTP=""
+declare -x NGINX_MODULES_MAIL=""
+declare -x NGINX_MODULES_STREAM=""
+declare -- NINJA="ninja"
+declare -- NINJA_DEPEND=">=dev-util/ninja-1.8.2"
+declare -x OFFICE_IMPLEMENTATION=""
+declare -x OPENMPI_FABRICS=""
+declare -x OPENMPI_OFED_FEATURES=""
+declare -x OPENMPI_RM=""
+declare -x PATH="/var/tmp/portage/net-libs/webkit-gtk-2.36.4/temp/python3.11/bin:/usr/lib/portage/python3.10/ebuild-helpers/xattr:/usr/lib/portage/python3.10/ebuild-helpers:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:/usr/lib/llvm/14/bin"
+declare PDEPEND=""
+declare -x PHP_TARGETS=""
+declare -x PKG_CONFIG_PATH="/var/tmp/portage/net-libs/webkit-gtk-2.36.4/temp/python3.11/pkgconfig"
+declare -x PORTAGE_COMPRESSION_COMMAND="zstd"
+declare -a PORTAGE_DOCOMPRESS=([0]="/usr/share/doc" [1]="/usr/share/info" [2]="/usr/share/man")
+declare -x PORTAGE_DOCOMPRESS_SIZE_LIMIT="128"
+declare -a PORTAGE_DOCOMPRESS_SKIP=([0]="/usr/share/doc/webkit-gtk-2.36.4/html")
+declare -a PORTAGE_DOSTRIP=([0]="/")
+declare -a PORTAGE_DOSTRIP_SKIP=()
+declare -x POSTGRES_TARGETS=""
+declare -x PROFILE_ONLY_VARIABLES="ARCH ELIBC IUSE_IMPLICIT KERNEL USERLAND USE_EXPAND_IMPLICIT USE_EXPAND_UNPREFIXED USE_EXPAND_VALUES_ARCH USE_EXPAND_VALUES_ELIBC USE_EXPAND_VALUES_KERNEL USE_EXPAND_VALUES_USERLAND"
+declare -- PROPERTIES=""
+declare -x PYTHON="/usr/bin/python3.11"
+declare -x PYTHONDONTWRITEBYTECODE="1"
+declare -a PYTHON_COMPAT=([0]="python3_8" [1]="python3_9" [2]="python3_10" [3]="python3_11")
+declare -- PYTHON_DEPS="|| ( >=dev-lang/python-3.11.0_beta4:3.11[xml(+)] >=dev-lang/python-3.10.4:3.10[xml(+)] >=dev-lang/python-3.9.12:3.9[xml(+)] >=dev-lang/python-3.8.13:3.8[xml(+)] )"
+declare -- PYTHON_REQUIRED_USE="I-DO-NOT-EXIST-IN-PYTHON-ANY-R1"
+declare -- PYTHON_REQ_USE="xml(+)"
+declare -x PYTHON_SINGLE_TARGET=""
+declare -x PYTHON_TARGETS=""
+declare -x QEMU_SOFTMMU_TARGETS=""
+declare -x QEMU_USER_TARGETS=""
+declare RDEPEND="
+	>=x11-libs/cairo-1.16.0:=[X?]
+	>=media-libs/fontconfig-2.13.0:1.0
+	>=media-libs/freetype-2.9.0:2
+	>=dev-libs/libgcrypt-1.7.0:0=
+	>=x11-libs/gtk+-3.22.0:3[aqua?,introspection?,wayland?,X?]
+	>=media-libs/harfbuzz-1.4.2:=[icu(+)]
+	>=dev-libs/icu-61.2:=
+	media-libs/libjpeg-turbo:0=
+	>=net-libs/libsoup-2.54:2.4[introspection?]
+	>=dev-libs/libxml2-2.8.0:2
+	>=media-libs/libpng-1.4:0=
+	dev-db/sqlite:3=
+	sys-libs/zlib:0
+	>=dev-libs/atk-2.16.0
+	media-libs/libwebp:=
+
+	>=dev-libs/glib-2.67.1:2
+	>=dev-libs/libxslt-1.1.7
+	media-libs/woff2
+	gnome-keyring? ( app-crypt/libsecret )
+	introspection? ( >=dev-libs/gobject-introspection-1.59.1:= )
+	dev-libs/libtasn1:=
+	spell? ( >=app-text/enchant-0.22:2 )
+	gstreamer? (
+		>=media-libs/gstreamer-1.20:1.0
+		>=media-libs/gst-plugins-base-1.20:1.0[egl?,X?]
+		gles2-only? ( media-libs/gst-plugins-base:1.0[gles2] )
+		!gles2-only? ( media-libs/gst-plugins-base:1.0[opengl] )
+		>=media-plugins/gst-plugins-opus-1.20:1.0
+		>=media-libs/gst-plugins-bad-1.20:1.0
+	)
+
+	X? (
+		x11-libs/libX11
+		x11-libs/libXcomposite
+		x11-libs/libXdamage
+		x11-libs/libXrender
+		x11-libs/libXt
+	)
+
+	libnotify? ( x11-libs/libnotify )
+	dev-libs/hyphen
+	jpeg2k? ( >=media-libs/openjpeg-2.2.0:2= )
+	avif? ( >=media-libs/libavif-0.9.0:= )
+	lcms? ( media-libs/lcms:2 )
+
+	egl? ( media-libs/mesa[egl(+)] )
+	gles2-only? ( media-libs/mesa[gles2] )
+	!gles2-only? ( virtual/opengl )
+	wayland? (
+		dev-libs/wayland
+		>=dev-libs/wayland-protocols-1.12
+		>=gui-libs/libwpe-1.5.0:1.0
+		>=gui-libs/wpebackend-fdo-1.7.0:1.0
+	)
+
+	seccomp? (
+		>=sys-apps/bubblewrap-0.3.1
+		sys-libs/libseccomp
+		sys-apps/xdg-dbus-proxy
+	)
+
+	systemd? ( sys-apps/systemd:= )
+	gamepad? ( >=dev-libs/libmanette-0.2.4 )
+ "
+declare REPOSITORY
+declare REQUIRED_USE="
+	gles2-only? ( egl )
+	gstreamer? ( egl )
+	wayland? ( egl )
+	|| ( aqua wayland X )
+ "
+declare RESTRICT="test"
+declare -x RESUMECOMMAND_SSH="bash -c \"x=\\\${2#ssh://} ; host=\\\${x%%/*} ; port=\\\${host##*:} ; host=\\\${host%:*} ; [[ \\\${host} = \\\${port} ]] && port= ; exec rsync --rsh=\\\"ssh \\\${port:+-p\\\${port}} \\\${3}\\\" -avP \\\"\\\${host}:/\\\${x#*/}\\\" \\\"\\\$1\\\"\" rsync \"\${DISTDIR}/\${FILE}\" \"\${URI}\" \"\${PORTAGE_SSH_OPTS}\""
+declare -x ROS_MESSAGES=""
+declare -- RUBY_DEPS="|| (  dev-lang/ruby:2.7 dev-lang/ruby:3.0 dev-lang/ruby:3.1 ) virtual/rubygems"
+declare -x RUBY_TARGETS=""
+declare -- RUBY_TARGETS_PREFERENCE="ruby27 ruby30 ruby31"
+declare -x S="/var/tmp/portage/net-libs/webkit-gtk-2.36.4/work/webkitgtk-2.36.4"
+declare -x SANDBOX_DEBUG="0"
+declare -x SANDBOX_DENY=""
+declare -x SANDBOX_METHOD="any"
+declare -x SANDBOX_PREDICT="/var/tmp/portage/net-libs/webkit-gtk-2.36.4/homedir:/dev/crypto:/var/cache/man:/var/cache/fontconfig"
+declare -x SANDBOX_READ="/:/var/tmp/portage"
+declare -x SANDBOX_VERBOSE="1"
+declare -x SANDBOX_WRITE=":/dev/console:/dev/fd:/dev/full:/dev/null:/dev/ptmx:/dev/pts/:/dev/pty:/dev/shm:/dev/tts:/dev/tty:/dev/vc/:/dev/zero:/proc/self/fd:/tmp/:/usr/lib/cf:/usr/lib/conftest:/usr/lib32/cf:/usr/lib32/conftest:/usr/lib64/cf:/usr/lib64/conftest:/usr/tmp/:/usr/tmp/cf:/usr/tmp/conftest:/var/tmp/:/var/tmp/portage:/var/tmp/portage/net-libs/webkit-gtk-2.36.4/homedir/.bash_history"
+declare -x SANE_BACKENDS=""
+declare -- SCROLLKEEPER_DIR="/var/lib/scrollkeeper"
+declare -- SCROLLKEEPER_UPDATE_BIN="/usr/bin/scrollkeeper-update"
+declare -x SHELL="/bin/bash"
+declare -x SLOT="4/37"
+declare -i SRANDOM="962587113"
+declare SRC_URI="https://www.webkitgtk.org/releases/webkitgtk-2.36.4.tar.xz"
+declare -x SYMLINK_LIB="no"
+declare -x SYSTEMD_EXEC_PID="580"
+declare -x TWISTED_DISABLE_WRITING_OF_PLUGIN_CACHE="1"
+declare -x USE="X egl elibc_glibc gnome-keyring gstreamer introspection jpeg2k jumbo-build kernel_linux lcms libnotify riscv seccomp spell systemd userland_GNU wayland"
+declare -x USERLAND="GNU"
+declare -x USE_EXPAND_IMPLICIT="ARCH ELIBC KERNEL USERLAND"
+declare -x USE_EXPAND_UNPREFIXED="ARCH"
+declare -x USE_EXPAND_VALUES_ARCH="alpha amd64 amd64-linux arm arm64 arm64-macos hppa ia64 loong m68k mips ppc ppc64 ppc64-linux ppc-macos riscv s390 sparc sparc64-solaris sparc-solaris x64-cygwin x64-macos x64-solaris x64-winnt x86 x86-linux x86-solaris x86-winnt"
+declare -x USE_EXPAND_VALUES_ELIBC="bionic Cygwin Darwin glibc mingw musl SunOS Winnt"
+declare -x USE_EXPAND_VALUES_KERNEL="Darwin linux SunOS Winnt"
+declare -x USE_EXPAND_VALUES_USERLAND="BSD GNU"
+declare -- USE_RUBY="ruby27 ruby30 ruby31"
+declare -x UWSGI_PLUGINS=""
+declare -x VIDEO_CARDS=""
+declare -x VOICEMAIL_STORAGE=""
+declare -x XDG_CACHE_HOME="/var/tmp/portage/net-libs/webkit-gtk-2.36.4/homedir/.cache"
+declare -x XDG_CONFIG_DIRS="/etc/xdg"
+declare -x XDG_CONFIG_HOME="/var/tmp/portage/net-libs/webkit-gtk-2.36.4/homedir/.config"
+declare -x XDG_DATA_DIRS="/usr/local/share:/usr/share"
+declare -x XDG_DATA_HOME="/var/tmp/portage/net-libs/webkit-gtk-2.36.4/homedir/.local/share"
+declare -x XDG_RUNTIME_DIR="/var/tmp/portage/net-libs/webkit-gtk-2.36.4/temp/run"
+declare -x XDG_SEAT="seat0"
+declare -x XDG_SESSION_CLASS="user"
+declare -x XDG_SESSION_ID="1"
+declare -x XDG_SESSION_TYPE="tty"
+declare -x XDG_VTNR="1"
+declare -x XTABLES_ADDONS=""
+declare -- _CHECK_REQS_ECLASS="1"
+declare -- _CMAKE_ECLASS="1"
+declare -- _CMAKE_SRC_PREPARE_HAS_RUN="1"
+declare -- _DEFINE_XDG_SRC_PREPARE="true"
+declare -- _EUTILS_ECLASS="1"
+declare -x _E_DESTTREE_="/usr"
+declare -x _E_DOCDESTTREE_=""
+declare -x _E_EXEDESTTREE_=""
+declare -x _E_INSDESTTREE_=""
+declare -- _FLAG_O_MATIC_ECLASS="1"
+declare -- _GNOME_ORG_ECLASS="1"
+declare -- _LIBTOOL_ECLASS="1"
+declare -- _MULTILIB_ECLASS="1"
+declare -- _MULTIPROCESSING_ECLASS="1"
+declare -- _NINJA_UTILS_ECLASS="1"
+declare -- _OPTFEATURE_DEFAULT_HEADER="Install additional packages for optional runtime features:"
+declare -- _OPTFEATURE_DOHEADER="true"
+declare -- _OPTFEATURE_ECLASS="1"
+declare -- _OPTFEATURE_HEADER=""
+declare -a _PYTHON_ALL_IMPLS=([0]="pypy3" [1]="python3_8" [2]="python3_9" [3]="python3_10" [4]="python3_11")
+declare -- _PYTHON_ANY_R1="1"
+declare -a _PYTHON_HISTORICAL_IMPLS=([0]="jython2_7" [1]="pypy" [2]="pypy1_8" [3]="pypy1_9" [4]="pypy2_0" [5]="python2_5" [6]="python2_6" [7]="python2_7" [8]="python3_1" [9]="python3_2" [10]="python3_3" [11]="python3_4" [12]="python3_5" [13]="python3_6" [14]="python3_7")
+declare -a _PYTHON_SUPPORTED_IMPLS=([0]="python3_8" [1]="python3_9" [2]="python3_10" [3]="python3_11")
+declare -a _PYTHON_UNSUPPORTED_IMPLS=([0]="pypy3")
+declare -- _PYTHON_UTILS_R1="1"
+declare -- _RUBY_SINGLE="1"
+declare -- _RUBY_UTILS="1"
+declare -- _STRIP_LINGUAS_ECLASS="1"
+declare -- _TOOLCHAIN_FUNCS_ECLASS="1"
+declare -- _WRAPPER_ECLASS="1"
+declare -- _XDG_DEPEND="
+	dev-util/desktop-file-utils
+	x11-misc/shared-mime-info
+"
+declare -x enable_year2038="no"
+declare -- i="3"
+__eapi6_src_install () 
+{ 
+    if [[ -f Makefile || -f GNUmakefile || -f makefile ]]; then
+        emake DESTDIR="${D}" install;
+    fi;
+    einstalldocs
+}
+__eapi6_src_prepare () 
+{ 
+    if ___is_indexed_array_var PATCHES; then
+        [[ ${#PATCHES[@]} -gt 0 ]] && eapply "${PATCHES[@]}";
+    else
+        if [[ -n ${PATCHES} ]]; then
+            eapply ${PATCHES};
+        fi;
+    fi;
+    eapply_user
+}
+__eapi7_ver_compare () 
+{ 
+    local va=${1} vb=${2} a an al as ar b bn bl bs br re LC_ALL=C;
+    re="^([0-9]+(\.[0-9]+)*)([a-z]?)((_(alpha|beta|pre|rc|p)[0-9]*)*)(-r[0-9]+)?$";
+    [[ ${va} =~ ${re} ]] || die "${FUNCNAME}: invalid version: ${va}";
+    an=${BASH_REMATCH[1]};
+    al=${BASH_REMATCH[3]};
+    as=${BASH_REMATCH[4]};
+    ar=${BASH_REMATCH[7]};
+    [[ ${vb} =~ ${re} ]] || die "${FUNCNAME}: invalid version: ${vb}";
+    bn=${BASH_REMATCH[1]};
+    bl=${BASH_REMATCH[3]};
+    bs=${BASH_REMATCH[4]};
+    br=${BASH_REMATCH[7]};
+    __eapi7_ver_compare_int "${an%%.*}" "${bn%%.*}" || return;
+    while [[ ${an} == *.* && ${bn} == *.* ]]; do
+        an=${an#*.};
+        bn=${bn#*.};
+        a=${an%%.*};
+        b=${bn%%.*};
+        if [[ ${a} == 0* || ${b} == 0* ]]; then
+            [[ ${a} =~ 0+$ ]] && a=${a%"${BASH_REMATCH[0]}"};
+            [[ ${b} =~ 0+$ ]] && b=${b%"${BASH_REMATCH[0]}"};
+            [[ ${a} > ${b} ]] && return 3;
+            [[ ${a} < ${b} ]] && return 1;
+        else
+            __eapi7_ver_compare_int "${a}" "${b}" || return;
+        fi;
+    done;
+    [[ ${an} == *.* ]] && return 3;
+    [[ ${bn} == *.* ]] && return 1;
+    [[ ${al} > ${bl} ]] && return 3;
+    [[ ${al} < ${bl} ]] && return 1;
+    as=${as#_}${as:+_};
+    bs=${bs#_}${bs:+_};
+    while [[ -n ${as} && -n ${bs} ]]; do
+        a=${as%%_*};
+        b=${bs%%_*};
+        if [[ ${a%%[0-9]*} == "${b%%[0-9]*}" ]]; then
+            __eapi7_ver_compare_int "${a##*[a-z]}" "${b##*[a-z]}" || return;
+        else
+            [[ ${a%%[0-9]*} == p ]] && return 3;
+            [[ ${b%%[0-9]*} == p ]] && return 1;
+            [[ ${a} > ${b} ]] && return 3 || return 1;
+        fi;
+        as=${as#*_};
+        bs=${bs#*_};
+    done;
+    if [[ -n ${as} ]]; then
+        [[ ${as} == p[_0-9]* ]] && return 3 || return 1;
+    else
+        if [[ -n ${bs} ]]; then
+            [[ ${bs} == p[_0-9]* ]] && return 1 || return 3;
+        fi;
+    fi;
+    __eapi7_ver_compare_int "${ar#-r}" "${br#-r}" || return;
+    return 2
+}
+__eapi7_ver_compare_int () 
+{ 
+    local a=$1 b=$2 d=$(( ${#1}-${#2} ));
+    if [[ ${d} -gt 0 ]]; then
+        printf -v b "%0${d}d%s" 0 "${b}";
+    else
+        if [[ ${d} -lt 0 ]]; then
+            printf -v a "%0$(( -d ))d%s" 0 "${a}";
+        fi;
+    fi;
+    [[ ${a} > ${b} ]] && return 3;
+    [[ ${a} == "${b}" ]]
+}
+__eapi7_ver_parse_range () 
+{ 
+    local range=${1};
+    local max=${2};
+    [[ ${range} == [0-9]* ]] || die "${FUNCNAME}: range must start with a number";
+    start=${range%-*};
+    [[ ${range} == *-* ]] && end=${range#*-} || end=${start};
+    if [[ -n ${end} ]]; then
+        [[ ${start} -le ${end} ]] || die "${FUNCNAME}: end of range must be >= start";
+        [[ ${end} -le ${max} ]] || end=${max};
+    else
+        end=${max};
+    fi
+}
+__eapi7_ver_split () 
+{ 
+    local v=${1} LC_ALL=C;
+    comp=();
+    local s c;
+    while [[ -n ${v} ]]; do
+        s=${v%%[a-zA-Z0-9]*};
+        v=${v:${#s}};
+        [[ ${v} == [0-9]* ]] && c=${v%%[^0-9]*} || c=${v%%[^a-zA-Z]*};
+        v=${v:${#c}};
+        comp+=("${s}" "${c}");
+    done
+}
+__eapi8_src_prepare () 
+{ 
+    local f;
+    if ___is_indexed_array_var PATCHES; then
+        [[ ${#PATCHES[@]} -gt 0 ]] && eapply -- "${PATCHES[@]}";
+    else
+        if [[ -n ${PATCHES} ]]; then
+            eapply -- ${PATCHES};
+        fi;
+    fi;
+    eapply_user
+}
+_check-reqs_disk () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    [[ -z ${2} ]] && die "Usage: ${FUNCNAME} [path] [size]";
+    local path=${1};
+    local size=${2};
+    local space_kbi;
+    _check-reqs_start_phase ${size} "disk space at \"${path}\"";
+    space_kbi=$(df -Pk "${1}" 2>/dev/null | awk 'FNR == 2 {print $4}');
+    if [[ $? == 0 && -n ${space_kbi} ]]; then
+        if [[ ${space_kbi} -lt $(_check-reqs_get_kibibytes ${size}) ]]; then
+            eend 1;
+            _check-reqs_unsatisfied ${size} "disk space at \"${path}\"";
+        else
+            eend 0;
+        fi;
+    else
+        eend 1;
+        ewarn "Couldn't determine disk space, skipping...";
+    fi
+}
+_check-reqs_get_kibibytes () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    [[ -z ${1} ]] && die "Usage: ${FUNCNAME} [size]";
+    local unit=${1:(-1)};
+    local size=${1%[GMT]};
+    case ${unit} in 
+        M)
+            echo $((1024 * size))
+        ;;
+        G)
+            echo $((1024 * 1024 * size))
+        ;;
+        T)
+            echo $((1024 * 1024 * 1024 * size))
+        ;;
+        *)
+            die "${FUNCNAME}: Unknown unit: ${unit}"
+        ;;
+    esac
+}
+_check-reqs_get_number () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    [[ -z ${1} ]] && die "Usage: ${FUNCNAME} [size]";
+    local size=${1%[GMT]};
+    [[ ${size} == ${1} ]] && die "${FUNCNAME}: Missing unit: ${1}";
+    echo ${size}
+}
+_check-reqs_get_unit () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    [[ -z ${1} ]] && die "Usage: ${FUNCNAME} [size]";
+    local unit=${1:(-1)};
+    case ${unit} in 
+        M)
+            echo "MiB"
+        ;;
+        G)
+            echo "GiB"
+        ;;
+        T)
+            echo "TiB"
+        ;;
+        *)
+            die "${FUNCNAME}: Unknown unit: ${unit}"
+        ;;
+    esac
+}
+_check-reqs_memory () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    [[ -z ${1} ]] && die "Usage: ${FUNCNAME} [size]";
+    local size=${1};
+    local actual_memory;
+    local actual_swap;
+    _check-reqs_start_phase ${size} "RAM";
+    if [[ -r /proc/meminfo ]]; then
+        actual_memory=$(awk '/MemTotal/ { print $2 }' /proc/meminfo);
+        actual_swap=$(awk '/SwapTotal/ { print $2 }' /proc/meminfo);
+    else
+        actual_memory=$(sysctl hw.physmem 2>/dev/null);
+        [[ $? -eq 0 ]] && actual_memory=$(echo "${actual_memory}" 			| sed -e 's/^[^:=]*[:=][[:space:]]*//');
+        actual_swap=$(sysctl vm.swap_total 2>/dev/null);
+        [[ $? -eq 0 ]] && actual_swap=$(echo "${actual_swap}" 			| sed -e 's/^[^:=]*[:=][[:space:]]*//');
+    fi;
+    if [[ -n ${actual_memory} ]]; then
+        if [[ ${actual_memory} -ge $(_check-reqs_get_kibibytes ${size}) ]]; then
+            eend 0;
+        else
+            if [[ -n ${actual_swap} && $((${actual_memory} + ${actual_swap})) -ge $(_check-reqs_get_kibibytes ${size}) ]]; then
+                ewarn "Amount of main memory is insufficient, but amount";
+                ewarn "of main memory combined with swap is sufficient.";
+                ewarn "Build process may make computer very slow!";
+                eend 0;
+            else
+                eend 1;
+                _check-reqs_unsatisfied ${size} "RAM";
+            fi;
+        fi;
+    else
+        eend 1;
+        ewarn "Couldn't determine amount of memory, skipping...";
+    fi
+}
+_check-reqs_output () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    local msg="ewarn";
+    [[ ${EBUILD_PHASE} == "pretend" && -z ${CHECKREQS_DONOTHING} ]] && msg="eerror";
+    if [[ -n ${CHECKREQS_FAILED} ]]; then
+        ${msg};
+        ${msg} "Space constraints set in the ebuild were not met!";
+        ${msg} "The build will most probably fail, you should enhance the space";
+        ${msg} "as per failed tests.";
+        ${msg};
+        [[ ${EBUILD_PHASE} == "pretend" && -z ${CHECKREQS_DONOTHING} ]] && die "Build requirements not met!";
+    fi
+}
+_check-reqs_prepare () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    if [[ -z ${CHECKREQS_MEMORY} && -z ${CHECKREQS_DISK_BUILD} && -z ${CHECKREQS_DISK_USR} && -z ${CHECKREQS_DISK_VAR} ]]; then
+        eerror "Set some check-reqs eclass variables if you want to use it.";
+        eerror "If you are user and see this message file a bug against the package.";
+        die "${FUNCNAME}: check-reqs eclass called but not actually used!";
+    fi
+}
+_check-reqs_run () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    unset CHECKREQS_FAILED;
+    if [[ ${MERGE_TYPE} != binary ]]; then
+        [[ -n ${CHECKREQS_MEMORY} ]] && _check-reqs_memory ${CHECKREQS_MEMORY};
+        [[ -n ${CHECKREQS_DISK_BUILD} ]] && _check-reqs_disk "${T}" "${CHECKREQS_DISK_BUILD}";
+    fi;
+    if [[ ${MERGE_TYPE} != buildonly ]]; then
+        [[ -n ${CHECKREQS_DISK_USR} ]] && _check-reqs_disk "${EROOT%/}/usr" "${CHECKREQS_DISK_USR}";
+        [[ -n ${CHECKREQS_DISK_VAR} ]] && _check-reqs_disk "${EROOT%/}/var" "${CHECKREQS_DISK_VAR}";
+    fi
+}
+_check-reqs_start_phase () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    [[ -z ${2} ]] && die "Usage: ${FUNCNAME} [size] [location]";
+    local size=${1};
+    local location=${2};
+    local sizeunit="$(_check-reqs_get_number ${size}) $(_check-reqs_get_unit ${size})";
+    ebegin "Checking for at least ${sizeunit} ${location}"
+}
+_check-reqs_unsatisfied () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    [[ -z ${2} ]] && die "Usage: ${FUNCNAME} [size] [location]";
+    local msg="ewarn";
+    local size=${1};
+    local location=${2};
+    local sizeunit="$(_check-reqs_get_number ${size}) $(_check-reqs_get_unit ${size})";
+    [[ ${EBUILD_PHASE} == "pretend" && -z ${CHECKREQS_DONOTHING} ]] && msg="eerror";
+    ${msg} "There is NOT at least ${sizeunit} ${location}";
+    CHECKREQS_FAILED="true"
+}
+_clang_fullversion () 
+{ 
+    local ver="$1";
+    shift;
+    set -- $($(tc-getCPP "$@") -E -P - <<<"__clang_major__ __clang_minor__ __clang_patchlevel__");
+    eval echo "$ver"
+}
+_cmake_banned_func () 
+{ 
+    die "${FUNCNAME[1]} is banned. use -D$1<related_CMake_variable>=\"\$(usex $2)\" instead"
+}
+_cmake_check_build_dir () 
+{ 
+    if [[ ${EAPI} == 7 ]]; then
+        : ${CMAKE_USE_DIR:=${S}};
+    else
+        : ${CMAKE_USE_DIR:=${PWD}};
+    fi;
+    if [[ -n ${CMAKE_IN_SOURCE_BUILD} ]]; then
+        BUILD_DIR="${CMAKE_USE_DIR}";
+    else
+        : ${BUILD_DIR:=${CMAKE_USE_DIR}_build};
+    fi;
+    einfo "Source directory (CMAKE_USE_DIR): \"${CMAKE_USE_DIR}\"";
+    einfo "Build directory  (BUILD_DIR):     \"${BUILD_DIR}\"";
+    mkdir -p "${BUILD_DIR}" || die
+}
+_cmake_modify-cmakelists () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    grep -qs "<<< Gentoo configuration >>>" "${CMAKE_USE_DIR}"/CMakeLists.txt && return 0;
+    find "${CMAKE_USE_DIR}" -name CMakeLists.txt -exec sed -e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_BUILD_TYPE\([[:space:]].*)\|)\)/I{s/^/#_cmake_modify_IGNORE /g}' -e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_COLOR_MAKEFILE[[:space:]].*)/I{s/^/#_cmake_modify_IGNORE /g}' -e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_INSTALL_PREFIX[[:space:]].*)/I{s/^/#_cmake_modify_IGNORE /g}' -e '/^[[:space:]]*set[[:space:]]*([[:space:]]*CMAKE_VERBOSE_MAKEFILE[[:space:]].*)/I{s/^/#_cmake_modify_IGNORE /g}' -i {} + || die "${LINENO}: failed to disable hardcoded settings";
+    local x;
+    for x in $(find "${CMAKE_USE_DIR}" -name CMakeLists.txt -exec grep -l "^#_cmake_modify_IGNORE" {} +;);
+    do
+        einfo "Hardcoded definition(s) removed in $(echo "${x}" | cut -c $((${#CMAKE_USE_DIR}+2))-):";
+        einfo "$(grep -se '^#_cmake_modify_IGNORE' ${x} | cut -c 22-99)";
+    done;
+    cat >> "${CMAKE_USE_DIR}"/CMakeLists.txt <<-_EOF_ || 
+
+message(STATUS "<<< Gentoo configuration >>>
+Build type      \${CMAKE_BUILD_TYPE}
+Install path    \${CMAKE_INSTALL_PREFIX}
+Compiler flags:
+C               \${CMAKE_C_FLAGS}
+C++             \${CMAKE_CXX_FLAGS}
+Linker flags:
+Executable      \${CMAKE_EXE_LINKER_FLAGS}
+Module          \${CMAKE_MODULE_LINKER_FLAGS}
+Shared          \${CMAKE_SHARED_LINKER_FLAGS}\n")
+_EOF_
+ die
+}
+_dosym8_canonicalize () 
+{ 
+    local path slash i prev out IFS=/;
+    path=($1);
+    [[ $1 == /* ]] && slash=/;
+    while true; do
+        prev=;
+        for i in ${!path[@]};
+        do
+            if [[ -z ${path[i]} || ${path[i]} == . ]]; then
+                unset "path[i]";
+            else
+                if [[ ${path[i]} != .. ]]; then
+                    prev=${i};
+                else
+                    if [[ -n ${prev} || -n ${slash} ]]; then
+                        [[ -n ${prev} ]] && unset "path[prev]";
+                        unset "path[i]";
+                        continue 2;
+                    fi;
+                fi;
+            fi;
+        done;
+        break;
+    done;
+    out="${slash}${path[*]}";
+    echo "${out:-.}"
+}
+_filter-hardened () 
+{ 
+    local f;
+    for f in "$@";
+    do
+        case "${f}" in 
+            -fPIC | -fpic | -fPIE | -fpie | -Wl,pie | -pie)
+                gcc-specs-pie || continue;
+                if ! is-flagq -nopie && ! is-flagq -no-pie; then
+                    if test-flags -nopie > /dev/null; then
+                        append-flags -nopie;
+                    else
+                        append-flags -no-pie;
+                    fi;
+                fi
+            ;;
+            -fstack-protector)
+                gcc-specs-ssp || continue;
+                is-flagq -fno-stack-protector || append-flags $(test-flags -fno-stack-protector)
+            ;;
+            -fstack-protector-all)
+                gcc-specs-ssp-to-all || continue;
+                is-flagq -fno-stack-protector-all || append-flags $(test-flags -fno-stack-protector-all)
+            ;;
+            -fno-strict-overflow)
+                gcc-specs-nostrict || continue;
+                is-flagq -fstrict-overflow || append-flags $(test-flags -fstrict-overflow)
+            ;;
+        esac;
+    done
+}
+_filter-var () 
+{ 
+    local f x var=$1 new=();
+    shift;
+    for f in ${!var};
+    do
+        for x in "$@";
+        do
+            [[ ${f} == ${x} ]] && continue 2;
+        done;
+        new+=("${f}");
+    done;
+    export ${var}="${new[*]}"
+}
+_gcc-install-dir () 
+{ 
+    echo "$(LC_ALL=C $(tc-getCC) -print-search-dirs 2> /dev/null |		awk '$1=="install:" {print $2}')"
+}
+_gcc-specs-directive_raw () 
+{ 
+    local cc=$(tc-getCC);
+    local specfiles=$(LC_ALL=C ${cc} -v 2>&1 | awk '$1=="Reading" {print $NF}');
+    ${cc} -dumpspecs 2> /dev/null | cat - ${specfiles} | awk -v directive=$1 'BEGIN	{ pspec=""; spec=""; outside=1 }
+$1=="*"directive":"  { pspec=spec; spec=""; outside=0; next }
+	outside || NF==0 || ( substr($1,1,1)=="*" && substr($1,length($1),1)==":" ) { outside=1; next }
+	spec=="" && substr($0,1,1)=="+" { spec=pspec " " substr($0,2); next }
+	{ spec=spec $0 }
+END	{ print spec }';
+    return 0
+}
+_gcc-specs-exists () 
+{ 
+    [[ -f $(_gcc-install-dir)/$1 ]]
+}
+_gcc_fullversion () 
+{ 
+    local ver="$1";
+    shift;
+    set -- $($(tc-getCPP "$@") -E -P - <<<"__GNUC__ __GNUC_MINOR__ __GNUC_PATCHLEVEL__");
+    eval echo "$ver"
+}
+_is_flagq () 
+{ 
+    local x var="$1[*]";
+    for x in ${!var};
+    do
+        [[ ${x} == $2 ]] && return 0;
+    done;
+    return 1
+}
+_python_check_EPYTHON () 
+{ 
+    if [[ -z ${EPYTHON} ]]; then
+        die "EPYTHON unset, invalid call context";
+    fi
+}
+_python_check_locale_sanity () 
+{ 
+    local -x LC_ALL=${1};
+    local IFS=;
+    local lc=({a..z});
+    local uc=({A..Z});
+    local input="${lc[*]}${uc[*]}";
+    local output=$(tr '[:lower:][:upper:]' '[:upper:][:lower:]' <<<"${input}");
+    [[ ${output} == "${uc[*]}${lc[*]}" ]]
+}
+_python_export () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    local impl var;
+    case "${1}" in 
+        python* | jython*)
+            impl=${1/_/.};
+            shift
+        ;;
+        pypy | pypy3)
+            impl=${1};
+            shift
+        ;;
+        *)
+            impl=${EPYTHON};
+            if [[ -z ${impl} ]]; then
+                die "_python_export called without a python implementation and EPYTHON is unset";
+            fi
+        ;;
+    esac;
+    debug-print "${FUNCNAME}: implementation: ${impl}";
+    for var in "$@";
+    do
+        case "${var}" in 
+            EPYTHON)
+                export EPYTHON=${impl};
+                debug-print "${FUNCNAME}: EPYTHON = ${EPYTHON}"
+            ;;
+            PYTHON)
+                export PYTHON=${EPREFIX}/usr/bin/${impl};
+                debug-print "${FUNCNAME}: PYTHON = ${PYTHON}"
+            ;;
+            PYTHON_SITEDIR)
+                [[ -n ${PYTHON} ]] || die "PYTHON needs to be set for ${var} to be exported, or requested before it";
+                PYTHON_SITEDIR=$(
+					"${PYTHON}" - <<-EOF || die
+						import sysconfig
+						print(sysconfig.get_path("purelib"))
+					EOF
+				);
+                export PYTHON_SITEDIR;
+                debug-print "${FUNCNAME}: PYTHON_SITEDIR = ${PYTHON_SITEDIR}"
+            ;;
+            PYTHON_INCLUDEDIR)
+                [[ -n ${PYTHON} ]] || die "PYTHON needs to be set for ${var} to be exported, or requested before it";
+                PYTHON_INCLUDEDIR=$(
+					"${PYTHON}" - <<-EOF || die
+						import sysconfig
+						print(sysconfig.get_path("platinclude"))
+					EOF
+				);
+                export PYTHON_INCLUDEDIR;
+                debug-print "${FUNCNAME}: PYTHON_INCLUDEDIR = ${PYTHON_INCLUDEDIR}";
+                if [[ ! -d ${PYTHON_INCLUDEDIR} ]]; then
+                    die "${impl} does not install any header files!";
+                fi
+            ;;
+            PYTHON_LIBPATH)
+                [[ -n ${PYTHON} ]] || die "PYTHON needs to be set for ${var} to be exported, or requested before it";
+                PYTHON_LIBPATH=$(
+					"${PYTHON}" - <<-EOF || die
+						import os.path, sysconfig
+						print(
+							os.path.join(
+								sysconfig.get_config_var("LIBDIR"),
+								sysconfig.get_config_var("LDLIBRARY"))
+							if sysconfig.get_config_var("LDLIBRARY")
+							else "")
+					EOF
+				);
+                export PYTHON_LIBPATH;
+                debug-print "${FUNCNAME}: PYTHON_LIBPATH = ${PYTHON_LIBPATH}";
+                if [[ ! -n ${PYTHON_LIBPATH} ]]; then
+                    die "${impl} lacks a (usable) dynamic library";
+                fi
+            ;;
+            PYTHON_CFLAGS)
+                local val;
+                case "${impl}" in 
+                    python*)
+                        val=$($(tc-getPKG_CONFIG) --cflags ${impl/n/n-}) || die
+                    ;;
+                    *)
+                        die "${impl}: obtaining ${var} not supported"
+                    ;;
+                esac;
+                export PYTHON_CFLAGS=${val};
+                debug-print "${FUNCNAME}: PYTHON_CFLAGS = ${PYTHON_CFLAGS}"
+            ;;
+            PYTHON_LIBS)
+                local val;
+                case "${impl}" in 
+                    python2* | python3.6 | python3.7*)
+                        val=$($(tc-getPKG_CONFIG) --libs ${impl/n/n-}) || die
+                    ;;
+                    python*)
+                        val=$($(tc-getPKG_CONFIG) --libs ${impl/n/n-}-embed) || die
+                    ;;
+                    *)
+                        die "${impl}: obtaining ${var} not supported"
+                    ;;
+                esac;
+                export PYTHON_LIBS=${val};
+                debug-print "${FUNCNAME}: PYTHON_LIBS = ${PYTHON_LIBS}"
+            ;;
+            PYTHON_CONFIG)
+                local flags val;
+                case "${impl}" in 
+                    python*)
+                        [[ -n ${PYTHON} ]] || die "PYTHON needs to be set for ${var} to be exported, or requested before it";
+                        flags=$(
+							"${PYTHON}" - <<-EOF || die
+								import sysconfig
+								print(sysconfig.get_config_var("ABIFLAGS")
+									or "")
+							EOF
+						);
+                        val=${PYTHON}${flags}-config
+                    ;;
+                    *)
+                        die "${impl}: obtaining ${var} not supported"
+                    ;;
+                esac;
+                export PYTHON_CONFIG=${val};
+                debug-print "${FUNCNAME}: PYTHON_CONFIG = ${PYTHON_CONFIG}"
+            ;;
+            PYTHON_PKG_DEP)
+                local d;
+                case ${impl} in 
+                    python2.7)
+                        PYTHON_PKG_DEP='>=dev-lang/python-2.7.10_p15:2.7'
+                    ;;
+                    python3.8)
+                        PYTHON_PKG_DEP=">=dev-lang/python-3.8.13:3.8"
+                    ;;
+                    python3.9)
+                        PYTHON_PKG_DEP=">=dev-lang/python-3.9.12:3.9"
+                    ;;
+                    python3.10)
+                        PYTHON_PKG_DEP=">=dev-lang/python-3.10.4:3.10"
+                    ;;
+                    python3.11)
+                        PYTHON_PKG_DEP=">=dev-lang/python-3.11.0_beta4:3.11"
+                    ;;
+                    python*)
+                        PYTHON_PKG_DEP="dev-lang/python:${impl#python}"
+                    ;;
+                    pypy)
+                        PYTHON_PKG_DEP='>=dev-python/pypy-7.3.9:0='
+                    ;;
+                    pypy3)
+                        PYTHON_PKG_DEP='>=dev-python/pypy3-7.3.9_p1:0='
+                    ;;
+                    *)
+                        die "Invalid implementation: ${impl}"
+                    ;;
+                esac;
+                if [[ -n ${PYTHON_REQ_USE} ]]; then
+                    PYTHON_PKG_DEP+=[${PYTHON_REQ_USE}];
+                fi;
+                export PYTHON_PKG_DEP;
+                debug-print "${FUNCNAME}: PYTHON_PKG_DEP = ${PYTHON_PKG_DEP}"
+            ;;
+            PYTHON_SCRIPTDIR)
+                local dir;
+                export PYTHON_SCRIPTDIR=${EPREFIX}/usr/lib/python-exec/${impl};
+                debug-print "${FUNCNAME}: PYTHON_SCRIPTDIR = ${PYTHON_SCRIPTDIR}"
+            ;;
+            *)
+                die "_python_export: unknown variable ${var}"
+            ;;
+        esac;
+    done
+}
+_python_impl_matches () 
+{ 
+    [[ ${#} -ge 1 ]] || die "${FUNCNAME}: takes at least 1 parameter";
+    [[ ${#} -eq 1 ]] && return 0;
+    local impl=${1/./_} pattern;
+    shift;
+    for pattern in "$@";
+    do
+        case ${pattern} in 
+            -2 | python2* | pypy)
+                if [[ ${EAPI} != [67] ]]; then
+                    eerror;
+                    eerror "Python 2 is no longer supported in Gentoo, please remove Python 2";
+                    eerror "${FUNCNAME[1]} calls.";
+                    die "Passing ${pattern} to ${FUNCNAME[1]} is banned in EAPI ${EAPI}";
+                fi
+            ;;
+            -3)
+                if [[ ${EAPI} != [67] ]]; then
+                    eerror;
+                    eerror "Python 2 is no longer supported in Gentoo, please remove Python 2";
+                    eerror "${FUNCNAME[1]} calls.";
+                    die "Passing ${pattern} to ${FUNCNAME[1]} is banned in EAPI ${EAPI}";
+                fi;
+                return 0
+            ;;
+            3.9)
+                [[ ${impl} == python${pattern/./_} || ${impl} == pypy3 ]] && return 0
+            ;;
+            3.8 | 3.1[01])
+                [[ ${impl} == python${pattern/./_} ]] && return 0
+            ;;
+            *)
+                [[ ${impl} == ${pattern/./_} ]] && return 0
+            ;;
+        esac;
+    done;
+    return 1
+}
+_python_run_check_deps () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    local impl=${1};
+    local hasv_args=(-b);
+    [[ ${EAPI} == 6 ]] && hasv_args=(--host-root);
+    einfo "Checking whether ${impl} is suitable ...";
+    local PYTHON_PKG_DEP;
+    _python_export "${impl}" PYTHON_PKG_DEP;
+    ebegin "  ${PYTHON_PKG_DEP}";
+    has_version "${hasv_args[@]}" "${PYTHON_PKG_DEP}";
+    eend ${?} || return 1;
+    declare -f python_check_deps > /dev/null || return 0;
+    local PYTHON_USEDEP="python_targets_${impl}(-)";
+    local PYTHON_SINGLE_USEDEP="python_single_target_${impl}(-)";
+    ebegin "  python_check_deps";
+    python_check_deps;
+    eend ${?}
+}
+_python_set_impls () 
+{ 
+    local i;
+    if ! declare -p PYTHON_COMPAT &> /dev/null; then
+        die 'PYTHON_COMPAT not declared.';
+    fi;
+    if [[ $(declare -p PYTHON_COMPAT) != "declare -a"* ]]; then
+        die 'PYTHON_COMPAT must be an array.';
+    fi;
+    local obsolete=();
+    if [[ ! -n ${PYTHON_COMPAT_NO_STRICT} ]]; then
+        for i in "${PYTHON_COMPAT[@]}";
+        do
+            case ${i} in 
+                pypy3 | python2_7 | python3_[89] | python3_1[01])
+
+                ;;
+                jython2_7 | pypy | pypy1_[89] | pypy2_0 | python2_[5-6] | python3_[1-7])
+                    obsolete+=("${i}")
+                ;;
+                *)
+                    if has "${i}" "${_PYTHON_ALL_IMPLS[@]}" "${_PYTHON_HISTORICAL_IMPLS[@]}"; then
+                        die "Mis-synced patterns in _python_set_impls: missing ${i}";
+                    else
+                        die "Invalid implementation in PYTHON_COMPAT: ${i}";
+                    fi
+                ;;
+            esac;
+        done;
+    fi;
+    if [[ -n ${obsolete[@]} && ${EBUILD_PHASE} == setup ]]; then
+        if [[ $(head -n 1 "${EBUILD}" 2>/dev/null) == *2022* ]]; then
+            eqawarn "Please clean PYTHON_COMPAT of obsolete implementations:";
+            eqawarn "  ${obsolete[*]}";
+        fi;
+    fi;
+    local supp=() unsupp=();
+    for i in "${_PYTHON_ALL_IMPLS[@]}";
+    do
+        if has "${i}" "${PYTHON_COMPAT[@]}"; then
+            supp+=("${i}");
+        else
+            unsupp+=("${i}");
+        fi;
+    done;
+    if [[ ! -n ${supp[@]} ]]; then
+        if [[ -n ${_PYTHON_ALLOW_PY27} ]] && has python2_7 "${PYTHON_COMPAT[@]}"; then
+            supp+=(python2_7);
+        else
+            die "No supported implementation in PYTHON_COMPAT.";
+        fi;
+    fi;
+    if [[ -n ${_PYTHON_SUPPORTED_IMPLS[@]} ]]; then
+        if [[ ${_PYTHON_SUPPORTED_IMPLS[@]} != ${supp[@]} ]]; then
+            eerror "Supported impls (PYTHON_COMPAT) changed between inherits!";
+            eerror "Before: ${_PYTHON_SUPPORTED_IMPLS[*]}";
+            eerror "Now   : ${supp[*]}";
+            die "_PYTHON_SUPPORTED_IMPLS integrity check failed";
+        fi;
+        if [[ ${_PYTHON_UNSUPPORTED_IMPLS[@]} != ${unsupp[@]} ]]; then
+            eerror "Unsupported impls changed between inherits!";
+            eerror "Before: ${_PYTHON_UNSUPPORTED_IMPLS[*]}";
+            eerror "Now   : ${unsupp[*]}";
+            die "_PYTHON_UNSUPPORTED_IMPLS integrity check failed";
+        fi;
+    else
+        _PYTHON_SUPPORTED_IMPLS=("${supp[@]}");
+        _PYTHON_UNSUPPORTED_IMPLS=("${unsupp[@]}");
+        readonly _PYTHON_SUPPORTED_IMPLS _PYTHON_UNSUPPORTED_IMPLS;
+    fi
+}
+_python_verify_patterns () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    local impl pattern;
+    for pattern in "$@";
+    do
+        case ${pattern} in 
+            -[23] | 3.[89] | 3.1[01])
+                continue
+            ;;
+        esac;
+        for impl in "${_PYTHON_ALL_IMPLS[@]}" "${_PYTHON_HISTORICAL_IMPLS[@]}";
+        do
+            [[ ${impl} == ${pattern/./_} ]] && continue 2;
+        done;
+        die "Invalid implementation pattern: ${pattern}";
+    done
+}
+_python_wrapper_setup () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    local workdir=${1:-${T}/${EPYTHON}};
+    local impl=${2:-${EPYTHON}};
+    [[ -n ${workdir} ]] || die "${FUNCNAME}: no workdir specified.";
+    [[ -n ${impl} ]] || die "${FUNCNAME}: no impl nor EPYTHON specified.";
+    if [[ ! -x ${workdir}/bin/python ]]; then
+        mkdir -p "${workdir}"/{bin,pkgconfig} || die;
+        rm -f "${workdir}"/bin/python{,2,3}{,-config} || die;
+        rm -f "${workdir}"/bin/2to3 || die;
+        rm -f "${workdir}"/pkgconfig/python{2,3}{,-embed}.pc || die;
+        local EPYTHON PYTHON;
+        _python_export "${impl}" EPYTHON PYTHON;
+        local pyver pyother;
+        if [[ ${EPYTHON} != python2* ]]; then
+            pyver=3;
+            pyother=2;
+        else
+            pyver=2;
+            pyother=3;
+        fi;
+        cat > "${workdir}/bin/python" <<-_EOF_ || 
+#!/bin/sh
+exec "${PYTHON}" "\${@}"
+_EOF_
+ die
+        cp "${workdir}/bin/python" "${workdir}/bin/python${pyver}" || die;
+        chmod +x "${workdir}/bin/python" "${workdir}/bin/python${pyver}" || die;
+        local nonsupp=("python${pyother}" "python${pyother}-config");
+        if [[ ${EPYTHON} == python* ]]; then
+            cat > "${workdir}/bin/python-config" <<-_EOF_ || 
+#!/bin/sh
+exec "${PYTHON}-config" "\${@}"
+_EOF_
+ die
+            cp "${workdir}/bin/python-config" "${workdir}/bin/python${pyver}-config" || die;
+            chmod +x "${workdir}/bin/python-config" "${workdir}/bin/python${pyver}-config" || die;
+            ln -s "${PYTHON/python/2to3-}" "${workdir}"/bin/2to3 || die;
+            ln -s "${EPREFIX}"/usr/$(get_libdir)/pkgconfig/${EPYTHON/n/n-}.pc "${workdir}"/pkgconfig/python${pyver}.pc || die;
+            if [[ ${EPYTHON} != python[23].[67] ]]; then
+                ln -s "${EPREFIX}"/usr/$(get_libdir)/pkgconfig/${EPYTHON/n/n-}-embed.pc "${workdir}"/pkgconfig/python${pyver}-embed.pc || die;
+            fi;
+        else
+            nonsupp+=(2to3 python-config "python${pyver}-config");
+        fi;
+        local x;
+        for x in "${nonsupp[@]}";
+        do
+            cat > "${workdir}"/bin/${x} <<-_EOF_ || 
+#!/bin/sh
+echo "${ECLASS}: ${FUNCNAME}: ${x} is not supported by ${EPYTHON} (PYTHON_COMPAT)" >&2
+exit 127
+_EOF_
+ die
+            chmod +x "${workdir}"/bin/${x} || die;
+        done;
+    fi;
+    if [[ ${PATH##:*} != ${workdir}/bin ]]; then
+        PATH=${workdir}/bin${PATH:+:${PATH}};
+    fi;
+    if [[ ${PKG_CONFIG_PATH##:*} != ${workdir}/pkgconfig ]]; then
+        PKG_CONFIG_PATH=${workdir}/pkgconfig${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}};
+    fi;
+    export PATH PKG_CONFIG_PATH
+}
+_ruby_implementation_depend () 
+{ 
+    local rubypn=;
+    local rubyslot=;
+    case $1 in 
+        ruby18)
+            rubypn="dev-lang/ruby";
+            rubyslot=":1.8"
+        ;;
+        ruby19)
+            rubypn="dev-lang/ruby";
+            rubyslot=":1.9"
+        ;;
+        ruby20)
+            rubypn="dev-lang/ruby";
+            rubyslot=":2.0"
+        ;;
+        ruby21)
+            rubypn="dev-lang/ruby";
+            rubyslot=":2.1"
+        ;;
+        ruby22)
+            rubypn="dev-lang/ruby";
+            rubyslot=":2.2"
+        ;;
+        ruby23)
+            rubypn="dev-lang/ruby";
+            rubyslot=":2.3"
+        ;;
+        ruby24)
+            rubypn="dev-lang/ruby";
+            rubyslot=":2.4"
+        ;;
+        ruby25)
+            rubypn="dev-lang/ruby";
+            rubyslot=":2.5"
+        ;;
+        ruby26)
+            rubypn="dev-lang/ruby";
+            rubyslot=":2.6"
+        ;;
+        ruby27)
+            rubypn="dev-lang/ruby";
+            rubyslot=":2.7"
+        ;;
+        ruby30)
+            rubypn="dev-lang/ruby";
+            rubyslot=":3.0"
+        ;;
+        ruby31)
+            rubypn="dev-lang/ruby";
+            rubyslot=":3.1"
+        ;;
+        ree18)
+            rubypn="dev-lang/ruby-enterprise";
+            rubyslot=":1.8"
+        ;;
+        jruby)
+            rubypn="dev-java/jruby";
+            rubyslot=""
+        ;;
+        rbx)
+            rubypn="dev-lang/rubinius";
+            rubyslot=""
+        ;;
+        *)
+            die "$1: unknown Ruby implementation"
+        ;;
+    esac;
+    echo "$2${rubypn}$3${rubyslot}"
+}
+_ruby_single_implementations_depend () 
+{ 
+    local depend;
+    for _ruby_implementation in ${RUBY_TARGETS_PREFERENCE};
+    do
+        if [[ ${USE_RUBY} =~ ${_ruby_implementation} ]]; then
+            depend="${depend} $(_ruby_implementation_depend $_ruby_implementation)";
+        fi;
+    done;
+    echo "|| ( ${depend} ) virtual/rubygems"
+}
+_ruby_single_set_globals () 
+{ 
+    RUBY_DEPS=$(_ruby_single_implementations_depend)
+}
+_setup-allowed-flags () 
+{ 
+    ALLOWED_FLAGS=(-pipe -O '-O[12sg]' '-mcpu=*' '-march=*' '-mtune=*' '-fstack-protector*' '-fstack-check*' -fno-stack-check -fstack-clash-protection '-fcf-protection=*' -fbounds-check -fbounds-checking -fno-PIE -fno-pie -nopie -no-pie '-mindirect-branch=*' -mindirect-branch-register '-mfunction-return=*' -mretpoline -fno-unit-at-a-time -fno-strict-overflow '-fsanitize*' '-fno-sanitize*' -g '-g[0-9]' -ggdb '-ggdb[0-9]' -gdwarf '-gdwarf-*' -gstabs -gstabs+ -gz -glldb -fno-diagnostics-color '-fmessage-length=*' -fno-ident -fpermissive -frecord-gcc-switches -frecord-command-line '-fdiagnostics*' '-fplugin*' '-W*' -w '-[DUILR]*' '-Wl,*' '-fuse-ld=*');
+    ALLOWED_FLAGS+=('-fno-stack-protector*' '-fabi-version=*' -fno-strict-aliasing -fno-bounds-check -fno-bounds-checking -fstrict-overflow -fno-omit-frame-pointer '-fno-builtin*');
+    ALLOWED_FLAGS+=('-mregparm=*' -mno-app-regs -mapp-regs -mno-mmx -mno-sse -mno-sse2 -mno-sse3 -mno-ssse3 -mno-sse4 -mno-sse4.1 -mno-sse4.2 -mno-avx -mno-aes -mno-pclmul -mno-sse4a -mno-3dnow -mno-popcnt -mno-abm -mips1 -mips2 -mips3 -mips4 -mips32 -mips64 -mips16 -mplt -msoft-float -mno-soft-float -mhard-float -mno-hard-float '-mfpu=*' -mieee -mieee-with-inexact '-mschedule=*' -mfloat-gprs -mspe -mno-spe -mtls-direct-seg-refs -mno-tls-direct-seg-refs -mflat -mno-flat -mno-faster-structs -mfaster-structs -m32 -m64 -mx32 '-mabi=*' -mlittle-endian -mbig-endian -EL -EB -fPIC -mlive-g0 '-mcmodel=*' -mstack-bias -mno-stack-bias -msecure-plt '-m*-toc' '-mfloat-abi=*' -mfix-r4000 -mno-fix-r4000 -mfix-r4400 -mno-fix-r4400 -mfix-rm7000 -mno-fix-rm7000 -mfix-r10000 -mno-fix-r10000 '-mr10k-cache-barrier=*' -mthumb -marm -ffixed-x18 -mno-fma4 -mno-movbe -mno-xop -mno-lwp -mno-fsgsbase -mno-rdrnd -mno-f16c -mno-bmi -mno-tbm -mno-avx2 -mno-bmi2 -mno-fma -mno-lzcnt -mno-fxsr -mno-hle -mno-rtm -mno-xsave -mno-xsaveopt -mno-avx512cd -mno-avx512er -mno-avx512f -mno-avx512pf -mno-sha);
+    ALLOWED_FLAGS+=(-mstackrealign)
+}
+_tc-getPROG () 
+{ 
+    local tuple=$1;
+    local v var vars=$2;
+    local prog=($3);
+    var=${vars%% *};
+    for v in ${vars};
+    do
+        if [[ -n ${!v} ]]; then
+            export ${var}="${!v}";
+            echo "${!v}";
+            return 0;
+        fi;
+    done;
+    local search=;
+    [[ -n $4 ]] && search=$(type -p $4-${prog[0]});
+    [[ -z ${search} && -n ${!tuple} ]] && search=$(type -p ${!tuple}-${prog[0]});
+    [[ -n ${search} ]] && prog[0]=${search##*/};
+    export ${var}="${prog[*]}";
+    echo "${!var}"
+}
+_tc-has-openmp () 
+{ 
+    local base="${T}/test-tc-openmp";
+    cat <<-EOF > "${base}.c"
+#include <omp.h>
+int main() {
+int nthreads, tid, ret = 0;
+#pragma omp parallel private(nthreads, tid)
+{
+tid = omp_get_thread_num();
+nthreads = omp_get_num_threads(); ret += tid + nthreads;
+}
+return ret;
+}
+EOF
+
+    $(tc-getCC "$@") -fopenmp "${base}.c" -o "${base}" &> /dev/null;
+    local ret=$?;
+    rm -f "${base}"*;
+    return ${ret}
+}
+_test-flag-PROG () 
+{ 
+    local comp=$1;
+    local lang=$2;
+    shift 2;
+    if [[ -z ${comp} ]]; then
+        return 1;
+    fi;
+    if [[ -z $1 ]]; then
+        return 1;
+    fi;
+    comp=($(tc-get${comp}));
+    if ! type -p ${comp[0]} > /dev/null; then
+        return 1;
+    fi;
+    local in_src in_ext cmdline_extra=();
+    case "${lang}" in 
+        c)
+            in_ext='c';
+            in_src='int main(void) { return 0; }';
+            cmdline_extra+=(-xc -c)
+        ;;
+        c++)
+            in_ext='cc';
+            in_src='int main(void) { return 0; }';
+            cmdline_extra+=(-xc++ -c)
+        ;;
+        f77)
+            in_ext='f';
+            in_src='      end';
+            cmdline_extra+=(-xf77 -c)
+        ;;
+        f95)
+            in_ext='f90';
+            in_src='end';
+            cmdline_extra+=(-xf95 -c)
+        ;;
+        c+ld)
+            in_ext='c';
+            in_src='int main(void) { return 0; }';
+            cmdline_extra+=(-xc)
+        ;;
+    esac;
+    local test_in=${T}/test-flag.${in_ext};
+    local test_out=${T}/test-flag.exe;
+    printf "%s\n" "${in_src}" > "${test_in}" || die "Failed to create '${test_in}'";
+    local cmdline=("${comp[@]}" -Werror "$@" "${cmdline_extra[@]}" "${test_in}" -o "${test_out}");
+    if ! "${cmdline[@]}" &> /dev/null; then
+        cmdline+=(-Qunused-arguments);
+        "${cmdline[@]}" &> /dev/null;
+    fi
+}
+_test-flags-PROG () 
+{ 
+    local comp=$1;
+    local flags=();
+    local x;
+    shift;
+    [[ -z ${comp} ]] && return 1;
+    while (( $# )); do
+        case "$1" in 
+            --param | -B)
+                if test-flag-${comp} "$1" "$2"; then
+                    flags+=("$1" "$2");
+                fi;
+                shift 2
+            ;;
+            *)
+                if test-flag-${comp} "$1"; then
+                    flags+=("$1");
+                fi;
+                shift 1
+            ;;
+        esac;
+    done;
+    echo "${flags[*]}";
+    [[ ${#flags[@]} -gt 0 ]]
+}
+all-flag-vars () 
+{ 
+    echo {ADA,C,CPP,CXX,CCAS,F,FC,LD}FLAGS
+}
+append-cflags () 
+{ 
+    [[ $# -eq 0 ]] && return 0;
+    export CFLAGS+=" $*";
+    return 0
+}
+append-cppflags () 
+{ 
+    [[ $# -eq 0 ]] && return 0;
+    export CPPFLAGS+=" $*";
+    return 0
+}
+append-cxxflags () 
+{ 
+    [[ $# -eq 0 ]] && return 0;
+    export CXXFLAGS+=" $*";
+    return 0
+}
+append-fflags () 
+{ 
+    [[ $# -eq 0 ]] && return 0;
+    export FFLAGS+=" $*";
+    export FCFLAGS+=" $*";
+    return 0
+}
+append-flags () 
+{ 
+    [[ $# -eq 0 ]] && return 0;
+    case " $* " in 
+        *' '-[DIU]*)
+            eqawarn 'please use append-cppflags for preprocessor flags'
+        ;;
+        *' '-L* | *' '-Wl,*)
+            eqawarn 'please use append-ldflags for linker flags'
+        ;;
+    esac;
+    append-cflags "$@";
+    append-cxxflags "$@";
+    append-fflags "$@";
+    return 0
+}
+append-ldflags () 
+{ 
+    [[ $# -eq 0 ]] && return 0;
+    local flag;
+    for flag in "$@";
+    do
+        [[ ${flag} == -l* ]] && eqawarn "Appending a library link instruction (${flag}); libraries to link to should not be passed through LDFLAGS";
+    done;
+    export LDFLAGS="${LDFLAGS} $*";
+    return 0
+}
+append-lfs-flags () 
+{ 
+    [[ $# -ne 0 ]] && die "append-lfs-flags takes no arguments";
+    append-cppflags -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE
+}
+append-libs () 
+{ 
+    [[ $# -eq 0 ]] && return 0;
+    local flag;
+    for flag in "$@";
+    do
+        if [[ -z "${flag// }" ]]; then
+            eqawarn "Appending an empty argument to LIBS is invalid! Skipping.";
+            continue;
+        fi;
+        case $flag in 
+            -[lL]*)
+                export LIBS="${LIBS} ${flag}"
+            ;;
+            -*)
+                eqawarn "Appending non-library to LIBS (${flag}); Other linker flags should be passed via LDFLAGS";
+                export LIBS="${LIBS} ${flag}"
+            ;;
+            *)
+                export LIBS="${LIBS} -l${flag}"
+            ;;
+        esac;
+    done;
+    return 0
+}
+build_sphinx () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    [[ ${#} -eq 1 ]] || die "${FUNCNAME} takes 1 arg: <directory>";
+    local dir=${1};
+    sed -i -e 's:^intersphinx_mapping:disabled_&:' "${dir}"/conf.py || die;
+    local command=("${EPYTHON}" -m sphinx.cmd.build);
+    if ! "${EPYTHON}" -c "import sphinx.cmd.build" 2> /dev/null; then
+        command=(sphinx-build);
+    fi;
+    command+=(-b html -d "${dir}"/_build/doctrees "${dir}" "${dir}"/_build/html);
+    echo "${command[@]}" 1>&2;
+    "${command[@]}" || die;
+    HTML_DOCS+=("${dir}/_build/html/.")
+}
+check-reqs_disk () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _check-reqs_disk "$@"
+}
+check-reqs_get_kibibytes () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _check-reqs_get_kibibytes "$@"
+}
+check-reqs_get_number () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _check-reqs_get_number "$@"
+}
+check-reqs_get_unit () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _check-reqs_get_unit "$@"
+}
+check-reqs_memory () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _check-reqs_memory "$@"
+}
+check-reqs_output () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _check-reqs_get_unit "$@"
+}
+check-reqs_pkg_pretend () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    check-reqs_pkg_setup "$@"
+}
+check-reqs_pkg_setup () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    _check-reqs_prepare;
+    _check-reqs_run;
+    _check-reqs_output
+}
+check-reqs_prepare () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _check-reqs_prepare "$@"
+}
+check-reqs_run () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _check-reqs_run "$@"
+}
+check-reqs_start_phase () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _check-reqs_start_phase "$@"
+}
+check-reqs_unsatisfied () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _check-reqs_unsatisfied "$@"
+}
+clang-fullversion () 
+{ 
+    _clang_fullversion '$1.$2.$3' "$@"
+}
+clang-major-version () 
+{ 
+    _clang_fullversion '$1' "$@"
+}
+clang-micro-version () 
+{ 
+    _clang_fullversion '$3' "$@"
+}
+clang-minor-version () 
+{ 
+    _clang_fullversion '$2' "$@"
+}
+clang-version () 
+{ 
+    _clang_fullversion '$1.$2' "$@"
+}
+cmake-utils_src_make () 
+{ 
+    die "cmake-utils_src_make is banned. Use cmake_build instead"
+}
+cmake-utils_use () 
+{ 
+    _cmake_banned_func "" "$@"
+}
+cmake-utils_use_build () 
+{ 
+    _cmake_banned_func BUILD_ "$@"
+}
+cmake-utils_use_disable () 
+{ 
+    _cmake_banned_func DISABLE_ "$@"
+}
+cmake-utils_use_enable () 
+{ 
+    _cmake_banned_func ENABLE_ "$@"
+}
+cmake-utils_use_has () 
+{ 
+    _cmake_banned_func HAVE_ "$@"
+}
+cmake-utils_use_no () 
+{ 
+    _cmake_banned_func NO_ "$@"
+}
+cmake-utils_use_use () 
+{ 
+    _cmake_banned_func USE_ "$@"
+}
+cmake-utils_use_want () 
+{ 
+    _cmake_banned_func WANT_ "$@"
+}
+cmake-utils_use_with () 
+{ 
+    _cmake_banned_func WITH_ "$@"
+}
+cmake-utils_useno () 
+{ 
+    _cmake_banned_func "" "$@"
+}
+cmake_build () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    _cmake_check_build_dir;
+    pushd "${BUILD_DIR}" > /dev/null || die;
+    case ${CMAKE_MAKEFILE_GENERATOR} in 
+        emake)
+            [[ -e Makefile ]] || die "Makefile not found. Error during configure stage.";
+            case ${CMAKE_VERBOSE} in 
+                OFF)
+                    emake "$@"
+                ;;
+                *)
+                    emake VERBOSE=1 "$@"
+                ;;
+            esac
+        ;;
+        ninja)
+            [[ -e build.ninja ]] || die "build.ninja not found. Error during configure stage.";
+            eninja "$@"
+        ;;
+    esac;
+    popd > /dev/null || die
+}
+cmake_comment_add_subdirectory () 
+{ 
+    if [[ -z ${1} ]]; then
+        die "${FUNCNAME[0]} must be passed at least one directory name to comment";
+    fi;
+    [[ -e "CMakeLists.txt" ]] || return;
+    local d;
+    for d in $@;
+    do
+        d=${d//\//\\/};
+        sed -e "/add_subdirectory[[:space:]]*([[:space:]]*${d}[[:space:]]*)/I s/^/#DONOTCOMPILE /" -i CMakeLists.txt || die "failed to comment add_subdirectory(${d})";
+    done
+}
+cmake_run_in () 
+{ 
+    if [[ -z ${2} ]]; then
+        die "${FUNCNAME[0]} must be passed at least two arguments";
+    fi;
+    [[ -e ${1} ]] || die "${FUNCNAME[0]}: Nonexistent path: ${1}";
+    pushd ${1} > /dev/null || die;
+    "${@:2}";
+    popd > /dev/null || die
+}
+cmake_src_compile () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    cmake_build "$@"
+}
+cmake_src_configure () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    [[ -n ${_CMAKE_SRC_PREPARE_HAS_RUN} ]] || die "FATAL: cmake_src_prepare has not been run";
+    _cmake_check_build_dir;
+    xdg_environment_reset;
+    local build_rules=${BUILD_DIR}/gentoo_rules.cmake;
+    cat > "${build_rules}" <<-_EOF_ || 
+set(CMAKE_ASM_COMPILE_OBJECT "<CMAKE_ASM_COMPILER> <DEFINES> <INCLUDES> ${CPPFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "ASM compile command" FORCE)
+set(CMAKE_ASM-ATT_COMPILE_OBJECT "<CMAKE_ASM-ATT_COMPILER> <DEFINES> <INCLUDES> ${CPPFLAGS} <FLAGS> -o <OBJECT> -c -x assembler <SOURCE>" CACHE STRING "ASM-ATT compile command" FORCE)
+set(CMAKE_ASM-ATT_LINK_FLAGS "-nostdlib" CACHE STRING "ASM-ATT link flags" FORCE)
+set(CMAKE_C_COMPILE_OBJECT "<CMAKE_C_COMPILER> <DEFINES> <INCLUDES> ${CPPFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "C compile command" FORCE)
+set(CMAKE_CXX_COMPILE_OBJECT "<CMAKE_CXX_COMPILER> <DEFINES> <INCLUDES> ${CPPFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "C++ compile command" FORCE)
+set(CMAKE_Fortran_COMPILE_OBJECT "<CMAKE_Fortran_COMPILER> <DEFINES> <INCLUDES> ${FCFLAGS} <FLAGS> -o <OBJECT> -c <SOURCE>" CACHE STRING "Fortran compile command" FORCE)
+_EOF_
+ die
+    local myCC=$(tc-getCC) myCXX=$(tc-getCXX) myFC=$(tc-getFC);
+    local toolchain_file=${BUILD_DIR}/gentoo_toolchain.cmake;
+    cat > ${toolchain_file} <<-_EOF_ || 
+set(CMAKE_ASM_COMPILER "${myCC/ /;}")
+set(CMAKE_ASM-ATT_COMPILER "${myCC/ /;}")
+set(CMAKE_C_COMPILER "${myCC/ /;}")
+set(CMAKE_CXX_COMPILER "${myCXX/ /;}")
+set(CMAKE_Fortran_COMPILER "${myFC/ /;}")
+set(CMAKE_AR $(type -P $(tc-getAR)) CACHE FILEPATH "Archive manager" FORCE)
+set(CMAKE_RANLIB $(type -P $(tc-getRANLIB)) CACHE FILEPATH "Archive index generator" FORCE)
+set(CMAKE_SYSTEM_PROCESSOR "${CHOST%%-*}")
+_EOF_
+ die
+    local -x ASMFLAGS=${CFLAGS};
+    local -x PKG_CONFIG=$(tc-getPKG_CONFIG);
+    if tc-is-cross-compiler; then
+        local sysname;
+        case "${KERNEL:-linux}" in 
+            Cygwin)
+                sysname="CYGWIN_NT-5.1"
+            ;;
+            HPUX)
+                sysname="HP-UX"
+            ;;
+            linux)
+                sysname="Linux"
+            ;;
+            Winnt)
+                sysname="Windows";
+                cat >> "${toolchain_file}" <<-_EOF_ || 
+set(CMAKE_RC_COMPILER $(tc-getRC))
+_EOF_
+ die
+            ;;
+            *)
+                sysname="${KERNEL}"
+            ;;
+        esac
+        cat >> "${toolchain_file}" <<-_EOF_ || 
+set(CMAKE_SYSTEM_NAME "${sysname}")
+_EOF_
+ die
+        if [ "${SYSROOT:-/}" != "/" ]; then
+            cat >> "${toolchain_file}" <<-_EOF_ || 
+set(CMAKE_FIND_ROOT_PATH "${SYSROOT}")
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+_EOF_
+ die;
+        fi;
+    fi
+    if use prefix-guest; then
+        cat >> "${build_rules}" <<-_EOF_ || 
+# in Prefix we need rpath and must ensure cmake gets our default linker path
+# right ... except for Darwin hosts
+if(NOT APPLE)
+set(CMAKE_SKIP_RPATH OFF CACHE BOOL "" FORCE)
+set(CMAKE_PLATFORM_REQUIRED_RUNTIME_PATH "${EPREFIX}/usr/${CHOST}/lib/gcc;${EPREFIX}/usr/${CHOST}/lib;${EPREFIX}/usr/$(get_libdir);${EPREFIX}/$(get_libdir)" CACHE STRING "" FORCE)
+else()
+set(CMAKE_PREFIX_PATH "${EPREFIX}/usr" CACHE STRING "" FORCE)
+set(CMAKE_MACOSX_RPATH ON CACHE BOOL "" FORCE)
+set(CMAKE_SKIP_BUILD_RPATH OFF CACHE BOOL "" FORCE)
+set(CMAKE_SKIP_RPATH OFF CACHE BOOL "" FORCE)
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE CACHE BOOL "" FORCE)
+endif()
+_EOF_
+ die;
+    fi
+    local common_config=${BUILD_DIR}/gentoo_common_config.cmake;
+    local libdir=$(get_libdir);
+    cat > "${common_config}" <<-_EOF_ || 
+set(CMAKE_GENTOO_BUILD ON CACHE BOOL "Indicate Gentoo package build")
+set(LIB_SUFFIX ${libdir/lib} CACHE STRING "library path suffix" FORCE)
+set(CMAKE_INSTALL_LIBDIR ${libdir} CACHE PATH "Output directory for libraries")
+set(CMAKE_INSTALL_INFODIR "${EPREFIX}/usr/share/info" CACHE PATH "")
+set(CMAKE_INSTALL_MANDIR "${EPREFIX}/usr/share/man" CACHE PATH "")
+set(CMAKE_USER_MAKE_RULES_OVERRIDE "${build_rules}" CACHE FILEPATH "Gentoo override rules")
+set(CMAKE_INSTALL_DOCDIR "${EPREFIX}/usr/share/doc/${PF}" CACHE PATH "")
+set(BUILD_SHARED_LIBS ON CACHE BOOL "")
+_EOF_
+ die
+    if [[ -n ${_ECM_ECLASS} ]]; then
+        echo 'set(ECM_DISABLE_QMLPLUGINDUMP ON CACHE BOOL "")' >> "${common_config}" || die;
+    fi;
+    if [[ "${ARCH}" == riscv ]]; then
+        echo 'set(CMAKE_FIND_LIBRARY_CUSTOM_LIB_SUFFIX '"${libdir#lib}"' CACHE STRING "library search suffix" FORCE)' >> "${common_config}" || die;
+    fi;
+    if [[ "${NOCOLOR}" = true || "${NOCOLOR}" = yes ]]; then
+        echo 'set(CMAKE_COLOR_MAKEFILE OFF CACHE BOOL "pretty colors during make" FORCE)' >> "${common_config}" || die;
+    fi;
+    if [[ ${EAPI} != 7 ]]; then
+        echo 'set(CMAKE_INSTALL_ALWAYS 1)' >> "${common_config}" || die;
+    fi;
+    if [[ ${CMAKE_BUILD_TYPE} != Gentoo ]]; then
+        cat >> ${common_config} <<-_EOF_ || 
+set(CMAKE_ASM_FLAGS_${CMAKE_BUILD_TYPE^^} "" CACHE STRING "")
+set(CMAKE_ASM-ATT_FLAGS_${CMAKE_BUILD_TYPE^^} "" CACHE STRING "")
+set(CMAKE_C_FLAGS_${CMAKE_BUILD_TYPE^^} "" CACHE STRING "")
+set(CMAKE_CXX_FLAGS_${CMAKE_BUILD_TYPE^^} "" CACHE STRING "")
+set(CMAKE_Fortran_FLAGS_${CMAKE_BUILD_TYPE^^} "" CACHE STRING "")
+set(CMAKE_EXE_LINKER_FLAGS_${CMAKE_BUILD_TYPE^^} "" CACHE STRING "")
+set(CMAKE_MODULE_LINKER_FLAGS_${CMAKE_BUILD_TYPE^^} "" CACHE STRING "")
+set(CMAKE_SHARED_LINKER_FLAGS_${CMAKE_BUILD_TYPE^^} "" CACHE STRING "")
+set(CMAKE_STATIC_LINKER_FLAGS_${CMAKE_BUILD_TYPE^^} "" CACHE STRING "")
+_EOF_
+ die;
+    fi
+    [[ -z ${mycmakeargs} ]] && declare -a mycmakeargs=();
+    local mycmakeargstype=$(declare -p mycmakeargs 2>&-);
+    if [[ "${mycmakeargstype}" != "declare -a mycmakeargs="* ]]; then
+        die "mycmakeargs must be declared as array";
+    fi;
+    local mycmakeargs_local=("${mycmakeargs[@]}");
+    local warn_unused_cli="";
+    if [[ ${CMAKE_WARN_UNUSED_CLI} == no ]]; then
+        warn_unused_cli="--no-warn-unused-cli";
+    fi;
+    local generator_name;
+    case ${CMAKE_MAKEFILE_GENERATOR} in 
+        ninja)
+            generator_name="Ninja"
+        ;;
+        emake)
+            generator_name="Unix Makefiles"
+        ;;
+    esac;
+    local cmakeargs=(${warn_unused_cli} -C "${common_config}" -G "${generator_name}" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr" "${mycmakeargs_local[@]}" -DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}" -DCMAKE_TOOLCHAIN_FILE="${toolchain_file}");
+    if [[ -n ${MYCMAKEARGS} ]]; then
+        cmakeargs+=("${MYCMAKEARGS}");
+    fi;
+    if [[ -n "${CMAKE_EXTRA_CACHE_FILE}" ]]; then
+        cmakeargs+=(-C "${CMAKE_EXTRA_CACHE_FILE}");
+    fi;
+    pushd "${BUILD_DIR}" > /dev/null || die;
+    debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: mycmakeargs is ${mycmakeargs_local[*]}";
+    echo "${CMAKE_BINARY}" "${cmakeargs[@]}" "${CMAKE_USE_DIR}";
+    "${CMAKE_BINARY}" "${cmakeargs[@]}" "${CMAKE_USE_DIR}" || die "cmake failed";
+    popd > /dev/null || die
+}
+cmake_src_install () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    DESTDIR="${D}" cmake_build install "$@";
+    if [[ ${EAPI} == 7 ]]; then
+        pushd "${S}" > /dev/null || die;
+        einstalldocs;
+        popd > /dev/null || die;
+    else
+        pushd "${CMAKE_USE_DIR}" > /dev/null || die;
+        einstalldocs;
+        popd > /dev/null || die;
+    fi
+}
+cmake_src_prepare () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    if [[ ${EAPI} == 7 ]]; then
+        pushd "${S}" > /dev/null || die;
+    fi;
+    _cmake_check_build_dir;
+    default_src_prepare;
+    if [[ ! -e ${CMAKE_USE_DIR}/CMakeLists.txt ]]; then
+        eerror "Unable to locate CMakeLists.txt under:";
+        eerror "\"${CMAKE_USE_DIR}/CMakeLists.txt\"";
+        eerror "Consider not inheriting the cmake eclass.";
+        die "FATAL: Unable to find CMakeLists.txt";
+    fi;
+    local modules_list;
+    if [[ ${EAPI} == 7 && $(declare -p CMAKE_REMOVE_MODULES_LIST) != "declare -a"* ]]; then
+        modules_list=(${CMAKE_REMOVE_MODULES_LIST});
+    else
+        modules_list=("${CMAKE_REMOVE_MODULES_LIST[@]}");
+    fi;
+    local name;
+    for name in "${modules_list[@]}";
+    do
+        if [[ ${EAPI} == 7 ]]; then
+            find "${S}" -name ${name}.cmake -exec rm -v {} + || die;
+        else
+            find -name "${name}.cmake" -exec rm -v {} + || die;
+        fi;
+    done;
+    _cmake_modify-cmakelists;
+    if [[ ${EAPI} == 7 ]]; then
+        popd > /dev/null || die;
+    fi;
+    if [[ -n ${CMAKE_QA_SRC_DIR_READONLY} && ! -n ${CMAKE_IN_SOURCE_BUILD} ]]; then
+        if [[ ${EAPI} == 7 ]]; then
+            chmod -R a-w "${S}";
+        else
+            chmod -R a-w "${CMAKE_USE_DIR}";
+        fi;
+    fi;
+    _CMAKE_SRC_PREPARE_HAS_RUN=1
+}
+cmake_src_test () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    _cmake_check_build_dir;
+    pushd "${BUILD_DIR}" > /dev/null || die;
+    [[ -e CTestTestfile.cmake ]] || { 
+        echo "No tests found. Skipping.";
+        return 0
+    };
+    [[ -n ${TEST_VERBOSE} ]] && myctestargs+=(--extra-verbose --output-on-failure);
+    set -- ctest -j "$(makeopts_jobs "${MAKEOPTS}" 999)" --test-load "$(makeopts_loadavg)" "${myctestargs[@]}" "$@";
+    echo "$@" 1>&2;
+    if "$@"; then
+        einfo "Tests succeeded.";
+        popd > /dev/null || die;
+        return 0;
+    else
+        if [[ -n "${CMAKE_YES_I_WANT_TO_SEE_THE_TEST_LOG}" ]]; then
+            eerror "Tests failed. Test log ${BUILD_DIR}/Testing/Temporary/LastTest.log follows:";
+            eerror "--START TEST LOG--------------------------------------------------------------";
+            cat "${BUILD_DIR}/Testing/Temporary/LastTest.log";
+            eerror "--END TEST LOG----------------------------------------------------------------";
+            die "Tests failed.";
+        else
+            die "Tests failed. When you file a bug, please attach the following file: \n\t${BUILD_DIR}/Testing/Temporary/LastTest.log";
+        fi;
+        popd > /dev/null || die;
+        return 1;
+    fi
+}
+cmake_use_find_package () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    if [[ "$#" != 2 || -z $1 ]]; then
+        die "Usage: cmake_use_find_package <USE flag> <package name>";
+    fi;
+    echo "-DCMAKE_DISABLE_FIND_PACKAGE_$2=$(use $1 && echo OFF || echo ON)"
+}
+comment_add_subdirectory () 
+{ 
+    die "comment_add_subdirectory is banned. Use cmake_comment_add_subdirectory instead"
+}
+dosym8 () 
+{ 
+    local option_r;
+    case $1 in 
+        -r)
+            option_r=t;
+            shift
+        ;;
+    esac;
+    [[ $# -eq 2 ]] || die "${FUNCNAME}: bad number of arguments";
+    local target=$1 link=$2;
+    if [[ -n ${option_r} ]]; then
+        local linkdir comp;
+        [[ ${target} == /* ]] || die "${FUNCNAME}: -r specified but no absolute target path";
+        target=$(_dosym8_canonicalize "${target}");
+        linkdir=$(_dosym8_canonicalize "/${link#/}");
+        linkdir=${linkdir%/*};
+        linkdir=${linkdir:-/};
+        local ifs_save=${IFS-' 	
+'} IFS=/;
+        for comp in ${linkdir};
+        do
+            if [[ ${target%%/*} == "${comp}" ]]; then
+                target=${target#"${comp}"};
+                target=${target#/};
+            else
+                target=..${target:+/}${target};
+            fi;
+        done;
+        IFS=${ifs_save};
+        target=${target:-.};
+    fi;
+    dosym "${target}" "${link}"
+}
+eapply () 
+{ 
+    local failed patch_cmd=patch;
+    local -x LC_COLLATE=POSIX;
+    type -P gpatch > /dev/null && patch_cmd=gpatch;
+    function _eapply_patch () 
+    { 
+        local f=${1};
+        local prefix=${2};
+        ebegin "${prefix:-Applying }${f##*/}";
+        local all_opts=(-p1 -f -g0 --no-backup-if-mismatch "${patch_options[@]}");
+        if ${patch_cmd} "${all_opts[@]}" --dry-run -s -F0 < "${f}" &> /dev/null; then
+            all_opts+=(-s -F0);
+        fi;
+        ${patch_cmd} "${all_opts[@]}" < "${f}";
+        failed=${?};
+        if ! eend "${failed}"; then
+            __helpers_die "patch -p1 ${patch_options[*]} failed with ${f}";
+        fi
+    };
+    local patch_options=() files=();
+    local i found_doublehyphen;
+    for ((i = 1; i <= ${#@}; ++i ))
+    do
+        if [[ ${@:i:1} == -- ]]; then
+            patch_options=("${@:1:i-1}");
+            files=("${@:i+1}");
+            found_doublehyphen=1;
+            break;
+        fi;
+    done;
+    if [[ -z ${found_doublehyphen} ]]; then
+        for ((i = 1; i <= ${#@}; ++i ))
+        do
+            if [[ ${@:i:1} != -* ]]; then
+                patch_options=("${@:1:i-1}");
+                files=("${@:i}");
+                break;
+            fi;
+        done;
+        for i in "${files[@]}";
+        do
+            if [[ ${i} == -* ]]; then
+                die "eapply: all options must be passed before non-options";
+            fi;
+        done;
+    fi;
+    if [[ ${#files[@]} -eq 0 ]]; then
+        die "eapply: no files specified";
+    fi;
+    local f;
+    for f in "${files[@]}";
+    do
+        if [[ -d ${f} ]]; then
+            function _eapply_get_files () 
+            { 
+                local LC_ALL=POSIX;
+                local prev_shopt=$(shopt -p nullglob);
+                shopt -s nullglob;
+                local f;
+                for f in "${1}"/*;
+                do
+                    if [[ ${f} == *.diff || ${f} == *.patch ]]; then
+                        files+=("${f}");
+                    fi;
+                done;
+                ${prev_shopt}
+            };
+            local files=();
+            _eapply_get_files "${f}";
+            [[ ${#files[@]} -eq 0 ]] && die "No *.{patch,diff} files in directory ${f}";
+            einfo "Applying patches from ${f} ...";
+            local f2;
+            for f2 in "${files[@]}";
+            do
+                _eapply_patch "${f2}" '  ';
+                [[ ${failed} -ne 0 ]] && return "${failed}";
+            done;
+        else
+            _eapply_patch "${f}";
+            [[ ${failed} -ne 0 ]] && return "${failed}";
+        fi;
+    done;
+    return 0
+}
+eapply_user () 
+{ 
+    [[ ${EBUILD_PHASE} == prepare ]] || die "eapply_user() called during invalid phase: ${EBUILD_PHASE}";
+    local tagfile=${T}/.portage_user_patches_applied;
+    [[ -f ${tagfile} ]] && return;
+     >> "${tagfile}";
+    local basedir=${PORTAGE_CONFIGROOT%/}/etc/portage/patches;
+    local columns=${COLUMNS:-0};
+    [[ ${columns} == 0 ]] && columns=$(set -- $( ( stty size </dev/tty ) 2>/dev/null || echo 24 80 ) ; echo $2);
+    (( columns > 0 )) || (( columns = 80 ));
+    local applied d f;
+    local -A _eapply_user_patches;
+    local prev_shopt=$(shopt -p nullglob);
+    shopt -s nullglob;
+    for d in "${basedir}"/${CATEGORY}/{${P}-${PR},${P},${PN}}{:${SLOT%/*},};
+    do
+        for f in "${d}"/*;
+        do
+            if [[ ( ${f} == *.diff || ${f} == *.patch ) && -z ${_eapply_user_patches[${f##*/}]} ]]; then
+                _eapply_user_patches[${f##*/}]=${f};
+            fi;
+        done;
+    done;
+    if [[ ${#_eapply_user_patches[@]} -gt 0 ]]; then
+        while read -r -d '' f; do
+            f=${_eapply_user_patches[${f}]};
+            if [[ -s ${f} ]]; then
+                if [[ -z ${applied} ]]; then
+                    einfo "${PORTAGE_COLOR_INFO}$(for ((column = 0; column < ${columns} - 3; column++)); do echo -n =; done)${PORTAGE_COLOR_NORMAL}";
+                    einfo "Applying user patches from ${basedir} ...";
+                fi;
+                eapply "${f}";
+                applied=1;
+            fi;
+        done < <(printf -- '%s\0' "${!_eapply_user_patches[@]}" |
+				LC_ALL=C sort -z);
+    fi;
+    ${prev_shopt};
+    if [[ -n ${applied} ]]; then
+        einfo "User patches applied.";
+        einfo "${PORTAGE_COLOR_INFO}$(for ((column = 0; column < ${columns} - 3; column++)); do echo -n =; done)${PORTAGE_COLOR_NORMAL}";
+    fi
+}
+econf_build () 
+{ 
+    local CBUILD=${CBUILD:-${CHOST}};
+    tc-env_build econf --build=${CBUILD} --host=${CBUILD} "$@"
+}
+edos2unix () 
+{ 
+    [[ $# -eq 0 ]] && return 0;
+    sed -i 's/\r$//' -- "$@" || die
+}
+einstalldocs () 
+{ 
+    ( if [[ $(declare -p DOCS 2>/dev/null) != *=* ]]; then
+        local d;
+        for d in README* ChangeLog AUTHORS NEWS TODO CHANGES THANKS BUGS FAQ CREDITS CHANGELOG;
+        do
+            [[ -f ${d} && -s ${d} ]] && docinto / && dodoc "${d}";
+        done;
+    else
+        if ___is_indexed_array_var DOCS; then
+            [[ ${#DOCS[@]} -gt 0 ]] && docinto / && dodoc -r "${DOCS[@]}";
+        else
+            [[ -n ${DOCS} ]] && docinto / && dodoc -r ${DOCS};
+        fi;
+    fi );
+    ( if ___is_indexed_array_var HTML_DOCS; then
+        [[ ${#HTML_DOCS[@]} -gt 0 ]] && docinto html && dodoc -r "${HTML_DOCS[@]}";
+    else
+        [[ -n ${HTML_DOCS} ]] && docinto html && dodoc -r ${HTML_DOCS};
+    fi )
+}
+elibtoolize () 
+{ 
+    type -P eltpatch &> /dev/null || die "eltpatch not found; is app-portage/elt-patches installed?";
+    ELT_LOGDIR=${T} LD=$(tc-getLD) eltpatch "${@}" || die "eltpatch failed"
+}
+emktemp () 
+{ 
+    eerror "emktemp has been removed.";
+    eerror "Create a temporary file in \${T} instead.";
+    die "emktemp is banned"
+}
+eninja () 
+{ 
+    local nonfatal_args=();
+    [[ ${EAPI} != 5 ]] && nonfatal_args+=(-n);
+    if [[ -z ${NINJAOPTS+set} ]]; then
+        NINJAOPTS="-j$(makeopts_jobs "${MAKEOPTS}" 999) -l$(makeopts_loadavg "${MAKEOPTS}" 0)";
+    fi;
+    [[ -n "${NINJA_DEPEND}" ]] || ewarn "Unknown value '${NINJA}' for \${NINJA}";
+    set -- "${NINJA}" -v ${NINJAOPTS} "$@";
+    echo "$@" 1>&2;
+    "$@" || die "${nonfatal_args[@]}" "${*} failed"
+}
+epytest () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    _python_check_EPYTHON;
+    local color;
+    case ${NOCOLOR} in 
+        true | yes)
+            color=no
+        ;;
+        *)
+            color=yes
+        ;;
+    esac;
+    local args=(-vv -ra -l -Wdefault "--color=${color}" -o console_output_style=count -p no:cov -p no:flake8 -p no:flakes -p no:pylint -p no:markdown);
+    local x;
+    for x in "${EPYTEST_DESELECT[@]}";
+    do
+        args+=(--deselect "${x}");
+    done;
+    for x in "${EPYTEST_IGNORE[@]}";
+    do
+        args+=(--ignore "${x}");
+    done;
+    set -- "${EPYTHON}" -m pytest "${args[@]}" "${@}";
+    echo "${@}" 1>&2;
+    "${@}" || die -n "pytest failed with ${EPYTHON}";
+    local ret=${?};
+    rm -rf .hypothesis .pytest_cache || die;
+    if [[ -n ${BUILD_DIR} && -d ${BUILD_DIR} ]]; then
+        find "${BUILD_DIR}" -name '*-pytest-*.pyc' -delete || die;
+    fi;
+    return ${ret}
+}
+eunittest () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    _python_check_EPYTHON;
+    set -- "${EPYTHON}" -m unittest_or_fail discover -v "${@}";
+    echo "${@}" 1>&2;
+    "${@}" || die -n "Tests failed with ${EPYTHON}";
+    return ${?}
+}
+filter-flags () 
+{ 
+    _filter-hardened "$@";
+    local v;
+    for v in $(all-flag-vars);
+    do
+        _filter-var ${v} "$@";
+    done;
+    return 0
+}
+filter-ldflags () 
+{ 
+    _filter-var LDFLAGS "$@";
+    return 0
+}
+filter-lfs-flags () 
+{ 
+    [[ $# -ne 0 ]] && die "filter-lfs-flags takes no arguments";
+    filter-flags -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_TIME_BITS=64
+}
+filter-lto () 
+{ 
+    [[ $# -ne 0 ]] && die "filter-lto takes no arguments";
+    filter-flags '-flto*' -fwhole-program-vtables '-fsanitize=cfi*'
+}
+filter-mfpmath () 
+{ 
+    local orig_mfpmath new_math prune_math;
+    orig_mfpmath=$(get-flag -mfpmath);
+    new_math=$(get-flag mfpmath);
+    new_math=${new_math/both/387,sse};
+    new_math=" ${new_math//[,+]/ } ";
+    prune_math="";
+    for prune_math in "$@";
+    do
+        new_math=${new_math/ ${prune_math} / };
+    done;
+    new_math=$(echo ${new_math});
+    new_math=${new_math// /,};
+    if [[ -z ${new_math} ]]; then
+        filter-flags ${orig_mfpmath};
+    else
+        replace-flags ${orig_mfpmath} -mfpmath=${new_math};
+    fi;
+    return 0
+}
+gcc-fullversion () 
+{ 
+    _gcc_fullversion '$1.$2.$3' "$@"
+}
+gcc-major-version () 
+{ 
+    _gcc_fullversion '$1' "$@"
+}
+gcc-micro-version () 
+{ 
+    _gcc_fullversion '$3' "$@"
+}
+gcc-minor-version () 
+{ 
+    _gcc_fullversion '$2' "$@"
+}
+gcc-specs-directive () 
+{ 
+    local directive subdname subdirective;
+    directive="$(_gcc-specs-directive_raw $1)";
+    while [[ ${directive} == *%\(*\)* ]]; do
+        subdname=${directive/*%\(};
+        subdname=${subdname/\)*};
+        subdirective="$(_gcc-specs-directive_raw ${subdname})";
+        directive="${directive//\%(${subdname})/${subdirective}}";
+    done;
+    echo "${directive}";
+    return 0
+}
+gcc-specs-nostrict () 
+{ 
+    local directive;
+    directive=$(gcc-specs-directive cc1);
+    [[ "${directive/\{!fstrict-overflow:}" != "${directive}" ]]
+}
+gcc-specs-now () 
+{ 
+    local directive;
+    directive=$(gcc-specs-directive link_command);
+    [[ "${directive/\{!nonow:}" != "${directive}" ]]
+}
+gcc-specs-pie () 
+{ 
+    local directive;
+    directive=$(gcc-specs-directive cc1);
+    [[ "${directive/\{!nopie:}" != "${directive}" ]]
+}
+gcc-specs-relro () 
+{ 
+    local directive;
+    directive=$(gcc-specs-directive link_command);
+    [[ "${directive/\{!norelro:}" != "${directive}" ]]
+}
+gcc-specs-ssp () 
+{ 
+    local directive;
+    directive=$(gcc-specs-directive cc1);
+    [[ "${directive/\{!fno-stack-protector:}" != "${directive}" ]]
+}
+gcc-specs-ssp-to-all () 
+{ 
+    local directive;
+    directive=$(gcc-specs-directive cc1);
+    [[ "${directive/\{!fno-stack-protector-all:}" != "${directive}" ]]
+}
+gcc-specs-stack-check () 
+{ 
+    local directive;
+    directive=$(gcc-specs-directive cc1);
+    [[ "${directive/\{!fno-stack-check:}" != "${directive}" ]]
+}
+gcc-version () 
+{ 
+    _gcc_fullversion '$1.$2' "$@"
+}
+gen_usr_ldscript () 
+{ 
+    ewarn "${FUNCNAME}: Please migrate to usr-ldscript.eclass";
+    local lib libdir=$(get_libdir) output_format="" auto=false suffix=$(get_libname);
+    [[ -z ${ED+set} ]] && local ED=${D%/}${EPREFIX}/;
+    tc-is-static-only && return;
+    if [[ $(type -t multilib_is_native_abi) == "function" ]]; then
+        multilib_is_native_abi || return 0;
+    fi;
+    case ${CTARGET:-${CHOST}} in 
+        *-darwin*)
+
+        ;;
+        *-android*)
+            return 0
+        ;;
+        *linux* | *-freebsd* | *-openbsd* | *-netbsd*)
+            use prefix && return 0
+        ;;
+        *)
+            return 0
+        ;;
+    esac;
+    dodir /usr/${libdir};
+    if [[ $1 == "-a" ]]; then
+        auto=true;
+        shift;
+        dodir /${libdir};
+    fi;
+    local flags=(${CFLAGS} ${LDFLAGS} -Wl,--verbose);
+    if $(tc-getLD) --version | grep -q 'GNU gold'; then
+        local d="${T}/bfd-linker";
+        mkdir -p "${d}";
+        ln -sf $(which ${CHOST}-ld.bfd) "${d}"/ld;
+        flags+=(-B"${d}");
+    fi;
+    output_format=$($(tc-getCC) "${flags[@]}" 2>&1 | sed -n 's/^OUTPUT_FORMAT("\([^"]*\)",.*/\1/p');
+    [[ -n ${output_format} ]] && output_format="OUTPUT_FORMAT ( ${output_format} )";
+    for lib in "$@";
+    do
+        local tlib;
+        if ${auto}; then
+            lib="lib${lib}${suffix}";
+        else
+            [[ -r ${ED}/${libdir}/${lib} ]] || continue;
+        fi;
+        case ${CTARGET:-${CHOST}} in 
+            *-darwin*)
+                if ${auto}; then
+                    tlib=$(scanmacho -qF'%S#F' "${ED}"/usr/${libdir}/${lib});
+                else
+                    tlib=$(scanmacho -qF'%S#F' "${ED}"/${libdir}/${lib});
+                fi;
+                [[ -z ${tlib} ]] && die "unable to read install_name from ${lib}";
+                tlib=${tlib##*/};
+                if ${auto}; then
+                    mv "${ED}"/usr/${libdir}/${lib%${suffix}}.*${suffix#.} "${ED}"/${libdir}/ || die;
+                    if [[ ${tlib} != ${lib%${suffix}}.*${suffix#.} ]]; then
+                        mv "${ED}"/usr/${libdir}/${tlib%${suffix}}.*${suffix#.} "${ED}"/${libdir}/ || die;
+                    fi;
+                    rm -f "${ED}"/${libdir}/${lib};
+                fi;
+                if [[ ! -w "${ED}/${libdir}/${tlib}" ]]; then
+                    chmod u+w "${ED}${libdir}/${tlib}";
+                    local nowrite=yes;
+                fi;
+                install_name_tool -id "${EPREFIX}"/${libdir}/${tlib} "${ED}"/${libdir}/${tlib} || die "install_name_tool failed";
+                [[ -n ${nowrite} ]] && chmod u-w "${ED}${libdir}/${tlib}";
+                pushd "${ED}/usr/${libdir}" > /dev/null;
+                ln -snf "../../${libdir}/${tlib}" "${lib}";
+                popd > /dev/null
+            ;;
+            *)
+                if ${auto}; then
+                    tlib=$(scanelf -qF'%S#F' "${ED}"/usr/${libdir}/${lib});
+                    [[ -z ${tlib} ]] && die "unable to read SONAME from ${lib}";
+                    mv "${ED}"/usr/${libdir}/${lib}* "${ED}"/${libdir}/ || die;
+                    if [[ ${tlib} != ${lib}* ]]; then
+                        mv "${ED}"/usr/${libdir}/${tlib}* "${ED}"/${libdir}/ || die;
+                    fi;
+                    rm -f "${ED}"/${libdir}/${lib};
+                else
+                    tlib=${lib};
+                fi;
+                cat > "${ED}/usr/${libdir}/${lib}" <<-END_LDSCRIPT
+/* GNU ld script
+   Since Gentoo has critical dynamic libraries in /lib, and the static versions
+   in /usr/lib, we need to have a "fake" dynamic lib in /usr/lib, otherwise we
+   run into linking problems.  This "fake" dynamic lib is a linker script that
+   redirects the linker to the real lib.  And yes, this works in the cross-
+   compiling scenario as the sysroot-ed linker will prepend the real path.
+
+   See bug https://bugs.gentoo.org/4411 for more info.
+ */
+${output_format}
+GROUP ( ${EPREFIX}/${libdir}/${tlib} )
+END_LDSCRIPT
+
+            ;;
+        esac
+        fperms a+x "/usr/${libdir}/${lib}" || die "could not change perms on ${lib}";
+    done
+}
+get-flag () 
+{ 
+    [[ $# -ne 1 ]] && die "usage: <flag>";
+    local f var findflag="$1";
+    for var in $(all-flag-vars);
+    do
+        for f in ${!var};
+        do
+            if [ "${f/${findflag}}" != "${f}" ]; then
+                printf "%s\n" "${f/-${findflag}=}";
+                return 0;
+            fi;
+        done;
+    done;
+    return 1
+}
+get_abi_CFLAGS () 
+{ 
+    get_abi_var CFLAGS "$@"
+}
+get_abi_CHOST () 
+{ 
+    get_abi_var CHOST "$@"
+}
+get_abi_CTARGET () 
+{ 
+    get_abi_var CTARGET "$@"
+}
+get_abi_FAKE_TARGETS () 
+{ 
+    get_abi_var FAKE_TARGETS "$@"
+}
+get_abi_LDFLAGS () 
+{ 
+    get_abi_var LDFLAGS "$@"
+}
+get_abi_LIBDIR () 
+{ 
+    get_abi_var LIBDIR "$@"
+}
+get_abi_var () 
+{ 
+    local flag=$1;
+    local abi=${2:-${ABI:-${DEFAULT_ABI:-default}}};
+    local var="${flag}_${abi}";
+    echo ${!var}
+}
+get_all_abis () 
+{ 
+    local x order="" mvar dvar;
+    mvar="MULTILIB_ABIS";
+    dvar="DEFAULT_ABI";
+    if [[ -n $1 ]]; then
+        mvar="$1_${mvar}";
+        dvar="$1_${dvar}";
+    fi;
+    if [[ -z ${!mvar} ]]; then
+        echo "default";
+        return 0;
+    fi;
+    for x in ${!mvar};
+    do
+        if [[ ${x} != ${!dvar} ]]; then
+            order="${order:+${order} }${x}";
+        fi;
+    done;
+    order="${order:+${order} }${!dvar}";
+    echo ${order};
+    return 0
+}
+get_all_libdirs () 
+{ 
+    local libdirs abi;
+    for abi in ${MULTILIB_ABIS};
+    do
+        libdirs+=" $(get_abi_LIBDIR ${abi})";
+    done;
+    [[ " ${libdirs} " != *" lib "* ]] && libdirs+=" lib";
+    echo "${libdirs}"
+}
+get_exeext () 
+{ 
+    case ${CHOST} in 
+        *-cygwin* | mingw* | *-mingw*)
+            echo ".exe"
+        ;;
+    esac
+}
+get_install_abis () 
+{ 
+    local x order="";
+    if [[ -z ${MULTILIB_ABIS} ]]; then
+        echo "default";
+        return 0;
+    fi;
+    if [[ ${EMULTILIB_PKG} == "true" ]]; then
+        for x in ${MULTILIB_ABIS};
+        do
+            if [[ ${x} != "${DEFAULT_ABI}" ]]; then
+                has ${x} ${ABI_DENY} || order="${order} ${x}";
+            fi;
+        done;
+        has ${DEFAULT_ABI} ${ABI_DENY} || order="${order} ${DEFAULT_ABI}";
+        if [[ -n ${ABI_ALLOW} ]]; then
+            local ordera="";
+            for x in ${order};
+            do
+                if has ${x} ${ABI_ALLOW}; then
+                    ordera="${ordera} ${x}";
+                fi;
+            done;
+            order=${ordera};
+        fi;
+    else
+        order=${DEFAULT_ABI};
+    fi;
+    if [[ -z ${order} ]]; then
+        die "The ABI list is empty.  Are you using a proper multilib profile?  Perhaps your USE flags or MULTILIB_ABIS are too restrictive for this package.";
+    fi;
+    echo ${order};
+    return 0
+}
+get_libdir () 
+{ 
+    local libdir_var="LIBDIR_${ABI}";
+    local libdir="lib";
+    [[ -n ${ABI} && -n ${!libdir_var} ]] && libdir=${!libdir_var};
+    echo "${libdir}"
+}
+get_libname () 
+{ 
+    local libname;
+    local ver=$1;
+    case ${CHOST} in 
+        *-cygwin*)
+            libname="dll.a"
+        ;;
+        mingw* | *-mingw*)
+            libname="dll"
+        ;;
+        *-darwin*)
+            libname="dylib"
+        ;;
+        *-mint*)
+            libname="irrelevant"
+        ;;
+        hppa*-hpux*)
+            libname="sl"
+        ;;
+        *)
+            libname="so"
+        ;;
+    esac;
+    if [[ -z $* ]]; then
+        echo ".${libname}";
+    else
+        for ver in "$@";
+        do
+            case ${CHOST} in 
+                *-cygwin*)
+                    echo ".${ver}.${libname}"
+                ;;
+                *-darwin*)
+                    echo ".${ver}.${libname}"
+                ;;
+                *-mint*)
+                    echo ".${libname}"
+                ;;
+                *)
+                    echo ".${libname}.${ver}"
+                ;;
+            esac;
+        done;
+    fi
+}
+get_modname () 
+{ 
+    local modname;
+    local ver=$1;
+    case ${CHOST} in 
+        *-darwin*)
+            modname="bundle"
+        ;;
+        *)
+            modname="so"
+        ;;
+    esac;
+    echo ".${modname}"
+}
+get_nproc () 
+{ 
+    local nproc;
+    if type -P nproc &> /dev/null; then
+        nproc=$(nproc);
+    fi;
+    if [[ -z ${nproc} ]] && type -P sysctl &> /dev/null; then
+        nproc=$(sysctl -n hw.ncpu 2>/dev/null);
+    fi;
+    if [[ -z ${nproc} ]] && type -P python &> /dev/null; then
+        nproc=$(python -c 'import multiprocessing; print(multiprocessing.cpu_count());' 2>/dev/null);
+    fi;
+    if [[ -n ${nproc} ]]; then
+        echo "${nproc}";
+    else
+        echo "${1:-1}";
+    fi
+}
+gnome2_disable_deprecation_warning () 
+{ 
+    local retval=0;
+    local fails=();
+    local makefile;
+    ebegin "Disabling deprecation warnings";
+    while read makefile; do
+        if ! grep -qE "(DISABLE_DEPRECATED|GSEAL_ENABLE)" "${makefile}"; then
+            continue;
+        fi;
+        LC_ALL=C sed -r -i -e 's:-D[A-Z_]+_DISABLE_DEPRECATED:$(/bin/true):g' -e 's:-DGSEAL_ENABLE(=[A-Za-z0-9_]*)?:$(/bin/true):g' -i "${makefile}";
+        if [[ $? -ne 0 ]]; then
+            fails+=("${makefile}");
+            retval=2;
+        fi;
+    done < <(find "${S}" -name "Makefile.in" 		-o -name "Makefile.am" -o -name "Makefile.decl" 		| sort; [[ -f "${S}"/configure ]] && echo configure);
+    eend ${retval};
+    for makefile in "${fails[@]}";
+    do
+        ewarn "Failed to disable deprecation warnings in ${makefile}";
+    done
+}
+gnome2_environment_reset () 
+{ 
+    xdg_environment_reset;
+    export G_HOME="${T}";
+    export GST_REGISTRY="${T}/registry.xml";
+    export GSETTINGS_BACKEND="memory";
+    if has ${EAPI} 6 7; then
+        export GST_INSPECT="$(type -P true)";
+        unset DISPLAY;
+    fi
+}
+gnome2_gconf_install () 
+{ 
+    local updater="${EROOT%/}${GCONFTOOL_BIN}";
+    if [[ -z "${GNOME2_ECLASS_SCHEMAS}" ]]; then
+        debug-print "No GNOME 2 GConf schemas found";
+        return;
+    fi;
+    if tc-is-cross-compiler; then
+        ewarn "Updating of GNOME 2 GConf schemas skipped due to cross-compilation.";
+        ewarn "You might want to run gconftool-2 manually on the target for";
+        ewarn "your final image and re-run it when packages installing";
+        ewarn "GNOME 2 GConf schemas get upgraded or added to the image.";
+        return;
+    fi;
+    if [[ ! -x "${updater}" ]]; then
+        debug-print "${updater} is not executable";
+        return;
+    fi;
+    unset GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL;
+    export GCONF_CONFIG_SOURCE="$("${updater}" --get-default-source | sed "s;:/;:${ROOT%/}/;")";
+    einfo "Installing GNOME 2 GConf schemas";
+    local F;
+    for F in ${GNOME2_ECLASS_SCHEMAS};
+    do
+        if [[ -e "${EROOT%/}/${F}" ]]; then
+            debug-print "Installing schema: ${F}";
+            "${updater}" --makefile-install-rule "${EROOT%/}/${F}" > /dev/null;
+        fi;
+    done;
+    pids=$(pgrep -x gconfd-2);
+    if [[ $? == 0 ]]; then
+        ebegin "Reloading GConf schemas";
+        kill -HUP ${pids};
+        eend $?;
+    fi
+}
+gnome2_gconf_savelist () 
+{ 
+    pushd "${ED}" > /dev/null || die;
+    export GNOME2_ECLASS_SCHEMAS=$(find 'etc/gconf/schemas/' -name '*.schemas' 2> /dev/null);
+    popd > /dev/null || die
+}
+gnome2_gconf_uninstall () 
+{ 
+    local updater="${EROOT%/}${GCONFTOOL_BIN}";
+    if [[ -z "${GNOME2_ECLASS_SCHEMAS}" ]]; then
+        debug-print "No GNOME 2 GConf schemas found";
+        return;
+    fi;
+    if tc-is-cross-compiler; then
+        ewarn "Removal of GNOME 2 GConf schemas skipped due to cross-compilation.";
+        ewarn "You might want to run gconftool-2 manually on the target for";
+        ewarn "your final image to uninstall this package's schemas.";
+        return;
+    fi;
+    if [[ ! -x "${updater}" ]]; then
+        debug-print "${updater} is not executable";
+        return;
+    fi;
+    unset GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL;
+    export GCONF_CONFIG_SOURCE="$("${updater}" --get-default-source | sed "s;:/;:${ROOT%/}/;")";
+    einfo "Uninstalling GNOME 2 GConf schemas";
+    local F;
+    for F in ${GNOME2_ECLASS_SCHEMAS};
+    do
+        if [[ -e "${EROOT%/}/${F}" ]]; then
+            debug-print "Uninstalling gconf schema: ${F}";
+            "${updater}" --makefile-uninstall-rule "${EROOT%/}/${F}" > /dev/null;
+        fi;
+    done;
+    pids=$(pgrep -x gconfd-2);
+    if [[ $? == 0 ]]; then
+        ebegin "Reloading GConf schemas";
+        kill -HUP ${pids};
+        eend $?;
+    fi
+}
+gnome2_gdk_pixbuf_savelist () 
+{ 
+    pushd "${ED}" > /dev/null || die;
+    export GNOME2_ECLASS_GDK_PIXBUF_LOADERS=$(find usr/lib*/gdk-pixbuf-2.0 -type f 2>/dev/null);
+    popd > /dev/null || die
+}
+gnome2_gdk_pixbuf_update () 
+{ 
+    local updater="${EROOT%/}/usr/bin/${CHOST}-gdk-pixbuf-query-loaders";
+    [[ -x ${updater} ]] || updater="${EROOT%/}/usr/bin/gdk-pixbuf-query-loaders";
+    if [[ -z ${GNOME2_ECLASS_GDK_PIXBUF_LOADERS} ]]; then
+        debug-print "gdk-pixbuf loader cache does not need an update";
+        return;
+    fi;
+    if tc-is-cross-compiler; then
+        ewarn "Updating of gdk-pixbuf loader cache skipped due to cross-compilation.";
+        ewarn "You might want to run gdk-pixbuf-query-loaders manually on the target";
+        ewarn "for your final image and re-run it when packages installing";
+        ewarn "gdk-pixbuf loaders get upgraded or added to the image.";
+        return;
+    fi;
+    if [[ ! -x ${updater} ]]; then
+        debug-print "${updater} is not executable";
+        return;
+    fi;
+    ebegin "Updating gdk-pixbuf loader cache";
+    local tmp_file=$(mktemp "${T}"/tmp.XXXXXXXXXX) || die "Failed to create temporary file";
+    ${updater} > "${tmp_file}" && chmod 0644 "${tmp_file}" && cp -f "${tmp_file}" "${EROOT%/}/usr/$(get_libdir)/gdk-pixbuf-2.0/2.10.0/loaders.cache" && rm "${tmp_file}";
+    eend $?
+}
+gnome2_giomodule_cache_update () 
+{ 
+    local updater="${EROOT%/}/usr/bin/${CHOST}-gio-querymodules";
+    [[ -x ${updater} ]] || updater="${EROOT%/}/usr/bin/gio-querymodules";
+    if tc-is-cross-compiler; then
+        ewarn "Updating of GIO modules cache skipped due to cross-compilation.";
+        ewarn "You might want to run gio-querymodules manually on the target for";
+        ewarn "your final image for performance reasons and re-run it when packages";
+        ewarn "installing GIO modules get upgraded or added to the image.";
+        return;
+    fi;
+    if [[ ! -x ${updater} ]]; then
+        debug-print "${updater} is not executable";
+        return;
+    fi;
+    ebegin "Updating GIO modules cache";
+    ${updater} "${EROOT%/}"/usr/$(get_libdir)/gio/modules;
+    eend $?
+}
+gnome2_omf_fix () 
+{ 
+    local omf_makefiles filename;
+    omf_makefiles="$@";
+    if [[ -f ${S}/omf.make ]]; then
+        omf_makefiles="${omf_makefiles} ${S}/omf.make";
+    fi;
+    if [[ -f ${S}/gnome-doc-utils.make ]]; then
+        omf_makefiles="${omf_makefiles} ${S}/gnome-doc-utils.make";
+    fi;
+    for filename in $(find "${S}" -name "Makefile.in" -o -name "Makefile.am" |sort);
+    do
+        omf_makefiles="${omf_makefiles} ${filename}";
+    done;
+    ebegin "Fixing OMF Makefiles";
+    local retval=0;
+    local fails=();
+    for omf in ${omf_makefiles};
+    do
+        sed -i -e 's:scrollkeeper-update:true:' "${omf}";
+        retval=$?;
+        if [[ $retval -ne 0 ]]; then
+            debug-print "updating of ${omf} failed";
+            fails[$(( ${#fails[@]} + 1 ))]=$omf;
+            retval=2;
+        fi;
+    done;
+    eend $retval;
+    for f in "${fails[@]}";
+    do
+        eerror "Failed to update OMF Makefile $f";
+    done
+}
+gnome2_pkg_postinst () 
+{ 
+    xdg_pkg_postinst;
+    gnome2_gconf_install;
+    if [[ -n ${GNOME2_ECLASS_GLIB_SCHEMAS} ]]; then
+        gnome2_schemas_update;
+    fi;
+    gnome2_scrollkeeper_update;
+    gnome2_gdk_pixbuf_update;
+    if [[ ${#GNOME2_ECLASS_GIO_MODULES[@]} -gt 0 ]]; then
+        gnome2_giomodule_cache_update;
+    fi
+}
+gnome2_pkg_postrm () 
+{ 
+    xdg_pkg_postrm;
+    if [[ -n ${GNOME2_ECLASS_GLIB_SCHEMAS} ]]; then
+        gnome2_schemas_update;
+    fi;
+    gnome2_scrollkeeper_update;
+    if [[ ${#GNOME2_ECLASS_GIO_MODULES[@]} -gt 0 ]]; then
+        gnome2_giomodule_cache_update;
+    fi
+}
+gnome2_pkg_preinst () 
+{ 
+    xdg_pkg_preinst;
+    gnome2_gconf_savelist;
+    gnome2_schemas_savelist;
+    gnome2_scrollkeeper_savelist;
+    gnome2_gdk_pixbuf_savelist;
+    local f;
+    GNOME2_ECLASS_GIO_MODULES=();
+    while IFS= read -r -d '' f; do
+        GNOME2_ECLASS_GIO_MODULES+=(${f});
+    done < <(cd "${D}" && find usr/$(get_libdir)/gio/modules -type f -print0 2>/dev/null);
+    export GNOME2_ECLASS_GIO_MODULES
+}
+gnome2_query_immodules_gtk2 () 
+{ 
+    local updater=${EPREFIX}/usr/bin/${CHOST}-gtk-query-immodules-2.0;
+    [[ -x ${updater} ]] || updater=${EPREFIX}/usr/bin/gtk-query-immodules-2.0;
+    if [[ ! -x ${updater} ]]; then
+        debug-print "${updater} is not executable";
+        return;
+    fi;
+    ebegin "Updating gtk2 input method module cache";
+    GTK_IM_MODULE_FILE="${EROOT%/}/usr/$(get_libdir)/gtk-2.0/2.10.0/immodules.cache" "${updater}" --update-cache;
+    eend $?
+}
+gnome2_query_immodules_gtk3 () 
+{ 
+    local updater=${EPREFIX}/usr/bin/${CHOST}-gtk-query-immodules-3.0;
+    [[ -x ${updater} ]] || updater=${EPREFIX}/usr/bin/gtk-query-immodules-3.0;
+    if [[ ! -x ${updater} ]]; then
+        debug-print "${updater} is not executable";
+        return;
+    fi;
+    ebegin "Updating gtk3 input method module cache";
+    GTK_IM_MODULE_FILE="${EROOT%/}/usr/$(get_libdir)/gtk-3.0/3.0.0/immodules.cache" "${updater}" --update-cache;
+    eend $?
+}
+gnome2_schemas_savelist () 
+{ 
+    pushd "${ED}" > /dev/null || die;
+    export GNOME2_ECLASS_GLIB_SCHEMAS=$(find 'usr/share/glib-2.0/schemas' -name '*.gschema.xml' 2>/dev/null);
+    popd > /dev/null || die
+}
+gnome2_schemas_update () 
+{ 
+    local updater="${EROOT%/}${GLIB_COMPILE_SCHEMAS}";
+    if tc-is-cross-compiler; then
+        ewarn "Updating of GSettings schemas skipped due to cross-compilation.";
+        ewarn "You might want to run glib-compile-schemas manually on the target";
+        ewarn "for your final image and re-run it when packages installing";
+        ewarn "GSettings schemas get upgraded or added to the image.";
+        return;
+    fi;
+    if [[ ! -x ${updater} ]]; then
+        debug-print "${updater} is not executable";
+        return;
+    fi;
+    ebegin "Updating GSettings schemas";
+    ${updater} --allow-any-name "$@" "${EROOT%/}/usr/share/glib-2.0/schemas" &> /dev/null;
+    eend $?
+}
+gnome2_scrollkeeper_savelist () 
+{ 
+    pushd "${ED}" > /dev/null || die;
+    export GNOME2_ECLASS_SCROLLS=$(find 'usr/share/omf' -type f -name "*.omf" 2> /dev/null);
+    popd > /dev/null || die
+}
+gnome2_scrollkeeper_update () 
+{ 
+    local updater="${EROOT%/}${SCROLLKEEPER_UPDATE_BIN}";
+    if [[ -z "${GNOME2_ECLASS_SCROLLS}" ]]; then
+        debug-print "No scroll cache to update";
+        return;
+    fi;
+    if tc-is-cross-compiler; then
+        ewarn "Updating of scrollkeeper database skipped due to cross-compilation.";
+        ewarn "You might want to run scrollkeeper-update manually on the target";
+        ewarn "for your final image and re-run it when packages installing";
+        ewarn "scrollkeeper OMF files get upgraded or added to the image.";
+        return;
+    fi;
+    if [[ ! -x "${updater}" ]]; then
+        debug-print "${updater} is not executable";
+        return;
+    fi;
+    ebegin "Updating scrollkeeper database ...";
+    "${updater}" -q -p "${EROOT%/}${SCROLLKEEPER_DIR}";
+    eend $?
+}
+gnome2_src_compile () 
+{ 
+    if has ${EAPI} 5; then
+        emake;
+    else
+        default;
+    fi
+}
+gnome2_src_configure () 
+{ 
+    if [[ -n ${G2CONF} ]]; then
+        if has ${EAPI} 5; then
+            eqawarn "G2CONF set, please review documentation at https://wiki.gentoo.org/wiki/Project:GNOME/Gnome_Team_Ebuild_Policies#G2CONF_and_src_configure";
+        else
+            die "G2CONF set, please review documentation at https://wiki.gentoo.org/wiki/Project:GNOME/Gnome_Team_Ebuild_Policies#G2CONF_and_src_configure";
+        fi;
+    fi;
+    local g2conf=();
+    if has ${EAPI} 5; then
+        if [[ ${GCONF_DEBUG} != 'no' ]]; then
+            if use debug; then
+                g2conf+=(--enable-debug=yes);
+            fi;
+        fi;
+    else
+        if [[ -n ${GCONF_DEBUG} ]]; then
+            die "GCONF_DEBUG is banned since eapi6 in favor of each ebuild taking care of the proper handling of debug configure option";
+        fi;
+    fi;
+    if grep -q "enable-gtk-doc" "${ECONF_SOURCE:-.}"/configure; then
+        g2conf+=(--disable-gtk-doc);
+    fi;
+    if grep -q "^[[:space:]]*AM_MAINTAINER_MODE(\[enable\])" "${ECONF_SOURCE:-.}"/configure.*; then
+        g2conf+=(--disable-maintainer-mode);
+    fi;
+    if grep -q "disable-scrollkeeper" "${ECONF_SOURCE:-.}"/configure; then
+        g2conf+=(--disable-scrollkeeper);
+    fi;
+    if grep -q "disable-schemas-install" "${ECONF_SOURCE:-.}"/configure; then
+        g2conf+=(--disable-schemas-install);
+    fi;
+    if grep -q "disable-schemas-compile" "${ECONF_SOURCE:-.}"/configure; then
+        g2conf+=(--disable-schemas-compile);
+    fi;
+    if grep -q "disable-update-mimedb" "${ECONF_SOURCE:-.}"/configure; then
+        g2conf+=(--disable-update-mimedb);
+    fi;
+    if grep -q "enable-compile-warnings" "${ECONF_SOURCE:-.}"/configure; then
+        g2conf+=(--enable-compile-warnings=minimum);
+    fi;
+    if has ${EAPI} 5; then
+        if grep -q "^ *--docdir=" "${ECONF_SOURCE:-.}"/configure; then
+            g2conf+=(--docdir="${EPREFIX}"/usr/share/doc/${PF});
+        fi;
+    fi;
+    if has ${EAPI} 5; then
+        addwrite "$(unset HOME; echo ~)/.gnome2";
+    else
+        addpredict "$(unset HOME; echo ~)/.gnome2";
+    fi;
+    if has ${EAPI} 5; then
+        econf ${g2conf[@]} ${G2CONF} "$@";
+    else
+        econf ${g2conf[@]} "$@";
+    fi
+}
+gnome2_src_install () 
+{ 
+    export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL="1";
+    local sk_tmp_dir="/var/lib/scrollkeeper";
+    if has ${EAPI} 5; then
+        dodir "${sk_tmp_dir}" || die "dodir failed";
+        emake DESTDIR="${D}" "scrollkeeper_localstate_dir=${ED}${sk_tmp_dir} " "$@" install || die "install failed";
+    else
+        default;
+    fi;
+    unset GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL;
+    if has ${EAPI} 5; then
+        einstalldocs;
+    else
+        local d;
+        for d in HACKING MAINTAINERS;
+        do
+            [[ -s "${d}" ]] && dodoc "${d}";
+        done;
+    fi;
+    rm -rf "${ED}${sk_tmp_dir}";
+    rmdir "${ED}/var/lib" 2> /dev/null;
+    rmdir "${ED}/var" 2> /dev/null;
+    rm -fr "${ED}/usr/share/applications/mimeinfo.cache";
+    if has ${EAPI} 5 6; then
+        case "${GNOME2_LA_PUNT}" in 
+            yes)
+                prune_libtool_files --modules
+            ;;
+            no)
+
+            ;;
+            *)
+                prune_libtool_files
+            ;;
+        esac;
+    else
+        if [[ ${GNOME2_LA_PUNT} != 'no' ]]; then
+            find "${ED}" -name '*.la' -delete || die;
+        fi;
+    fi
+}
+gnome2_src_prepare () 
+{ 
+    [[ ${EAPI} != 5 ]] && default;
+    gnome2_environment_reset;
+    has ${EAPI} 5 && gnome2_omf_fix;
+    gnome2_disable_deprecation_warning;
+    if [[ ${GNOME2_EAUTORECONF} == 'yes' ]]; then
+        eautoreconf;
+    else
+        elibtoolize ${ELTCONF};
+    fi
+}
+gnome2_src_unpack () 
+{ 
+    if has ${EAPI} 5; then
+        unpack ${A};
+        cd "${S}";
+    else
+        die "gnome2_src_unpack is banned since eapi6";
+    fi
+}
+has_multilib_profile () 
+{ 
+    [ -n "${MULTILIB_ABIS}" -a "${MULTILIB_ABIS}" != "${MULTILIB_ABIS/ /}" ]
+}
+in_iuse () 
+{ 
+    local use=${1};
+    if [[ -z "${use}" ]]; then
+        echo "!!! in_iuse() called without a parameter." 1>&2;
+        echo "!!! in_iuse <USEFLAG>" 1>&2;
+        die "in_iuse() called without a parameter";
+    fi;
+    local liuse=(${IUSE_EFFECTIVE});
+    has "${use}" "${liuse[@]#[+-]}"
+}
+is-flag () 
+{ 
+    is-flagq "$@" && echo true
+}
+is-flagq () 
+{ 
+    [[ -n $2 ]] && die "Usage: is-flag <flag>";
+    local var;
+    for var in $(all-flag-vars);
+    do
+        _is_flagq ${var} "$1" && return 0;
+    done;
+    return 1
+}
+is-ldflag () 
+{ 
+    is-ldflagq "$@" && echo true
+}
+is-ldflagq () 
+{ 
+    [[ -n $2 ]] && die "Usage: is-ldflag <flag>";
+    _is_flagq LDFLAGS $1
+}
+is_final_abi () 
+{ 
+    has_multilib_profile || return 0;
+    set -- $(get_install_abis);
+    local LAST_ABI=$#;
+    [[ ${!LAST_ABI} == ${ABI} ]]
+}
+make_wrapper () 
+{ 
+    local wrapper=$1 bin=$2 chdir=$3 libdir=$4 path=$5;
+    local tmpwrapper="${T}/tmp.wrapper.${wrapper##*/}";
+    ( echo '#!/bin/sh';
+    if [[ -n ${libdir} ]]; then
+        local var;
+        if [[ ${CHOST} == *-darwin* ]]; then
+            var=DYLD_LIBRARY_PATH;
+        else
+            var=LD_LIBRARY_PATH;
+        fi;
+        sed 's/^X//' <<-EOF || 
+if [ "\${${var}+set}" = "set" ] ; then
+X	export ${var}="\${${var}}:${EPREFIX}${libdir}"
+else
+X	export ${var}="${EPREFIX}${libdir}"
+fi
+EOF
+ die;
+    fi
+    [[ -n ${chdir} ]] && printf 'cd "%s" &&\n' "${EPREFIX}${chdir}";
+    printf 'exec %s "$@"\n' "${bin/#\//${EPREFIX}/}" ) > "${tmpwrapper}";
+    chmod go+rx "${tmpwrapper}";
+    if [[ -n ${path} ]]; then
+        ( exeopts -m 0755;
+        exeinto "${path}";
+        newexe "${tmpwrapper}" "${wrapper}" ) || die;
+    else
+        newbin "${tmpwrapper}" "${wrapper}";
+    fi
+}
+makeopts_jobs () 
+{ 
+    [[ $# -eq 0 ]] && set -- "${MAKEOPTS}";
+    local jobs=$(echo " $* " | sed -r -n 		-e 's:.*[[:space:]](-[a-z]*j|--jobs[=[:space:]])[[:space:]]*([0-9]+).*:\2:p' 		-e "s:.*[[:space:]](-[a-z]*j|--jobs)[[:space:]].*:${2:-$(( $(get_nproc) + 1 ))}:p");
+    echo ${jobs:-1}
+}
+makeopts_loadavg () 
+{ 
+    [[ $# -eq 0 ]] && set -- "${MAKEOPTS}";
+    local lavg=$(echo " $* " | sed -r -n 		-e 's:.*[[:space:]](-[a-z]*l|--(load-average|max-load)[=[:space:]])[[:space:]]*([0-9]+(\.[0-9]+)?)[[:space:]].*:\3:p' 		-e "s:.*[[:space:]](-[a-z]*l|--(load-average|max-load))[[:space:]].*:${2:-999}:p");
+    echo ${lavg:-${2:-999}}
+}
+multilib_env () 
+{ 
+    local CTARGET=${1:-${CTARGET}};
+    local cpu=${CTARGET%%*-};
+    if [[ ${CTARGET} = *-musl* ]]; then
+        : ${MULTILIB_ABIS=default};
+        : ${DEFAULT_ABI=default};
+        export MULTILIB_ABIS DEFAULT_ABI;
+        return;
+    fi;
+    case ${cpu} in 
+        aarch64*)
+            export CFLAGS_arm=${CFLAGS_arm-};
+            case ${cpu} in 
+                aarch64*be)
+                    export CHOST_arm="armv8b-${CTARGET#*-}"
+                ;;
+                *)
+                    export CHOST_arm="armv8l-${CTARGET#*-}"
+                ;;
+            esac;
+            CHOST_arm=${CHOST_arm/%-gnu/-gnueabi};
+            export CTARGET_arm=${CHOST_arm};
+            export LIBDIR_arm="lib";
+            export CFLAGS_arm64=${CFLAGS_arm64-};
+            export CHOST_arm64=${CTARGET};
+            export CTARGET_arm64=${CHOST_arm64};
+            export LIBDIR_arm64="lib64";
+            : ${MULTILIB_ABIS=arm64};
+            : ${DEFAULT_ABI=arm64}
+        ;;
+        x86_64*)
+            export CFLAGS_x86=${CFLAGS_x86--m32};
+            export CHOST_x86=${CTARGET/x86_64/i686};
+            CHOST_x86=${CHOST_x86/%-gnux32/-gnu};
+            export CTARGET_x86=${CHOST_x86};
+            if [[ ${SYMLINK_LIB} == "yes" ]]; then
+                export LIBDIR_x86="lib32";
+            else
+                export LIBDIR_x86="lib";
+            fi;
+            export CFLAGS_amd64=${CFLAGS_amd64--m64};
+            export CHOST_amd64=${CTARGET/%-gnux32/-gnu};
+            export CTARGET_amd64=${CHOST_amd64};
+            export LIBDIR_amd64="lib64";
+            export CFLAGS_x32=${CFLAGS_x32--mx32};
+            export CHOST_x32=${CTARGET/%-gnu/-gnux32};
+            export CTARGET_x32=${CHOST_x32};
+            export LIBDIR_x32="libx32";
+            case ${CTARGET} in 
+                *-gnux32)
+                    : ${MULTILIB_ABIS=x32 amd64 x86};
+                    : ${DEFAULT_ABI=x32}
+                ;;
+                *)
+                    : ${MULTILIB_ABIS=amd64 x86};
+                    : ${DEFAULT_ABI=amd64}
+                ;;
+            esac
+        ;;
+        loongarch64*)
+            export CFLAGS_lp64d=${CFLAGS_lp64d--mabi=lp64d};
+            export CHOST_lp64d=${CTARGET};
+            export CTARGET_lp64d=${CTARGET};
+            export LIBDIR_lp64d=${LIBDIR_lp64d-lib64};
+            : ${MULTILIB_ABIS=lp64d};
+            : ${DEFAULT_ABI=lp64d}
+        ;;
+        mips64* | mipsisa64*)
+            export CFLAGS_o32=${CFLAGS_o32--mabi=32};
+            export CHOST_o32=${CTARGET/mips64/mips};
+            export CHOST_o32=${CHOST_o32/mipsisa64/mipsisa32};
+            export CTARGET_o32=${CHOST_o32};
+            export LIBDIR_o32="lib";
+            export CFLAGS_n32=${CFLAGS_n32--mabi=n32};
+            export CHOST_n32=${CTARGET};
+            export CTARGET_n32=${CHOST_n32};
+            export LIBDIR_n32="lib32";
+            export CFLAGS_n64=${CFLAGS_n64--mabi=64};
+            export CHOST_n64=${CTARGET};
+            export CTARGET_n64=${CHOST_n64};
+            export LIBDIR_n64="lib64";
+            : ${MULTILIB_ABIS=n64 n32 o32};
+            : ${DEFAULT_ABI=n32}
+        ;;
+        powerpc64*)
+            export CFLAGS_ppc=${CFLAGS_ppc--m32};
+            export CHOST_ppc=${CTARGET/powerpc64/powerpc};
+            export CTARGET_ppc=${CHOST_ppc};
+            export LIBDIR_ppc="lib";
+            export CFLAGS_ppc64=${CFLAGS_ppc64--m64};
+            export CHOST_ppc64=${CTARGET};
+            export CTARGET_ppc64=${CHOST_ppc64};
+            export LIBDIR_ppc64="lib64";
+            : ${MULTILIB_ABIS=ppc64 ppc};
+            : ${DEFAULT_ABI=ppc64}
+        ;;
+        riscv64*)
+            : ${MULTILIB_ABIS=lp64d lp64 ilp32d ilp32};
+            : ${DEFAULT_ABI=lp64d};
+            local _libdir_riscvdefaultabi_variable="LIBDIR_${DEFAULT_ABI}";
+            local _libdir_riscvdefaultabi=${!_libdir_riscvdefaultabi_variable};
+            export ${_libdir_riscvdefaultabi_variable}=${_libdir_riscvdefaultabi:-lib64};
+            export CFLAGS_lp64d=${CFLAGS_lp64d--mabi=lp64d -march=rv64gc};
+            export CHOST_lp64d=${CTARGET};
+            export CTARGET_lp64d=${CTARGET};
+            export LIBDIR_lp64d=${LIBDIR_lp64d-lib64/lp64d};
+            export CFLAGS_lp64=${CFLAGS_lp64--mabi=lp64 -march=rv64imac};
+            export CHOST_lp64=${CTARGET};
+            export CTARGET_lp64=${CTARGET};
+            export LIBDIR_lp64=${LIBDIR_lp64-lib64/lp64};
+            export CFLAGS_ilp32d=${CFLAGS_ilp32d--mabi=ilp32d -march=rv32imafdc};
+            export CHOST_ilp32d=${CTARGET/riscv64/riscv32};
+            export CTARGET_ilp32d=${CTARGET/riscv64/riscv32};
+            export LIBDIR_ilp32d=${LIBDIR_ilp32d-lib32/ilp32d};
+            export CFLAGS_ilp32=${CFLAGS_ilp32--mabi=ilp32 -march=rv32imac};
+            export CHOST_ilp32=${CTARGET/riscv64/riscv32};
+            export CTARGET_ilp32=${CTARGET/riscv64/riscv32};
+            export LIBDIR_ilp32=${LIBDIR_ilp32-lib32/ilp32}
+        ;;
+        riscv32*)
+            : ${MULTILIB_ABIS=ilp32d ilp32};
+            : ${DEFAULT_ABI=ilp32d};
+            local _libdir_riscvdefaultabi_variable="LIBDIR_${DEFAULT_ABI}";
+            local _libdir_riscvdefaultabi=${!_libdir_riscvdefaultabi_variable};
+            export ${_libdir_riscvdefaultabi_variable}=${_libdir_riscvdefaultabi:-lib};
+            export CFLAGS_ilp32d=${CFLAGS_ilp32d--mabi=ilp32d -march=rv32imafdc};
+            export CHOST_ilp32d=${CTARGET};
+            export CTARGET_ilp32d=${CTARGET};
+            export LIBDIR_ilp32d=${LIBDIR_ilp32d-lib32/ilp32d};
+            export CFLAGS_ilp32=${CFLAGS_ilp32--mabi=ilp32 -march=rv32imac};
+            export CHOST_ilp32=${CTARGET};
+            export CTARGET_ilp32=${CTARGET};
+            export LIBDIR_ilp32=${LIBDIR_ilp32-lib32/ilp32}
+        ;;
+        s390x*)
+            export CFLAGS_s390=${CFLAGS_s390--m31};
+            export CHOST_s390=${CTARGET/s390x/s390};
+            export CTARGET_s390=${CHOST_s390};
+            export LIBDIR_s390="lib";
+            export CFLAGS_s390x=${CFLAGS_s390x--m64};
+            export CHOST_s390x=${CTARGET};
+            export CTARGET_s390x=${CHOST_s390x};
+            export LIBDIR_s390x="lib64";
+            : ${MULTILIB_ABIS=s390x s390};
+            : ${DEFAULT_ABI=s390x}
+        ;;
+        sparc64*)
+            export CFLAGS_sparc32=${CFLAGS_sparc32--m32};
+            export CHOST_sparc32=${CTARGET/sparc64/sparc};
+            export CTARGET_sparc32=${CHOST_sparc32};
+            export LIBDIR_sparc32="lib";
+            export CFLAGS_sparc64=${CFLAGS_sparc64--m64};
+            export CHOST_sparc64=${CTARGET};
+            export CTARGET_sparc64=${CHOST_sparc64};
+            export LIBDIR_sparc64="lib64";
+            : ${MULTILIB_ABIS=sparc64 sparc32};
+            : ${DEFAULT_ABI=sparc64}
+        ;;
+        *)
+            : ${MULTILIB_ABIS=default};
+            : ${DEFAULT_ABI=default}
+        ;;
+    esac;
+    export MULTILIB_ABIS DEFAULT_ABI
+}
+multilib_toolchain_setup () 
+{ 
+    local v vv;
+    export ABI=$1;
+    local save_restore_variables=(CBUILD CHOST AR CC CXX F77 FC LD NM OBJCOPY OBJDUMP PKG_CONFIG RANLIB READELF STRINGS STRIP PKG_CONFIG_LIBDIR PKG_CONFIG_PATH PKG_CONFIG_SYSTEM_INCLUDE_PATH PKG_CONFIG_SYSTEM_LIBRARY_PATH);
+    if [[ ${_DEFAULT_ABI_SAVED} == "true" ]]; then
+        for v in "${save_restore_variables[@]}";
+        do
+            vv="_abi_saved_${v}";
+            [[ ${!vv+set} == "set" ]] && export ${v}="${!vv}" || unset ${v};
+            unset ${vv};
+        done;
+        unset _DEFAULT_ABI_SAVED;
+    fi;
+    if [[ ${ABI} != ${DEFAULT_ABI} ]]; then
+        for v in "${save_restore_variables[@]}";
+        do
+            vv="_abi_saved_${v}";
+            [[ ${!v+set} == "set" ]] && export ${vv}="${!v}" || unset ${vv};
+        done;
+        export _DEFAULT_ABI_SAVED="true";
+        if [[ ${CBUILD} == "${CHOST}" ]]; then
+            export CBUILD=$(get_abi_CHOST $1);
+        fi;
+        export CHOST=$(get_abi_CHOST ${DEFAULT_ABI});
+        export AR="$(tc-getAR)";
+        export CC="$(tc-getCC) $(get_abi_CFLAGS)";
+        export CXX="$(tc-getCXX) $(get_abi_CFLAGS)";
+        export F77="$(tc-getF77) $(get_abi_CFLAGS)";
+        export FC="$(tc-getFC) $(get_abi_CFLAGS)";
+        export LD="$(tc-getLD) $(get_abi_LDFLAGS)";
+        export NM="$(tc-getNM)";
+        export OBJCOPY="$(tc-getOBJCOPY)";
+        export OBJDUMP="$(tc-getOBJDUMP)";
+        export PKG_CONFIG="$(tc-getPKG_CONFIG)";
+        export RANLIB="$(tc-getRANLIB)";
+        export READELF="$(tc-getREADELF)";
+        export STRINGS="$(tc-getSTRINGS)";
+        export STRIP="$(tc-getSTRIP)";
+        export CHOST=$(get_abi_CHOST $1);
+        export PKG_CONFIG_LIBDIR=${EPREFIX}/usr/$(get_libdir)/pkgconfig;
+        export PKG_CONFIG_PATH=${EPREFIX}/usr/share/pkgconfig;
+        export PKG_CONFIG_SYSTEM_INCLUDE_PATH=${EPREFIX}/usr/include;
+        export PKG_CONFIG_SYSTEM_LIBRARY_PATH=${EPREFIX}/$(get_libdir):${EPREFIX}/usr/$(get_libdir);
+    fi
+}
+no-as-needed () 
+{ 
+    [[ $# -ne 0 ]] && die "no-as-needed takes no arguments";
+    case $($(tc-getLD) -v 2>&1 </dev/null) in 
+        *GNU*)
+            echo "-Wl,--no-as-needed"
+        ;;
+    esac
+}
+number_abis () 
+{ 
+    set -- `get_install_abis`;
+    echo $#
+}
+optfeature () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    local i j msg;
+    local -a arr;
+    local desc=$1;
+    local flag=0;
+    shift;
+    for i in "$@";
+    do
+        read -r -d '' -a arr <<< "${i}";
+        for j in "${arr[@]}";
+        do
+            if has_version "${j}"; then
+                flag=1;
+            else
+                flag=0;
+                break;
+            fi;
+        done;
+        if [[ ${flag} -eq 1 ]]; then
+            break;
+        fi;
+    done;
+    if [[ ${flag} -eq 0 ]]; then
+        if [[ ${_OPTFEATURE_DOHEADER} == true ]]; then
+            elog ${_OPTFEATURE_HEADER:-${_OPTFEATURE_DEFAULT_HEADER}};
+            _OPTFEATURE_DOHEADER=false;
+        fi;
+        for i in "$@";
+        do
+            read -r -d '' -a arr <<< "${i}";
+            msg=" ";
+            for j in "${arr[@]}";
+            do
+                msg+=" ${j} and";
+            done;
+            msg="${msg:0: -4} for ${desc}";
+            elog "${msg}";
+        done;
+    fi
+}
+optfeature_header () 
+{ 
+    debug-print-function ${FUNCNAME} "$@";
+    _OPTFEATURE_HEADER="${1}";
+    _OPTFEATURE_DOHEADER=true
+}
+path_exists () 
+{ 
+    eerror "path_exists has been removed.  Please see the following post";
+    eerror "for a replacement snippet:";
+    eerror "https://blogs.gentoo.org/mgorny/2018/08/09/inlining-path_exists/";
+    die "path_exists is banned"
+}
+pkg_nofetch () 
+{ 
+    default
+}
+pkg_postinst () 
+{ 
+    optfeature "geolocation service (used at runtime if available)" "app-misc/geoclue"
+}
+pkg_postrm () 
+{ 
+    gnome2_pkg_postrm "$@"
+}
+pkg_preinst () 
+{ 
+    gnome2_pkg_preinst "$@"
+}
+pkg_pretend () 
+{ 
+    if [[ ${MERGE_TYPE} != "binary" ]]; then
+        if is-flagq "-g*" && ! is-flagq "-g*0"; then
+            einfo "Checking for sufficient disk space to build ${PN} with debugging CFLAGS";
+            check-reqs_pkg_pretend;
+        fi;
+        if ! test-flag-CXX -std=c++17; then
+            die "You need at least GCC 7.3.x or Clang >= 5 for C++17-specific compiler flags";
+        fi;
+    fi
+}
+pkg_setup () 
+{ 
+    if [[ ${MERGE_TYPE} != "binary" ]] && is-flagq "-g*" && ! is-flagq "-g*0"; then
+        check-reqs_pkg_setup;
+    fi;
+    python-any-r1_pkg_setup
+}
+python-any-r1_pkg_setup () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    [[ ${MERGE_TYPE} != binary ]] && python_setup
+}
+python_doexe () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    [[ ${EBUILD_PHASE} != install ]] && die "${FUNCNAME} can only be used in src_install";
+    local f;
+    for f in "$@";
+    do
+        python_newexe "${f}" "${f##*/}";
+    done
+}
+python_doheader () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    [[ ${EBUILD_PHASE} != install ]] && die "${FUNCNAME} can only be used in src_install";
+    [[ -n ${EPYTHON} ]] || die 'No Python implementation set (EPYTHON is null).';
+    local includedir=$(python_get_includedir);
+    local d=${includedir#${EPREFIX}};
+    ( insopts -m 0644;
+    insinto "${d}";
+    doins -r "${@}" || return ${?} )
+}
+python_domodule () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    [[ -n ${EPYTHON} ]] || die 'No Python implementation set (EPYTHON is null).';
+    local d;
+    if [[ ${_PYTHON_MODULEROOT} == /* ]]; then
+        d=${_PYTHON_MODULEROOT};
+    else
+        local sitedir=$(python_get_sitedir);
+        d=${sitedir#${EPREFIX}}/${_PYTHON_MODULEROOT//.//};
+    fi;
+    if [[ ${EBUILD_PHASE} == install ]]; then
+        ( insopts -m 0644;
+        insinto "${d}";
+        doins -r "${@}" || return ${?} );
+        python_optimize "${ED%/}/${d}";
+    else
+        if [[ -n ${BUILD_DIR} ]]; then
+            local dest=${BUILD_DIR}/install${EPREFIX}/${d};
+            mkdir -p "${dest}" || die;
+            cp -pR "${@}" "${dest}/" || die;
+            ( cd "${dest}" && chmod -R a+rX "${@##*/}" ) || die;
+        else
+            die "${FUNCNAME} can only be used in src_install or with BUILD_DIR set";
+        fi;
+    fi
+}
+python_doscript () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    [[ ${EBUILD_PHASE} != install ]] && die "${FUNCNAME} can only be used in src_install";
+    local _PYTHON_REWRITE_SHEBANG=1;
+    python_doexe "${@}"
+}
+python_export_utf8_locale () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    type locale &> /dev/null || return 0;
+    if [[ $(locale charmap) != UTF-8 ]]; then
+        local lang locales="C.UTF-8 en_US.UTF-8 en_GB.UTF-8 $(locale -a)";
+        for lang in ${locales};
+        do
+            if [[ $(LC_ALL=${lang} locale charmap 2>/dev/null) == UTF-8 ]]; then
+                if _python_check_locale_sanity "${lang}"; then
+                    export LC_CTYPE=${lang};
+                    if [[ -n ${LC_ALL} ]]; then
+                        export LC_NUMERIC=${LC_ALL};
+                        export LC_TIME=${LC_ALL};
+                        export LC_COLLATE=${LC_ALL};
+                        export LC_MONETARY=${LC_ALL};
+                        export LC_MESSAGES=${LC_ALL};
+                        export LC_PAPER=${LC_ALL};
+                        export LC_NAME=${LC_ALL};
+                        export LC_ADDRESS=${LC_ALL};
+                        export LC_TELEPHONE=${LC_ALL};
+                        export LC_MEASUREMENT=${LC_ALL};
+                        export LC_IDENTIFICATION=${LC_ALL};
+                        export LC_ALL=;
+                    fi;
+                    return 0;
+                fi;
+            fi;
+        done;
+        ewarn "Could not find a UTF-8 locale. This may trigger build failures in";
+        ewarn "some python packages. Please ensure that a UTF-8 locale is listed in";
+        ewarn "/etc/locale.gen and run locale-gen.";
+        return 1;
+    fi;
+    return 0
+}
+python_fix_shebang () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    [[ -n ${EPYTHON} ]] || die "${FUNCNAME}: EPYTHON unset (pkg_setup not called?)";
+    local PYTHON;
+    _python_export "${EPYTHON}" PYTHON;
+    local force quiet;
+    while [[ -n ${@} ]]; do
+        case "${1}" in 
+            -f | --force)
+                force=1;
+                shift
+            ;;
+            -q | --quiet)
+                quiet=1;
+                shift
+            ;;
+            --)
+                shift;
+                break
+            ;;
+            *)
+                break
+            ;;
+        esac;
+    done;
+    [[ -n ${1} ]] || die "${FUNCNAME}: no paths given";
+    local path f;
+    for path in "$@";
+    do
+        local any_fixed is_recursive;
+        [[ -d ${path} ]] && is_recursive=1;
+        while IFS= read -r -d '' f; do
+            local shebang i;
+            local error= match=;
+            IFS= read -r shebang < "${f}";
+            if [[ ${shebang} == '#!'* ]]; then
+                local split_shebang=();
+                read -r -a split_shebang <<< ${shebang#"#!"} || die;
+                local in_path=${split_shebang[0]};
+                local from='^#! *[^ ]*';
+                if [[ ${in_path} == */env ]]; then
+                    in_path=${split_shebang[1]};
+                    from+=' *[^ ]*';
+                fi;
+                case ${in_path##*/} in 
+                    "${EPYTHON}")
+                        match=1
+                    ;;
+                    python | python[23])
+                        match=1;
+                        [[ ${in_path##*/} == python2 ]] && error=1
+                    ;;
+                    python[23].[0-9] | python3.[1-9][0-9] | pypy | pypy3 | jython[23].[0-9])
+                        match=1;
+                        error=1
+                    ;;
+                esac;
+            fi;
+            [[ -n ${force} ]] && error=;
+            if [[ ! -n ${match} ]]; then
+                [[ -n ${is_recursive} ]] && continue;
+                error=1;
+            fi;
+            if [[ ! -n ${quiet} ]]; then
+                einfo "Fixing shebang in ${f#${D%/}}.";
+            fi;
+            if [[ ! -n ${error} ]]; then
+                debug-print "${FUNCNAME}: in file ${f#${D%/}}";
+                debug-print "${FUNCNAME}: rewriting shebang: ${shebang}";
+                sed -i -e "1s@${from}@#!${PYTHON}@" "${f}" || die;
+                any_fixed=1;
+            else
+                eerror "The file has incompatible shebang:";
+                eerror "  file: ${f#${D%/}}";
+                eerror "  current shebang: ${shebang}";
+                eerror "  requested impl: ${EPYTHON}";
+                die "${FUNCNAME}: conversion of incompatible shebang requested";
+            fi;
+        done < <(find -H "${path}" -type f -print0 || die);
+        if [[ ! -n ${any_fixed} ]]; then
+            eerror "QA error: ${FUNCNAME}, ${path#${D%/}} did not match any fixable files.";
+            eerror "There are no Python files in specified directory.";
+            die "${FUNCNAME} did not match any fixable files";
+        fi;
+    done
+}
+python_gen_any_dep () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    local depstr=${1};
+    [[ -n ${depstr} ]] || die "No dependency string provided";
+    local i PYTHON_PKG_DEP out=;
+    for i in "${_PYTHON_SUPPORTED_IMPLS[@]}";
+    do
+        local PYTHON_USEDEP="python_targets_${i}(-)";
+        local PYTHON_SINGLE_USEDEP="python_single_target_${i}(-)";
+        _python_export "${i}" PYTHON_PKG_DEP;
+        local i_depstr=${depstr//\$\{PYTHON_USEDEP\}/${PYTHON_USEDEP}};
+        i_depstr=${i_depstr//\$\{PYTHON_SINGLE_USEDEP\}/${PYTHON_SINGLE_USEDEP}};
+        out="( ${PYTHON_PKG_DEP%=} ${i_depstr} ) ${out}";
+    done;
+    echo "|| ( ${out})"
+}
+python_get_CFLAGS () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    _python_export "${@}" PYTHON_CFLAGS;
+    echo "${PYTHON_CFLAGS}"
+}
+python_get_LIBS () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    _python_export "${@}" PYTHON_LIBS;
+    echo "${PYTHON_LIBS}"
+}
+python_get_PYTHON_CONFIG () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    _python_export "${@}" PYTHON_CONFIG;
+    echo "${PYTHON_CONFIG}"
+}
+python_get_includedir () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    _python_export "${@}" PYTHON_INCLUDEDIR;
+    echo "${PYTHON_INCLUDEDIR}"
+}
+python_get_library_path () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    _python_export "${@}" PYTHON_LIBPATH;
+    echo "${PYTHON_LIBPATH}"
+}
+python_get_scriptdir () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    _python_export "${@}" PYTHON_SCRIPTDIR;
+    echo "${PYTHON_SCRIPTDIR}"
+}
+python_get_sitedir () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    _python_export "${@}" PYTHON_SITEDIR;
+    echo "${PYTHON_SITEDIR}"
+}
+python_has_version () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    local root_arg=(-b);
+    case ${1} in 
+        -b | -d | -r)
+            root_arg=("${1}");
+            shift
+        ;;
+    esac;
+    if [[ ${EAPI} == 6 ]]; then
+        if [[ ${root_arg} == -r ]]; then
+            root_arg=();
+        else
+            root_arg=(--host-root);
+        fi;
+    fi;
+    local pkg;
+    for pkg in "$@";
+    do
+        ebegin "    ${pkg}";
+        has_version "${root_arg[@]}" "${pkg}";
+        eend ${?} || return;
+    done;
+    return 0
+}
+python_moduleinto () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    _PYTHON_MODULEROOT=${1}
+}
+python_newexe () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    [[ ${EBUILD_PHASE} != install ]] && die "${FUNCNAME} can only be used in src_install";
+    [[ -n ${EPYTHON} ]] || die 'No Python implementation set (EPYTHON is null).';
+    [[ ${#} -eq 2 ]] || die "Usage: ${FUNCNAME} <path> <new-name>";
+    local wrapd=${_PYTHON_SCRIPTROOT:-/usr/bin};
+    local f=${1};
+    local newfn=${2};
+    local scriptdir=$(python_get_scriptdir);
+    local d=${scriptdir#${EPREFIX}};
+    ( dodir "${wrapd}";
+    exeopts -m 0755;
+    exeinto "${d}";
+    newexe "${f}" "${newfn}" || return ${?} );
+    local dosym=dosym;
+    [[ ${EAPI} == [67] ]] && dosym=dosym8;
+    "${dosym}" -r /usr/lib/python-exec/python-exec2 "${wrapd}/${newfn}";
+    if [[ -n ${_PYTHON_REWRITE_SHEBANG} ]]; then
+        python_fix_shebang -q "${ED%/}/${d}/${newfn}";
+    fi
+}
+python_newscript () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    [[ ${EBUILD_PHASE} != install ]] && die "${FUNCNAME} can only be used in src_install";
+    local _PYTHON_REWRITE_SHEBANG=1;
+    python_newexe "${@}"
+}
+python_optimize () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    [[ -n ${EPYTHON} ]] || die 'No Python implementation set (EPYTHON is null).';
+    local PYTHON=${PYTHON};
+    [[ -n ${PYTHON} ]] || _python_export PYTHON;
+    [[ -x ${PYTHON} ]] || die "PYTHON (${PYTHON}) is not executable";
+    if [[ ${#} -eq 0 ]]; then
+        local f;
+        while IFS= read -r -d '' f; do
+            if [[ ${f} == /* && -d ${D%/}${f} ]]; then
+                set -- "${D%/}${f}" "${@}";
+            fi;
+        done < <(
+			"${PYTHON}" - <<-EOF || die
+				import sys
+				print("".join(x + "\0" for x in sys.path))
+			EOF
+		);
+        debug-print "${FUNCNAME}: using sys.path: ${*/%/;}";
+    fi;
+    local jobs=$(makeopts_jobs);
+    local d;
+    for d in "$@";
+    do
+        local instpath=${d#${D%/}};
+        instpath=/${instpath##/};
+        einfo "Optimize Python modules for ${instpath}";
+        case "${EPYTHON}" in 
+            python2.7 | python3.[34])
+                "${PYTHON}" -m compileall -q -f -d "${instpath}" "${d}";
+                "${PYTHON}" -OO -m compileall -q -f -d "${instpath}" "${d}"
+            ;;
+            python3.[5678] | pypy3)
+                "${PYTHON}" -m compileall -j "${jobs}" -q -f -d "${instpath}" "${d}";
+                "${PYTHON}" -O -m compileall -j "${jobs}" -q -f -d "${instpath}" "${d}";
+                "${PYTHON}" -OO -m compileall -j "${jobs}" -q -f -d "${instpath}" "${d}"
+            ;;
+            python*)
+                "${PYTHON}" -m compileall -j "${jobs}" -o 0 -o 1 -o 2 --hardlink-dupes -q -f -d "${instpath}" "${d}"
+            ;;
+            *)
+                "${PYTHON}" -m compileall -q -f -d "${instpath}" "${d}"
+            ;;
+        esac;
+    done
+}
+python_scriptinto () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    _PYTHON_SCRIPTROOT=${1}
+}
+python_setup () 
+{ 
+    debug-print-function ${FUNCNAME} "${@}";
+    if [[ -n ${PYTHON_COMPAT_OVERRIDE} ]]; then
+        local impls=(${PYTHON_COMPAT_OVERRIDE});
+        [[ ${#impls[@]} -eq 1 ]] || die "PYTHON_COMPAT_OVERRIDE must name exactly one implementation for python-any-r1";
+        ewarn "WARNING: PYTHON_COMPAT_OVERRIDE in effect. The following Python";
+        ewarn "implementation will be used:";
+        ewarn;
+        ewarn "	${PYTHON_COMPAT_OVERRIDE}";
+        ewarn;
+        ewarn "Dependencies won't be satisfied, and EPYTHON/eselect-python will be ignored.";
+        _python_export "${impls[0]}" EPYTHON PYTHON;
+        _python_wrapper_setup;
+        einfo "Using ${EPYTHON} to build (via PYTHON_COMPAT_OVERRIDE)";
+        return;
+    fi;
+    local epython_impl=${EPYTHON/./_};
+    if [[ -n ${epython_impl} ]]; then
+        if ! has "${epython_impl}" "${_PYTHON_SUPPORTED_IMPLS[@]}"; then
+            if ! has "${epython_impl}" "${_PYTHON_ALL_IMPLS[@]}"; then
+                ewarn "Invalid EPYTHON: ${EPYTHON}";
+            else
+                einfo "EPYTHON (${EPYTHON}) not supported by the package";
+            fi;
+        else
+            if _python_run_check_deps "${epython_impl}"; then
+                _python_export EPYTHON PYTHON;
+                _python_wrapper_setup;
+                einfo "Using ${EPYTHON} to build (via EPYTHON)";
+                return;
+            fi;
+        fi;
+    fi;
+    for ((i = ${#_PYTHON_SUPPORTED_IMPLS[@]} - 1; i >= 0; i-- ))
+    do
+        local impl=${_PYTHON_SUPPORTED_IMPLS[i]};
+        [[ ${impl} == ${epython_impl} ]] && continue;
+        _python_export "${impl}" EPYTHON PYTHON;
+        if _python_run_check_deps "${impl}"; then
+            _python_wrapper_setup;
+            einfo "Using ${EPYTHON} to build (via PYTHON_COMPAT iteration)";
+            return;
+        fi;
+    done;
+    eerror "No Python implementation found for the build. This is usually";
+    eerror "a bug in the ebuild. Please report it to bugs.gentoo.org";
+    eerror "along with the build log.";
+    echo;
+    die "No supported Python implementation installed."
+}
+raw-ldflags () 
+{ 
+    local x input="$@";
+    [[ -z ${input} ]] && input=${LDFLAGS};
+    set --;
+    for x in ${input};
+    do
+        case ${x} in 
+            -Wl,*)
+                x=${x#-Wl,};
+                set -- "$@" ${x//,/ }
+            ;;
+            *)
+
+            ;;
+        esac;
+    done;
+    echo "$@"
+}
+replace-cpu-flags () 
+{ 
+    local newcpu="$#";
+    newcpu="${!newcpu}";
+    while [ $# -gt 1 ]; do
+        replace-flags "-march=${1}" "-march=${newcpu}";
+        replace-flags "-mcpu=${1}" "-mcpu=${newcpu}";
+        replace-flags "-mtune=${1}" "-mtune=${newcpu}";
+        shift;
+    done;
+    return 0
+}
+replace-flags () 
+{ 
+    [[ $# != 2 ]] && die "Usage: replace-flags <old flag> <new flag>";
+    local f var new;
+    for var in $(all-flag-vars);
+    do
+        new=();
+        for f in ${!var};
+        do
+            [[ ${f} == ${1} ]] && f=${2};
+            new+=("${f}");
+        done;
+        export ${var}="${new[*]}";
+    done;
+    return 0
+}
+replace-sparc64-flags () 
+{ 
+    [[ $# -ne 0 ]] && die "replace-sparc64-flags takes no arguments";
+    local SPARC64_CPUS="ultrasparc3 ultrasparc v9";
+    if [ "${CFLAGS/mtune}" != "${CFLAGS}" ]; then
+        for x in ${SPARC64_CPUS};
+        do
+            CFLAGS="${CFLAGS/-mcpu=${x}/-mcpu=v8}";
+        done;
+    else
+        for x in ${SPARC64_CPUS};
+        do
+            CFLAGS="${CFLAGS/-mcpu=${x}/-mcpu=v8 -mtune=${x}}";
+        done;
+    fi;
+    if [ "${CXXFLAGS/mtune}" != "${CXXFLAGS}" ]; then
+        for x in ${SPARC64_CPUS};
+        do
+            CXXFLAGS="${CXXFLAGS/-mcpu=${x}/-mcpu=v8}";
+        done;
+    else
+        for x in ${SPARC64_CPUS};
+        do
+            CXXFLAGS="${CXXFLAGS/-mcpu=${x}/-mcpu=v8 -mtune=${x}}";
+        done;
+    fi;
+    export CFLAGS CXXFLAGS
+}
+setup-allowed-flags () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _setup-allowed-flags "$@"
+}
+src_compile () 
+{ 
+    cmake_src_compile "$@"
+}
+src_configure () 
+{ 
+    tc-export CC;
+    use alpha && append-ldflags "-Wl,--no-relax";
+    use ia64 && append-ldflags "-Wl,--no-as-needed";
+    use sparc && filter-flags "-mvis";
+    use ppc64 && append-flags "-mminimal-toc";
+    if ! use ia64; then
+        append-ldflags $(test-flags-CCLD "-Wl,--no-keep-memory");
+    fi;
+    local rubyimpl;
+    local ruby_interpreter="";
+    for rubyimpl in ${USE_RUBY};
+    do
+        if has_version -b "virtual/rubygems[ruby_targets_${rubyimpl}]"; then
+            ruby_interpreter="-DRUBY_EXECUTABLE=$(type -P ${rubyimpl})";
+        fi;
+    done;
+    [[ -z $ruby_interpreter ]] && die "No suitable ruby interpreter found";
+    local mycmakeargs=(${ruby_interpreter} $(cmake_use_find_package gles2-only OpenGLES2) $(cmake_use_find_package egl EGL) $(cmake_use_find_package !gles2-only OpenGL) -DBWRAP_EXECUTABLE:FILEPATH="${EPREFIX}"/usr/bin/bwrap -DDBUS_PROXY_EXECUTABLE:FILEPATH="${EPREFIX}"/usr/bin/xdg-dbus-proxy -DPORT=GTK -DENABLE_API_TESTS=$(usex test) -DENABLE_BUBBLEWRAP_SANDBOX=$(usex seccomp) -DENABLE_GAMEPAD=$(usex gamepad) -DENABLE_GEOLOCATION=ON -DENABLE_MINIBROWSER=$(usex examples) -DENABLE_SPELLCHECK=$(usex spell) -DENABLE_UNIFIED_BUILDS=$(usex jumbo-build) -DENABLE_VIDEO=$(usex gstreamer) -DENABLE_WEBGL=ON -DENABLE_WEBGL2=OFF -DENABLE_WEB_AUDIO=$(usex gstreamer) -DENABLE_GLES2=$(usex gles2-only) -DENABLE_GTKDOC=$(usex gtk-doc) -DENABLE_INTROSPECTION=$(usex introspection) -DENABLE_JOURNALD_LOG=$(usex systemd) -DENABLE_QUARTZ_TARGET=$(usex aqua) -DENABLE_WAYLAND_TARGET=$(usex wayland) -DENABLE_X11_TARGET=$(usex X) -DUSE_ANGLE_WEBGL=OFF -DUSE_AVIF=$(usex avif) -DUSE_GTK4=OFF -DUSE_JPEGXL=OFF -DUSE_LCMS=$(usex lcms) -DUSE_LIBHYPHEN=ON -DUSE_LIBNOTIFY=$(usex libnotify) -DUSE_LIBSECRET=$(usex gnome-keyring) -DUSE_OPENGL_OR_ES=ON -DUSE_OPENJPEG=$(usex jpeg2k) -DUSE_SOUP2=ON -DUSE_WOFF2=ON -DUSE_WPE_RENDERER=$(usex wayland));
+    append-cppflags -DNDEBUG;
+    WK_USE_CCACHE=NO cmake_src_configure
+}
+src_install () 
+{ 
+    cmake_src_install "$@"
+}
+src_prepare () 
+{ 
+    cmake_src_prepare;
+    gnome2_src_prepare
+}
+src_test () 
+{ 
+    cmake_src_test "$@"
+}
+src_unpack () 
+{ 
+    default
+}
+strip-flags () 
+{ 
+    [[ $# -ne 0 ]] && die "strip-flags takes no arguments";
+    local x y var;
+    local ALLOWED_FLAGS;
+    _setup-allowed-flags;
+    set -f;
+    for var in $(all-flag-vars);
+    do
+        local new=();
+        for x in ${!var};
+        do
+            for y in "${ALLOWED_FLAGS[@]}";
+            do
+                if [[ ${x} == ${y} ]]; then
+                    new+=("${x}");
+                    break;
+                fi;
+            done;
+        done;
+        if _is_flagq ${var} "-O*" && ! _is_flagq new "-O*"; then
+            new+=(-O2);
+        fi;
+        if [[ ${!var} != "${new[*]}" ]]; then
+            einfo "strip-flags: ${var}: changed '${!var}' to '${new[*]}'";
+        fi;
+        export ${var}="${new[*]}";
+    done;
+    set +f;
+    return 0
+}
+strip-linguas () 
+{ 
+    local d f ls newls nols;
+    if [[ $1 == "-i" ]] || [[ $1 == "-u" ]]; then
+        local op=$1;
+        shift;
+        ls=$(find "$1" -name '*.po' -exec basename {} .po ';');
+        shift;
+        for d in "$@";
+        do
+            if [[ ${op} == "-u" ]]; then
+                newls=${ls};
+            else
+                newls="";
+            fi;
+            for f in $(find "${d}" -name '*.po' -exec basename {} .po ';');
+            do
+                if [[ ${op} == "-i" ]]; then
+                    has ${f} ${ls} && newls+=" ${f}";
+                else
+                    has ${f} ${ls} || newls+=" ${f}";
+                fi;
+            done;
+            ls=${newls};
+        done;
+    else
+        ls="$@";
+    fi;
+    nols="";
+    newls="";
+    for f in ${LINGUAS};
+    do
+        if has ${f} ${ls}; then
+            newls+=" ${f}";
+        else
+            nols+=" ${f}";
+        fi;
+    done;
+    [[ -n ${nols} ]] && einfo "Sorry, but ${PN} does not support the LINGUAS:" ${nols};
+    export LINGUAS=${newls:1}
+}
+strip-unsupported-flags () 
+{ 
+    [[ $# -ne 0 ]] && die "strip-unsupported-flags takes no arguments";
+    export CFLAGS=$(test-flags-CC ${CFLAGS});
+    export CXXFLAGS=$(test-flags-CXX ${CXXFLAGS});
+    export FFLAGS=$(test-flags-F77 ${FFLAGS});
+    export FCFLAGS=$(test-flags-FC ${FCFLAGS});
+    export LDFLAGS=$(test-flags-CCLD ${LDFLAGS})
+}
+tc-arch () 
+{ 
+    tc-ninja_magic_to_arch portage "$@"
+}
+tc-arch-kernel () 
+{ 
+    tc-ninja_magic_to_arch kern "$@"
+}
+tc-check-openmp () 
+{ 
+    if ! _tc-has-openmp; then
+        eerror "Your current compiler does not support OpenMP!";
+        if tc-is-gcc; then
+            eerror "Enable OpenMP support by building sys-devel/gcc with USE=\"openmp\".";
+        else
+            if tc-is-clang; then
+                eerror "OpenMP support in sys-devel/clang is provided by sys-libs/libomp.";
+            fi;
+        fi;
+        die "Active compiler does not have required support for OpenMP";
+    fi
+}
+tc-cpp-is-true () 
+{ 
+    local CONDITION=${1};
+    shift;
+    $(tc-getTARGET_CPP) "${@}" -P - <<-EOF > /dev/null 2>&1
+#if ${CONDITION}
+true
+#else
+#error false
+#endif
+EOF
+
+}
+tc-detect-is-softfloat () 
+{ 
+    [[ $(tc-getTARGET_CPP) == "gcc -E" ]] && return 1;
+    case ${CTARGET:-${CHOST}} in 
+        *-newlib | *-elf | *-eabi)
+            return 1
+        ;;
+        arm*)
+            if tc-cpp-is-true "defined(__ARM_PCS_VFP)"; then
+                echo "no";
+            else
+                if tc-cpp-is-true "defined(__SOFTFP__)"; then
+                    echo "yes";
+                else
+                    echo "softfp";
+                fi;
+            fi;
+            return 0
+        ;;
+        *)
+            return 1
+        ;;
+    esac
+}
+tc-enables-pie () 
+{ 
+    tc-cpp-is-true "defined(__PIE__)" ${CPPFLAGS} ${CFLAGS}
+}
+tc-enables-ssp () 
+{ 
+    tc-cpp-is-true "defined(__SSP__) || defined(__SSP_STRONG__) || defined(__SSP_ALL__)" ${CPPFLAGS} ${CFLAGS}
+}
+tc-enables-ssp-all () 
+{ 
+    tc-cpp-is-true "defined(__SSP_ALL__)" ${CPPFLAGS} ${CFLAGS}
+}
+tc-enables-ssp-strong () 
+{ 
+    tc-cpp-is-true "defined(__SSP_STRONG__) || defined(__SSP_ALL__)" ${CPPFLAGS} ${CFLAGS}
+}
+tc-endian () 
+{ 
+    local host=$1;
+    [[ -z ${host} ]] && host=${CTARGET:-${CHOST}};
+    host=${host%%-*};
+    case ${host} in 
+        aarch64*be)
+            echo big
+        ;;
+        aarch64)
+            echo little
+        ;;
+        alpha*)
+            echo little
+        ;;
+        arm*b*)
+            echo big
+        ;;
+        arm*)
+            echo little
+        ;;
+        cris*)
+            echo little
+        ;;
+        hppa*)
+            echo big
+        ;;
+        i?86*)
+            echo little
+        ;;
+        ia64*)
+            echo little
+        ;;
+        loongarch*)
+            echo little
+        ;;
+        m68*)
+            echo big
+        ;;
+        mips*l*)
+            echo little
+        ;;
+        mips*)
+            echo big
+        ;;
+        powerpc*le)
+            echo little
+        ;;
+        powerpc*)
+            echo big
+        ;;
+        riscv*)
+            echo little
+        ;;
+        s390*)
+            echo big
+        ;;
+        sh*b*)
+            echo big
+        ;;
+        sh*)
+            echo little
+        ;;
+        sparc*)
+            echo big
+        ;;
+        x86_64*)
+            echo little
+        ;;
+        *)
+            echo wtf
+        ;;
+    esac
+}
+tc-env_build () 
+{ 
+    tc-export_build_env;
+    CFLAGS=${BUILD_CFLAGS} CXXFLAGS=${BUILD_CXXFLAGS} CPPFLAGS=${BUILD_CPPFLAGS} LDFLAGS=${BUILD_LDFLAGS} AR=$(tc-getBUILD_AR) AS=$(tc-getBUILD_AS) CC=$(tc-getBUILD_CC) CPP=$(tc-getBUILD_CPP) CXX=$(tc-getBUILD_CXX) LD=$(tc-getBUILD_LD) NM=$(tc-getBUILD_NM) PKG_CONFIG=$(tc-getBUILD_PKG_CONFIG) RANLIB=$(tc-getBUILD_RANLIB) READELF=$(tc-getBUILD_READELF) "$@"
+}
+tc-export () 
+{ 
+    local var;
+    for var in "$@";
+    do
+        [[ $(type -t "tc-get${var}") != "function" ]] && die "tc-export: invalid export variable '${var}'";
+        "tc-get${var}" > /dev/null;
+    done
+}
+tc-export_build_env () 
+{ 
+    tc-export "$@";
+    if tc-is-cross-compiler; then
+        : ${BUILD_CFLAGS:=-O1 -pipe};
+        : ${BUILD_CXXFLAGS:=-O1 -pipe};
+        : ${BUILD_CPPFLAGS:= };
+        : ${BUILD_LDFLAGS:= };
+    else
+        : ${BUILD_CFLAGS:=${CFLAGS}};
+        : ${BUILD_CXXFLAGS:=${CXXFLAGS}};
+        : ${BUILD_CPPFLAGS:=${CPPFLAGS}};
+        : ${BUILD_LDFLAGS:=${LDFLAGS}};
+    fi;
+    export BUILD_{C,CXX,CPP,LD}FLAGS;
+    local v;
+    for v in BUILD_{C,CXX,CPP,LD}FLAGS;
+    do
+        export ${v#BUILD_}_FOR_BUILD="${!v}";
+    done
+}
+tc-get-compiler-type () 
+{ 
+    local code='
+#if defined(__PATHSCALE__)
+	HAVE_PATHCC
+#elif defined(__clang__)
+	HAVE_CLANG
+#elif defined(__GNUC__)
+	HAVE_GCC
+#endif
+';
+    local res=$($(tc-getCPP "$@") -E -P - <<<"${code}");
+    case ${res} in 
+        *HAVE_PATHCC*)
+            echo pathcc
+        ;;
+        *HAVE_CLANG*)
+            echo clang
+        ;;
+        *HAVE_GCC*)
+            echo gcc
+        ;;
+        *)
+            echo unknown
+        ;;
+    esac
+}
+tc-getAR () 
+{ 
+    tc-getPROG AR ar "$@"
+}
+tc-getAS () 
+{ 
+    tc-getPROG AS as "$@"
+}
+tc-getBUILD_AR () 
+{ 
+    tc-getBUILD_PROG AR ar "$@"
+}
+tc-getBUILD_AS () 
+{ 
+    tc-getBUILD_PROG AS as "$@"
+}
+tc-getBUILD_CC () 
+{ 
+    tc-getBUILD_PROG CC gcc "$@"
+}
+tc-getBUILD_CPP () 
+{ 
+    tc-getBUILD_PROG CPP "$(tc-getBUILD_CC) -E" "$@"
+}
+tc-getBUILD_CXX () 
+{ 
+    tc-getBUILD_PROG CXX g++ "$@"
+}
+tc-getBUILD_LD () 
+{ 
+    tc-getBUILD_PROG LD ld "$@"
+}
+tc-getBUILD_NM () 
+{ 
+    tc-getBUILD_PROG NM nm "$@"
+}
+tc-getBUILD_OBJCOPY () 
+{ 
+    tc-getBUILD_PROG OBJCOPY objcopy "$@"
+}
+tc-getBUILD_PKG_CONFIG () 
+{ 
+    tc-getBUILD_PROG PKG_CONFIG pkg-config "$@"
+}
+tc-getBUILD_PROG () 
+{ 
+    local vars="BUILD_$1 $1_FOR_BUILD HOST$1";
+    tc-is-cross-compiler || vars+=" $1";
+    _tc-getPROG CBUILD "${vars}" "${@:2}"
+}
+tc-getBUILD_RANLIB () 
+{ 
+    tc-getBUILD_PROG RANLIB ranlib "$@"
+}
+tc-getBUILD_READELF () 
+{ 
+    tc-getBUILD_PROG READELF readelf "$@"
+}
+tc-getBUILD_STRINGS () 
+{ 
+    tc-getBUILD_PROG STRINGS strings "$@"
+}
+tc-getBUILD_STRIP () 
+{ 
+    tc-getBUILD_PROG STRIP strip "$@"
+}
+tc-getCC () 
+{ 
+    tc-getPROG CC gcc "$@"
+}
+tc-getCPP () 
+{ 
+    tc-getPROG CPP "${CC:-gcc} -E" "$@"
+}
+tc-getCXX () 
+{ 
+    tc-getPROG CXX g++ "$@"
+}
+tc-getDLLWRAP () 
+{ 
+    tc-getPROG DLLWRAP dllwrap "$@"
+}
+tc-getF77 () 
+{ 
+    tc-getPROG F77 gfortran "$@"
+}
+tc-getFC () 
+{ 
+    tc-getPROG FC gfortran "$@"
+}
+tc-getGCJ () 
+{ 
+    tc-getPROG GCJ gcj "$@"
+}
+tc-getGO () 
+{ 
+    tc-getPROG GO gccgo "$@"
+}
+tc-getLD () 
+{ 
+    tc-getPROG LD ld "$@"
+}
+tc-getNM () 
+{ 
+    tc-getPROG NM nm "$@"
+}
+tc-getOBJCOPY () 
+{ 
+    tc-getPROG OBJCOPY objcopy "$@"
+}
+tc-getOBJDUMP () 
+{ 
+    tc-getPROG OBJDUMP objdump "$@"
+}
+tc-getPKG_CONFIG () 
+{ 
+    tc-getPROG PKG_CONFIG pkg-config "$@"
+}
+tc-getPROG () 
+{ 
+    _tc-getPROG CHOST "$@"
+}
+tc-getRANLIB () 
+{ 
+    tc-getPROG RANLIB ranlib "$@"
+}
+tc-getRC () 
+{ 
+    tc-getPROG RC windres "$@"
+}
+tc-getREADELF () 
+{ 
+    tc-getPROG READELF readelf "$@"
+}
+tc-getSTRINGS () 
+{ 
+    tc-getPROG STRINGS strings "$@"
+}
+tc-getSTRIP () 
+{ 
+    tc-getPROG STRIP strip "$@"
+}
+tc-getTARGET_CPP () 
+{ 
+    if [[ -n ${CTARGET} ]]; then
+        _tc-getPROG CTARGET TARGET_CPP "gcc -E" "$@";
+    else
+        tc-getCPP "$@";
+    fi
+}
+tc-has-openmp () 
+{ 
+    _tc-has-openmp "$@"
+}
+tc-has-tls () 
+{ 
+    local base="${T}/test-tc-tls";
+    cat <<-EOF > "${base}.c"
+int foo(int *i) {
+static __thread int j = 0;
+return *i ? j : *i;
+}
+EOF
+
+    local flags;
+    case $1 in 
+        -s)
+            flags="-S"
+        ;;
+        -c)
+            flags="-c"
+        ;;
+        -l)
+
+        ;;
+        -*)
+            die "Usage: tc-has-tls [-c|-l] [toolchain prefix]"
+        ;;
+    esac;
+    : ${flags:=-fPIC -shared -Wl,-z,defs};
+    [[ $1 == -* ]] && shift;
+    $(tc-getCC "$@") ${flags} "${base}.c" -o "${base}" &> /dev/null;
+    local ret=$?;
+    rm -f "${base}"*;
+    return ${ret}
+}
+tc-is-clang () 
+{ 
+    [[ $(tc-get-compiler-type) == clang ]]
+}
+tc-is-cross-compiler () 
+{ 
+    [[ ${CBUILD:-${CHOST}} != ${CHOST} ]]
+}
+tc-is-gcc () 
+{ 
+    [[ $(tc-get-compiler-type) == gcc ]]
+}
+tc-is-softfloat () 
+{ 
+    tc-detect-is-softfloat || tc-tuple-is-softfloat
+}
+tc-is-static-only () 
+{ 
+    local host=${CTARGET:-${CHOST}};
+    [[ ${host} == *-mint* ]]
+}
+tc-ld-disable-gold () 
+{ 
+    tc-ld-is-gold "$@" && tc-ld-force-bfd "$@"
+}
+tc-ld-force-bfd () 
+{ 
+    if ! tc-ld-is-gold "$@" && ! tc-ld-is-lld "$@"; then
+        return;
+    fi;
+    ewarn "Forcing usage of the BFD linker";
+    local ld=$(tc-getLD "$@");
+    local bfd_ld="${ld%% *}.bfd";
+    local path_ld=$(which "${bfd_ld}" 2>/dev/null);
+    [[ -e ${path_ld} ]] && export LD=${bfd_ld};
+    local fallback="true";
+    if tc-is-gcc; then
+        local major=$(gcc-major-version "$@");
+        local minor=$(gcc-minor-version "$@");
+        if [[ ${major} -gt 4 ]] || [[ ${major} -eq 4 && ${minor} -ge 8 ]]; then
+            export LDFLAGS="${LDFLAGS} -fuse-ld=bfd";
+            fallback="false";
+        fi;
+    else
+        if tc-is-clang; then
+            local major=$(clang-major-version "$@");
+            local minor=$(clang-minor-version "$@");
+            if [[ ${major} -gt 3 ]] || [[ ${major} -eq 3 && ${minor} -ge 5 ]]; then
+                export LDFLAGS="${LDFLAGS} -fuse-ld=bfd";
+                fallback="false";
+            fi;
+        fi;
+    fi;
+    if [[ ${fallback} == "true" ]]; then
+        if [[ -e ${path_ld} ]]; then
+            local d="${T}/bfd-linker";
+            mkdir -p "${d}";
+            ln -sf "${path_ld}" "${d}"/ld;
+            export LDFLAGS="${LDFLAGS} -B${d}";
+        else
+            die "unable to locate a BFD linker";
+        fi;
+    fi
+}
+tc-ld-is-gold () 
+{ 
+    local out;
+    local -x LC_ALL=C;
+    out=$($(tc-getLD "$@") --version 2>&1);
+    if [[ ${out} == *"GNU gold"* ]]; then
+        return 0;
+    fi;
+    local base="${T}/test-tc-gold";
+    cat <<-EOF > "${base}.c"
+int main() { return 0; }
+EOF
+
+    out=$($(tc-getCC "$@") ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} -Wl,--version "${base}.c" -o "${base}" 2>&1);
+    rm -f "${base}"*;
+    if [[ ${out} == *"GNU gold"* ]]; then
+        return 0;
+    fi;
+    return 1
+}
+tc-ld-is-lld () 
+{ 
+    local out;
+    local -x LC_ALL=C;
+    out=$($(tc-getLD "$@") --version 2>&1);
+    if [[ ${out} == *"LLD"* ]]; then
+        return 0;
+    fi;
+    local base="${T}/test-tc-lld";
+    cat <<-EOF > "${base}.c"
+int main() { return 0; }
+EOF
+
+    out=$($(tc-getCC "$@") ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} -Wl,--version "${base}.c" -o "${base}" 2>&1);
+    rm -f "${base}"*;
+    if [[ ${out} == *"LLD"* ]]; then
+        return 0;
+    fi;
+    return 1
+}
+tc-ninja_magic_to_arch () 
+{ 
+    function ninj () 
+    { 
+        [[ ${type} == "kern" ]] && echo $1 || echo $2
+    };
+    local type=$1;
+    local host=$2;
+    [[ -z ${host} ]] && host=${CTARGET:-${CHOST}};
+    case ${host} in 
+        aarch64*)
+            echo arm64
+        ;;
+        alpha*)
+            echo alpha
+        ;;
+        arm*)
+            echo arm
+        ;;
+        avr*)
+            ninj avr32 avr
+        ;;
+        bfin*)
+            ninj blackfin bfin
+        ;;
+        c6x*)
+            echo c6x
+        ;;
+        cris*)
+            echo cris
+        ;;
+        frv*)
+            echo frv
+        ;;
+        hexagon*)
+            echo hexagon
+        ;;
+        hppa*)
+            ninj parisc hppa
+        ;;
+        i?86*)
+            if [[ ${type} == "kern" && ${host} == *freebsd* ]]; then
+                echo i386;
+            else
+                echo x86;
+            fi
+        ;;
+        ia64*)
+            echo ia64
+        ;;
+        loongarch*)
+            ninj loongarch loong
+        ;;
+        m68*)
+            echo m68k
+        ;;
+        metag*)
+            echo metag
+        ;;
+        microblaze*)
+            echo microblaze
+        ;;
+        mips*)
+            echo mips
+        ;;
+        nios2*)
+            echo nios2
+        ;;
+        nios*)
+            echo nios
+        ;;
+        or1k* | or32*)
+            echo openrisc
+        ;;
+        powerpc*)
+            if [[ ${type} == "kern" ]]; then
+                echo powerpc;
+            else
+                if [[ ${host} == powerpc64* ]]; then
+                    echo ppc64;
+                else
+                    echo ppc;
+                fi;
+            fi
+        ;;
+        riscv*)
+            echo riscv
+        ;;
+        s390*)
+            echo s390
+        ;;
+        score*)
+            echo score
+        ;;
+        sh64*)
+            ninj sh64 sh
+        ;;
+        sh*)
+            echo sh
+        ;;
+        sparc64*)
+            ninj sparc64 sparc
+        ;;
+        sparc*)
+            [[ ${PROFILE_ARCH} == "sparc64" ]] && ninj sparc64 sparc || echo sparc
+        ;;
+        tile*)
+            echo tile
+        ;;
+        vax*)
+            echo vax
+        ;;
+        x86_64*freebsd*)
+            echo amd64
+        ;;
+        x86_64*)
+            if [[ ${type} == "kern" ]]; then
+                echo x86;
+            else
+                echo amd64;
+            fi
+        ;;
+        xtensa*)
+            echo xtensa
+        ;;
+        *)
+            echo unknown
+        ;;
+    esac
+}
+tc-stack-grows-down () 
+{ 
+    case ${ARCH} in 
+        hppa | metag)
+            return 1
+        ;;
+    esac;
+    return 0
+}
+tc-tuple-is-softfloat () 
+{ 
+    local CTARGET=${CTARGET:-${CHOST}};
+    case ${CTARGET//_/-} in 
+        bfin* | h8300*)
+            echo "only"
+        ;;
+        *-softfloat-*)
+            echo "yes"
+        ;;
+        *-softfp-*)
+            echo "softfp"
+        ;;
+        arm*-hardfloat-* | arm*eabihf)
+            echo "no"
+        ;;
+        *-newlib | *-elf | *-eabi)
+            echo "no"
+        ;;
+        arm*)
+            echo "yes"
+        ;;
+        *)
+            echo "no"
+        ;;
+    esac
+}
+test-flag-CC () 
+{ 
+    _test-flag-PROG CC c "$@"
+}
+test-flag-CCLD () 
+{ 
+    _test-flag-PROG CC c+ld "$@"
+}
+test-flag-CXX () 
+{ 
+    _test-flag-PROG CXX c++ "$@"
+}
+test-flag-F77 () 
+{ 
+    _test-flag-PROG F77 f77 "$@"
+}
+test-flag-FC () 
+{ 
+    _test-flag-PROG FC f95 "$@"
+}
+test-flag-PROG () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _test-flag-PROG "$@"
+}
+test-flags () 
+{ 
+    test-flags-CC "$@"
+}
+test-flags-CC () 
+{ 
+    _test-flags-PROG CC "$@"
+}
+test-flags-CCLD () 
+{ 
+    _test-flags-PROG CCLD "$@"
+}
+test-flags-CXX () 
+{ 
+    _test-flags-PROG CXX "$@"
+}
+test-flags-F77 () 
+{ 
+    _test-flags-PROG F77 "$@"
+}
+test-flags-FC () 
+{ 
+    _test-flags-PROG FC "$@"
+}
+test-flags-PROG () 
+{ 
+    [[ ${EAPI} == [67] ]] || die "Internal function ${FUNCNAME} is not available in EAPI ${EAPI}.";
+    _test-flags-PROG "$@"
+}
+test_version_info () 
+{ 
+    if [[ $($(tc-getCC) --version 2>&1) == *$1* ]]; then
+        return 0;
+    else
+        return 1;
+    fi
+}
+use_if_iuse () 
+{ 
+    eerror "use_if_iuse has been removed.";
+    eerror "Define it as a local function, or inline it:";
+    eerror "    in_iuse foo && use foo";
+    die "use_if_iuse is banned"
+}
+ver_cut () 
+{ 
+    local range=${1};
+    local v=${2:-${PV}};
+    local start end;
+    local -a comp;
+    __eapi7_ver_split "${v}";
+    local max=$((${#comp[@]}/2));
+    __eapi7_ver_parse_range "${range}" "${max}";
+    local IFS=;
+    if [[ ${start} -gt 0 ]]; then
+        start=$(( start*2 - 1 ));
+    fi;
+    echo "${comp[*]:start:end*2-start}"
+}
+ver_rs () 
+{ 
+    local v;
+    (( ${#} & 1 )) && v=${@: -1} || v=${PV};
+    local start end i;
+    local -a comp;
+    __eapi7_ver_split "${v}";
+    local max=$((${#comp[@]}/2 - 1));
+    while [[ ${#} -ge 2 ]]; do
+        __eapi7_ver_parse_range "${1}" "${max}";
+        for ((i = start*2; i <= end*2; i+=2 ))
+        do
+            [[ ${i} -eq 0 && -z ${comp[i]} ]] && continue;
+            comp[i]=${2};
+        done;
+        shift 2;
+    done;
+    local IFS=;
+    echo "${comp[*]}"
+}
+ver_test () 
+{ 
+    local va op vb;
+    if [[ $# -eq 3 ]]; then
+        va=${1};
+        shift;
+    else
+        va=${PVR};
+    fi;
+    [[ $# -eq 2 ]] || die "${FUNCNAME}: bad number of arguments";
+    op=${1};
+    vb=${2};
+    case ${op} in 
+        -eq | -ne | -lt | -le | -gt | -ge)
+
+        ;;
+        *)
+            die "${FUNCNAME}: invalid operator: ${op}"
+        ;;
+    esac;
+    __eapi7_ver_compare "${va}" "${vb}";
+    test $? "${op}" 2
+}
+xdg_desktop_database_update () 
+{ 
+    if [[ ${EBUILD_PHASE} != post* ]]; then
+        die "xdg_desktop_database_update must be used in pkg_post* phases.";
+    fi;
+    if ! type update-desktop-database &> /dev/null; then
+        debug-print "update-desktop-database is not found";
+        return;
+    fi;
+    ebegin "Updating .desktop files database";
+    update-desktop-database -q "${EROOT%/}${DESKTOP_DATABASE_DIR}";
+    eend $?
+}
+xdg_environment_reset () 
+{ 
+    export XDG_DATA_HOME="${HOME}/.local/share";
+    export XDG_CONFIG_HOME="${HOME}/.config";
+    export XDG_CACHE_HOME="${HOME}/.cache";
+    export XDG_RUNTIME_DIR="${T}/run";
+    mkdir -p "${XDG_DATA_HOME}" "${XDG_CONFIG_HOME}" "${XDG_CACHE_HOME}" "${XDG_RUNTIME_DIR}" || die;
+    chmod 0700 "${XDG_RUNTIME_DIR}" || die;
+    unset DBUS_SESSION_BUS_ADDRESS
+}
+xdg_icon_cache_update () 
+{ 
+    if [[ ${EBUILD_PHASE} != post* ]]; then
+        die "xdg_icon_cache_update must be used in pkg_post* phases.";
+    fi;
+    if ! type gtk-update-icon-cache &> /dev/null; then
+        debug-print "gtk-update-icon-cache is not found";
+        return;
+    fi;
+    ebegin "Updating icons cache";
+    local dir retval=0;
+    local fails=();
+    for dir in "${EROOT%/}"/usr/share/icons/*;
+    do
+        if [[ -f ${dir}/index.theme ]]; then
+            if ! gtk-update-icon-cache -qf "${dir}"; then
+                debug-print "Updating cache failed on ${dir}";
+                fails+=("${dir}");
+                retval=2;
+            fi;
+        else
+            if [[ $(ls "${dir}") = icon-theme.cache ]]; then
+                rm "${dir}/icon-theme.cache";
+            fi;
+        fi;
+        if [[ -z $(ls "${dir}") ]]; then
+            rmdir "${dir}";
+        fi;
+    done;
+    eend ${retval};
+    for dir in "${fails[@]}";
+    do
+        eerror "Failed to update cache with icon ${dir}";
+    done
+}
+xdg_mimeinfo_database_update () 
+{ 
+    if [[ ${EBUILD_PHASE} != post* ]]; then
+        die "xdg_mimeinfo_database_update must be used in pkg_post* phases.";
+    fi;
+    if ! type update-mime-database &> /dev/null; then
+        debug-print "update-mime-database is not found";
+        return;
+    fi;
+    local -x PKGSYSTEM_ENABLE_FSYNC=0;
+    ebegin "Updating shared mime info database";
+    update-mime-database "${EROOT%/}${MIMEINFO_DATABASE_DIR}";
+    eend $?
+}
+xdg_pkg_postinst () 
+{ 
+    if [[ ${#XDG_ECLASS_DESKTOPFILES[@]} -gt 0 ]]; then
+        xdg_desktop_database_update;
+    else
+        debug-print "No .desktop files to add to database";
+    fi;
+    if [[ ${#XDG_ECLASS_ICONFILES[@]} -gt 0 ]]; then
+        xdg_icon_cache_update;
+    else
+        debug-print "No icon files to add to cache";
+    fi;
+    if [[ ${#XDG_ECLASS_MIMEINFOFILES[@]} -gt 0 ]]; then
+        xdg_mimeinfo_database_update;
+    else
+        debug-print "No mime info files to add to database";
+    fi
+}
+xdg_pkg_postrm () 
+{ 
+    if [[ ${#XDG_ECLASS_DESKTOPFILES[@]} -gt 0 ]]; then
+        xdg_desktop_database_update;
+    else
+        debug-print "No .desktop files to add to database";
+    fi;
+    if [[ ${#XDG_ECLASS_ICONFILES[@]} -gt 0 ]]; then
+        xdg_icon_cache_update;
+    else
+        debug-print "No icon files to add to cache";
+    fi;
+    if [[ ${#XDG_ECLASS_MIMEINFOFILES[@]} -gt 0 ]]; then
+        xdg_mimeinfo_database_update;
+    else
+        debug-print "No mime info files to add to database";
+    fi
+}
+xdg_pkg_preinst () 
+{ 
+    local f;
+    XDG_ECLASS_DESKTOPFILES=();
+    while IFS= read -r -d '' f; do
+        XDG_ECLASS_DESKTOPFILES+=(${f});
+    done < <(cd "${ED}" && find 'usr/share/applications' -type f -print0 2>/dev/null);
+    XDG_ECLASS_ICONFILES=();
+    while IFS= read -r -d '' f; do
+        XDG_ECLASS_ICONFILES+=(${f});
+    done < <(cd "${ED}" && find 'usr/share/icons' -type f -print0 2>/dev/null);
+    XDG_ECLASS_MIMEINFOFILES=();
+    while IFS= read -r -d '' f; do
+        XDG_ECLASS_MIMEINFOFILES+=(${f});
+    done < <(cd "${ED}" && find 'usr/share/mime' -type f -print0 2>/dev/null)
+}
+xdg_src_prepare () 
+{ 
+    xdg_environment_reset;
+    [[ ${EAPI} != 5 ]] && default
+}

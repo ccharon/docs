@@ -1,0 +1,73 @@
+Portage 3.0.34 (python 3.10.5-final-0, default/linux/riscv/20.0/rv64gc/lp64d/desktop/gnome/systemd, gcc-12.1.1, glibc-2.35-r8, 5.18.12-gentoo riscv64)
+=================================================================
+                         System Settings
+=================================================================
+System uname: Linux-5.18.12-gentoo-riscv64-with-glibc2.35
+KiB Mem:    24547692 total,  21760524 free
+KiB Swap:    8388604 total,   8388604 free
+Timestamp of repository gentoo: Wed, 20 Jul 2022 17:00:01 +0000
+Head commit of repository gentoo: faea1b6256646068ebf22ad69f28db29d2af6911
+sh bash 5.1_p16
+ld GNU ld (Gentoo 2.38 p4) 2.38
+app-misc/pax-utils:        1.3.4::gentoo
+app-shells/bash:           5.1_p16::gentoo
+dev-lang/perl:             5.36.0::gentoo
+dev-lang/python:           3.10.5::gentoo, 3.11.0_beta4-r2::gentoo
+dev-lang/rust:             1.62.0::gentoo
+dev-util/cmake:            3.23.2::gentoo
+dev-util/meson:            0.63.0::gentoo
+sys-apps/baselayout:       2.8-r2::gentoo
+sys-apps/sandbox:          2.29::gentoo
+sys-apps/systemd:          251.3::gentoo
+sys-devel/autoconf:        2.13-r2::gentoo, 2.71-r1::gentoo
+sys-devel/automake:        1.16.5::gentoo
+sys-devel/binutils:        2.38-r2::gentoo
+sys-devel/binutils-config: 5.4.1::gentoo
+sys-devel/gcc:             12.1.1_p20220625::gentoo
+sys-devel/gcc-config:      2.5-r1::gentoo
+sys-devel/libtool:         2.4.7::gentoo
+sys-devel/llvm:            14.0.6-r1::gentoo
+sys-devel/make:            4.3::gentoo
+sys-kernel/linux-headers:  5.18-r1::gentoo (virtual/os-headers)
+sys-libs/glibc:            2.35-r8::gentoo
+Repositories:
+
+gentoo
+    location: /var/db/repos/gentoo
+    sync-type: rsync
+    sync-uri: rsync://rsync.gentoo.org/gentoo-portage
+    priority: -1000
+    sync-rsync-verify-max-age: 24
+    sync-rsync-extra-opts: 
+    sync-rsync-verify-jobs: 1
+    sync-rsync-verify-metamanifest: yes
+
+local
+    location: /var/db/repos/local
+    masters: gentoo
+
+ACCEPT_KEYWORDS="riscv ~riscv"
+ACCEPT_LICENSE="@FREE"
+CBUILD="riscv64-unknown-linux-gnu"
+CFLAGS="-march=rv64gc -O2 -pipe"
+CHOST="riscv64-unknown-linux-gnu"
+CONFIG_PROTECT="/etc /usr/share/gnupg/qualified.txt"
+CONFIG_PROTECT_MASK="/etc/ca-certificates.conf /etc/dconf /etc/env.d /etc/fonts/fonts.conf /etc/gconf /etc/gentoo-release /etc/sandbox.d /etc/terminfo"
+CXXFLAGS="-march=rv64gc -O2 -pipe"
+DISTDIR="/var/cache/distfiles"
+ENV_UNSET="CARGO_HOME DBUS_SESSION_BUS_ADDRESS DISPLAY GOBIN GOPATH PERL5LIB PERL5OPT PERLPREFIX PERL_CORE PERL_MB_OPT PERL_MM_OPT XAUTHORITY XDG_CACHE_HOME XDG_CONFIG_HOME XDG_DATA_HOME XDG_RUNTIME_DIR"
+FCFLAGS="-march=rv64gc -O2 -pipe"
+FEATURES="assume-digests binpkg-docompress binpkg-dostrip binpkg-logs binpkg-multi-instance buildpkg-live config-protect-if-modified distlocks ebuild-locks fixlafiles merge-sync multilib-strict news parallel-fetch preserve-libs protect-owned qa-unresolved-soname-deps sandbox sfperms strict unknown-features-warn unmerge-logs unmerge-orphans userfetch userpriv usersandbox usersync xattr"
+FFLAGS="-march=rv64gc -O2 -pipe"
+GENTOO_MIRRORS="http://distfiles.gentoo.org"
+LANG="de_DE.utf8"
+LDFLAGS="-Wl,-O1 -Wl,--as-needed"
+MAKEOPTS="-j12"
+PKGDIR="/var/cache/binpkgs"
+PORTAGE_CONFIGROOT="/"
+PORTAGE_RSYNC_OPTS="--recursive --links --safe-links --perms --times --omit-dir-times --compress --force --whole-file --delete --stats --human-readable --timeout=180 --exclude=/distfiles --exclude=/local --exclude=/packages --exclude=/.git"
+PORTAGE_TMPDIR="/var/tmp"
+SHELL="/bin/bash"
+USE="X a52 aac acl acpi alsa branding bzip2 cairo cdda cdr cli colord crypt cups dbus dri dts dvd dvdr eds encode evo exif flac fortran gdbm gif gnome gnome-keyring gnome-online-accounts gpm gstreamer gtk gui iconv icu introspection ipv6 jpeg lcms libglvnd libnotify libsecret mad mng mp3 mp4 mpeg nautilus ncurses networkmanager nls nptl ogg opengl openmp pam pango pcre pdf png policykit ppds pulseaudio readline riscv samba sdl seccomp spell split-usr ssl startup-notification svg systemd tiff tracker truetype udev udisks unicode upower usb vorbis vulkan wayland wxwidgets x264 x265 xattr xcb xml xv xvid zlib" ADA_TARGET="gnat_2020" APACHE2_MODULES="authn_core authz_core socache_shmcb unixd actions alias auth_basic authn_alias authn_anon authn_dbm authn_default authn_file authz_dbm authz_default authz_groupfile authz_host authz_owner authz_user autoindex cache cgi cgid dav dav_fs dav_lock deflate dir disk_cache env expires ext_filter file_cache filter headers include info log_config logio mem_cache mime mime_magic negotiation rewrite setenvif speling status unique_id userdir usertrack vhost_alias" CALLIGRA_FEATURES="karbon sheets words" COLLECTD_PLUGINS="df interface irq load memory rrdtool swap syslog" ELIBC="glibc" GPSD_PROTOCOLS="ashtech aivdm earthmate evermore fv18 garmin garmintxt gpsclock greis isync itrax mtk3301 nmea ntrip navcom oceanserver oldstyle oncore rtcm104v2 rtcm104v3 sirf skytraq superstar2 timing tsip tripmate tnt ublox ubx" GRUB_PLATFORMS="efi-64" INPUT_DEVICES="libinput" KERNEL="linux" L10N="de en" LCD_DEVICES="bayrad cfontz cfontz633 glk hd44780 lb216 lcdm001 mtxorb ncurses text" LIBREOFFICE_EXTENSIONS="presenter-console presenter-minimizer" LUA_SINGLE_TARGET="lua5-1" LUA_TARGETS="lua5-1" OFFICE_IMPLEMENTATION="libreoffice" PHP_TARGETS="php7-4 php8-0" POSTGRES_TARGETS="postgres12 postgres13" PYTHON_SINGLE_TARGET="python3_10" PYTHON_TARGETS="python3_10" RUBY_TARGETS="ruby31" USERLAND="GNU" VIDEO_CARDS="virgl" XTABLES_ADDONS="quota2 psd pknock lscan length2 ipv4options ipset ipp2p iface geoip fuzzy condition tee tarpit sysrq proto steal rawnat logmark ipmark dhcpmac delude chaos account"
+Unset:  ADDR2LINE, AR, ARFLAGS, AS, ASFLAGS, CC, CCLD, CONFIG_SHELL, CPP, CPPFLAGS, CTARGET, CXX, CXXFILT, ELFEDIT, EMERGE_DEFAULT_OPTS, EXTRA_ECONF, F77FLAGS, FC, GCOV, GPROF, INSTALL_MASK, LC_ALL, LD, LEX, LFLAGS, LIBTOOL, LINGUAS, MAKE, MAKEFLAGS, NM, OBJCOPY, OBJDUMP, PORTAGE_BINHOST, PORTAGE_BUNZIP2_COMMAND, PORTAGE_COMPRESS, PORTAGE_COMPRESS_FLAGS, PORTAGE_RSYNC_EXTRA_OPTS, RANLIB, READELF, RUSTFLAGS, SIZE, STRINGS, STRIP, YACC, YFLAGS
+
