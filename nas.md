@@ -2,14 +2,14 @@
 
 ## Hardware
 
-Mainboard: ASRock A320M-ITX MITX So.AM4
-CPU: AMD Ryzen 4300GE
-Cooler: Noctua NH-L9a-AM4 chromax.black
-RAM: 16 GB Samsung ECC SKU M391A2G43BB2-CWE 
-SSD: 500GB WD Blue SSD SN570 NVMe PCIe
-HDDS: 4x 8TB WD
-Power Supply: 560 Watt Fractal Design Ion+ 560P Modular 80+ Platinum
-Case: Fractal Design Node 304
+- Mainboard: ASRock A320M-ITX MITX So.AM4
+- CPU: AMD Ryzen 4300GE
+- Cooler: Noctua NH-L9a-AM4 chromax.black
+- RAM: 16 GB Samsung ECC SKU M391A2G43BB2-CWE 
+- SSD: 500GB WD Blue SSD SN570 NVMe PCIe
+- HDDS: 4x 8TB WD
+- Power Supply: 560 Watt Fractal Design Ion+ 560P Modular 80+ Platinum
+- Case: Fractal Design Node 304
 
 ## Software
 
