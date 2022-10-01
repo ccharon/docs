@@ -129,3 +129,41 @@ timemachine.service
 </service-group>
 
 ```
+
+### gemeinsame freigabe
+
+eine gruppe greift auf ein share zu ... demoGroup
+
+Gruppe muss lokal angelegt werden und Benutzer müssen in die Gruppe
+
+```bash
+ groupadd demoGroup
+ usermod -aG demoGroup demoUser1
+ usermod -aG demoGroup demoUser2
+ usermod -aG demoGroup demoUser3
+ 
+```
+
+das freigegebene Verzeichnis muss noch mit Rechten versehen werden
+
+```bash
+chown nobody:demoGroup /daten/demoGroup
+# das sgid bid 2 ist wichtig damit die Gruppe vom Elternverzeichnis für neue Objekte genutzt wird und nicht die Defaultgruppe der User
+chmod 2770 /daten/demoGroup
+``` 
+
+smb.conf
+```ini
+[demoGroup]
+   # lesen und schreiben nur für demoUser
+   path = /daten/demoGroup
+   valid users = @demoGroup
+   invalid users = demoUser3
+   browsable = yes
+   writable = yes
+   read only = no
+   create mask = 0660
+   directory mask = 0770
+   force create mode = 0660
+   force directory mode = 0770
+```
