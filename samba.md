@@ -155,7 +155,7 @@ chmod 2770 /daten/demoGroup
 smb.conf
 ```ini
 [demoGroup]
-   # lesen und schreiben nur für demoUser
+   # lesen und schreiben für die demoGroup ausser demoUser3
    path = /daten/demoGroup
    valid users = @demoGroup
    invalid users = demoUser3
