@@ -13,11 +13,12 @@ ssh-copy-id -i ~/.ssh/id_ed25519 <username>@hostip
 ### Configuring SSHD (on serverside)
 /etc/ssh/sshd_config
 
-PermitRootLogin no
-PubKeyAuthentication yes
-PasswordAuthentication no
-PermitEmptyPasswords no
-Port 2444
+- PermitRootLogin no
+- PubKeyAuthentication yes
+- PasswordAuthentication no
+- PermitEmptyPasswords no
+- Port 2444
+- KbdInteractiveAuthentication no
 ListenAddress <your-public-ip-address>
 
 Before restarting ssh open firewall port
