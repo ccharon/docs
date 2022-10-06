@@ -1,6 +1,9 @@
 # Samba Config erstellen
 Ersatz für Synology
 
+## Samba Linux Rechner unter Windows 10+ Netzwerk sichtbar bekommen
+https://github.com/christgau/wsdd
+
 ## Shares
 smb.conf
 ```ini
