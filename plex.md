@@ -45,3 +45,21 @@ vainfo: Supported profile and entrypoints
       VAProfileVP9Profile2            :	VAEntrypointVLD
       VAProfileNone                   :	VAEntrypointVideoProc
 ```
+
+## copy libs to plex directory
+
+save this shellscript and run ... might need updates
+```
+#!/bin/env bash
+
+plexlibdir="/usr/lib/plexmediaserver/lib"
+
+cp -v /usr/lib64/va/drivers/radeonsi_drv_video.so "${plexlibdir}/dri/radeonsi_drv_video.so" 
+cp -v /usr/lib64/libdrm_amdgpu.so.1.* "${plexlibdir}/libdrm_amdgpu.so.1"
+cp -v /usr/lib64/libdrm.so.2.* "${plexlibdir}/libdrm.so.2"
+cp -v /usr/lib64/libva-drm.so.2.* "${plexlibdir}/libva-drm.so.2"
+cp -v /usr/lib64/libva.so.2.* "${plexlibdir}/libva.so.2"
+
+# 11.3.0 might change with gcc version
+cp -v /usr/lib/gcc/x86_64-pc-linux-gnu/11.3.0/libstdc++.so.6 "${plexlibdir}/libstdc++.so.6"
+```
