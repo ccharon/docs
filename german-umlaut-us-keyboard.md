@@ -2,13 +2,13 @@
 The most consistent way to type letters like ö ü ä ß € with an US Layout Keyboard:
 Setting the keyboard to "US International" on Windows + Mac + Linux (Gnome) the following shortcuts will work
 
-- ä - “ followed by a 
-- ö - “ followed by o
-- ü - “ followed by u
-- ß - right alt + s
+- ä: “ followed by a 
+- ö: “ followed by o
+- ü: “ followed by u
+- ß: right alt + s
 
-€ (Windows + Linux) right alt + 5
-€ (macOS) right + shift + 2
+- € (Windows + Linux): right alt + 5
+- € (macOS): right + shift + 2
 
 ## Switch layout on Windows
 Settings -> Time & Language -> Region & Language
