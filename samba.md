@@ -107,8 +107,6 @@ chmod 700 /daten/timemachine
    fruit:time machine max size = 2T
 ```
 
-ausserdem muss man noch avahi installieren und dann unter /etc/avahi/services/timemachine.service hinterlegen
-
 you also have to install avahi and then store this file under /etc/avahi/services/timemachine.service
 
 timemachine.service
