@@ -44,7 +44,8 @@ https://github.com/ccharon/server/tree/main/docker-compose
 ### Tweaks
 
 ### DMI Decode
-
+<details>
+  <summary>dmidecode</summary>
 ```bash
 # dmidecode 3.4
 Getting SMBIOS data from sysfs.
@@ -427,3 +428,4 @@ Memory Device Mapped Address
 Handle 0x0018, DMI type 127, 4 bytes
 End Of Table
 ```
+</details>
