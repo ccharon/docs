@@ -15,6 +15,8 @@ The combination of CPU + Mainboard + RAM allows Multi-bit ECC yay!
 
 <details>
   <summary>CPU Info 1 of 8 Cores</summary>
+
+```bash
 processor	: 0
 vendor_id	: AuthenticAMD
 cpu family	: 23
@@ -42,7 +44,9 @@ clflush size	: 64
 cache_alignment	: 64
 address sizes	: 48 bits physical, 48 bits virtual
 power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14]
-	
+```
+</details>
+
 <details>
   <summary>Memory Info</summary>
   
