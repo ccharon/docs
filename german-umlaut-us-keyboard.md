@@ -8,7 +8,7 @@ Setting the keyboard to "US International" on Windows + Mac + Linux (Gnome) the 
 - ß: right alt + s
 
 - € (Windows + Linux): right alt + 5
-- € (macOS): right + shift + 2
+- € (macOS): right alt + shift + 2
 
 ## Switch layout on Windows
 Settings -> Time & Language -> Region & Language
