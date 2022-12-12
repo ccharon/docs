@@ -1,7 +1,7 @@
-# Samba Config erstellen
-Ersatz für Synology
+# create Samba Config
+replaces synology nas
 
-## Samba Linux Rechner unter Windows 10+ Netzwerk sichtbar bekommen
+## Samba linux visibility with Windows 10+ network
 https://github.com/christgau/wsdd
 
 ## Shares
@@ -18,22 +18,23 @@ smb.conf
 
 
 ### transfer 
-alle dürfen lesen und schreiben, keine Anmeldung nötig
+everyone is allowed
 
-das freigegebene Verzeichnis muss noch mit ```chmod 777 /daten/transfer``` für alle les-/schreibbar gemacht werden 
+make shared folder read & writeable for everyone ```chmod 777 /daten/transfer``` 
 
 smb.conf
 ```ini
 [transfer]
-   # lesen und schreiben fuer alle nutzer moeglich
+   # r/w access for everyone
    path = /daten/transfer
    read only = no
    guest ok = yes
    guest only = yes
 ```
 
-### jeder user ein share, nur für den user les/schreibbar
-User muss lokal angelegt werden, am besten so das er sich nicht am Rechner einloggen kann. bei passwd und smbpasswd kann man das gleiche passwort eingeben
+### each user a share, read/write only for the user
+user has to be created locally, ideally in a way that he cannot log in to the computer. you can enter the same password for passwd and smbpasswd
+
 ```bash
  useradd -M -s /sbin/nologin demoUser
  passwd demoUser
@@ -41,7 +42,7 @@ User muss lokal angelegt werden, am besten so das er sich nicht am Rechner einlo
  
 ```
 
-das freigegebene Verzeichnis muss noch mit Rechten versehen werden
+the shared directory also needs corresponding user permissions
 
 ```bash
 
@@ -53,7 +54,7 @@ chmod 700 /daten/demoUser
 smb.conf
 ```ini
 [demoUser]
-   # lesen und schreiben nur für demoUser
+   # r/w only for demouser
    path = /daten/demoUser
    valid users = demoUser
    browsable = yes
@@ -66,7 +67,7 @@ smb.conf
 ```
 
 ### timemachine
-Backupplatz für Macs
+backup space for macs
 
 ```bash
 useradd -M -s /sbin/nologin mcfly
@@ -108,6 +109,8 @@ chmod 700 /daten/timemachine
 
 ausserdem muss man noch avahi installieren und dann unter /etc/avahi/services/timemachine.service hinterlegen
 
+you also have to install avahi and then store this file under /etc/avahi/services/timemachine.service
+
 timemachine.service
 ```xml
 <?xml version="1.0" standalone='no'?><!--*-nxml-*-->
@@ -133,11 +136,11 @@ timemachine.service
 
 ```
 
-### gemeinsame freigabe
+### shares for groups
 
-eine gruppe greift auf ein share zu ... demoGroup
+a group accesses a share ... demoGroup
 
-Gruppe muss lokal angelegt werden und Benutzer müssen in die Gruppe
+group has to be created locally and users have to be added to the group
 
 ```bash
  groupadd demoGroup
@@ -147,18 +150,19 @@ Gruppe muss lokal angelegt werden und Benutzer müssen in die Gruppe
  
 ```
 
-das freigegebene Verzeichnis muss noch mit Rechten versehen werden
+the shared directory must still needs access rights
 
 ```bash
 chown nobody:demoGroup /daten/demoGroup
-# das sgid bid 2 ist wichtig damit die Gruppe vom Elternverzeichnis für neue Objekte genutzt wird und nicht die Defaultgruppe der User
+# sgid bid 2 is important, this way the group of the parent directory is used for new objects and not the users default group
+
 chmod 2770 /daten/demoGroup
 ``` 
 
 smb.conf
 ```ini
 [demoGroup]
-   # lesen und schreiben für die demoGroup ausser demoUser3
+   # r/w for everyone in demoGroup except demoUser3
    path = /daten/demoGroup
    valid users = @demoGroup
    invalid users = demoUser3
