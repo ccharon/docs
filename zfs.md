@@ -69,14 +69,15 @@ find out which disk is damaged.
 zpool list
 ```
 look for degraded or missing drive
-after that, shutdown and replace the hardware with a new drive.
+now shutdown and replace the hardware with a new drive.
 
-after the system is running again you can swap the device in the pool. to do so do again ```zpool list``` now the missing device should simply show as number. use this number for the replace command
+after the system is running again swap the device in the pool. to do so do again ```zpool list``` now the missing device should show as number. use this number for the replace command
 
-next thing is to find out the name of the newly added disk ... simply with ```ls /dev/disk/by-id/``` identify the new disk an use the name found.
-the resulting command should then look like this.
+next thing is to find out the name of the newly added disk with ```ls /dev/disk/by-id/``` identify the new disk an use the name found.
 
 poolname should be the actual name of the pool :)
+
+the command should look something like this:
 
 ```bash
 sudo zpool replace -f poolname 11596883435372076569 /dev/disk/by-id/ata-WDC_WD60EFRX-68L0BN1_WD-WX11DC61YU1R
