@@ -63,7 +63,24 @@ zfs load-key rpool/VAULT
 # before unloading unmounting child datasets might be nessesary
 zfs umount rpool/VAULT/stuff
 ```
+## replacing a damaged disk
+find out which disk is damaged.
+´´´bash
+zpool list
+´´´
+look for degraded or missing drive
+after that, shutdown and replace the hardware with a new drive.
 
+after the system is running again you can swap the device in the pool. to do so do again ´´´zpool list´´´ now the missing device should simply show as number. use this number for the replace command
 
+next thing is to find out the name of the newly added disk ... simply with ´´´ ls /dev/disk/by-id/ ´´´ identify the new disk an use the name found.
+the resulting command should then look like this.
 
+poolname should be the actual name of the pool :)
 
+´´´bash
+sudo zpool replace -f poolname 11596883435372076569 /dev/disk/by-id/ata-WDC_WD60EFRX-68L0BN1_WD-WX11DC61YU1R
+
+´´´
+
+now the disk will be replaced ... resilver will take a while depending on the pool size. after it finished the replacement is done
