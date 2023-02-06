@@ -56,7 +56,7 @@ for me the approach of using the build image, putting it on a sd card and then m
 
 ## Compiling the kernel
 download the latest sifive kernel
-for me it was https://github.com/starfive-tech/linux/tree/VF2_v2.8.0
+for me it was https://github.com/starfive-tech/linux/tree/59cf9af678dbfa3d73f6cb86ed1ae7219da9f5c9 (included in v 2.8 Release)
 
 extract to /usr/src
 
