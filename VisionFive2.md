@@ -10,10 +10,11 @@ to do so i did the following.
 https://github.com/starfive-tech/VisionFive2/releases/tag/VF2_v2.8.0
 
 the files needed are:
-
+```
 sdcard.img
 u-boot-spl.bin.normal.out 
 visionfive2_fw_payload.img 
+```
 
 2. copy the sdcard image to an sd card (all previous data gets destroyed)
 ```bash 
@@ -34,18 +35,17 @@ cp visionfive2_fw_payload.img /mnt/root/update
 
 6. put sdcard into visionfive2 and boot
 
-
-
 7. after boot login (via serial console, or terminal) user: root, pw: starfive
 ´´´bash 
 cd /root/update
-...
+flashcp -v u-boot-spl.bin.normal.out /dev/mtd0
+flashcp -v visionfive2_fw_payload.img /dev/mtd1
 ´´´
 
+thats it ... firmware updated, now shutdown
 
 
-
-for me the approach of using the build image, putting it on a sd card and then mounting it and adding the two files to update bootloader and firm
+## getting debian to run
 
 
 
@@ -54,7 +54,7 @@ for me the approach of using the build image, putting it on a sd card and then m
 .. i am sorting later ....
 
 
-## Compiling the kernel
+### Compiling the kernel
 download the latest sifive kernel
 for me it was https://github.com/starfive-tech/linux/tree/59cf9af678dbfa3d73f6cb86ed1ae7219da9f5c9 (included in v 2.8 Release)
 
