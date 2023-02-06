@@ -34,6 +34,8 @@ cp visionfive2_fw_payload.img /mnt/root/update
 
 6. put sdcard into visionfive2 and boot
 
+
+
 7. after boot login (via serial console, or terminal) user: root, pw: starfive
 ´´´bash 
 cd /root/update
@@ -43,5 +45,54 @@ cd /root/update
 
 
 
-
 for me the approach of using the build image, putting it on a sd card and then mounting it and adding the two files to update bootloader and firm
+
+
+
+
+
+.. i am sorting later ....
+
+
+kernel compile so far
+download the latest sifive kernel
+for me it was https://github.com/starfive-tech/linux/tree/VF2_v2.8.0
+
+extract to /usr/src
+
+then you have /usr/src/linux--bla
+create a symlink to /usr/src/linux 
+cd /usr/src
+ln -s linux-bla linux
+
+now change the makefile (necessary because of the binutils version being > 2.38
+https://lore.kernel.org/lkml/20220126171442.1338740-1-aurelien@aurel32.net/T/
+
+```
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 8a107ed18b0d..7d81102cffd4 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -50,6 +50,12 @@ riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
+ riscv-march-$(CONFIG_ARCH_RV64I)	:= rv64ima
+ riscv-march-$(CONFIG_FPU)		:= $(riscv-march-y)fd
+ riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
++
++# Newer binutils versions default to ISA spec version 20191213 which moves some
++# instructions from the I extension to the Zicsr and Zifencei extensions.
++toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zicsr_zifencei)
++riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
++
+ KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
+ KBUILD_AFLAGS += -march=$(riscv-march-y)
+ 
+-- 
+```
+
+
+
+
+
+
+
+
