@@ -36,11 +36,11 @@ cp visionfive2_fw_payload.img /mnt/root/update
 6. put sdcard into visionfive2 and boot
 
 7. after boot login (via serial console, or terminal) user: root, pw: starfive
-´´´bash 
+```bash 
 cd /root/update
 flashcp -v u-boot-spl.bin.normal.out /dev/mtd0
 flashcp -v visionfive2_fw_payload.img /dev/mtd1
-´´´
+```
 
 thats it ... firmware updated, now shutdown
 
