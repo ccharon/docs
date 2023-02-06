@@ -54,7 +54,7 @@ for me the approach of using the build image, putting it on a sd card and then m
 .. i am sorting later ....
 
 
-kernel compile so far
+## Compiling the kernel
 download the latest sifive kernel
 for me it was https://github.com/starfive-tech/linux/tree/VF2_v2.8.0
 
@@ -62,11 +62,17 @@ extract to /usr/src
 
 then you have /usr/src/linux--bla
 create a symlink to /usr/src/linux 
+
+```bash
 cd /usr/src
 ln -s linux-bla linux
+```
 
 now change the makefile (necessary because of the binutils version being > 2.38
+
 https://lore.kernel.org/lkml/20220126171442.1338740-1-aurelien@aurel32.net/T/
+
+this is needed at least for kernel version 5.15.x which is provided with VF2 v2.8.0
 
 ```
 diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
