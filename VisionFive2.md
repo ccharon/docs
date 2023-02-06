@@ -16,19 +16,19 @@ u-boot-spl.bin.normal.out
 visionfive2_fw_payload.img 
 
 2. copy the sdcard image to an sd card (all previous data gets destroyed)
-´´´bash 
+```bash 
 dd if=sdcard.img of=/dev/yoursdcarddevice bs=2M status=progress conv=fdatasync
-´´´
+```
 3. mount the rootfs of the sd card (for me it was the 4. partition)
-´´´bash 
+```bash 
 mount /dev/yoursdcarddevice4 /mnt
-´´´
+```
 4. copy the 2 files to the mounted fs 
-´´´bash 
+```bash 
 mkdir -p /mnt/root/update
 cp u-boot-spl.bin.normal.out /mnt/root/update
 cp visionfive2_fw_payload.img /mnt/root/update
-´´´
+```
 
 5. unmount /mnt
 
