@@ -99,6 +99,47 @@ index 8a107ed18b0d..7d81102cffd4 100644
 
 
 
+### /etc/portage/make.conf
+```
+# Instruction sets JH7110 supports 
+# march explained 
+# rv64 = riscv 64bit
+# i = Base Integer ISA
+# m = Standard Integer Multiplication/Division Extension
+# a = Standard Atomics Extension
+# f = Standard Single-precision Floating-point extension
+# d = Standard Double-precision floating-point extension
+
+# g = i, m, a, f, d
+# c = Compressed Instructions Extension
+
+# _zicsr    = Control and Status Register Intructions, since ISA 20191213 not part of i
+# _zifencei = Instruction-Fetch Fence, Version 2.0
+# _zba      = address generation 
+# _zbb      = basic bit manipulation 
+
+COMMON_FLAGS="-march=rv64gc_zicsr_zifencei_zba_zbb -O2 -pipe -mabi=lp64d -mcpu=sifive-u74 -mtune=sifive-7-series --param l1-cache-size=32 --param l2-cache-size=2048"
+
+CFLAGS="${COMMON_FLAGS}"
+CXXFLAGS="${COMMON_FLAGS}"
+FCFLAGS="${COMMON_FLAGS}"
+FFLAGS="${COMMON_FLAGS}"
+
+# WARNING: Changing your CHOST is not something that should be done lightly.
+# Please consult https://wiki.gentoo.org/wiki/Changing_the_CHOST_variable befor>
+CHOST="riscv64-unknown-linux-gnu"
+
+# This sets the language of build output to English.
+# Please keep this setting intact when reporting bugs.
+LC_MESSAGES=C
+
+ACCEPT_KEYWORDS="riscv ~riscv"
+
+MAKEOPTS="-j4"
+L10N="de en"
+USE="-qt5 -bluetooth -cups samba vulkan x265 pulseaudio"
+
+```
 
 
 
