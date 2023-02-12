@@ -45,7 +45,7 @@ for some time now there is no default user + password. this can be configured by
 create a file called ```userconf``` with just one line of content
 ```<username>:<encryptedpassword>```
 
-username can be what ever you like, maybe "bob"
+username can be what ever you like, maybe "dave"
 
 lets assume the password will be "banana", this has to be encoded with openssl
 ```bash
