@@ -49,10 +49,6 @@ username can be what ever you like, maybe "dave"
 
 lets assume the password will be "banana", this has to be encoded with openssl
 ```bash
-echo 'banana' | openssl passwd -6 -stdin
-```
-the output will be something like this:
-```bash
 $ echo 'banana' | openssl passwd -6 -stdin
 $6$hJWc4EBwpwBpCNKv$i6ixK2dwjTFnq7QOlXqzaW9RklZfja09/oyPXf3GjU1cut.DKKUkVL0VWMxQ26yVHhkEs/s.JeoY2F/kcHlWs/
 ```
