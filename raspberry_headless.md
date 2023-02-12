@@ -39,7 +39,7 @@ network={
 ```
 change wlan properties + country to your values
 
-### set user and password password
+### set user and password
 for some time now there is no default user + password. this can be configured by creating a file containing user + password to set up
 
 create a file called ```userconf``` with just one line of content
