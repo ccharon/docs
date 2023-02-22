@@ -1,4 +1,4 @@
-# steps for a working headless rpi setup
+# steps for a headless rpi setup
 
 ## download an rpi image ..., put in on an sd card
 (image name and target device may vary :P)
