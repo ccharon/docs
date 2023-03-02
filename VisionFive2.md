@@ -43,7 +43,7 @@ flashcp -v visionfive2_fw_payload.img /dev/mtd1
 ```
 
 thats it ... firmware updated, now shutdown
-
+remark for later ... flashcp is part of mtd-utils, so if the firmware needs updating in gentoo ```emerge mtd-utils```
 
 ## getting debian to run
 
