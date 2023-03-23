@@ -1,15 +1,15 @@
 # Gnome Fonts look blurry ....?
-gnome tweaks 
+## gnome tweaks 
 
-Fonts
+### Fonts
 
-Interface Text: Noto Sans Regular 10
-Document Text: Noto Sans Regular 10
-Monospace Text: Sourcode Pro Regular 10
-Legacy Window Titles: Noto Sans Bold 10
-
+- Interface Text: Noto Sans Regular 10
+- Document Text: Noto Sans Regular 10
+- Monospace Text: Sourcode Pro Regular 10
+- Legacy Window Titles: Noto Sans Bold 10
 
 Hinting: Slight
+
 Antialiasing: Subpixel
 
 ## Blurry GTK4?
