@@ -16,5 +16,7 @@ Antialiasing: Subpixel
 ~/.config/gtk-4.0/settings.ini
 ```
 [Settings]
+gtk-font-name=Noto Sans,  10
 gtk-hint-font-metrics=1
+
 ```
