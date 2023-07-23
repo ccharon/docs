@@ -39,6 +39,7 @@ lost+found
 # Systemverzeichnisse die zur Laufzeit mit Inhalten gefuellt werden
 /dev/*
 /proc/*
+/run/*
 /sys/*
 /var/lock/*
 /var/run/*
