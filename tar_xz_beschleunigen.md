@@ -31,7 +31,7 @@ tar -xJvf verzeichis.tar.xz --xattrs-include='*.*' --numeric-owner
 
 ## laufendes gentoo root einpacken
 ```bash
-tar -cJv \
+cd / && tar -cJv \
 --exclude=lost+found \
 --exclude=dev/* \
 --exclude=proc/* \
