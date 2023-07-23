@@ -38,7 +38,7 @@ cd / && tar -cJv \
 --exclude=sys/* \
 --exclude=tmp/* \
 --exclude=home/* \
---exclude=backup/* \
+--exclude=backup \
 --exclude=var/tmp/* \
 --exclude=var/lock/* \
 --exclude=var/run/* \
@@ -49,3 +49,4 @@ cd / && tar -cJv \
 -f /backup/root-$(date +"%Y%m%d%H%m%S").tar.xz *
 ``` 
 .bash_history is excluded as tar sometimes prints an error that the file was modified while being read
+--exclude=backup without /* is correct as not even the dir should be archived
