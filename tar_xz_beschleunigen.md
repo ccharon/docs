@@ -45,5 +45,6 @@ cd / && tar -cJv \
 --exclude=var/lib/libvirt/* \
 --exclude=var/cache/distfiles/* \
 --exclude=var/log/*.gz \
+--exclude=root/.bash_history \
 -f /backup/root-$(date +"%Y%m%d%H%m%S").tar.xz *
 ``` 
