@@ -33,17 +33,30 @@ tar -xpvJf verzeichis.tar.xz --acls --xattrs -xpzf --xattrs-include='*.*' --nume
 
 excludes.txt mit diesem inhalt anlegen
 ```
+# Dateisystem spezifisch. nicht sichern
 lost+found
+
+# Systemverzeichnisse die zur Laufzeit mit Inhalten gefuellt werden
 /dev/*
 /proc/*
 /sys/*
-/tmp/*
-/home/*
-/var/tmp/*
 /var/lock/*
 /var/run/*
-/var/lib/libvirt/*
+
+# Temp Verzeichnisse
+/var/tmp/*
+/tmp/*
+
+# Home, extra Backup
+/home/*
+
+# Virtuelle Maschinen Images, extra Backup
+/var/lib/libvirt/images/*
+
+# heruntergeladene Source Archive
 /var/cache/distfiles/*
+
+# alte gepackte logs
 /var/log/*.gz
 
 # Zielverzeichnis, weder Verzeichnis noch Inhalte sichern
