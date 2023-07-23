@@ -20,7 +20,7 @@ export XZ_DEFAULTS="-9 --threads=20 --memlimit=32000M"
 
 beim packen werden alle Gruppen und Rechte gesichert
 ```bash
-tar -cJv verzeichnis/* -f verzeichnis.tar.xz
+tar -cJvf verzeichnis.tar.xz verzeichnis/*
 
 ``` 
 
