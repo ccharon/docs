@@ -20,34 +20,42 @@ export XZ_DEFAULTS="-9 --threads=20 --memlimit=32000M"
 
 beim packen werden alle Gruppen und Rechte gesichert
 ```bash
-tar -cJvf verzeichnis.tar.xz verzeichnis/*
+tar --acls --xattrs -cpvJf verzeichnis.tar.xz verzeichnis/*
 
 ``` 
 
 ## entpacken mit erhalten von allen Rechten usw. (auch falls ein User nicht existiert, beim Wiederherstellen oft nützlich)
 ```bash
-tar -xJvf verzeichis.tar.xz --xattrs-include='*.*' --numeric-owner
-``` 
+tar -xpvJf verzeichis.tar.xz --acls --xattrs -xpzf --xattrs-include='*.*' --numeric-owner
+```
 
 ## laufendes gentoo root einpacken
+
+excludes.txt mit diesem inhalt anlegen
+```
+lost+found
+/dev/*
+/proc/*
+/sys/*
+/tmp/*
+/home/*
+/var/tmp/*
+/var/lock/*
+/var/run/*
+/var/lib/libvirt/*
+/var/cache/distfiles/*
+/var/log/*.gz
+
+# Zielverzeichnis, weder Verzeichnis noch Inhalte sichern
+/backup/
+
+# Sonst gibt es einen Fehler, "Datei hat sich während des Lesens geändert"
+/root/.bash_history
+```
+
+jetzt kann komprimiert werden
 ```bash
-cd / && tar -cJv \
---exclude=lost+found \
---exclude=dev/* \
---exclude=proc/* \
---exclude=sys/* \
---exclude=tmp/* \
---exclude=home/* \
---exclude=backup \
---exclude=var/tmp/* \
---exclude=var/lock/* \
---exclude=var/run/* \
---exclude=var/lib/libvirt/* \
---exclude=var/cache/distfiles/* \
---exclude=var/log/*.gz \
---exclude=root/.bash_history \
--f /backup/root-$(date +"%Y%m%d%H%m%S").tar.xz *
+tar --exclude-from=/backup/excludes.txt --acls --xattrs -cpvJf /backup/root-$(date +"%Y%m%d%H%M%S").tar.xz /
 ``` 
---exclude=root/.bash_history weil tar sich sonst manchmal beschwert das sich die Datei während des Lesens geändert hat
---exclude=backup without /* ist korrekt, es soll nicht nur der Inhalt sondern das gesamte Verzeichnis nicht berücksichtigt werden.
+
 
