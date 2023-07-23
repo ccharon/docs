@@ -48,3 +48,4 @@ cd / && tar -cJv \
 --exclude=root/.bash_history \
 -f /backup/root-$(date +"%Y%m%d%H%m%S").tar.xz *
 ``` 
+.bash_history is excluded as tar sometimes prints an error that the file was modified while being read
