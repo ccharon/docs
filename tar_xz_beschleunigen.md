@@ -28,3 +28,22 @@ tar -cJvf verzeichnis.tar.xz verzeichnis/*
 ```bash
 tar -xJvf verzeichis.tar.xz --xattrs-include='*.*' --numeric-owner
 ``` 
+
+## laufendes gentoo root einpacken
+```bash
+tar -cJv \
+--exclude=lost+found \
+--exclude=dev/* \
+--exclude=proc/* \
+--exclude=sys/* \
+--exclude=tmp/* \
+--exclude=home/* \
+--exclude=backup/* \
+--exclude=var/tmp/* \
+--exclude=var/lock/* \
+--exclude=var/run/* \
+--exclude=var/lib/libvirt/* \
+--exclude=var/cache/distfiles/* \
+--exclude=var/log/*.gz \
+-f /backup/root-$(date +"%Y%m%d%H%m%S").tar.xz *
+``` 
