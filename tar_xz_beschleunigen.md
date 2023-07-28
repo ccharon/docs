@@ -26,7 +26,7 @@ tar --acls --xattrs -cpvJf verzeichnis.tar.xz verzeichnis/*
 
 ## entpacken mit erhalten von allen Rechten usw. (auch falls ein User nicht existiert, beim Wiederherstellen oft nützlich)
 ```bash
-tar -xpvJf verzeichis.tar.xz --acls --xattrs -xpzf --xattrs-include='*.*' --numeric-owner
+tar -xpvJf verzeichis.tar.xz --acls --xattrs --xattrs-include='*.*' --numeric-owner
 ```
 
 ## laufendes gentoo root einpacken
