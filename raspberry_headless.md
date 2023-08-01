@@ -60,3 +60,23 @@ dave:$6$hJWc4EBwpwBpCNKv$i6ixK2dwjTFnq7QOlXqzaW9RklZfja09/oyPXf3GjU1cut.DKKUkVL0
 ## done
 now unmount and put the card into the rpi ... 
 
+
+# PI Zero Gadget Mode
+PI Zero can be get Power, provide Serial Console and Network (and more) via a single USB Cable attached to a PC.
+
+## Adding Overlay 
+modify config.txt add this at the end:
+```
+dtoverlay=dwc2
+```
+
+## Modify Kernel Parameters to provide network / serial access
+modify cmdline.txt after rootwait add ``` modules-load=dwc2,g_serial,g_ether ```
+
+The line will look something like this when finished
+```
+console=serial0,115200 console=tty1 root=PARTUUID=4c4e106f-02 rootfstype=ext4 fsck.repair=yes rootwait modules-load=dwc2,g_serial,g_ether quiet init=/usr/lib/raspberrypi-sys-mods/firstboot
+```
+
+
+
