@@ -45,6 +45,20 @@ Device:
 ## using the greaseweazle
 
 ### reading a disk
+to get more information about possible reading formats and outputs use ```gw read --help```
+reading an msdos 1.44MB HD 3.5" Disk
+```bash
+$ gw read --format ibm.1440 a.scp
+Reading c=0-79:h=0-1 revs=2
+Format ibm.1440
+T0.0: IBM MFM (18/18 sectors) from Raw Flux (172457 flux in 399.82ms)
+T0.1: IBM MFM (18/18 sectors) from Raw Flux (181444 flux in 399.78ms)
+T1.0: IBM MFM (18/18 sectors) from Raw Flux (154986 flux in 399.83ms)
+T1.1: IBM MFM (18/18 sectors) from Raw Flux (154716 flux in 399.76ms)
+T2.0: IBM MFM (18/18 sectors) from Raw Flux (151418 flux in 399.75ms)
+...
+
+```
 
 ### writing a disk
 #### stp file 
