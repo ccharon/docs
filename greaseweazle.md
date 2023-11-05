@@ -16,10 +16,10 @@ or use a little script, maybe $HOME/bin/weazle.sh
 ```bash
 #!/bin/env bash
 
-[ ! -d $HOME/Programme/greaseweazle/images ] && mkdir -p $HOME/Programme/greaseweazle/images
-cd $HOME/Programme/greaseweazle/images
+[ ! -d $HOME/Programme/greaseweazle/images ] && mkdir -p $HOME/greaseweazle/images
+cd $HOME/greaseweazle/images
 
-bash --init-file <(echo "source $HOME/Programme/greaseweazle/venv/bin/activate;gw info")
+bash --init-file <(echo "source $HOME/greaseweazle/venv/bin/activate;gw info")
 
 ```
 this enters a new shell with the venv active and already in a directory to store images
