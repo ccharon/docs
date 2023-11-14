@@ -70,7 +70,7 @@ It is possible by using ```pfi``` from PCE IBM PC 5150 emulator.
 
 http://www.hampa.ch/pub/pce/pre/
 
-(pce-20230920-4d84dc43.tar.gz)[./data/pce-20230920-4d84dc43.tar.gz]
+[pce-20230920-4d84dc43.tar.gz](./data/pce-20230920-4d84dc43.tar.gz)
 
 Download and compile
 ```
