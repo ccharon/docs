@@ -16,10 +16,10 @@ or use a little script, maybe $HOME/bin/weazle.sh
 ```bash
 #!/bin/env bash
 
-[ ! -d $HOME/Programme/greaseweazle/images ] && mkdir -p $HOME/greaseweazle/images
+[ ! -d $HOME/greaseweazle/images ] && mkdir -p $HOME/greaseweazle/images
 cd $HOME/greaseweazle/images
 
-bash --init-file <(echo "source $HOME/greaseweazle/venv/bin/activate;gw info")
+bash --init-file <(echo "source $HOME/greaseweazle/venv/bin/activate ; gw reset ; gw info")
 
 ```
 this enters a new shell with the venv active and already in a directory to store images
@@ -61,5 +61,41 @@ T2.0: IBM MFM (18/18 sectors) from Raw Flux (151418 flux in 399.75ms)
 ```
 
 ### writing a disk
-#### stp file 
+#### scp file 
 #### img file
+
+### additional
+#### converting images 
+It is possible by using ```pfi``` from PCE IBM PC 5150 emulator.
+
+http://www.hampa.ch/pub/pce/pre/
+(pce-20230920-4d84dc43.tar.gz)[./data/pce-20230920-4d84dc43.tar.gz]
+
+Download and compile
+```
+./configure
+make
+```
+after that the ```pfi``` utility can be found under ```src/utils/pfi```
+
+1) TC (Transcopy) --> SCP
+```
+# (.pri image can be converted to scp)
+./pfi -p encode pri disk1.tc disk1.scp
+```
+
+2) RAW (Kryoflux) --> SCP
+```
+./pfi track00.0.raw disk1.scp
+```
+
+You can change RPM from 360 to 300 or 300 to 360 by using option (set-rpm)
+```
+./pfi disk1-360rpm.scp -p set-rpm 300 disk1-300rpm.scp
+./pfi disk1-300rpm.scp -p set-rpm 360 disk1-360rpm.scp
+```
+
+If dumped 2D (360KB) image is from 5.25" 2HD drive (360RPM. 96DPI), you can change 5.25" 2D (300RPM, 48DPI) format by psing PFI.EXE
+```
+./pfi disk1-360kb-96dpi-360rpm.scp -p double-step -p set-rpm 300 disk1-360kb-48dpi-300rpm.scp
+```
