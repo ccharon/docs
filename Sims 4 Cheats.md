@@ -98,3 +98,16 @@ Cheats aktivieren: ```testingcheats true```eingeben
 | ```stats.set_skill_level major_archaeology 10``` | Archäologie-Fähigkeit | Dschungelabenteuer |
 | ```stats.set_skill_level adultminor_ranchnectar 5``` | Nektarherstellung (max. Stufe 5) | Pferderanch |
 | ```stats.set_skill_level adultmajor_equestrianskill 10``` | Reiten | Pferderanch |
+
+## Kaufmodus und Bauen
+
+| Cheat-Code | Beschreibung |
+|------------|--------------|
+| ```bb.moveobjects``` | Objekte können frei platziert werden. |
+| ```bb.enablefreebuild``` | Alle Grundstücke können bebaut werden, auch wenn diese vom Spiel eigentlich nicht dafür vorgesehen sind. |
+| ```bb.showhiddenobjects``` | Offenbart unsichtbare Debug-Objekte. |
+| ```bb.showliveeditobjects``` |Offenbart weitere versteckte Gegenstände. (Nur, wenn bb.showhiddenobjects bereits aktiv ist.) |
+| ```bb.ignoregameplayunlocksentitlement``` | Schaltet alle Karriere-Objekte frei. |
+
+Gegenstände vergrößern oder verkleinern:
+TODO
