@@ -132,7 +132,58 @@ TODO
 | ```traits.equip_trait trait_ghost_animalobjects_killerrabbit``` | Tod durch Killer-Kaninchen. | Landhaus-Leben |
 | ```traits.equip_trait trait_ghost_animalobjects_killerchicken``` | Tod durch Killer-Huhn. | Landhaus-Leben |
 
-Um einen Sim wieder zu beleben den trait entfernen. (equip durch remove austauschen
+Um einen Sim wiederzubeleben den Trait entfernen. (equip durch remove austauschen)
 
 ```traits.remove_trait [Todesursache]```
 
+## Karriere
+| Cheat-Code | Beschreibung |
+|------------|--------------|
+| ```careers.promote gradeschool]``` | Die Schulnote eines Sim (nur Kind) verbessert sich um eine Note. |
+| ```careers.promote highschool]``` | Die Schulnote eines Sim (nur Teenager) verbessert sich um eine Note. |
+| ```sims.modify_career_outfit_in_cas]``` | Verändert das Karriere-Outfit, welches gerade von eurem Sim getragen wird. |
+| ```careers.add_career [Karriere]``` | Euer Sim erhält den gewählten Job. |
+| ```careers.promote [Karriere]``` | Euer Sim wird befördert. |
+| ```careers.demote [Karriere]``` | Euer Sim wird degradiert. |
+| ```careers.remove [Karriere]``` | Ihr löscht die Karriere eines Sim (Der Sim hat dann keine Arbeit mehr). |
+| ```careers.retire [Karriere] | Ihr schickt euren Sim in Rente und lasst ihn Pensionszahlungen einheimsen. | 
+
+### mögliche Karrieren für die Cheatcodes
+| Karriere | Beschreibung | Addon |
+|----------|--------------|-------|
+astronaut | Astronaut	–
+adult_writer | Schriftsteller	–
+culinary | Feinschmecker	–
+business | Business	–
+adult_freelancer_agency_programmer | Programmierer	–
+painter | Maler	–
+athletic | Sportler	–
+styleinfluencer | Stylist	–
+techguru | Tech-Guru	–
+criminal | Verbrecher	–
+secretagent | Geheimagent	–
+entertainer | Entertainer	–
+adult_freelancer_agency_writer | Künstler	–
+law | Richter / Rechtsanwalt	An die Uni!
+education | Verwaltung / Professor	An die Uni!
+engineering | Ingenieur	An die Uni!
+detective | Polizist	An die Arbeit!
+doctor | Arzt	An die Arbeit!
+adult_active_scientist | Wissenschaftler	An die Arbeit!
+vet | Tierarzt	Hunde und Katzen
+adult_parttime_diver | Taucher	Inselleben
+adult_parttime_fisherman | Angler	Inselleben
+careers_adult_conservationist | Umwelt-Aktivist	Inselleben
+parttime_lifeguard | Rettungsschwimmer	Inselleben
+teen_lifeguard | Rettungsschwimmer (nur Teenager)	Inselleben
+actor | Schauspieler	Werde berühmt
+dramaclub | Theater-AG (nur Kinder)	Werde berühmt
+critic | Kritiker	Großstadtleben
+activist | Politiker	Großstadtleben
+social | Soziale Medien	Großstadtleben
+parttime_streamersidehustle | Streamer	Highschool-Jahre
+teen_streamersidehustle | Streamer (nur Teens)	Highschool-Jahre
+parttime_simsfluencersidehustle | Influencer	Highschool-Jahre
+teen_simsfluencersidehustle | Influencer (nur Teens)	Highschool-Jahre
+adult_gardener | Gärtner	Jahreszeiten
+scout | Pfadfinder (nur Teens)	Jahreszeiten
