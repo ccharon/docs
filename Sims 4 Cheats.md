@@ -47,54 +47,54 @@ Cheats aktivieren: ```testingcheats true```eingeben
 ## Fähigkeiten
 | Cheat-Code | Beschreibung | Addon |
 |------------|--------------|-------|
-| ```stats.set_skill_level major_gardening | Gartenarbeit | – |
-| ```stats.set_skill_level major_fishing | Angeln | – |
-| ```stats.set_skill_level major_charisma | Charisma | – |
-| ```stats.set_skill_level major_comedy | Comedy-Fähigkeit | – |
-| ```stats.set_skill_level major_mischief | Schelm-Fähigkeit | – |
-| ```stats.set_skill_level skill_fitness | Fitness | – |
-| ```stats.set_skill_level major_guitar | Gitarre spielen | – |
-| ```stats.set_skill_level major_violinv | Geige spielen | – |
-| ```stats.set_skill_level major_piano | Klavier spielen | – |
-| ```stats.set_skill_level major_painting | Malen | – |
-| ```stats.set_skill_level major_writing | Schreiben | – |
-| ```stats.set_skill_level major_handiness | Handwerkliches Geschick | – |
-| ```stats.set_skill_level major_homestylecooking | Kochen | – |
-| ```stats.set_skill_level major_gourmetcooking | Gourmet-Kochen | – |
-| ```stats.set_skill_level major_bartending | Barkeeper-Fähigkeit	–
-| ```stats.set_skill_level major_logic | Logik-Fähigkeit | – |
-| ```stats.set_skill_level major_programming | Programmieren | – |
-| ```stats.set_skill_level major_rocketscience | Raumfahrttechnik-Wissen | – |
-| ```stats.set_skill_level major_videogaming | Skill und Wissen zu Videospielen | – |
-| ```stats.set_skill_level toddler_thinking | Denken (nur Kleinkinder) | – |
-| ```stats.set_skill_level toddler_imagination | Fantasie (nur Kleinkinder) | – |
-| ```stats.set_skill_level toddler_communication | Kommunikation (nur Kleinkinder) | – |
-| ```stats.set_skill_level toddler_movement | Motorik (nur Kleinkinder)	–
-| ```stats.set_skill_level toddler_potty | Aufs Töpfchen gehen (nur Kleinkinder)	–
-| ```stats.set_skill_level skill_child_creativity | Kreativität (nur Kinder)	–
-| ```stats.set_skill_level skill_child_mental | Mental (nur Kinder)	–
-| ```stats.set_skill_level skill_child_motor | Motorik (nur Kinder)	–
-| ```stats.set_skill_level skill_child_social | Soziale Fähigkeit (nur Kinder)	–
-| ```stats.set_skill_level skill_dog | Tiererziehung 	Haustiere
-| ```stats.set_skill_level major_vet | Tierarzt-Fähigkeit	Haustiere
-| ```stats.set_skill_level major_photography | Fotografie-Fähigkeit	An die Arbeit!
-| ```stats.set_skill_level major_baking | Backen-Fähigkeit	An die Arbeit!
-| ```stats.set_skill_level adultmajor_fabrication | Herstellung	Nachhaltig leben
-| ```stats.set_skill_level adultminor_juicefizzing | Aufsprudeln	Nachhaltig leben
-| ```stats.set_skill_level major_parenting | Erziehung	Elternfreuden
-| ```stats.set_skill_level minor_mediaproduction | Medienproduktion	Werde berühmt
-| ```stats.set_skill_level major_acting | Schauspielerei-Fähigkeit	Werde berühmt
-| ```stats.set_skill_level major_robotic | Robotik-Wissen	An die Uni
-| ```stats.set_skill_level major_research | Forschen und Debattieren	An die Uni
-| ```stats.set_skill_level skill_bowling | Bowling-Fähigkeit	Bowling-Accessoires
-| ```stats.set_skill_level major_wellness | Wellness-Fähigkeit	Welness-Tag
-| ```stats.set_skill_level major_pipeorgan | Orgel spielen	Vampire
-| ```stats.set_skill_level skill_crossstitch | Kreuzstich	Landhaus-Leben
-| ```stats.set_skill_level major_dj | DJ-Fähigkeit	Zeit für Freunde
-| ```stats.set_skill_level minor_dancing | Tanzen	Zeit für Freunde
-| ```stats.set_skill_level adultmajor_flowerarranging | Blumenbinden	Jahreszeiten
-| ```stats.set_skill_level major_skiing | Skifahren	Schneeparadies
-| ```stats.set_skill_level major_snowboarding | Snowboarden	Schneeparadies
-| ```stats.set_skill_level major_archaeology | Archäologie-Fähigkeit	Dschungelabenteuer
-| ```stats.set_skill_level adultminor_ranchnectar | Nektarherstellung (max. Stufe 5)	Pferderanch
-| ```stats.set_skill_level adultmajor_equestrianskill | Reiten	Pferderanch
+| ```stats.set_skill_level major_gardening 10``` | Gartenarbeit | – |
+| ```stats.set_skill_level major_fishing 10``` | Angeln | – |
+| ```stats.set_skill_level major_charisma 10``` | Charisma | – |
+| ```stats.set_skill_level major_comedy 10``` | Comedy-Fähigkeit | – |
+| ```stats.set_skill_level major_mischief 10``` | Schelm-Fähigkeit | – |
+| ```stats.set_skill_level skill_fitness 10``` | Fitness | – |
+| ```stats.set_skill_level major_guitar 10``` | Gitarre spielen | – |
+| ```stats.set_skill_level major_violin 10``` | Geige spielen | – |
+| ```stats.set_skill_level major_piano 10``` | Klavier spielen | – |
+| ```stats.set_skill_level major_painting 10``` | Malen | – |
+| ```stats.set_skill_level major_writing 10``` | Schreiben | – |
+| ```stats.set_skill_level major_handiness 10``` | Handwerkliches Geschick | – |
+| ```stats.set_skill_level major_homestylecooking 10``` | Kochen | – |
+| ```stats.set_skill_level major_gourmetcooking 10``` | Gourmet-Kochen | – |
+| ```stats.set_skill_level major_bartending 10``` | Barkeeper-Fähigkeit	–
+| ```stats.set_skill_level major_logic 10``` | Logik-Fähigkeit | – |
+| ```stats.set_skill_level major_programming 10``` | Programmieren | – |
+| ```stats.set_skill_level major_rocketscience 10``` | Raumfahrttechnik-Wissen | – |
+| ```stats.set_skill_level major_videogaming 10``` | Skill und Wissen zu Videospielen | – |
+| ```stats.set_skill_level toddler_thinking 10``` | Denken (nur Kleinkinder) | – |
+| ```stats.set_skill_level toddler_imagination 10``` | Fantasie (nur Kleinkinder) | – |
+| ```stats.set_skill_level toddler_communication 10``` | Kommunikation (nur Kleinkinder) | – |
+| ```stats.set_skill_level toddler_movement 10``` | Motorik (nur Kleinkinder) | – |
+| ```stats.set_skill_level toddler_potty 10``` | Aufs Töpfchen gehen (nur Kleinkinder) | – |
+| ```stats.set_skill_level skill_child_creativity 10``` | Kreativität (nur Kinder) | – |
+| ```stats.set_skill_level skill_child_mental 10``` | Mental (nur Kinder) | – |
+| ```stats.set_skill_level skill_child_motor 10``` | Motorik (nur Kinder) | – |
+| ```stats.set_skill_level skill_child_social 10``` | Soziale Fähigkeit (nur Kinder) | – |
+| ```stats.set_skill_level skill_dog 10``` | Tiererziehung | Haustiere |
+| ```stats.set_skill_level major_vet 10``` | Tierarzt-Fähigkeit | Haustiere |
+| ```stats.set_skill_level major_photography 10``` | Fotografie-Fähigkeit | An die Arbeit! |
+| ```stats.set_skill_level major_baking 10``` | Backen-Fähigkeit | An die Arbeit! |
+| ```stats.set_skill_level adultmajor_fabrication 10``` | Herstellung | Nachhaltig leben |
+| ```stats.set_skill_level adultminor_juicefizzing 10``` | Aufsprudeln | Nachhaltig leben |
+| ```stats.set_skill_level major_parenting 10``` | Erziehung | Elternfreuden |
+| ```stats.set_skill_level minor_mediaproduction 10``` | Medienproduktion | Werde berühmt |
+| ```stats.set_skill_level major_acting 10``` | Schauspielerei-Fähigkeit | Werde berühmt |
+| ```stats.set_skill_level major_robotic 10``` | Robotik-Wissen | An die Uni |
+| ```stats.set_skill_level major_research 10``` | Forschen und Debattieren | An die Uni |
+| ```stats.set_skill_level skill_bowling 10``` | Bowling-Fähigkeit | Bowling-Accessoires |
+| ```stats.set_skill_level major_wellness 10``` | Wellness-Fähigkeit | Welness-Tag |
+| ```stats.set_skill_level major_pipeorgan 10``` | Orgel spielen | Vampire |
+| ```stats.set_skill_level skill_crossstitch 10``` | Kreuzstich | Landhaus-Leben |
+| ```stats.set_skill_level major_dj 10``` | DJ-Fähigkeit | Zeit für Freunde |
+| ```stats.set_skill_level minor_dancing 10``` | Tanzen | Zeit für Freunde |
+| ```stats.set_skill_level adultmajor_flowerarranging 10``` | Blumenbinden | Jahreszeiten |
+| ```stats.set_skill_level major_skiing 10``` | Skifahren | Schneeparadies |
+| ```stats.set_skill_level major_snowboarding 10``` | Snowboarden | Schneeparadies |
+| ```stats.set_skill_level major_archaeology 10``` | Archäologie-Fähigkeit | Dschungelabenteuer |
+| ```stats.set_skill_level adultminor_ranchnectar 5``` | Nektarherstellung (max. Stufe 5) | Pferderanch |
+| ```stats.set_skill_level adultmajor_equestrianskill 10``` | Reiten | Pferderanch |
