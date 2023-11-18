@@ -34,7 +34,6 @@ Cheats aktivieren: ```testingcheats true```eingeben
 | ```relationships.create_friends_for_sim``` | 	Der gewählte Sim erhält einen neuen, willkürlichen Freund. |
 | ```relationship.introduce_sim_to_all_others``` | 	Der gewählte Sim kennt nun alle anderen Sims aus allen Nachbarschaften. |
 | ```modifyrelationship [Vorname] [Nachname] [Vorname] [Nachname] -50 Romance_Main ``` | Der gewählte Sim beginnt eine Romanze mit einem anderen gewählte Sim. |
-
 | ```sims.add_buff buff_pregnancy_trimester1``` | Der Sim befindet sich sofort nun in der Anfangsphase einer Schwangerschaft. |
 | ```sims.add_buff buff_pregnancy_trimester2``` | Der Sim befindet sich sofort nun in einer fortgeschrittenen Schwangerschaft. |
 | ```sims.add_buff buff_pregnancy_trimester3``` | Der Sim befindet sich sofort in einer sehr fortgeschrittenen Schwangerschaft. |
