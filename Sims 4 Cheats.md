@@ -111,3 +111,23 @@ Cheats aktivieren: ```testingcheats true```eingeben
 
 Gegenstände vergrößern oder verkleinern:
 TODO
+
+## Sims kreativ um die Ecke bringen
+
+| Cheat-Code | Beschreibung | Addon |
+|------------|--------------|-------|
+| ```traits.equip_trait drown``` | Tod durch Ertrinken. | – |
+| ```traits.equip_trait hunger``` | Tod durch Verhungern. | – |
+| ```traits.equip_trait electrocution``` | Tod durch Stromschlag. | – |
+| ```traits.equip_trait oldage``` | Tod durch Altersschwäche. | – |
+| ```traits.equip_trait embarrassment``` | Tod durch Scham. | – |
+| ```traits.equip_trait exhaust``` | Tod durch Überanstrengung. | – |
+| ```traits.equip_trait cowplant``` | Tod durch Kuhpflanze. | – |
+| ```traits.equip_trait laugh``` | Tod durch Lachen. | – |
+| ```traits.equip_trait ghost_overheat``` | Tod durch Hitzeschlag. | Jahreszeiten |
+| ```traits.equip_trait ghost_frozen``` | Tod durch Erfrieren. | Jahreszeiten |
+| ```traits.equip_trait trait_ghost_beetle``` | Tod durch Käfersaft. | Nachhaltig leben |
+| ```traits.equip_trait trait_ghost_flies``` | Tod durch Fliegenschwarm. | Nachhaltig leben |
+| ```traits.equip_trait steam``` | Tod durch Dampf-Sauna. | Wellness-Tag |
+| ```traits.equip_trait trait_ghost_animalobjects_killerrabbit``` | Tod durch Killer-Kaninchen. | Landhaus-Leben |
+| ```traits.equip_trait trait_ghost_animalobjects_killerchicken``` | Tod durch Killer-Huhn. | Landhaus-Leben |
