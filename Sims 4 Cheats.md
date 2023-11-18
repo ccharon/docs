@@ -38,15 +38,10 @@ Cheats aktivieren: ```testingcheats true```eingeben
 | ```sims.add_buff buff_pregnancy_trimester2``` | Der Sim befindet sich sofort nun in einer fortgeschrittenen Schwangerschaft. |
 | ```sims.add_buff buff_pregnancy_trimester3``` | Der Sim befindet sich sofort in einer sehr fortgeschrittenen Schwangerschaft. |
 | ```sims.add_buff buff_pregnancy_inlabor``` | Die Wehen setzen ein. |
-| ```fillmotive motive_[Bedürfnis]``` | Füllt einzelne Bedürfnisse auf. |
+| ```fillmotive motive_fun``` | Füllt Spaß Bedürfnis auf. |
+| ```fillmotive motive_social``` | Füllt Sozial Bedürfnis auf. |
+| ```fillmotive motive_hunger``` | Füllt Hunger Bedürfnis auf. |
+| ```fillmotive motive_bladder``` | Füllt Harndrang Bedürfnis auf. |
+| ```fillmotive motive_hygiene``` | Füllt Hygiene Bedürfnis auf. |
 
-es gibt folgende Bedürfnisse:
-
-| Bedürfnis | Beschreibung |
-|-----------|--------------|
-| fun | Spaß |
-| social | Sozial |
-| hunger | Hunger |
-| bladder | Harndrang |
-| hygiene | Hygiene |
 
