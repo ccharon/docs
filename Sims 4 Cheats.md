@@ -131,3 +131,8 @@ TODO
 | ```traits.equip_trait steam``` | Tod durch Dampf-Sauna. | Wellness-Tag |
 | ```traits.equip_trait trait_ghost_animalobjects_killerrabbit``` | Tod durch Killer-Kaninchen. | Landhaus-Leben |
 | ```traits.equip_trait trait_ghost_animalobjects_killerchicken``` | Tod durch Killer-Huhn. | Landhaus-Leben |
+
+Um einen Sim wieder zu beleben den trait entfernen. (equip durch remove austauschen
+
+```traits.remove_trait [Todesursache]```
+
