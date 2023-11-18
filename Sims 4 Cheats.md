@@ -7,7 +7,7 @@ Cheat Konsole öffnen:
 
 Cheats aktivieren: ```testingcheats true```eingeben
 
-==Manche Cheats erfordern zusätzliche Angaben, wie einen Geldwert oder Indikatoren dafür, ob man eine Aktion aktivieren oder deaktivieren möchte. (on oder true aktiviert bestimmte Cheat, während off oder false gewisse Cheats deaktivieren). Diese Extrabefehle sind in eckige Klammern [ ] gepackt. Damit die Cheats funktionieren, nur hinzugefügt werden, was in den Klammern geschrieben steht. Die Klammern selbst gehören nicht zum Cheat dazu.==
+***Manche Cheats erfordern zusätzliche Angaben, wie einen Geldwert oder Indikatoren dafür, ob man eine Aktion aktivieren oder deaktivieren möchte. (on oder true aktiviert bestimmte Cheat, während off oder false gewisse Cheats deaktivieren). Diese Extrabefehle sind in eckige Klammern [ ] gepackt. Damit die Cheats funktionieren, nur hinzugefügt werden, was in den Klammern geschrieben steht. Die Klammern selbst gehören nicht zum Cheat dazu.***
 
 ## Geld
 
