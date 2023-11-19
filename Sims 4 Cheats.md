@@ -31,6 +31,10 @@ Cheats aktivieren: ```testingcheats true```eingeben
   - [09 - Nachhaltig leben](#id-ep9)
   - [10 - Ab ins Schneeparadies!](#id-ep10)
   - [11 - Landhaus-Leben](#id-ep11)
+  - [12 - Highschool Jahre](#id-ep12)
+  - [13 - Zusammen wachsen](#id-ep13)
+  - [14 - Pferderanch](#id-ep14)
+  - [15 - Zu vermieten](#id-ep15)
 
 ## Geld <div id='id-geld'/>
 | Cheat-Code                                 | Beschreibung                                                                      |
