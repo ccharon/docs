@@ -284,3 +284,137 @@ Die Sim-ID des Pferdes mit diesem Cheat-Code ermitteln: ```sims.get_sim_id_by_na
 | ```traits.equip_trait trait_horse_gameplay_rewardtrait_topnotchfoal [SimID]```       | Gut erzogenes Fohlen |
 | ```traits.equip_trait trait_horse_gameplay_horseBreeding_championgenes [SimID]```    | Champion-Gene        |
 | ```traits.equip_trait trait_horse_gameplay_playful [SimID]```                        | Verspielt            |
+
+## Landhaus Leben
+
+### Fähigkeiten
+| Cheat-Code                                       | Beschreibung                                                 |
+|--------------------------------------------------|--------------------------------------------------------------|
+| ```stats.set_skill_level Skill_CrossStitch 5```  | Der ausgewählte Sim erhält die Fähigkeit "Kreuzstich" (1-5)  |
+
+### Merkmale
+| Cheat-Code                                        | Beschreibung                                                                                  |
+|---------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| ```traits.equip_trait trait_AnimalEnthusiast```   | Ausgewählter Sim erhält das Merkmal "Tierfreund".                                             |
+| ```traits.equip_trait trait_LactoseIntolerant```  | Ausgewählter Sim erhält das Merkmal "Laktoseintolerant".                                      |
+| ```traits.equip_trait trait_Nature_Country```     | Ausgewählter Sim erhält das Bonus-Merkmal "Naturversteher" im Bestreben "Landschaftspfleger". |
+
+### Todesarten
+| Cheat-Code                                                         | Beschreibung                     |
+|--------------------------------------------------------------------|----------------------------------|
+| ```traits.equip_trait trait_Ghost_AnimalObjects_KillerChicken```   | Tod durch Huhn (Geister Form)    |
+| ```traits.remove_trait trait_Ghost_AnimalObjects_KillerChicken```  | Tod durch Huhn Merkmal entfernen |
+| ```traits.equip_trait trait_Ghost_AnimalObjects_KillerRabbit```    | Tod durch Hase (Geister Form)    |
+| ```traits.remove_trait trait_Ghost_AnimalObjects_KillerRabbit```   | Tod durch Hase Merkmal entfernen |
+
+## Highschool Jahre
+
+### Fähigkeiten
+| Cheat-Code                                            | Beschreibung                                              |
+|-------------------------------------------------------|-----------------------------------------------------------|
+| ```stats.set_skill_level AdultMinor_Entrepreneur 5``` | Ausgewählter Sim erhält die Fähigkeit "Unternehmer" (1-5) |
+
+### Merkmale
+| Cheat-Code                                                    | Beschreibung                                                                         |
+|---------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| ```traits.equip_trait trait_TeenPranks_Prankster```           | Belohnungsmerkmal "Grandioser Scherzkeks" ("Schelmfähigkeit" als Teenager maximiert) |
+| ```traits.remove_trait trait_TeenPranks_Prankster```          | Entfernt Belohnungsmerkmal "Grandioser Scherzkeks"                                   |
+| ```traits.equip_trait trait_Entrepreneur_TheKnowledge```      | Belohnungsmerkmal "Das Wissen" ("Unternehmerfähigkeit" maximiert)                    |
+| ```traits.remove_trait trait_Entrepreneur_TheKnowledge```     | Entfernt Belohnungsmerkmal "Das Wissen"                                              |
+| ```traits.equip_trait trait_Dauntless```                      | Bonus-Merkmal "Furchtlos" (durch Abschluss des Bestreben "Intensives Leben")         |
+| ```traits.remove_trait trait_Dauntless```                     | Entfernt Bonus-Merkmal "Furchtlos"                                                   |
+| ```traits.equip_trait trait_Highflier```                      | Bonus-Merkmal "Senkrechtstarter/in" (durch Abschluss des Bestreben "Zielorentiert")  |
+| ```traits.remove_trait trait_Highflier```                     | Entfernt Bonus-Merkmal "Senkrechtstarter/in"                                         |
+| ```traits.equip_trait trait_Iconic```                         | Bonus-Merkmal "Legendär" (durch Abschluss des Bestreben "Bewunderte Ikone")          |
+| ```traits.remove_trait trait_Iconic```                        | Entfernt Bonus-Merkmal "Legendär"                                                    |
+| ```traits.equip_trait trait_Untroubled```                     | Bonus-Merkmal "Unbeschwert" (durch Abschluss des Bestreben "Drama Lama")             |
+| ```traits.remove_trait trait_Untroubled```                    | Entfernt Bonus-Merkmal "Unbeschwert"                                                 |
+| ```traits.equip_trait trait_Reward_HSTeam_CheerTeam```        | Belohnungsmerkmal "Cheer-Champion" (durch Kaptain-Level bei "Cheerleading-Team")     |
+| ```traits.remove_trait trait_Reward_HSTeam_CheerTeam```       | Entfernt Belohnungsmerkmal "Cheer-Champion"                                          |
+| ```traits.equip_trait trait_Reward_HSTeam_ChessTeam```        | Belohnungsmerkmal "Schachmeister" (durch Kaptain-Level bei "Schach-Team")            |
+| ```traits.remove_trait trait_Reward_HSTeam_ChessTeam```       | Entfernt Belohnungsmerkmal "Schachmeister"                                           |
+| ```traits.equip_trait trait_Reward_HSTeam_ComputerTeam```     | Belohnungsmerkmal "L33T-Hacker" (durch Kaptain-Level bei "Computer-Team")            |
+| ```traits.remove_trait trait_Reward_HSTeam_ComputerTeam```    | Entfernt Belohnungsmerkmal "L33T-Hacker"                                             |
+| ```traits.equip_trait trait_Reward_HSTeam_FootballTeam```     | Belohnungsmerkmal "Star-Spieler" (durch Kaptain-Level bei "Football-Team")           |
+| ```traits.remove_trait trait_Reward_HSTeam_FootballTeam```    | Entfernt Belohnungsmerkmal "Star-Spieler"                                            |
+| ```traits.equip_trait trait_Overachiever```                   | Merkmal "Überflieger/in"                                                             |
+| ```traits.remove_trait trait_Overachiever```                  | Entfernt Merkmal "Überflieger/in"                                                    |
+| ```traits.equip_trait trait_PartyAnimal```                    | Merkmal "Partylöwe"                                                                  |
+| ```traits.remove_trait trait_PartyAnimal```                   | Entfernt Merkmal "Partylöwe"                                                         |
+| ```traits.equip_trait trait_SociallyAwkward```                | Merkmal "Sozial unbeholfen"                                                          |
+| ```traits.remove_trait trait_SociallyAwkward```               | Entfernt Merkmal "Sozial unbeholfen"                                                 |
+| ```traits.equip_trait trait_Relatable```                      | Merkmal "Beziehungsfreudig"                                                          |
+| ```traits.remove_trait trait_Relatable```                     | Entfernt Merkmal "Beziehungsfreudig"                                                 |
+| ```traits.equip_trait trait_HSExit_Dropout```                 | Merkmal "Highschool-Abbrecher/in"                                                    |
+| ```traits.remove_trait trait_HSExit_Dropout```                | Entfernt Merkmal "Highschool-Abbrecher/in"                                           |
+| ```traits.equip_trait trait_HSExit_Expelled```                | Merkmal "Aus Highschool geflogen"                                                    |
+| ```traits.remove_trait trait_HSExit_Expelled```               | Entfernt Merkmal "Aus Highschool geflogen"                                           |
+| ```traits.equip_trait trait_HSExit_EarnedGED```               | Merkmal "Online Highschool-Diplom erhalten"                                          |
+| ```traits.remove_trait trait_HSExit_EarnedGED```              | - Entfernt Merkmal "Online Highschool-Diplom erhalten"                               |
+| ```traits.equip_trait trait_HSExit_Graduate_Early```          | Merkmal "Highschool vorzeitig abgeschlossen"                                         |
+| ```traits.remove_trait trait_HSExit_Graduate_Early```         | Entfernt Merkmal "Highschool vorzeitig abgeschlossen"                                |
+| ```traits.equip_trait trait_HSExit_Graduate_Honors```         | Merkmal "Mit Auszeichnung abgeschlossen"                                             |
+| ```traits.remove_trait trait_HSExit_Graduate_Honors```        | Entfernt Merkmal "Mit Auszeichnung abgeschlossen"                                    |
+| ```traits.equip_trait trait_HSExit_Graduate_Valedictorian```  | Merkmal "Jahrgangsbeste/r"                                                           |
+| ```traits.remove_trait trait_HSExit_Graduate_Valedictorian``` | Entfernt Merkmal "Jahrgangsbeste/r"                                                  |
+
+### Ängste
+traits.equip_trait Trait_Fear_DisappointingParents - Angst, die Eltern zu enttäuschen
+traits.remove_trait Trait_Fear_DisappointingParents - Entfernt "Angst, die Eltern zu enttäuschen"
+traits.equip_trait Trait_Fear_Failing_AfterSchoolActivities - Angst, bei außerschuligen Aktivitäten zu versagen
+traits.remove_trait Trait_Fear_Failing_AfterSchoolActivities - Entfernt "Angst, bei außerschuligen Aktivitäten zu versagen"
+traits.equip_trait Trait_Fear_Failing_Class - Angst, nicht versetzt zu werden
+traits.remove_trait Trait_Fear_Failing_Class - "Entfernt "Angst, nicht versetzt zu werden"
+traits.equip_trait Trait_Fear_Failing_Tests - Angst, Prüfungen nicht zu bestehen
+traits.remove_trait Trait_Fear_Failing_Tests - Entfernt "Angst, Prüfungen nicht zu bestehen"
+traits.equip_trait Trait_Fear_Homework - Angst vor Hausaufgaben
+traits.remove_trait Trait_Fear_Homework - Entfernt "Angst vor Hausaufgaben"
+
+### Karriere
+careers.add_career teen_SimsfluencerSideHustle - Sim folgt der Karriere "Simfluencer" (Teenager)
+careers.add_career PartTime_SimsfluencerSideHustle - Sim folgt der Teilzeit-Karriere "Simfluencer" (Erwachsene)
+careers.add_career teen_StreamerSideHustle - Sim folgt der Karriere "Videospiel-Streamer" (Teenager)
+careers.add_career PartTime_StreamerSideHustle - Sim folgt der Teilzeit-Karriere "Videospiel-Streamer" (Erwachsene)
+careers.promote teen_SimsfluencerSideHustle - Sim wird in seiner Simfluencer-Karriere um eine Stufe befördert (Teenager)
+careers.promote PartTime_SimsfluencerSideHustle - Sim wird in seiner Teilzeit-Simfluencer-Karriere um eine Stufe befördert (Erwachsene)
+careers.promote teen_StreamerSideHustle - Sim wird in seiner Videospiel-Streamer-Karriere um eine Stufe befördert (Teenager)
+careers.promote PartTime_StreamerSideHustle - Sim wird in seiner Teilzeit-Videospiel-Streamer-Karriere um eine Stufe befördert (Erwachsene)
+careers.demote teen_SimsfluencerSideHustle - Sim wird in seiner Simfluencer-Karriere um eine Stufe degradiert (Teenager)
+careers.demote PartTime_SimsfluencerSideHustle - Sim wird in seiner Teilzeit-Simfluencer-Karriere um eine Stufe degradiert (Erwachsene)
+careers.demote teen_StreamerSideHustle - Sim wird in seiner Videospiel-Streamer-Karriere um eine Stufe degradiert (Teenager)
+careers.demote PartTime_StreamerSideHustle - Sim wird in seiner Teilzeit-Videospiel-Streamer-Karriere um eine Stufe degradiert (Erwachsene)
+careers.remove_career teen_SimsfluencerSideHustle - Sim beendet die Karriere "Simfluencer" (Teenager)
+careers.remove_career PartTime_SimsfluencerSideHustle - Sim beendet die Teilzeit-Karriere "Simfluencer" (Erwachsene)
+careers.remove_career teen_StreamerSideHustle - Sim beendet die Karriere "Videospiel-Streamer" (Teenager)
+careers.remove_career PartTime_StreamerSideHustle - Sim beendet die Teilzeit-Karriere "Videospiel-Streamer" (Erwachsene)
+
+### Highschool Teams
+careers.add_career HSTeam_FootballTeam - Sim schließt sich dem Football-Team an
+careers.add_career HSTeam_CheerTeam - Sim schließt sich dem Cheerleading-Team an
+careers.add_career HSTeam_ChessTeam - Sim schließt sich dem Schach-Team an
+careers.add_career HSTeam_ComputerTeam - Sim schließt sich dem Computer-Team an
+careers.promote HSTeam_FootballTeam - Sim wird im Football-Team um eine Stufe befördert
+careers.promote HSTeam_CheerTeam - Sim wird im Cheerleading-Team um eine Stufe befördert
+careers.promote HSTeam_ChessTeam - Sim wird im Schach-Team um eine Stufe befördert
+careers.promote HSTeam_ComputerTeam - Sim wird im Computer-Team um eine Stufe befördert
+careers.demote HSTeam_FootballTeam - Sim wird im Football-Team um eine Stufe degradiert
+careers.demote HSTeam_CheerTeam - Sim wird im Cheerleading-Team um eine Stufe degradiert
+careers.demote HSTeam_ChessTeam - Sim wird im Schach-Team um eine Stufe degradiert
+careers.demote HSTeam_ComputerTeam - Sim wird im Computer-Team um eine Stufe degradiert
+careers.remove_career HSTeam_FootballTeam - Sim tritt aus dem Football-Team aus
+careers.remove_career HSTeam_CheerTeam - Sim tritt aus dem Cheerleading-Team aus
+careers.remove_career HSTeam_ChessTeam - Sim tritt aus dem Schach-Team aus
+careers.remove_career HSTeam_ComputerTeam - Sim tritt aus dem Computer-Team 
+
+### Todesarten
+traits.equip_trait trait_Ghost_StinkBomb - Tod durch Stinkkapsel-Explosion (Geister Form)
+traits.remove_trait Ghost_StinkBomb - Tod durch Stinkkapsel-Explosion Merkmal entfernen
+traits.equip_trait trait_Ghost_UrbanMyth_EP12Death - Tod durch urbanen Mythos (Geister Form)
+traits.remove_trait Ghost_UrbanMyth_EP12Death - Tod durch urbanen Mythos Merkmal entfernen
+
+### Kleidung freischalten
+cas.unlockbytag EP12 - Zugriff auf alle freischaltbaren Erstelle-einen-Sim-Objekte aus "Highschool-Jahre" im CAS
+
+### Baumodus
+bb.showhiddenobjects - Schaltet alle verborgenen Objekte im Bau-Modus frei
+bb.showliveeditobjects - Schaltet alle verborgenen Welten-Deko-Objekte im Bau-Modus frei
