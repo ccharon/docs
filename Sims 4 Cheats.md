@@ -251,7 +251,13 @@ Um einen Sim wiederzubeleben den Trait entfernen. (equip durch remove austausche
 | adult_gardener                     | Gärtner                                 | Jahreszeiten     |
 | scout                              | Pfadfinder (nur Teens)                  | Jahreszeiten     |
 
-## Werde Berühmt Addon
+## Expansion Pack 01 - An die Arbeit! <div id='id-ep1'/>
+## Expansion Pack 02 - Zeit für Freunde <div id='id-ep2'/>
+## Expansion Pack 03 - Großstadtleben <div id='id-ep3'/>
+## Expansion Pack 04 - Hunde & Katzen <div id='id-ep4'/>
+## Expansion Pack 05 - Jahreszeiten <div id='id-ep5'/>
+
+## Expansion Pack 06 - Werde berühmt <div id='id-ep6'/>
 | Cheat-Code                                  | Beschreibung                                                |
 |---------------------------------------------|-------------------------------------------------------------|
 | ```stats.set_skill_level major_acting 10``` | Schauspielen-Fähigkeit auf maximales Level                  |
@@ -262,19 +268,87 @@ Um einen Sim wiederzubeleben den Trait entfernen. (equip durch remove austausche
 | ```traits.equip_trait unstoppablefame```    | Ruhm-Punkte des aktivierten Sim sinken nehmen nicht mehr ab | 
 | ```famepoints 20```                         | Aktiver Sim erhält Ruhm-Punkte                              |
 
-## Expansion Pack 01 - An die Arbeit! <div id='id-ep1'/>
-## Expansion Pack 02 - Zeit für Freunde <div id='id-ep2'/>
-## Expansion Pack 03 - Großstadtleben <div id='id-ep3'/>
-## Expansion Pack 04 - Hunde & Katzen <div id='id-ep4'/>
-## Expansion Pack 05 - Jahreszeiten <div id='id-ep5'/>
-## Expansion Pack 06 - Werde berühmt <div id='id-ep6'/>
 ## Expansion Pack 07 - Inselleben <div id='id-ep7'/>
 ## Expansion Pack 08 - An die Uni <div id='id-ep8'/>
 ## Expansion Pack 09 - Nachhaltig leben <div id='id-ep9'/>
+
 ## Expansion Pack 10 - Ab ins Schneeparadies! <div id='id-ep10'/>
+# Fähigkeiten
+| Cheat-Code                                         | Beschreibung                                             |
+|----------------------------------------------------|----------------------------------------------------------|
+| ```stats.set_skill_level major_rockclimbing 10```  | Der ausgewählte Sim erhält die Fähigkeit "Klettern"      |
+| ```stats.set_skill_level major_skiing 10```        | Der ausgewählte Sim erhält die Fähigkeit "Skifahren"     |
+| ```stats.set_skill_level major_snowboarding 10```  | Der ausgewählte Sim erhält die Fähigkeit "Snowboarding"  |
+
+# Merkmale
+| Cheat-Code                                                        | Beschreibung                                                                                                                                      |
+|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| ```traits.equip_trait trait_adventurous```                        | Sim erhält das Persönlichkeitsmerkmal "Abenteuerlustig".                                                                                          |
+| ```traits.equip_trait trait_proper```                             | Sim erhält das Persönlichkeitsmerkmal "Korrekt".                                                                                                  |
+| ```traits.equip_trait trait_corporateworker_charismaticcrooner``` | Sim erhält das Belohnungsmerkmal "Charismatische Stimme" aus der Büropersonal-Karriere (durch das Erreichen der 4. Karrierestufe).                |
+| ```traits.equip_trait trait_corporateworker_legendarystamina```   | Sim erhält das Belohnungsmerkmal "Legendäre Ausdauer" aus der Büropersonal-Karriere (durch das Erreichen der Maximalstufe beider Karrierezweige). |
+| ```traits.equip_trait trait_survivalinstinct```                   | Sim erhält das Bonus-Merkmal "Überlebensinstinkt" des abgeschlossenen Bestrebens "Extremsportfan".                                                |
+| ```traits.equip_trait trait_worldlyknowledge```                   | Sim erhält das Bonus-Merkmal "Kosmopolitisch" des abgeschlossenen Bestrebens "Mt. Komorebi-Tourist/in".                                           |
+| ```traits.equip_trait trait_excursion_mountaineer_rank1```        | Sim erhält das Belohnungsmerkmal für die erfolgreiche Teilnahme am sozialen Ereignis "Bergtour".                                                  |
+| ```traits.equip_trait trait_excursion_mountaineer_rank2```        | Sim erhält das Belohnungsmerkmal für die erfolgreiche Teilnahme am sozialen Ereignis "Bergtour" (Silber).                                         |
+| ```traits.equip_trait trait_excursion_mountaineer_rank3```        | Sim erhält das Belohnungsmerkmal für die erfolgreiche Teilnahme am sozialen Ereignis "Bergtour" (Gold).                                           |
+| ```traits.equip_trait trait_lifestyles_AdrenalineSeeker```        | Der ausgewählte Sim erhält den Lebensstil "Adrenalinjunkie".                                                                                      |
+| ```traits.remove_trait trait_lifestyles_AdrenalineSeeker```       | Entfernt den Lebensstil "Adrenalinjunkie" vom ausgewählten Sim.                                                                                   |
+| ```traits.equip_trait trait_lifestyles_CloseKnit```               | Der ausgewählte Sim erhält den Lebensstil "Enger Zusammenhalt".                                                                                   |
+| ```traits.remove_trait trait_lifestyles_CloseKnit```              | Entfernt den Lebensstil "Enger Zusammenhalt" vom ausgewählten Sim.                                                                                |
+| ```traits.equip_trait trait_lifestyles_CoffeeFanatic```           | Der ausgewählte Sim erhält den Lebensstil "Kaffeeliebend".                                                                                        |
+| ```traits.remove_trait trait_lifestyles_CoffeeFanatic```          | Entfernt den Lebensstil "Kaffeeliebend" vom ausgewählten Sim.                                                                                     |
+| ```traits.equip_trait trait_lifestyles_Energetic```               | Der ausgewählte Sim erhält den Lebensstil "Dynamisch".                                                                                            |
+| ```traits.remove_trait trait_lifestyles_Energetic```              | Entfernt den Lebensstil "Dynamisch" vom ausgewählten Sim.                                                                                         |
+| ```traits.equip_trait trait_lifestyles_FrequentTraveler```        | Der ausgewählte Sim erhält den Lebensstil "Vielreisend".                                                                                          |
+| ```traits.remove_trait trait_lifestyles_FrequentTraveler```       | Entfernt den Lebensstil "Vielreisend" vom ausgewählten Sim.                                                                                       |
+| ```traits.equip_trait trait_lifestyles_HealthFoodNut```           | Der ausgewählte Sim erhält den Lebensstil "Gesundheitsfanatisch".                                                                                 |
+| ```traits.remove_trait trait_lifestyles_HealthFoodNut```          | Entfernt den Lebensstil "Gesundheitsfanatisch" vom ausgewählten Sim.                                                                              |
+| ```traits.equip_trait trait_lifestyles_HungryForLove```           | Der ausgewählte Sim erhält den Lebensstil "Liebeshungrig".                                                                                        |
+| ```traits.remove_trait trait_lifestyles_HungryForLove```          | Entfernt den Lebensstil "Liebeshungrig" vom ausgewählten Sim.                                                                                     |
+| ```traits.equip_trait trait_lifestyles_Indoorsy```                | Der ausgewählte Sim erhält den Lebensstil "Stubenhocker".                                                                                         |
+| ```traits.remove_trait trait_lifestyles_Indoorsy```               | Entfernt den Lebensstil "Stubenhocker" vom ausgewählten Sim.                                                                                      |
+| ```traits.equip_trait trait_lifestyles_JunkFoodDevourer```        | Der ausgewählte Sim erhält den Lebensstil "Junkfoodfan".                                                                                          |
+| ```traits.remove_trait trait_lifestyles_JunkFoodDevourer```       | Entfernt den Lebensstil "Junkfoodfan" vom ausgewählten Sim.                                                                                       |
+| ```traits.equip_trait trait_lifestyles_Networker```               | Der ausgewählte Sim erhält den Lebensstil "Gesellig".                                                                                             |
+| ```traits.remove_trait trait_lifestyles_Networker```              | Entfernt den Lebensstil "Gesellig" vom ausgewählten Sim.                                                                                          |
+| ```traits.equip_trait trait_lifestyles_NoNeedForRomance```        | Der ausgewählte Sim erhält den Lebensstil "Glücklicher Single".                                                                                   |
+| ```traits.remove_trait trait_lifestyles_NoNeedForRomance```       | Entfernt den Lebensstil "Glücklicher Single" vom ausgewählten Sim.                                                                                |
+| ```traits.equip_trait trait_lifestyles_Outdoorsy```               | Der ausgewählte Sim erhält den Lebensstil "Naturfreak".                                                                                           |
+| ```traits.remove_trait trait_lifestyles_Outdoorsy```              | Entfernt den Lebensstil "Naturfreak" vom ausgewählten Sim.                                                                                        |
+| ```traits.equip_trait trait_lifestyles_Sedentary```               | Der ausgewählte Sim erhält den Lebensstil "Sitzend".                                                                                              |
+| ```traits.remove_trait trait_lifestyles_Sedentary```              | Entfernt den Lebensstil "Sitzend" vom ausgewählten Sim.                                                                                           |
+| ```traits.equip_trait trait_lifestyles_Techie```                  | Der ausgewählte Sim erhält den Lebensstil "Technikfreak".                                                                                         |
+| ```traits.remove_trait trait_lifestyles_Techie```                 | Entfernt den Lebensstil "Technikfreak" vom ausgewählten Sim.                                                                                      |
+| ```traits.equip_trait trait_lifestyles_Technophobe```             | Der ausgewählte Sim erhält den Lebensstil "Technikfeindlich".                                                                                     |
+| ```traits.remove_trait trait_lifestyles_Technophobe```            | Entfernt den Lebensstil "Technikfeindlich" vom ausgewählten Sim.                                                                                  |
+| ```traits.equip_trait trait_lifestyles_Workaholic```              | Der ausgewählte Sim erhält den Lebensstil "Workaholic".                                                                                           |
+| ```traits.remove_trait trait_lifestyles_Workaholic```             | Entfernt den Lebensstil "Workaholic" vom ausgewählten Sim.                                                                                        |
+| ```traits.equip_trait trait_hidden_rockclimbinggear_hasgear```    | Sim legt Kletterausrüstung an (erhöht Chance auf eine erfolgreiche Klettertour).                                                                  |
+| ```traits.equip_trait trait_townmascot```                         | Sim wird zum Mt.Komorebi-Maskottchen.                                                                                                             |
+| ```situations.excursions.advance_activity```                      | Fährt mit der nächsten Etappe des Ausflugs fort (so könnt ihr leicht das versteckte Grundstück „Mt. Komorebi Spitze" erreichen).                  |
+
+### Karriere
+| Cheat-Code                                  | Beschreibung                                                       |
+|---------------------------------------------|--------------------------------------------------------------------|
+| ```careers.add_career corporateworker```    | Sim folgt der Büropersonal-Karriere.                               |
+| ```careers.promote corporateworker```       | Sim wird in seiner Büropersonal-Karriere um eine Stufe befördert.  |
+| ```careers.demote corporateworker```        | Sim wird in seiner Büropersonal-Karriere um eine Stufe degradiert. |
+| ```careers.remove_career corporateworker``` | Sim beendet die Büropersonal-Karriere.                             |
+
+### Todesarten
+| Cheat-Code                                           | Beschreibung                                                                                                    |
+|------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| ```traits.equip_trait trait_Ghost_ClimbingRoute```   | Ausgewählter Sim wird sofort zum Geist, der durch einen Sturz aus großer Höhe gestorben ist.                    |
+| ```traits.equip_trait trait_Ghost_VendingMachine```  | Ausgewählter Sim wird sofort zum Geist, der durch einen Sturz einer Verkaufsmaschine auf den Sim gestorben ist. |
+
+### Kleidung freischalten
+| Cheat-Code                  | Beschreibung                                                           |
+|-----------------------------|------------------------------------------------------------------------|
+| ```cas.unlockbytag EP10```  | Schaltet alle Kleidungsstücke aus "Ab ins Schneeparadies" im CAS frei. |
+
 
 ## Expansion Pack 11 - Landhaus-Leben <div id='id-ep11'/>
-
 ### Fähigkeiten
 | Cheat-Code                                       | Beschreibung                                                 |
 |--------------------------------------------------|--------------------------------------------------------------|
@@ -415,8 +489,8 @@ Um einen Sim wiederzubeleben den Trait entfernen. (equip durch remove austausche
 
 ## Expansion Pack 13 - Zusammen wachsen <div id='id-ep13'/>
 
-## Expansion Pack 14 - Pferderanch <div id='id-ep14'/>
 
+## Expansion Pack 14 - Pferderanch <div id='id-ep14'/>
 ### Sims
 | Cheat-Code                                                 | Beschreibung                 |
 |------------------------------------------------------------|------------------------------|
