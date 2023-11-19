@@ -253,18 +253,16 @@ Um einen Sim wiederzubeleben den Trait entfernen. (equip durch remove austausche
 | ```traits.equip_trait unstoppablefame```    | Ruhm-Punkte des aktivierten Sim sinken nehmen nicht mehr ab | 
 | ```famepoints 20```                         | Aktiver Sim erhält Ruhm-Punkte                              |
 
-## Perderanch Addon
-
-## Expansion Pack 01 - An die Arbeit!
-## Expansion Pack 02 - Zeit für Freunde
-## Expansion Pack 03 - Großstadtleben
-## Expansion Pack 04 - Hunde & Katzen
-## Expansion Pack 05 - Jahreszeiten
-## Expansion Pack 06 - Werde berühmt
-## Expansion Pack 07 - Inselleben
-## Expansion Pack 08 - An die Uni
-## Expansion Pack 09 - Nachhaltig leben
-## Expansion Pack 10 - Ab ins Schneeparadies!
+## Expansion Pack 01 - An die Arbeit! <div id='id-ep1'/>
+## Expansion Pack 02 - Zeit für Freunde <div id='id-ep2'/>
+## Expansion Pack 03 - Großstadtleben <div id='id-ep3'/>
+## Expansion Pack 04 - Hunde & Katzen <div id='id-ep4'/>
+## Expansion Pack 05 - Jahreszeiten <div id='id-ep5'/>
+## Expansion Pack 06 - Werde berühmt <div id='id-ep6'/>
+## Expansion Pack 07 - Inselleben <div id='id-ep7'/>
+## Expansion Pack 08 - An die Uni <div id='id-ep8'/>
+## Expansion Pack 09 - Nachhaltig leben <div id='id-ep9'/>
+## Expansion Pack 10 - Ab ins Schneeparadies! <div id='id-ep10'/>
 
 ## Expansion Pack 11 - Landhaus-Leben <div id='id-ep11'/>
 
@@ -288,7 +286,7 @@ Um einen Sim wiederzubeleben den Trait entfernen. (equip durch remove austausche
 | ```traits.equip_trait trait_Ghost_AnimalObjects_KillerRabbit```    | Tod durch Hase (Geister Form)    |
 | ```traits.remove_trait trait_Ghost_AnimalObjects_KillerRabbit```   | Tod durch Hase Merkmal entfernen |
 
-## Expansion Pack 12 - Highschool Jahre
+## Expansion Pack 12 - Highschool Jahre <div id='id-ep12'/>
 
 ### Fähigkeiten
 | Cheat-Code                                            | Beschreibung                                              |
