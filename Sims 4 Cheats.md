@@ -13,11 +13,11 @@ Cheats aktivieren: ```testingcheats true```eingeben
 
 | Cheat-Code | Beschreibung |
 |------------|--------------|
-| ```money [Wert]``` | (Die einfachste Lösung)	Hiermit bestimmt ihr den genauen Betrag eures Haushaltskontos |
+| ```money [Wert]``` | Konto wird auf diesen Wert gesetzt |
 | ```rosebud``` (oder ```kaching```) | 1.000 Simoleons |
 | ```motherlode``` | Addiert 50.000 Simoleons auf das Konto |
 | ```household.autopay_bills [true/false]``` | Bezahlt alle aktuellen Rechnungen des aktiven Haushalts |
-| ```freerealestate [on/off]``` | Alle Grundstücke stehen euch hiermit kostenlos zur Verfügung |
+| ```freerealestate [on/off]``` | Alle Grundstücke stehen kostenlos zur Verfügung |
 | ```sims.modify_funds [Wert]``` | der angegebene Wert Wird auf das Konto addiert. Ein negativer Wert wird abgezogen |
 
 ## Sims allgemein
@@ -151,39 +151,39 @@ Um einen Sim wiederzubeleben den Trait entfernen. (equip durch remove austausche
 ### mögliche Karrieren für die Cheatcodes
 | Karriere | Beschreibung | Addon |
 |----------|--------------|-------|
-astronaut | Astronaut	–
-adult_writer | Schriftsteller	–
-culinary | Feinschmecker	–
-business | Business	–
-adult_freelancer_agency_programmer | Programmierer	–
-painter | Maler	–
-athletic | Sportler	–
-styleinfluencer | Stylist	–
-techguru | Tech-Guru	–
-criminal | Verbrecher	–
-secretagent | Geheimagent	–
-entertainer | Entertainer	–
-adult_freelancer_agency_writer | Künstler	–
-law | Richter / Rechtsanwalt	An die Uni!
-education | Verwaltung / Professor	An die Uni!
-engineering | Ingenieur	An die Uni!
-detective | Polizist	An die Arbeit!
-doctor | Arzt	An die Arbeit!
-adult_active_scientist | Wissenschaftler	An die Arbeit!
-vet | Tierarzt	Hunde und Katzen
-adult_parttime_diver | Taucher	Inselleben
-adult_parttime_fisherman | Angler	Inselleben
-careers_adult_conservationist | Umwelt-Aktivist	Inselleben
-parttime_lifeguard | Rettungsschwimmer	Inselleben
-teen_lifeguard | Rettungsschwimmer (nur Teenager)	Inselleben
-actor | Schauspieler	Werde berühmt
-dramaclub | Theater-AG (nur Kinder)	Werde berühmt
-critic | Kritiker	Großstadtleben
-activist | Politiker	Großstadtleben
-social | Soziale Medien	Großstadtleben
-parttime_streamersidehustle | Streamer	Highschool-Jahre
-teen_streamersidehustle | Streamer (nur Teens)	Highschool-Jahre
-parttime_simsfluencersidehustle | Influencer	Highschool-Jahre
-teen_simsfluencersidehustle | Influencer (nur Teens)	Highschool-Jahre
-adult_gardener | Gärtner	Jahreszeiten
-scout | Pfadfinder (nur Teens)	Jahreszeiten
+| astronaut | Astronaut |	– |
+| adult_writer | Schriftsteller |	– |
+| culinary | Feinschmecker |	– |
+| business | Business |	– |
+| adult_freelancer_agency_programmer | Programmierer |	– |
+| painter | Maler |	– |
+| athletic | Sportler |	– |
+| styleinfluencer | Stylist |	– |
+| techguru | Tech-Guru |	– |
+| criminal | Verbrecher |	– |
+| secretagent | Geheimagent |	– |
+| entertainer | Entertainer |	– |
+| adult_freelancer_agency_writer | Künstler |	– |
+| law | Richter / Rechtsanwalt | An die Uni! |
+| education | Verwaltung / Professor | An die Uni! |
+| engineering | Ingenieur | An die Uni! |
+| detective | Polizist | An die Arbeit! |
+| doctor | Arzt | An die Arbeit! |
+| adult_active_scientist | Wissenschaftler | An die Arbeit! |
+| vet | Tierarzt | Hunde und Katzen |
+| adult_parttime_diver | Taucher | Inselleben |
+| adult_parttime_fisherman | Angler | Inselleben |
+| careers_adult_conservationist | Umwelt-Aktivist | Inselleben |
+| parttime_lifeguard | Rettungsschwimmer | Inselleben |
+| teen_lifeguard | Rettungsschwimmer (nur Teenager) | Inselleben |
+| vactor | Schauspieler | Werde berühmt |
+| dramaclub | Theater-AG (nur Kinder) | Werde berühmt |
+| critic | Kritiker | Großstadtleben |
+| activist | Politiker | Großstadtleben |
+| social | Soziale Medien | Großstadtleben |
+| parttime_streamersidehustle | Streamer	Highschool-Jahre |
+| teen_streamersidehustle | Streamer (nur Teens)	Highschool-Jahre |
+| parttime_simsfluencersidehustle | Influencer	Highschool-Jahre |
+| teen_simsfluencersidehustle | Influencer (nur Teens)	Highschool-Jahre |
+| adult_gardener | Gärtner | Jahreszeiten |
+| scout | Pfadfinder (nur Teens) | Jahreszeiten |
