@@ -255,7 +255,49 @@ Um einen Sim wiederzubeleben den Trait entfernen. (equip durch remove austausche
 ## Expansion Pack 02 - Zeit für Freunde <div id='id-ep2'/>
 ## Expansion Pack 03 - Großstadtleben <div id='id-ep3'/>
 ## Expansion Pack 04 - Hunde & Katzen <div id='id-ep4'/>
+
 ## Expansion Pack 05 - Jahreszeiten <div id='id-ep5'/>
+### Fähigkeiten
+| Cheat-Code                                                                | Beschreibung                                            |
+|---------------------------------------------------------------------------|---------------------------------------------------------|
+| ```stats.set_skill_level statistic_skill_AdultMajor_FlowerArranging 10``` | Ausgewählter Sim erhält die Fähigkeit "Blumen binden"   |
+| ```stats.set_skill_level Hidden_Skating 5```                              | Ausgewählter Sim erhält die Fähigkeit "Skaten" (1-5)    | 
+
+### Merkmale
+| Cheat-Code                                | Beschreibung                                                                |
+|-------------------------------------------|-----------------------------------------------------------------------------|
+| ```traits.equip_trait BurningMan```       | Ausgewählter Sim erhält das Persönlichkeitsmerkmal "Hitzefest".             |
+| ```traits.equip_trait ColdAcclimation```  | Ausgewählter Sim erhält das Persönlichkeitsmerkmal "An Kälte gewöhnt".      |
+| ```traits.equip_trait FatherWinterBaby``` | Ausgewählter Sim erhält das Persönlichkeitsmerkmal "Väterchen Frosts Baby". |
+| ```traits.equip_trait Stormchaser```      | Ausgewählter Sim erhält das Persönlichkeitsmerkmal "Sturmjäger/in".         |
+| ```traits.equip_trait Waterproof```       | Ausgewählter Sim erhält das Persönlichkeitsmerkmal "Wasserfester Sim".      |
+| ```traits.equip_trait IceMan```           | Ausgewählter Sim erhält das Persönlichkeitsmerkmal "Eisfest".               |
+| ```traits.equip_trait HeatAcclimation```  | Ausgewählter Sim erhält das Persönlichkeitsmerkmal "An Hitze gewöhnt".      |
+| ```traits.equip_trait ScoutingAptitude``` | Ausgewählter Sim erhält das Persönlichkeitsmerkmal "Pfadfindereignung".     |
+
+### Jahreszeiten
+| Cheat-Code                            | Beschreibung                                                                        |
+|---------------------------------------|-------------------------------------------------------------------------------------|
+| ```seasons.set_season 0```            | Ändert die Jahreszeit sofort zu "Sommer".                                           |
+| ```seasons.set_season 1```            | Ändert die Jahreszeit sofort zu "Herbst".                                           |
+| ```seasons.set_season 2```            | Ändert die Jahreszeit sofort zu "Winter".                                           |
+| ```seasons.set_season 3```            | Ändert die Jahreszeit sofort zu "Frühling".                                         |
+| ```seasons.advance_season```          | Ändert die Jahreszeit sofort zur Nächsten (Frühling -> Sommer -> Herbst -> Winter). |
+| ```seasons.set_season_length 0```     | Setzt die Länge der Jahreszeiten auf 7 Tage                                         |
+| ```seasons.set_season_length 1```     | Setzt die Länge der Jahreszeiten auf 14 Tage                                        |
+| ```seasons.set_season_length 3```     | Setzt die Länge der Jahreszeiten auf 28 Tage                                        |
+| ```weather.summon_lightning_strike``` | Ein Blitz schlägt an einem zufälligem Ort in der Nachbarschaft ein.                 |
+| ```weather.lightning_strike_object``` | Ein Blitz schlägt in einem zufälligen Objekt auf dem Grundstück ein.                |
+
+### Todesarten
+| Cheat-Code                                | Beschreibung                            |
+|-------------------------------------------|-----------------------------------------|
+| ```traits.equip_trait Ghost_Overheat```   | Tod durch Hitzschlag (Geister Form)     |
+| ```traits.remove_trait Ghost_Overheat```  | Tod durch Hitzschlag Merkmal entfernen  |
+| ```traits.equip_trait Ghost_Lightning```  | Tod durch Blitzschlag (Geister Form)    |
+| ```traits.remove_trait Ghost_Lightning``` | Tod durch Blitzschlag Merkmal entfernen |
+| ```traits.equip_trait Ghost_Frozen```     | Tod durch Erfrieren (Geister Form)      |
+| ```traits.remove_trait Ghost_Frozen```    | Tod durch Erfrieren Merkmal entfernen   |
 
 ## Expansion Pack 06 - Werde berühmt <div id='id-ep6'/>
 | Cheat-Code                                  | Beschreibung                                                |
