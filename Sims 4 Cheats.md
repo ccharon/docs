@@ -1,4 +1,4 @@
-# Cheats für die Sims 4
+# Cheats für die Sims 4 <div id='id-allgemein'/>
 Cheat Konsole öffnen:
 
 - PC und Mac: Strg, Shift und C gleichzeitig
@@ -9,8 +9,24 @@ Cheats aktivieren: ```testingcheats true```eingeben
 
 ***Manche Cheats erfordern zusätzliche Angaben, wie einen Geldwert oder Schalter, ob man eine Aktion aktivieren oder deaktivieren möchte. (on oder true aktiviert bestimmte Cheats, off oder false deaktiviert gewisse Cheats). Diese Extrabefehle stehen in eckigen Klammern [ ]. Damit die Cheats funktionieren, nur hinzufügen, was in den Klammern geschrieben steht. Die Klammern selbst gehören nicht zum Cheat.***
 
-## Geld
+## Inhaltsverzeichnis
+- [Allgemeine Cheats](#id-allgemein)  
+  - [Geld](#id-geld)
+  - [Sims allgemein](#id-sims-allgemein)
+- [Expansion Packs](#id-ep)
+  - [01 - An die Arbeit!](#id-ep1)
+  - [02 - Zeit für Freunde](#id-ep2)
+  - [03 - Großstadtleben](#id-ep3)
+  - [04 - Hunde & Katzen](#id-ep4)
+  - [05 - Jahreszeiten](#id-ep5)
+  - [06 - Werde berühmt](#id-ep6)
+  - [07 - Inselleben](#id-ep7)
+  - [08 - An die Uni](#id-ep8)
+  - [09 - Nachhaltig leben](#id-ep9)
+  - [10 - Ab ins Schneeparadies!](#id-ep10)
+  - [11 - Landhaus-Leben](#id-ep11)
 
+## Geld <div id='id-geld'/>
 | Cheat-Code                                 | Beschreibung                                                                      |
 |--------------------------------------------|-----------------------------------------------------------------------------------|
 | ```money [Wert]```                         | Konto wird auf diesen Wert gesetzt                                                |
@@ -20,7 +36,7 @@ Cheats aktivieren: ```testingcheats true```eingeben
 | ```freerealestate [on/off]```              | Alle Grundstücke stehen kostenlos zur Verfügung                                   |
 | ```sims.modify_funds [Wert]```             | der angegebene Wert Wird auf das Konto addiert. Ein negativer Wert wird abgezogen |
 
-## Sims allgemein
+## Sims allgemein <div id='id-sims-allgemein'/>
 | Cheat-Code                                                                           | Beschreibung                                                                  |
 |--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
 | ```resetsim [Vorname Nachname]```                                                    | Der Sim wird komplett zurückgesetzt                                           |
@@ -239,53 +255,18 @@ Um einen Sim wiederzubeleben den Trait entfernen. (equip durch remove austausche
 
 ## Perderanch Addon
 
-### Sims
-| Cheat-Code                                                 | Beschreibung                 |
-|------------------------------------------------------------|------------------------------|
-| ```traits.equip_trait trait_nectarknowItall```             | Merkmal: Nektar-Koryphäe     |
-| ```traits.equip_trait trait_rancher```                     | Merkmal: Rancher             |
-| ```traits.equip_trait trait_horselover```                  | Merkmal: Pferdeliebhaber     |
-| ```traits.equip_trait trait_mastertrainer```               | Merkmal: Champion-Coach      |
-| ```stats.set_skill_level adultminor_ranchnectar 5```       | Nektarherstellung verbessern |
-| ```stats.set_skill_level adultmajor_equestrianskill 10```  | Reitfähigkeit verbessern     |
+## Expansion Pack 01 - An die Arbeit!
+## Expansion Pack 02 - Zeit für Freunde
+## Expansion Pack 03 - Großstadtleben
+## Expansion Pack 04 - Hunde & Katzen
+## Expansion Pack 05 - Jahreszeiten
+## Expansion Pack 06 - Werde berühmt
+## Expansion Pack 07 - Inselleben
+## Expansion Pack 08 - An die Uni
+## Expansion Pack 09 - Nachhaltig leben
+## Expansion Pack 10 - Ab ins Schneeparadies!
 
-### Pferde
-Die Sim-ID des Pferdes mit diesem Cheat-Code ermitteln: ```sims.get_sim_id_by_name [Vorname] [Nachname]```
-
-#### Fähigkeiten
-| Cheat-Code                                               | Beschreibung          |
-|----------------------------------------------------------|-----------------------|
-| ```stats.set_skill_level horse_endurance 10 [SimID]```   | Ausdauer              |
-| ```stats.set_skill_level horse_temperament 10 [SimID]``` | Temperament/Charakter |
-| ```stats.set_skill_level horse_agility 10 [SimID]```     | Beweglichkeit         |
-| ```stats.set_skill_level horse_jumping 10 [SimID]```     | Sprungfähigkeit       |
-
-#### Persönlichkeitsmerkmale (Standard)
-| Cheat-Code                                                           | Beschreibung    |
-|----------------------------------------------------------------------|-----------------|
-| ```traits.equip_trait trait_Horse_personality_friendly [SimID]```    | Freundlich      |
-| ```traits.equip_trait trait_horse_personality_aggressive [SimID]```  | Agressiv        |
-| ```traits.equip_trait trait_horse_personality_fearful [SimID]```     | Ängstlich       |
-| ```traits.equip_trait trait_horse_personality_energetic [SimID]```   | Dynamisch       |
-| ```traits.equip_trait trait_Horse_personality_mellow [SimID]```      | Entspannt       |
-| ```traits.equip_trait trait_horse_personality_Intelligent [SimID]``` | Intelligent     |
-| ```traits.equip_trait trait_horse_personality_needy [SimID]```       | Liebesbedürftig |
-| ```traits.equip_trait trait_horse_personality_brave [SimID]```       | Mutig           |
-| ```traits.equip_trait trait_horse_personality_defiant [SimID]```     | Trotzig         |
-| ```traits.equip_trait trait_horse_personality_independent [SimID]``` | Unabhängig      |
-| ```traits.equip_trait trait_horse_personality_freespirit [SimID]```  | Freigeist       |
-
-#### Persönlichkeitsmerkmale (Bonus)
-| Cheat-Code                                                                           | Beschreibung         |
-|--------------------------------------------------------------------------------------|----------------------|
-| ```traits.equip_trait trait_horse_gameplay_resilient [SimID]```                      | Zäh                  |
-| ```traits.equip_trait trait_horse_gameplay_equestriancenter_championhorse [SimID]``` | Champion-Pferd       |
-| ```traits.equip_trait trait_horse_gameplay_curious [SimID]```                        | Neugierig            |
-| ```traits.equip_trait trait_horse_gameplay_rewardtrait_topnotchfoal [SimID]```       | Gut erzogenes Fohlen |
-| ```traits.equip_trait trait_horse_gameplay_horseBreeding_championgenes [SimID]```    | Champion-Gene        |
-| ```traits.equip_trait trait_horse_gameplay_playful [SimID]```                        | Verspielt            |
-
-## Landhaus Leben
+## Expansion Pack 11 - Landhaus-Leben <div id='id-ep11'/>
 
 ### Fähigkeiten
 | Cheat-Code                                       | Beschreibung                                                 |
@@ -307,7 +288,7 @@ Die Sim-ID des Pferdes mit diesem Cheat-Code ermitteln: ```sims.get_sim_id_by_na
 | ```traits.equip_trait trait_Ghost_AnimalObjects_KillerRabbit```    | Tod durch Hase (Geister Form)    |
 | ```traits.remove_trait trait_Ghost_AnimalObjects_KillerRabbit```   | Tod durch Hase Merkmal entfernen |
 
-## Highschool Jahre
+## Expansion Pack 12 - Highschool Jahre
 
 ### Fähigkeiten
 | Cheat-Code                                            | Beschreibung                                              |
@@ -424,3 +405,57 @@ Die Sim-ID des Pferdes mit diesem Cheat-Code ermitteln: ```sims.get_sim_id_by_na
 | Cheat-Code                  | Beschreibung                                                                               |
 |-----------------------------|--------------------------------------------------------------------------------------------|
 | ```cas.unlockbytag EP12```  | Zugriff auf alle freischaltbaren Erstelle-einen-Sim-Objekte aus "Highschool-Jahre" im CAS  |
+
+## Expansion Pack 13 - Zusammen wachsen
+
+## Expansion Pack 14 - Pferderanch
+
+### Sims
+| Cheat-Code                                                 | Beschreibung                 |
+|------------------------------------------------------------|------------------------------|
+| ```traits.equip_trait trait_nectarknowItall```             | Merkmal: Nektar-Koryphäe     |
+| ```traits.equip_trait trait_rancher```                     | Merkmal: Rancher             |
+| ```traits.equip_trait trait_horselover```                  | Merkmal: Pferdeliebhaber     |
+| ```traits.equip_trait trait_mastertrainer```               | Merkmal: Champion-Coach      |
+| ```stats.set_skill_level adultminor_ranchnectar 5```       | Nektarherstellung verbessern |
+| ```stats.set_skill_level adultmajor_equestrianskill 10```  | Reitfähigkeit verbessern     |
+
+### Pferde
+Die Sim-ID des Pferdes mit diesem Cheat-Code ermitteln: ```sims.get_sim_id_by_name [Vorname] [Nachname]```
+
+#### Fähigkeiten
+| Cheat-Code                                               | Beschreibung          |
+|----------------------------------------------------------|-----------------------|
+| ```stats.set_skill_level horse_endurance 10 [SimID]```   | Ausdauer              |
+| ```stats.set_skill_level horse_temperament 10 [SimID]``` | Temperament/Charakter |
+| ```stats.set_skill_level horse_agility 10 [SimID]```     | Beweglichkeit         |
+| ```stats.set_skill_level horse_jumping 10 [SimID]```     | Sprungfähigkeit       |
+
+#### Persönlichkeitsmerkmale (Standard)
+| Cheat-Code                                                           | Beschreibung    |
+|----------------------------------------------------------------------|-----------------|
+| ```traits.equip_trait trait_Horse_personality_friendly [SimID]```    | Freundlich      |
+| ```traits.equip_trait trait_horse_personality_aggressive [SimID]```  | Agressiv        |
+| ```traits.equip_trait trait_horse_personality_fearful [SimID]```     | Ängstlich       |
+| ```traits.equip_trait trait_horse_personality_energetic [SimID]```   | Dynamisch       |
+| ```traits.equip_trait trait_Horse_personality_mellow [SimID]```      | Entspannt       |
+| ```traits.equip_trait trait_horse_personality_Intelligent [SimID]``` | Intelligent     |
+| ```traits.equip_trait trait_horse_personality_needy [SimID]```       | Liebesbedürftig |
+| ```traits.equip_trait trait_horse_personality_brave [SimID]```       | Mutig           |
+| ```traits.equip_trait trait_horse_personality_defiant [SimID]```     | Trotzig         |
+| ```traits.equip_trait trait_horse_personality_independent [SimID]``` | Unabhängig      |
+| ```traits.equip_trait trait_horse_personality_freespirit [SimID]```  | Freigeist       |
+
+#### Persönlichkeitsmerkmale (Bonus)
+| Cheat-Code                                                                           | Beschreibung         |
+|--------------------------------------------------------------------------------------|----------------------|
+| ```traits.equip_trait trait_horse_gameplay_resilient [SimID]```                      | Zäh                  |
+| ```traits.equip_trait trait_horse_gameplay_equestriancenter_championhorse [SimID]``` | Champion-Pferd       |
+| ```traits.equip_trait trait_horse_gameplay_curious [SimID]```                        | Neugierig            |
+| ```traits.equip_trait trait_horse_gameplay_rewardtrait_topnotchfoal [SimID]```       | Gut erzogenes Fohlen |
+| ```traits.equip_trait trait_horse_gameplay_horseBreeding_championgenes [SimID]```    | Champion-Gene        |
+| ```traits.equip_trait trait_horse_gameplay_playful [SimID]```                        | Verspielt            |
+
+## Expansion Pack 15 - Zu vermieten
+
+## Gameplay Pack 12 - Werwölfe
