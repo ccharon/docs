@@ -12,7 +12,13 @@ Cheats aktivieren: ```testingcheats true```eingeben
 ## Inhaltsverzeichnis
 - [Allgemeine Cheats](#id-allgemein)  
   - [Geld](#id-geld)
-  - [Sims allgemein](#id-sims-allgemein)
+  - [Allgemein](#id-sims-allgemein)
+  - [Emotionen](#id-sims-emotionen)
+  - [Fähigkeiten](#id-sims-faehigkeiten)
+  - [Kaufen / Bauen](#id-sims-kaufen-bauen)
+  - [Todesarten](#id-sims-todesarten)
+  - [Karriere](#id-sims-karriere)
+
 - [Expansion Packs](#id-ep)
   - [01 - An die Arbeit!](#id-ep1)
   - [02 - Zeit für Freunde](#id-ep2)
@@ -59,8 +65,7 @@ Cheats aktivieren: ```testingcheats true```eingeben
 | ```fillmotive motive_bladder```                                                      | Füllt Harndrang Bedürfnis auf.                                                |
 | ```fillmotive motive_hygiene```                                                      | Füllt Hygiene Bedürfnis auf.                                                  |
 
-# Emotionen / Stimmungen
-
+# Emotionen / Stimmungen <div id='id-sims-emotionen'/>
 | Cheat-Code                                       | Beschreibung                                                                                                                                                  |
 |--------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ```sims.remove_all_buffs```                      | Entfernt alle Moodlets und Emotionen des ausgewählten Sim (Sim erhält die Emotion „Okay")                                                                     |
@@ -100,7 +105,7 @@ Cheats aktivieren: ```testingcheats true```eingeben
 | ```sims.add_buff buff_Role_ServiceNPC_Maid```    | Hausmädchen-Modus, Sim repariert und putzt selbstständig                                                                                                      |
 | ```sims.remove_buff buff_Role_ServiceNPC_Maid``` | Deaktiviert den Hausmädchen-Modus                                                                                                                             |
 
-## Fähigkeiten
+## Fähigkeiten <div id='id-sims-faehigkeiten'/>
 | Cheat-Code                                                | Beschreibung                          | Addon               |
 |-----------------------------------------------------------|---------------------------------------|---------------------|
 | ```stats.set_skill_level major_gardening 10```            | Gartenarbeit                          | –                   |
@@ -155,7 +160,7 @@ Cheats aktivieren: ```testingcheats true```eingeben
 | ```stats.set_skill_level adultminor_ranchnectar 5```      | Nektarherstellung (max. Stufe 5)      | Pferderanch         |
 | ```stats.set_skill_level adultmajor_equestrianskill 10``` | Reiten                                | Pferderanch         |
 
-## Kaufmodus und Bauen
+## Kaufmodus und Bauen <div id='id-sims-kaufen-bauen'/>
 | Cheat-Code                                | Beschreibung                                                                                             |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | ```bb.moveobjects```                      | Objekte können frei platziert werden.                                                                    |
@@ -167,7 +172,7 @@ Cheats aktivieren: ```testingcheats true```eingeben
 Gegenstände vergrößern oder verkleinern:
 TODO
 
-## Sims kreativ um die Ecke bringen
+## Sims kreativ um die Ecke bringen <div id='id-sims-todesarten'/>
 | Cheat-Code                                                       | Beschreibung                | Addon            |
 |------------------------------------------------------------------|-----------------------------|------------------|
 | ```traits.equip_trait drown```                                   | Tod durch Ertrinken.        | –                |
@@ -190,7 +195,7 @@ Um einen Sim wiederzubeleben den Trait entfernen. (equip durch remove austausche
 
 ```traits.remove_trait [Todesursache]```
 
-## Karriere
+## Karriere <div id='id-sims-karriere'/>
 | Cheat-Code                              | Beschreibung                                                         |
 |-----------------------------------------|----------------------------------------------------------------------|
 | ```careers.promote gradeschool```       | Die Schulnote eines Sim (nur Kind) verbessert sich um eine Note.     |
