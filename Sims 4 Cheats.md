@@ -21,7 +21,6 @@ Cheats aktivieren: ```testingcheats true```eingeben
 | ```sims.modify_funds [Wert]```             | der angegebene Wert Wird auf das Konto addiert. Ein negativer Wert wird abgezogen |
 
 ## Sims allgemein
-
 | Cheat-Code                                                                           | Beschreibung                                                                  |
 |--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
 | ```resetsim [Vorname Nachname]```                                                    | Der Sim wird komplett zurückgesetzt                                           |
@@ -43,6 +42,47 @@ Cheats aktivieren: ```testingcheats true```eingeben
 | ```fillmotive motive_hunger```                                                       | Füllt Hunger Bedürfnis auf.                                                   |
 | ```fillmotive motive_bladder```                                                      | Füllt Harndrang Bedürfnis auf.                                                |
 | ```fillmotive motive_hygiene```                                                      | Füllt Hygiene Bedürfnis auf.                                                  |
+
+# Emotionen / Stimmungen
+
+| Cheat-Code                                       | Beschreibung                                                                                                                                                  |
+|--------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ```sims.remove_all_buffs```                      | Entfernt alle Moodlets und Emotionen des ausgewählten Sim (Sim erhält die Emotion „Okay")                                                                     |
+| ```sims.add_buff Satisfaction_Points```          | ausgewählter Sim 100 Zufriedenheitspunkte (Belohungen-Store). (Für mehrmalige Aktivierung hintereinander nach jeder Eingabe „sims.remove_all_buffs" eingeben) |
+| ```sims.add_buff_EnergizedLow```                 | Ausgewählter Sim +1 Energiegeladen für 4 Stunden                                                                                                              |
+| ```sims.add_buff_Feelingenergized```             | Ausgewählter Sim +1 Energiegeladen für 4 Stunden                                                                                                              |
+| ```sims.add_buff_Feelingconfident```             | Ausgewählter Sim +1 Selbstsicher für 4 Stunden                                                                                                                |
+| ```sims.add_buff_Feelingflirty```                | Ausgewählter Sim +1 Kokett für 4 Stunden                                                                                                                      |
+| ```sims.add_buff_Feelinginspired```              | Ausgewählter Sim +1 Inspiriert für 4 Stunden                                                                                                                  |
+| ```sims.add_buff_Feelingfocused```               | Ausgewählter Sim +1 Konzentriert für 4 Stunden                                                                                                                |
+| ```sims.add_buff_Feelingplayful```               | Ausgewählter Sim +1 Verspielt für 4 Stunden                                                                                                                   |
+| ```sims.add_buff_Feelingsad```                   | Ausgewählter Sim +1 Traurig für 4 Stunden                                                                                                                     |
+| ```sims.add_buff_Angrylow```                     | Ausgewählter Sim +1 Wütend für 4 Stunden                                                                                                                      |
+| ```sims.add_buff_Feelingangry```                 | Ausgewählter Sim +1 Wütend für 4 Stunden                                                                                                                      |
+| ```sims.add_buff_Happylow```                     | Ausgewählter Sim +1 Glücklich für 4 Stunden                                                                                                                   |
+| ```sims.add_buff_Feelinghappy```                 | Ausgewählter Sim +1 Glücklich für 4 Stunden                                                                                                                   |
+| ```sims.add_buff_ConfidentHigh```                | Ausgewählter Sim +2 Selbstsicher für 4 Stunden                                                                                                                |
+| ```sims.add_buff_EnergizedHigh```                | Ausgewählter Sim +2 Energiegeladen für 4 Stunden                                                                                                              |
+| ```sims.add_buff_FlirtyHigh```                   | Ausgewählter Sim +2 Kokett für 4 Stunden                                                                                                                      |
+| ```sims.add_buff_InspiredHigh```                 | Ausgewählter Sim +2 Inspiriert für 4 Stunden                                                                                                                  |
+| ```sims.add_buff_FocusedHigh```                  | Ausgewählter Sim +2 Konzentriert für 4 Stunden                                                                                                                |
+| ```sims.add_buff_PlayfulHigh```                  | Ausgewählter Sim +2 Verspielt für 4 Stunden                                                                                                                   |
+| ```sims.add_buff_SadHigh```                      | Ausgewählter Sim +2 Traurig für 4 Stunden                                                                                                                     |
+| ```sims.add_buff_e_buff_energized```             | Ausgewählter Sim +2 Energiegeladen für 12 Stunden                                                                                                             |
+| ```sims.add_buff_e_buff_confident```             | Ausgewählter Sim +2 Selbstsicher für 12 Stunden                                                                                                               |
+| ```sims.add_buff_e_buff_flirty```                | Ausgewählter Sim +2 Kokett für 12 Stunden                                                                                                                     |
+| ```sims.add_buff_e_buff_inspired```              | Ausgewählter Sim +2 Inspiriert für 12 Stunden                                                                                                                 |
+| ```sims.add_buff_e_buff_focused```               | Ausgewählter Sim +2 Konzentriert für 12 Stunden                                                                                                               |
+| ```sims.add_buff_e_buff_playful```               | Ausgewählter Sim +2 Verspielt für 12 Stunden                                                                                                                  |
+| ```sims.add_buff_e_buff_sad```                   | Ausgewählter Sim +2 Traurig für 12 Stunden                                                                                                                    |
+| ```sims.add_buff_e_buff_angry```                 | Ausgewählter Sim +2 Wütend für 12 Stunden                                                                                                                     |
+| ```sims.add_buff_e_buff_happy```                 | Ausgewählter Sim +2 Glücklich für 12 Stunden                                                                                                                  |
+| ```sims.add_buff_e_buff_uncomfortable```         | Ausgewählter Sim +2 Unwohl für 12 Stunden                                                                                                                     |
+| ```sims.add_buff_e_buff_embarrassed```           | Ausgewählter Sim +2 Beschämt für 12 Stunden                                                                                                                   |
+| ```sims.add_buff_Unfaithful```                   | Ausgewählter Sim +3 Sehr Wütend für 23 Stunden                                                                                                                |
+| ```sims.add_buff_PeedSelf```                     | Ausgewählter Sim +5 Sehr Beschämt für 4 Stunden                                                                                                               |
+| ```sims.add_buff buff_Role_ServiceNPC_Maid```    | Hausmädchen-Modus, Sim repariert und putzt selbstständig                                                                                                      |
+| ```sims.remove_buff buff_Role_ServiceNPC_Maid``` | Deaktiviert den Hausmädchen-Modus                                                                                                                             |
 
 ## Fähigkeiten
 | Cheat-Code                                                | Beschreibung                          | Addon               |
@@ -82,12 +122,12 @@ Cheats aktivieren: ```testingcheats true```eingeben
 | ```stats.set_skill_level adultmajor_fabrication 10```     | Herstellung                           | Nachhaltig leben    |
 | ```stats.set_skill_level adultminor_juicefizzing 10```    | Aufsprudeln                           | Nachhaltig leben    |
 | ```stats.set_skill_level major_parenting 10```            | Erziehung                             | Elternfreuden       |
-| ```stats.set_skill_level minor_mediaproduction 10```      | Medienproduktion                      | Werde berühmt       |
+| ```stats.set_skill_level minor_mediaproduction 5```       | Medienproduktion                      | Werde berühmt       |
 | ```stats.set_skill_level major_acting 10```               | Schauspielerei-Fähigkeit              | Werde berühmt       |
 | ```stats.set_skill_level major_robotic 10```              | Robotik-Wissen                        | An die Uni          |
 | ```stats.set_skill_level major_research 10```             | Forschen und Debattieren              | An die Uni          |
 | ```stats.set_skill_level skill_bowling 10```              | Bowling-Fähigkeit                     | Bowling-Accessoires |
-| ```stats.set_skill_level major_wellness 10```             | Wellness-Fähigkeit                    | Welness-Tag         |
+| ```stats.set_skill_level major_wellness 10```             | Wellness-Fähigkeit                    | Wellness-Tag        |
 | ```stats.set_skill_level major_pipeorgan 10```            | Orgel spielen                         | Vampire             |
 | ```stats.set_skill_level skill_crossstitch 10```          | Kreuzstich                            | Landhaus-Leben      |
 | ```stats.set_skill_level major_dj 10```                   | DJ-Fähigkeit                          | Zeit für Freunde    |
@@ -100,7 +140,6 @@ Cheats aktivieren: ```testingcheats true```eingeben
 | ```stats.set_skill_level adultmajor_equestrianskill 10``` | Reiten                                | Pferderanch         |
 
 ## Kaufmodus und Bauen
-
 | Cheat-Code                                | Beschreibung                                                                                             |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | ```bb.moveobjects```                      | Objekte können frei platziert werden.                                                                    |
@@ -113,7 +152,6 @@ Gegenstände vergrößern oder verkleinern:
 TODO
 
 ## Sims kreativ um die Ecke bringen
-
 | Cheat-Code                                                       | Beschreibung                | Addon            |
 |------------------------------------------------------------------|-----------------------------|------------------|
 | ```traits.equip_trait drown```                                   | Tod durch Ertrinken.        | –                |
@@ -137,16 +175,16 @@ Um einen Sim wiederzubeleben den Trait entfernen. (equip durch remove austausche
 ```traits.remove_trait [Todesursache]```
 
 ## Karriere
-| Cheat-Code                              | Beschreibung                                                               |
-|-----------------------------------------|----------------------------------------------------------------------------|
-| ```careers.promote gradeschool]```      | Die Schulnote eines Sim (nur Kind) verbessert sich um eine Note.           |
-| ```careers.promote highschool]```       | Die Schulnote eines Sim (nur Teenager) verbessert sich um eine Note.       |
-| ```sims.modify_career_outfit_in_cas]``` | Verändert das Karriere-Outfit, welches gerade von eurem Sim getragen wird. |
-| ```careers.add_career [Karriere]```     | Euer Sim erhält den gewählten Job.                                         |
-| ```careers.promote [Karriere]```        | Euer Sim wird befördert.                                                   |
-| ```careers.demote [Karriere]```         | Euer Sim wird degradiert.                                                  |
-| ```careers.remove [Karriere]```         | Ihr löscht die Karriere eines Sim (Der Sim hat dann keine Arbeit mehr).    |
-| ```careers.retire [Karriere]            | Ihr schickt euren Sim in Rente und lasst ihn Pensionszahlungen einheimsen. | 
+| Cheat-Code                              | Beschreibung                                                         |
+|-----------------------------------------|----------------------------------------------------------------------|
+| ```careers.promote gradeschool```       | Die Schulnote eines Sim (nur Kind) verbessert sich um eine Note.     |
+| ```careers.promote highschool```        | Die Schulnote eines Sim (nur Teenager) verbessert sich um eine Note. |
+| ```sims.modify_career_outfit_in_cas]``` | Verändert das aktuelle Karriere-Outfit.                              |
+| ```careers.add_career [Karriere]```     | Sim erhält den gewählten Job.                                        |
+| ```careers.promote [Karriere]```        | Sim wird befördert.                                                  |
+| ```careers.demote [Karriere]```         | Sim wird degradiert.                                                 |
+| ```careers.remove [Karriere]```         | Karriere eines Sim löschen (Der Sim hat dann keine Arbeit mehr).     |
+| ```careers.retire [Karriere]```         | Sim ist in Rente.                                                    | 
 
 ### mögliche Karrieren für die Cheatcodes
 | Karriere                           | Beschreibung                            | Addon            |
@@ -187,6 +225,17 @@ Um einen Sim wiederzubeleben den Trait entfernen. (equip durch remove austausche
 | teen_simsfluencersidehustle        | Influencer (nur Teens)                  | Highschool-Jahre |
 | adult_gardener                     | Gärtner                                 | Jahreszeiten     |
 | scout                              | Pfadfinder (nur Teens)                  | Jahreszeiten     |
+
+## Werde Berühmt Addon
+| Cheat-Code                                  | Beschreibung                                                |
+|---------------------------------------------|-------------------------------------------------------------|
+| ```stats.set_skill_level major_acting 10``` | Schauspielen-Fähigkeit auf maximales Level                  |
+| ```stats.set_skill_level minor_media 5```   | Medienproduktion-Fähigkeit auf maximales Level setzen       |
+| ```careers.promote actor```                 | Schauspieler Karriere um ein Level erhöhen                  |
+| ```careers.promote dramaclub```             | Theater-AG (Kinder) Karriere um ein Level erhöhen           |
+| ```traits.equip_trait worldrenownedactor``` | Aktiver Sim erhält das Merkmal Weltbekannter Schauspieler   |
+| ```traits.equip_trait unstoppablefame```    | Ruhm-Punkte des aktivierten Sim sinken nehmen nicht mehr ab | 
+| ```famepoints 20```                         | Aktiver Sim erhält Ruhm-Punkte                              |
 
 ## Perderanch Addon
 
