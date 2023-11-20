@@ -36,6 +36,10 @@ Cheats aktivieren: ```testingcheats true```eingeben
   - [14 - Pferderanch](#id-ep14)
   - [15 - Zu vermieten](#id-ep15)
 
+- [Gameplay Packs](#id-gp)
+
+  - [04 - Vampire](#id-gp4)
+
 ## Geld <div id='id-geld'/>
 | Cheat-Code                                 | Beschreibung                                                                      |
 |--------------------------------------------|-----------------------------------------------------------------------------------|
@@ -580,5 +584,73 @@ Die Sim-ID des Pferdes mit diesem Cheat-Code ermitteln: ```sims.get_sim_id_by_na
 | ```traits.equip_trait trait_horse_gameplay_playful [SimID]```                        | Verspielt            |
 
 ## Expansion Pack 15 - Zu vermieten <div id='id-ep15'/>
+
+## Gameplay Pack 04 - Vampire <div id='id-gp4'/>
+### Verwandlung in einen Vampir
+| Cheat-Code                                          | Beschreibung                                                                                   |
+|-----------------------------------------------------|------------------------------------------------------------------------------------------------|
+| ```stats.set_stat commodity_BecomingVampire 2160``` | Ausgewählter Sim verwandelt sich nach ein paar Tagen in einen Vampir (natürliche Verwandlung). |
+| ```traits.equip_trait trait_OccultVampire```        | Ausgewählter Sim verwandelt sich sofort in einen Vampir.                                       |
+| ```traits.remove_trait trait_OccultVampire```       | Der ausgewählte Vampir-Sim verwandelt sich sofort in einen normalen Sim zurück.                |
+
+### Vampir-Ränge
+| Cheat-Code                                                  | Beschreibung                                                               |
+|-------------------------------------------------------------|----------------------------------------------------------------------------|
+| ```stats.set_stat rankedStatistic_Occult_VampireXP 202```   | Setzt den Rang des ausgewählten Vampir-Sim auf "Frischgebackener Vampir".  |
+| ```stats.set_stat rankedStatistic_Occult_VampireXP 630```   | Setzt den Rang des ausgewählten Vampir-Sim auf "Vampir-Novize".            |
+| ```stats.set_stat rankedStatistic_Occult_VampireXP 1058```  | Setzt den Rang des ausgewählten Vampir-Sim auf "Obervampir".               |
+| ```stats.set_stat rankedStatistic_Occult_VampireXP 1486```  | Setzt den Rang des ausgewählten Vampir-Sim auf "Meistervampir".            |
+| ```stats.set_stat rankedStatistic_Occult_VampireXP 1593```  | Setzt den Rang des ausgewählten Vampir-Sim auf "Großmeister der Vampire".  |
+
+### Vampir-Fähigkeiten und -Skills mit bestimmter Stufe
+| Cheat-Code                                     | Beschreibung                                                           |
+|------------------------------------------------|------------------------------------------------------------------------|
+| ```stats.set_skill_level VampireLore 15```     | Der ausgewählte Vampir-Sim erhält die Fähigkeit "Vampirsaga" (1 - 15). |
+| ```stats.set_skill_level Major_PipeOrgan 10``` | Der ausgewählte Vampir-Sim erhält die Fähigkeit "Orgeln" (1 - 10).     |
+
+### Merkmale
+| Cheat-Code                                | Beschreibung                                                                                                    |
+|-------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| ```traits.equip_trait RegainedHumanity``` | Der ausgewählte Vampir-Sim erhält das Merkmal "Wiedererlangte Menschlichkeit" (durch Bestreben "Guter Vampir"). |
+| ```traits.equip_trait TheMaster```        | Cer ausgewählte Vampir-Sim erhält das Merkmal "Ich bin der Meister" (durch Bestreben "Vampir-Familie").         |
+| ```traits.equip_trait TrueMaster```       | Der ausgewählte Vampir-Sim erhält das Merkmal "Ein wahrer Meister" (durch Bestreben "Meistervampir").           |
+
+### Vampire töten (Sonne)
+| Cheat-Code                                              | Beschreibung                                                                       |
+|---------------------------------------------------------|------------------------------------------------------------------------------------|
+| ```traits.equip_trait Vampire_Sun```                    | Ausgewählter Sim oder Vampir-Sim stirbt sofort durch die Sonne und wird zum Geist. |
+| ```stats.set_stat commodity_Vampire_SunExposure -100``` | Der ausgewählte Vampir-Sim stirbt sofort durch die Sonne.                          |
+
+### Vampir-Kräfte und -Schwächen
+| Cheat-Code                                                            | Beschreibung                                                                                                                      |
+|-----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| ```sims.get_sim_id_by_name [Vorname Sim] [Nachname Sim] ```           | Gibt die "ID"-Nummer des gewünschten Sim aus (wird für die nachfolgenden Cheatbefehle benötigt).                                  |
+| ```bucks.lock_all_perks_for_bucks_type 40962 [Sim-ID] false```        | Entfernt alle Vampir-Schwächen vom Sim mit der definierten [Sim-ID]                                                               |
+| ```bucks.lock_all_perks_for_bucks_type 40961 [Sim-ID] true```         | Setzt die Kräfte-Verteilung vom Sim mit der definierten [Sim-ID] zurück.                                                          |
+| ```bucks.unlock_perk DetectPersonality true 40961 [Sim-ID]```         | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Persönlichkeit entblößen" (Rang: Frischgebackener Vampir).           |
+| ```bucks.unlock_perk BatForm true 40961 [Sim-ID]```                   | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Fledermausgestalt" (Rang: Frischgebackener Vampir).                  |
+| ```bucks.unlock_perk Hallucinate true 40961 [Sim-ID]```               | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Halluzination hervorrufen" (Rang: Frischgebackener Vampir).          |
+| ```bucks.unlock_perk AlwaysWelcome true 40961 [Sim-ID]```             | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Sets willkommen" (Rang: Frischgebackener Vampir).                    |
+| ```bucks.unlock_perk PotentPower_3 true 40961 [Sim-ID]```             | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Novize des Okkultismus (Level 3)" (Rang: Frischgebackener Vampir).   |
+| ```bucks.unlock_perk AlluringVisage_3 true 40961 [Sim-ID]```          | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Vampir Charme (Level 3)" (Rang: Vampir-Novize).                      |
+| ```bucks.unlock_perk VampiricStrength_Level3 true 40961 [Sim-ID]```   | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Vampirische Stärke (Level 3)" (Rang: Vampir-Novize).                 |
+| ```bucks.unlock_perk Command true 40961 [Sim-ID]```                   | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Befehligen" (Rang: Vampir-Novize).                                   |
+| ```bucks.unlock_perk GarlicImmunity true 40961 [Sim-ID]```            | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Knoblauch Immunität" (Rang: Vampir-Novize).                          |
+| ```bucks.unlock_perk VampireCreation true 40961 [Sim-ID]```           | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Vampir-Erschaffung" (Rang: Vampir-Novize).                           |
+| ```bucks.unlock_perk Mesmerize true 40961 [Sim-ID]```                 | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Mesmerisieren" (Rang: Obervampir).                                   |
+| ```bucks.unlock_perk NocturnalAffinity_Level3 true 40961 [Sim-ID]```  | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Kind des Mondes (Level 3)" (Rang: Obervampir).                       |
+| ```bucks.unlock_perk IrresistibleSlumber true 40961 [Sim-ID]```       | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Unwiderstehlicher Schlaf " (Rang: Obervampir).                       |
+| ```bucks.unlock_perk ManipulateLifeSpirit true 40961 [Sim-ID]```      | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Lebensgeist manipulieren" (Rang: Obervampir).                        |
+| ```bucks.unlock_perk VampiricSlumber_Level3 true 40961 [Sim-ID]```    | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Vampirischer Schlummer (Level 3)" (Rang: Obervampir).                |
+| ```bucks.unlock_perk EmotionalDampening_Level3 true 40961 [Sim-ID]``` | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Gedämpfte Gefühle (Level 3)" (Rang: Meistervampir).                  |
+| ```bucks.unlock_perk VampireRun true 40961 [Sim-ID]```                | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Übernatürliches Tempo" (Rang: Meistervampir).                        |
+| ```bucks.unlock_perk NeedsNaughtiness true 40961 [Sim-ID]```          | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Bedürfnisse aussaugen" (Rang: Meistervampir).                        |
+| ```bucks.unlock_perk ResistanceSolis_Level3 true 40961 [Sim-ID]```    | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Sonnenresistenz (Level 3)" (Rang: Meistervampir).                    |
+| ```bucks.unlock_perk LoseHumanity_Hygiene true 40961 [Sim-ID]```      | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Geruchslosigkeit" (Rang: Meistervampir).                             |
+| ```bucks.unlock_perk EmotionalBurst_3 true 40961 [Sim-ID]```          | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Gefühl beeinflussen (Level 3)" (Rang: Großmeister der Vampire).      |
+| ```bucks.unlock_perk MistForm true 40961 [Sim-ID]```                  | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Nebelgestalt" (Rang: Großmeister der Vampire).                       |
+| ```bucks.unlock_perk LoseHumanity_Social true 40961 [Sim-ID]```       | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Abseits der Herde" (Rang: Großmeister der Vampire).                  |
+| ```bucks.unlock_perk TameTheThirst true 40961 [Sim-ID]```             | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Durststiller" (Rang: Großmeister der Vampire).                       |
+| ```bucks.unlock_perk LoseHumanity_Fun true 40961 [Sim-ID]```          | Der durch [Sim-ID] definierte Vampir-Sim erhält das Merkmal "Annehmlichkeiten des ewigen Lebens" (Rang: Großmeister der Vampire). |
 
 ## Gameplay Pack 12 - Werwölfe
