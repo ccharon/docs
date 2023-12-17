@@ -15,7 +15,7 @@
 
 
 ## Interrupts, I/O, DMA
-as this is not a plug an play system this is to keep track
+as this is not a plug and play system this is to keep track
 ### Interrupts
 | IRQ | usage                                |
 |----:|--------------------------------------|
