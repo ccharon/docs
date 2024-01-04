@@ -1,5 +1,5 @@
-# Use your OEM Windows License embedded into your laptop for a QEMU Windows VM
-
+# Use your OEM Windows License embedded into your PC for a QEMU Windows VM
+you need a OEM PC, like in this case from Dell. ... and of course Linux :P
 create a new machine and add this to your domain.xml (replace first line to add qemu namespace) add xml replacing the </devices> line.
 
 ```xml
