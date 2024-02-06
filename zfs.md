@@ -85,3 +85,25 @@ sudo zpool replace -f poolname 11596883435372076569 /dev/disk/by-id/ata-WDC_WD60
 ```
 
 now the disk will be replaced ... resilver will take a while depending on the pool size. after it finished the replacement is done
+
+## docker with zfs storage driver
+for me docker stores images as datasets directly "next" to the root data set. this does not please me :P
+so create datasets for docker images
+```bash
+zfs create -o canmount=off -o compression=zstd -o mountpoint=none rpool/DOCKER
+zfs create -o canmount=off -o mountpoint=none rpool/DOCKER/hostname # replace with your hostname
+```
+
+then tell docker to use the dataset 
+```bash
+$ sudo systemctl stop docker
+$ sudo nano /etc/docker/daemon.json
+
+{
+  "storage-opts": [ "zfs.fsname=rpool/docker"]
+}
+
+$ sudo systemctl start docker
+```
+time to clean up the old datasets (and redownload all images :P)
+
