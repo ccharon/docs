@@ -100,7 +100,8 @@ $ sudo systemctl stop docker
 $ sudo nano /etc/docker/daemon.json
 
 {
-  "storage-opts": [ "zfs.fsname=rpool/docker"]
+  "storage-driver": "zfs",
+  "storage-opts": [ "zfs.fsname=rpool/DOCKER/hostname"]
 }
 
 $ sudo systemctl start docker
