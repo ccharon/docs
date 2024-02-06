@@ -26,14 +26,14 @@ zpool create -f -o ashift=12 -O acltype=posixacl -O aclinherit=passthrough -O at
 |-R /mnt/alternate|alternative to mountpoint specified by "mountpount=/mount/point" it is used when the first mountpoint is in use"|
 
 ## creating a dataset BACKUP, another container for all the datasets concerning backups 
-this dataset also specifies lz4 as compression
+this dataset also specifies zstd as compression
 ```bash
-zfs create -o canmount=off -o compression=lz4 -o mountpoint=none rpool/BACKUP
+zfs create -o canmount=off -o compression=zstd -o mountpoint=none rpool/BACKUP
 ```
 ## creating a dataset VAULT, another container
-this dataset also specifies lz4 as compression and aes encryption with password
+this dataset also specifies zstd as compression and aes encryption with password
 ```bash
-zfs create -o canmount=off -o compression=lz4 -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=none rpool/VAULT
+zfs create -o canmount=off -o compression=zstd -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=none rpool/VAULT
 ```
 
 ## creating as many datasets in BACKUP as needed
