@@ -108,3 +108,30 @@ $ sudo systemctl start docker
 ```
 time to clean up the old datasets (and redownload all images :P)
 
+## 2 Two half filled ssds to zfs mirror ...
+- drive 1 /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_XXXXX
+- drive 1 /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_YYYYY
+
+empty drive 1, move everything from drive 1 to drive 2
+
+after drive 1 is emptied, destroy the filesystem
+```bash 
+sgdisk --zap-all /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_XXXXX
+```
+then create a zpool to your liking
+```bash 
+zpool create -f -o ashift=12 -O compression=lz4 -O acltype=posixacl -O aclinherit=passthrough -O atime=off -O canmount=off -O devices=off -O dnodesize=auto -O mountpoint=/data -O normalization=formD -O xattr=sa -o autotrim=on data /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_XXXXX
+
+# and create the volumes you need
+zfs create -o canmount=off -o encryption=aes-256-gcm -o keyformat=passphrase -o keylocation=prompt -o mountpoint=none data/VAULT
+zfs create -o canmount=on -o mountpoint=/data/foo data/VAULT/foo
+zfs create -o canmount=on -o mountpoint=/data/bar data/VAULT/bar
+
+
+# now move the data from drive 2 to foo and bar :P
+# after this has finished, destroy filesystem on drive 2 and attach to zpool
+sgdisk --zap-all /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_YYYYY
+
+# it is important to use attach! using add will create a stripeset (raid0) but what i want is a mirror so attach it is!
+zpool attach -f data /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_XXXXX /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_YYYYY
+```
