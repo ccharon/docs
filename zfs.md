@@ -135,3 +135,4 @@ sgdisk --zap-all /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_YYYYY
 # it is important to use attach! using add will create a stripeset (raid0) but what i want is a mirror so attach it is!
 zpool attach -f data /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_XXXXX /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_YYYYY
 ```
+the attach command will start a resilver so that the data is actually mirrored. resilver will take some time
