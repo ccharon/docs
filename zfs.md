@@ -136,3 +136,11 @@ sgdisk --zap-all /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_YYYYY
 zpool attach -f data /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_XXXXX /dev/disk/by-id/ata-Samsung_SSD_860_QVO_2TB_YYYYY
 ```
 the attach command will start a resilver so that the data is actually mirrored. resilver will take some time
+
+
+## checking disks for bad sectors (destroys data)
+(taken from https://wiki.archlinux.org/title/badblocks)
+1. Span a crypto layer above the device: ```cryptsetup open /dev/device name --type plain --cipher aes-xts-plain64```
+2. Fill the now opened decrypted layer with zeroes, which get written as encrypted data: ```shred -v -n 0 -z /dev/mapper/name```
+3. Compare fresh zeroes with the decrypted layer: ```cmp -b /dev/zero /dev/mapper/name``` If it just stops with a message about end of file, the drive is fine. This method is also way faster than badblocks even with a single pass. As the command does a full write, any bad sectors (as known to the disk controller) should also be eliminated.
+
