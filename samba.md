@@ -14,6 +14,11 @@ smb.conf
    log file = /var/log/samba/%m
    log level = 1
    server role = standalone server
+
+   # kde dolphin kio (23.08.4) will not work without
+   client min protocol = SMB2
+   client max protocol = SMB3
+
 ```
 
 
