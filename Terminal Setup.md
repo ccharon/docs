@@ -1,6 +1,13 @@
 # Terminal Customization
 Color Settings are the gruvbox colors, taken from https://github.com/herrbischoff/iterm2-gruvbox/tree/master just written down as RGB Values for usage in other terminals. Also Blue is a little darker to make midnight commander look good.
 
+- install nerdfont
+- install zsh
+- make terminal program use it as login shell (or change default shell)
+- install oh my zsh
+- install powerlevel10k
+- change colors of terminal to the colors listed below
+
 ## Color Settings
 ### Basic
 | Where | Code | Example|
