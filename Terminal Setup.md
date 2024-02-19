@@ -1,5 +1,5 @@
 # Terminal Customization
-Color Settings taken from https://github.com/herrbischoff/iterm2-gruvbox/tree/master just written down as RGB Values for usage in other terminals. Also Blue is a little darker to make midnight commander look good.
+Color Settings are the gruvbox colors, taken from https://github.com/herrbischoff/iterm2-gruvbox/tree/master just written down as RGB Values for usage in other terminals. Also Blue is a little darker to make midnight commander look good.
 
 ## Color Settings
 ### Basic
