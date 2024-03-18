@@ -56,6 +56,26 @@ as this is not a plug and play system this is to keep track
 | 1   | Orpheus I (SB Pro) |
 | 3   | Orpheus I (WSS)    | 
 
+| Device / Ressource   | ROM        | I/O   | IRQ | DMA |
+|----------------------|------------|-------|-----|-----|
+| Quad Floppy          | C800-CA00? | 0x370 | 6   | 2   |
+| Adaptec 1542CP SCSI  | CC00-CFFF  | 0x334 | 11  | 5   |
+| IDE Combo Controller |            |       |     |     |
+|  - COM1              |            | 0x3F8 | 4   |     |
+|  - COM2              |            | 0x2F8 | 3   |     |
+|  - LPT1              |            | 0x378 | 7   |     |
+|  - IDE (disabled)    |            |       |     |     |
+|  - Floppy (disabled) |            |       |     |     |
+| 3com NIC             | (disabled) | 0x300 | 10  |     |
+| Sound Orpheus I      |            |       | 5   | 1,3 |
+| - Joystick           |            | 0x200 |     |     |
+| - Soundblaster       |            | 0x220 |     |     |
+| - MIDI               |            | 0x330 |     |     |
+| - WSS                |            | 0x534 |     |     |
+| - OPL                |            | 0x388 |     |     |
+| - CTR                |            | 0x120 |     |     |
+
+
 ## System setup
 after everything is assembled stuff gets installed via 3.5" floppy disks, creating real disks from images can be performed by another old pc or by using some specialized hardware like a [Greaseweazle](https://github.com/keirf/greaseweazle)
 
