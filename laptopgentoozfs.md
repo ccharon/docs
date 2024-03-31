@@ -2,34 +2,29 @@
 This document helps to install Gentoo Linux on an encrypted zfs pool
 Ideas taken from:
 - [Debian Bookworm ZFS Root](https://openzfs.github.io/openzfs-docs/Getting%20Started/Debian/Debian%20Bookworm%20Root%20on%20ZFS.html)
+- [Freebsd Handbook ZFS](https://docs.freebsd.org/de/books/handbook/zfs/)
 
-The final layout will be this. There will be just one EFI Partition that holds systemd boot and UKI unified kernel images to boot, so no grub and boot pool and such. also there is no swap. partition.
+The final layout will be this. There will be just one EFI Partition that holds systemd boot and UKI unified kernel images to boot, so no grub and boot pool and such. also there is no swap. partition. (Datasets that are not mounted directly are not shown here)
 
 ```
 SSD (GPT) nvme0n1
    ├── nvme0n1p1 EFI(fat32) /boot/efi
-   └── nvme0n1p2 ZPOOL (system)
-       ├── moon                             /
-       ├── moon/tmp                         /tmp
-       ├── moon/var                         /var
-       ├── moon/var/cache                   /var/cache
-       ├── moon/var/lib                     /var/lib
-       ├── moon/var/lib/AccountsService     /var/lib/AccountsService
-       ├── moon/var/lib/NetworkManager      /var/lib/NetworkManager
-       ├── moon/var/lib/docker              /var/lib/docker
-       ├── moon/var/lib/libvirt             /var/lib/libvirt
-       ├── moon/var/log                     /var/log
-       ├── moon/var/spool                   /var/spool
-       ├── moon/var/tmp                     /var/tmp
-       ├── moon/home                    ---
-       ├── moon/home/kevin                  /home/kevin
-       └── moon/home/root                   /root
+   └── nvme0n1p2 ZPOOL (moon)
+       ├── ROOT/default                /
+       ├── var/cache                   /var/cache
+       ├── var/lib/AccountsService     /var/lib/AccountsService
+       ├── var/lib/NetworkManager      /var/lib/NetworkManager
+       ├── var/lib/docker              /var/lib/docker
+       ├── var/lib/libvirt             /var/lib/libvirt
+       ├── var/log                     /var/log
+       ├── var/spool                   /var/spool
+       ├── var/tmp                     /var/tmp
+       ├── home/kevin                  /home/kevin
+       └── home/root                   /root
 ```
-I choose to name the pool "system" and then have all datasets start with the systemname, this should allow for easy backup to a backup pool used by more than one system
+As for the datasets, it is a mixture of what the debian on zfs root shows, of things that are reasonable for gentoo (binpkgs, distfiles) and what I would prefer :P
 
-Asf for the datasets, it is a mixture of what the debian on zfs root shows, of things that are reasonable for gentoo (binpkgs, distfiles) and what I would prefer :P
-
-For this document the the example username will be "gru" the systems name will be "moon" (not the small one from las vegas)
+For this document the the example username will be "kevin" the systems name will be "moon" (the small one from las vegas)
 
 ## Preparing the disk
 ```bash
@@ -63,33 +58,43 @@ zpool create \
     -O normalization=formD \
     -O relatime=on \
     -O canmount=off -O mountpoint=/ -R /mnt \
-    backup ${DISK}-part2
+    moon ${DISK}-part2
 ```
 
 ### Datasets
-```bash
-zfs create -o canmount=noauto -o mountpoint=/ system/moon
-zfs mount system/moon
 
-zfs create -o com.sun:auto-snapshot=false   system/moon/tmp
-chmod 1777 /mnt/tmp
-zfs create -o canmount=off                  system/moon/var
-zfs create -o com.sun:auto-snapshot=false   system/moon/var/cache
-zfs create -o canmount=off                  system/moon/var/lib
-zfs create                                  system/moon/var/lib/AccountsService
-zfs create                                  system/moon/var/lib/NetworkManager
-zfs create                                  system/moon/var/lib/docker
-zfs create -o com.sun:auto-snapshot=false   system/moon/var/lib/libvirt
-zfs create                                  system/moon/var/log
-zfs create                                  system/moon/var/spool
-zfs create                                  system/moon/var/tmp
+```bash
+zfs create -o canmount=off -o mountpoint=none moon/ROOT
+zfs create -o canmount=noauto -o mountpoint=/ moon/ROOT/default
+
+# specifiy boot dataset
+zpool set bootfs=moon/ROOT/default
+
+zfs mount moon/ROOT/default
+
+# gentoo uses tmpfs on /tmp
+# zfs create -o com.sun:auto-snapshot=false   moon/tmp
+# chmod 1777 /mnt/tmp
+
+zfs create -o canmount=off                  moon/var
+zfs create -o com.sun:auto-snapshot=false   moon/var/cache
+zfs create -o canmount=off                  moon/var/lib
+zfs create                                  moon/var/lib/AccountsService
+zfs create                                  moon/var/lib/NetworkManager
+zfs create                                  moon/var/lib/docker
+zfs create -o com.sun:auto-snapshot=false   moon/var/lib/libvirt
+zfs create                                  moon/var/log
+zfs create                                  moon/var/spool
+zfs create                                  moon/var/tmp
 chmod 1777 /mnt/var/tmp
 
-zfs create                                  system/moon/home
-zfs create -o mountpoint=/root              system/moon/home/root
+zfs create                                  moon/home
+zfs create -o mountpoint=/root              moon/home/root
+zfs create                                  moon/home/kevin
+
 chmod 700 /mnt/root
-zfs create                                  system/moon/home/kevin
 chmod 700 /mnt/home/kevin
+
 # do not forget to change ownership to kevin once the user is created
 ```
 
