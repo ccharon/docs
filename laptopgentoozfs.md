@@ -139,6 +139,60 @@ FEATURES="${FEATURES} binpkg-request-signature"
 
 ```
 
+### /etc/portage/package.use
+
+#### installkernel
+sys-kernel/installkernel::gentoo dracut
+
+#### modemmanager (... Snapdragon X7 Modem WWAN)
+net-misc/modemmanager qmi mbim
+
+#### p7zip
+app-arch/p7zip::gentoo rar
+
+#### plasma-desktop
+net-dns/avahi::gentoo mdnsresponder-compat
+dev-qt/qtpositioning::gentoo geoclue
+media-video/ffmpeg::gentoo libass
+dev-qt/qtwebengine::gentoo bindist
+kde-apps/akonadi::gentoo -mysql sqlite
+
+#### systemd
+sys-apps/systemd::gentoo boot
+
+
 ### fstab
+
+# <fs>                  <mountpoint>    <type>          <opts>          <dump> <pass>
+# remount filesystem, workaround Bug https://github.com/openzfs/zfs/issues/9461
+moon/ROOT/default       /               zfs             defaults        0       0
+/dev/nvme0n1p1          /efi            vfat            umask=0077      0       2
+
 ### zfs tools
+hostonly=yes
+hostonly_cmdline=yes
+
+use_fstab=yes
+compress=xz
+show_modules=yes
+
+uefi="yes"
+
+early_microcode=yes
+
+kernel_cmdline+=" root=zfs loglevel=3 quiet splash "
+
 ### dracut + kernel
+### /etc/dracut/dracut.conf
+
+#### intel-ucode
+sys-firmware/intel-microcode intel-ucode
+
+#### linux-firmware
+sys-kernel/linux-firmware linux-fw-redistributable
+
+#### p7zip
+app-arch/p7zip unRAR
+
+#### vscode
+app-editors/vscode::gentoo Microsoft-vscode
