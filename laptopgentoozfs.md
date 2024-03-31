@@ -162,11 +162,12 @@ sys-apps/systemd::gentoo boot
 
 
 ### fstab
-
+```
 # <fs>                  <mountpoint>    <type>          <opts>          <dump> <pass>
 # remount filesystem, workaround Bug https://github.com/openzfs/zfs/issues/9461
 moon/ROOT/default       /               zfs             defaults        0       0
 /dev/nvme0n1p1          /efi            vfat            umask=0077      0       2
+```
 
 ### zfs tools
 hostonly=yes
