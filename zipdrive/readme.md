@@ -20,6 +20,10 @@ you will need a parallel port zipdrive. (I got a 250MB version).
 Install the card in your PC and connect the parallel port cable to the zip drive. Connect the power supply to the zip drive.
 I used a free pcie x16 slot for the card. The card is recognized by the kernel and the parallel port is available.
 
+Using this particular card with MCS9901 chipset I was able to use the EPP mode of the parallel port. This makes a tremendous difference in speed. In SPP mode hdparm -tT reports about 100kB/sec, in EPP mode it reports about 330kB/sec!
+
+Another card using WCH382L chipset could only be used in SPP mode, despite the fact that the card was advertised as EPP capable.
+
 ## The Software
 
 ### getting the required kernel module
