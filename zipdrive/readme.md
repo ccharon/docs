@@ -2,7 +2,7 @@
 
 I wanted an old-fashioned way to transfer "bigger" chunks of data to a 386 class PC.
 
-As the 386 and 486 machines do not have USB, I thought of Zip Disks. On the 386 side the parallel port was kind of an obivous choice. For the modern PC I initally wanted to use an USB Zip Drive (which I also have and it works without further setup on Linux and Macos. I have not tried Windows).
+As the 386 and 486 machines do not have USB, I thought of Zip Disks. On the 386 side the parallel port was kind of an obivous choice. For the modern PC I initially wanted to use an USB Zip Drive (which I also have and it works without further setup on Linux and Macos. I have not tried Windows).
 
 But then I asked myself would it be possible to use the parallel port on the modern PC as well? I have a parallel port version on a modern PC? Short answer: Yes.
 
