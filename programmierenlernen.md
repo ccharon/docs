@@ -1,5 +1,5 @@
 # Minibeispiel, Berechnung der Gesamtoberfläche eines Quaders
-Man kann Variablenzuweisungen, Input, Outout und Kontrollstrukturen sehen.
+Man kann Variablenzuweisungen, Input, Output und Kontrollstrukturen sehen.
 
 
 ```python
