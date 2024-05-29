@@ -71,7 +71,9 @@ dtoverlay=dwc2
 ```
 
 ## Modify Kernel Parameters to provide network / serial access
-modify cmdline.txt after rootwait add ``` modules-load=dwc2,g_serial,g_ether ```
+modify cmdline.txt after rootwait add ``` modules-load=dwc2,g_serial ```
+
+(other modules could be g_ether oder g_mass_storage, ...)
 
 The line will look something like this when finished
 ```
