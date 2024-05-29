@@ -78,5 +78,7 @@ The line will look something like this when finished
 console=serial0,115200 console=tty1 root=PARTUUID=4c4e106f-02 rootfstype=ext4 fsck.repair=yes rootwait modules-load=dwc2,g_serial,g_ether quiet init=/usr/lib/raspberrypi-sys-mods/firstboot
 ```
 
-
-
+## Activating serial Console
+```bash
+systemctl enable getty@ttyGS0.service
+```
