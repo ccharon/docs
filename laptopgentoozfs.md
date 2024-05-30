@@ -8,7 +8,7 @@ The final layout will be this. There will be just one EFI Partition that holds s
 
 ```
 SSD (GPT) nvme0n1
-   ├── nvme0n1p1 EFI(fat32) /boot/efi
+   ├── nvme0n1p1 EFI(fat32) /efi
    └── nvme0n1p2 ZPOOL (moon)
        ├── ROOT/default                /
        ├── var/cache                   /var/cache
@@ -169,12 +169,17 @@ moon/ROOT/default       /               zfs             defaults        0       
 /dev/nvme0n1p1          /efi            vfat            umask=0077      0       2
 ```
 
-### zfs tools
+### dracut + kernel
+### /etc/dracut/dracut.conf
+
 hostonly=yes
+
 hostonly_cmdline=yes
 
 use_fstab=yes
+
 compress=xz
+
 show_modules=yes
 
 uefi="yes"
@@ -183,8 +188,6 @@ early_microcode=yes
 
 kernel_cmdline+=" root=zfs loglevel=3 quiet splash "
 
-### dracut + kernel
-### /etc/dracut/dracut.conf
 
 #### intel-ucode
 sys-firmware/intel-microcode intel-ucode
