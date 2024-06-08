@@ -1,4 +1,4 @@
-# Using a Parallel Port Iomege Zip Drive 250 with Linux (Kernel 6.6.21) on a modern PC (2024).
+# Using a Parallel Port Iomege Zip Drive 250 with Linux (Kernel 6.6.30) on a modern PC (2024).
 
 I wanted an old-fashioned way to transfer "bigger" chunks of data to a 386 class PC.
 
