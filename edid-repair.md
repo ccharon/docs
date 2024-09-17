@@ -23,12 +23,14 @@ I simply used https://sourceforge.net/projects/wxedid/ (download tgz, ./configur
 corrected the physical dimensions from 60cm x 34 cm to 94cm x 53cm and saved the new file to /usr/lib/firmware/edid/LG43UN700-B.bin (create directory if needed) 
 LG43UN700-B is the model number of my display 
 
+screensize needs to be change in several places, in my case the BDD Entry needed it cm and also every DTD Entry needed the size in mm.
+
 ## add kernel command line option
 using dracut i added the following to my kernel command line
 
 /etc/dracut.conf
 ```
-kernel_cmdline+=" drm_kms_helper.edid_firmware=DP-2:edid/LG43UN700-B.bin "
+kernel_cmdline+=" drm.edid_firmware=DP-2:edid/LG43UN700-B.bin "
 ```
 take care to pick the right port! for me it is DP-2
 
