@@ -20,7 +20,7 @@ $ cat /sys/class/drm/card0-DP-2/edid > broken.bin
 
 ## change to correct values
 I simply used https://sourceforge.net/projects/wxedid/ (download tgz, ./configure, make then run wxedid) to edit  the bin file.
-corrected the phyical dimensions from 60cm x 34 cm to 94cm x 53cm and saved the new file to /usr/lib/firmware/edid/LG43UN700-B.bin (create directory if needed) 
+corrected the physical dimensions from 60cm x 34 cm to 94cm x 53cm and saved the new file to /usr/lib/firmware/edid/LG43UN700-B.bin (create directory if needed) 
 LG43UN700-B is the model number of my display 
 
 ## add kernel command line option
@@ -33,7 +33,7 @@ kernel_cmdline+=" drm_kms_helper.edid_firmware=DP-2:edid/LG43UN700-B.bin "
 take care to pick the right port! for me it is DP-2
 
 ## add to initramfs
-the LG43UN700-B.bin has to be added to initramfs, with dracut i created
+the LG43UN700-B.bin has to be added to initramfs, for dracut I created
 
 /etc/dracut.conf.d/20-lg43un700edid.conf 
 ```
@@ -47,3 +47,4 @@ to recreate the initramfs for the current kernel (in my case gentoo uki)
 $ emerge =sys-kernel/gentoo-kernel-6.6.47 --config
 ```
 
+reboot and my 42" display is no longer reported as 27" DPI values will match better.
