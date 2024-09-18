@@ -1,4 +1,4 @@
-# Repair wrong physical dimensions in screen edit file
+# EDID Repair (wrong physical display dimensions)
 the steps of adding the new edid to initramfs and rebuilding the initramfs are distribution specific! in my case gentoo
 
 ## find the port the display is connected to
