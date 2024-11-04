@@ -7,6 +7,10 @@ COMMON_FLAGS="-mcpu=cortex-a76+crc+crypto -mtune=cortex-a76 -O2 -pipe"
 ```
 
 ## Boot Order SD,USB, NVME
+Anpassen der boot.conf und eeprom schreiben
+```bash
+$ sudo -E rpi-eeprom-config --edit
+```
 
 ```
 [all]
