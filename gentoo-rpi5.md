@@ -25,9 +25,8 @@ BOOT_ORDER=0x641
 
 ## Build kernel
 ```
-git clone https://github.com/raspberrypi/linux.git
+git clone --depth=1 --branch stable_20241008 https://github.com/raspberrypi/linux
 cd linux
-git checkout stable_20241008
 make bcm2712_defconfig
 # make any config changes needed 'make menuconfig'
 make -j4 Image.gz modules dtbs
