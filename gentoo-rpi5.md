@@ -31,7 +31,7 @@ make bcm2712_defconfig
 # make any config changes needed 'make menuconfig'
 make -j4 Image.gz modules dtbs
 make modules_install
-cp arch/arm64/boot/dts/broadcom/*.dtb /boot/
+cp arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb /boot/
 cp arch/arm64/boot/dts/overlays/*.dtb* /boot/overlays/
 cp /boot/kernel_2712.img /boot/kernel_2712.img.old
 cp arch/arm64/boot/Image.gz /boot/kernel_2712.img
