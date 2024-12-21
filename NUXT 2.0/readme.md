@@ -65,7 +65,7 @@ NUXT 2.0 is not mapping RAM between A000-BFFF, these areas can not be used for U
 #### Hardware switches
 For details about other switch positions see the NUXT 2.0 manual.
 
-###### SW1: System Config
+##### SW1: System Config
 | Switch | Setting | Description                                                                        |
 |--------|---------|------------------------------------------------------------------------------------|
 | 1      | **ON**  | **Enabled for VGA**                                                                |
@@ -140,9 +140,12 @@ SET TMP=C:\TEMP
 ```
 FILES=30
 BUFFERS=20
+REM No HIGH memory on PC XT, but this triggers DOSMAX
 DOS=UMB,HIGH
+
 REM For USE!UMBS E000 is expanded to E0000 then -1, so C8000-DFFFF is used
 DEVICE=C:\UTILS\USE!UMBS\USE!UMBS.SYS C800-E000
+
 DEVICEHIGH=C:\UTILS\LTEMM\LTEMM.EXE /p:E000 /i:260
 DEVICEHIGH=C:\UTILS\DOSMAX\DOSMAX.EXE /R+ /N+ /P-
 DEVICEHIGH=C:\DOS\SETVER.EXE
