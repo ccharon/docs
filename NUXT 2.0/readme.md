@@ -24,6 +24,12 @@ I bought the card on [tindie.com](https://www.tindie.com/products/kdehl/8-bit-is
 - MIDI, through the usage of a Joystick-to-MIDI adapter 
 - CMS (SAA1099) Game Blaster chips installed 
 
+#### Drivers
+this soundcard should generally work without any drivers loaded. nevertheless there is some software
+extract the [sb.zip](./res/sb.zip) to C:\SB and SET SOUND in AUTOEXEC.BAT accordingly.
+
+The drivers are copied from [philscomputerlab.com](https://www.philscomputerlab.com/sound-blaster-15.html)
+
 #### Images
 | ![Soundblaster 1.5 Front](./res/snd-front.webp) | ![Soundblaster 1.5 Back](./res/snd-back.webp)  |
 |---------------------------------------------------|--------------------------------------------------|
@@ -48,7 +54,8 @@ To expand the memory of the PC XT I chose a Lo-Tech 2MB EMS card. This card I pu
 #### Features of the card
 - 2MB memory accessible as EMS 
 
-#### Website and drivers
+#### Drivers
+- Extract [Drivers](./res/2MB-EMS.zip) to a directory and load at startup (see CONFIG.SYS), also the UMB Config and EMS Card config has to match
 
 
 #### Images
@@ -58,7 +65,7 @@ To expand the memory of the PC XT I chose a Lo-Tech 2MB EMS card. This card I pu
 ## Ressource Assignments
 
 ### IRQ
-I ntegrated XT-IDE and EMS Card do not require an IRQ
+Integrated XT-IDE and EMS Card do not require an IRQ
 
 | IRQ | DEVICE                 |
 |-----|------------------------|
@@ -182,6 +189,8 @@ SET TMP=C:\TEMP
 
 REM Sound Setup
 SET BLASTER=A220 I5 D1 T1
+SET SOUND=C:\SB
+
 ```
 
 #### CONFIG.SYS
