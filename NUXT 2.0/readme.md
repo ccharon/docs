@@ -1,19 +1,64 @@
-# NUXT 2.0
+# Turbo PC XT Clone, Christmas 2024 :)
+Collecting all the information about my build in one place for future reference. 
+
+I want to build a PC system comparable to a PC XT, using an 8088 CPU, or as in this case a NEC V20 which has some speed improvements 
+and also is able to not only execute 8086 but also 80186 machine code, yay! Which hopefully helps to get speedier IDE access 
+and a working parallel port zip drive using iomega drivers.
+
+As I don't want to fight dying 40 year old hardware and have some convenience I chose a Monotech NUXT 2.0 mainboard which
+already includes a lot of the features needed. For example usage of ps/2 style keyboard + mouse that get translated to a
+xt keyboard and a serial mouse. also a VGA card and a XT-IDE is integrated.
+
+Things I want to do? generally explore the machine and its (in) abilities :P . Play games and try some programming in assembler and C.
 
 ## Hardware
-
 ### NUXT 2.0
 
-### Soundcard
+### 8-bit ISA Sound Blaster 1.5 clone with C/MS
+As Soundcard I chose a 8bit Soundblaster 1.5 Clone. Designed by [David's electronics](https://electronics.dose.se) in Sweden.
+I bought the card on [tindie.com](https://www.tindie.com/products/kdehl/8-bit-isa-sound-blaster-15-clone-with-cms/)
 
-### Network
+#### Features of the card
+- Adlib (OPL2)
+- Sound Blaster sampled audio 
+- MIDI, through the usage of a Joystick-to-MIDI adapter 
+- CMS (SAA1099) Game Blaster chips installed 
 
-### EMS
+#### Images
+| ![Soundblaster 1.5 Front](./res/snd-front.webp) | ![Soundblaster 1.5 Back](./res/snd-back.webp)  |
+|---------------------------------------------------|--------------------------------------------------|
+
+### 8-bit ISA Ethernet Controller
+As Network card i chose and 8 bit ISA RTL8019 that is NE2000 compatible. Designed by [Weird Electronics](https://www.tindie.com/stores/weird/#store-section-about) in USA.
+I also bought this card on [tindie.com](https://www.tindie.com/products/weird/isa-8-bit-ethernet-controller/)
+
+#### Features of the card
+- NE2000 compatible nic (provides own 8bit adjusted packet driver)
+
+#### Website and drivers
+- https://github.com/skiselev/isa8_eth
+
+#### Images
+| ![Network Front](./res/nic-front.webp) | ![Network Back](./res/nic-back.webp) |
+|----------------------------------------|--------------------------------------|
+
+### 8-bit ISA Lo-tech EMS 2MB
+To expand the memory of the PC XT I chose a Lo-Tech 2MB EMS card. This card I purchased at [texelec.com](https://texelec.com/product/lo-tech-ems-2-mb)
+
+#### Features of the card
+- 2MB memory accessible as EMS 
+
+#### Website and drivers
+
+
+#### Images
+| ![Lo-Tech 2MB EMS Card Front](./res/ems-front.webp) | ![Lo-Tech 2MB EMS Card Back](./res/ems-back.webp) |
+|-----------------------------------------------------|---------------------------------------------------|
 
 ## Ressource Assignments
 
 ### IRQ
-Integrated XT-IDE and EMS Card do not require an IRQ
+I ntegrated XT-IDE and EMS Card do not require an IRQ
 
 | IRQ | DEVICE                 |
 |-----|------------------------|
