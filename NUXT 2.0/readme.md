@@ -179,24 +179,55 @@ to enter the BIOS Setup, press F1 then Esc during the RAM test or Video BIOS spl
 3. 'D' set RTC time
 
 ### MS-DOS 6.22
-#### AUTOEXEC.BAT
+
+#### Drivers
+
+##### NANSI.SYS
+A fast (and smaller) replacement for ANSI.SYS, part of Freedos
+- https://www.ibiblio.org/pub/micro/pc-stuff/freedos/files/dos/nansi/4.0d/nansi40d.zip
+- Local copy in this Repo [nansi40d.zip](./res/nansi40d.zip) 
+
+##### KBD.COM
+Microsofts Keyboard.sys (keyb gr) is for some reason mapping a lot of stuff not at all or wrong. A smaller and better alternative at least for german keyboard layout is KBD.COM . 
+
+- Downloaded from the now defunct page [helmrohr.de](http://www.helmrohr.de/ftproot/Kbd.zip)
+- [Archive.org provides a copy](https://web.archive.org/web/20140904180200/http://www.helmrohr.de/ftproot/Kbd.zip)
+- Local copy in this Repo [KBD.ZIP](./res/Kbd.zip) 
+
+##### CTMOUSE
+Monotech endorsed the use of microsofts mouse driver. I had no problems so far using ctmouse 1.9
+https://cutemouse.sourceforge.net
+
+#### Config Files
+
+##### AUTOEXEC.BAT
 ```
 @ECHO OFF
 PROMPT $P$G
-PATH C:\DOS;C:\UTILS\NC;C:\UTILS\CHECKIT;C:\UTILS\IMGDSK;C:\WINDOWS
+PATH C:\DOS;C:\UTILS\NC;C:\UTILS\NU
 SET TEMP=C:\TEMP
 SET TMP=C:\TEMP
 
-REM Sound Setup
+:: Sound Setup
 SET BLASTER=A220 I5 D1 T1
 SET SOUND=C:\SB
 
+:: Network Setup
+:: TZ used by sntp.exe -set 192.168.2.1
+:: SOMMERZEIT UTC-2:00, WINTERZEIT UTC-1:00
+SET TZ=UTC-1:00
+SET MTCPCFG=C:\UTILS\MTCP\CONFIG\MTCP.CFG
+LH C:\UTILS\NE2000\NE2000.COM 0x60 2 0x300
+C:\UTILS\MTCP\DHCP.EXE
+
 ```
 
-#### CONFIG.SYS
+##### CONFIG.SYS
 ```
 FILES=30
 BUFFERS=20
+FCBS=1
+STACKS=9,256
 REM No HIGH memory on PC XT, but this triggers DOSMAX
 DOS=UMB,HIGH
 
@@ -204,7 +235,14 @@ REM For USE!UMBS E000 is expanded to E0000 then -1, so C8000-DFFFF is used
 DEVICE=C:\UTILS\USE!UMBS\USE!UMBS.SYS C800-E000
 
 DEVICEHIGH=C:\UTILS\LTEMM\LTEMM.EXE /p:E000 /i:260
-DEVICEHIGH=C:\UTILS\DOSMAX\DOSMAX.EXE /R+ /N+ /P-
+DEVICEHIGH=C:\UTILS\DOSMAX\DOSMAX.EXE /R- /N+ /P-
 DEVICEHIGH=C:\DOS\SETVER.EXE
-SHELL=C:\UTILS\DOSMAX\SHELLMAX.COM C:\COMMAND.COM C:\ /E:256 /P
+SHELL=C:\UTILS\DOSMAX\SHELLMAX.COM /R- C:\COMMAND.COM C:\ /E:256 /P
 ```
+
+##### MTCP.CFG
+todo
+
+##### FTPPASS.CFG
+todo
+
