@@ -188,7 +188,7 @@ A fast (and smaller) replacement for ANSI.SYS, part of Freedos
 - Local copy in this Repo [nansi40d.zip](./res/nansi40d.zip) 
 
 ##### KBD.COM
-Microsofts Keyboard.sys (keyb gr) is for some reason mapping a lot of stuff not at all or wrong. A smaller and better alternative at least for german keyboard layout is KBD.COM . 
+Microsofts Keyboard.sys (keyb gr) is for some reason mapping a lot of stuff not at all or wrong. A smaller and better alternative at least for german keyboard layout is KBD.COM . Every key (if know to an XT) is mapped at the right place. It took me a while to understand that XT keyboards do not know ALTGR, instead CTRL + ALT can be used when ALTGR is needed.
 
 - Downloaded from the now defunct page [helmrohr.de](http://www.helmrohr.de/ftproot/Kbd.zip)
 - [Archive.org provides a copy](https://web.archive.org/web/20140904180200/http://www.helmrohr.de/ftproot/Kbd.zip)
