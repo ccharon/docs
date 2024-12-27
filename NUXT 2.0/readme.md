@@ -211,7 +211,7 @@ SET TMP=C:\TEMP
 SET NU=C:\UTILS\NU
 SET DIRCMD=/O:GN /P
 
-REM Sound Setup
+:: Sound Setup
 SET BLASTER=A220 I5 D1 T1
 SET SOUND=C:\SB
 
@@ -224,7 +224,7 @@ SET MTCPCFG=C:\UTILS\MTCP\CONFIG\MTCP.CFG
 LH C:\UTILS\NE2000\NE2000.COM 0x60 2 0x300
 C:\UTILS\MTCP\DHCP.EXE
 
-:: Zeitzone fr SNTP (sntp.exe -set 192.168.2.1)
+:: timezone for sntp (sntp.exe -set 192.168.2.1)
 :: daylight saving (summer) UTC-2:00, standard time (winter) UTC-1:00
 SET TZ=UTC-1:00
 
