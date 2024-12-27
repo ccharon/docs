@@ -180,6 +180,13 @@ to enter the BIOS Setup, press F1 then Esc during the RAM test or Video BIOS spl
 
 ### MS-DOS 6.22
 
+#### Additional software
+sometimes its not the last available DOS version, but compatible with 8086 or 80186
+
+- [Norton Utilities 6.01](https://winworldpc.com/product/norton-utilities/6x)
+- [Norton Commander 4.0](https://winworldpc.com/product/norton-commander/4x)
+- [MTCP](https://www.brutman.com/mTCP/mTCP.html)
+
 #### Drivers
 
 ##### NANSI.SYS
