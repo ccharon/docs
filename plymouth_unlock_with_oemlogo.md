@@ -54,3 +54,4 @@ plymouth-set-default-theme -R bgrt-custom
 ```
 
 Plymouth was taking a long time before displaying the password prompt. On further digging, I found a parameter called DeviceTimeout in /etc/plymouth/plymouthd.conf with default value of 8 seconds.
+According to [this merge request](https://gitlab.freedesktop.org/plymouth/plymouth/-/merge_requests/58), this was needed to keep support for certain AMD GPUs. I don't have and AMD GPU, and anyway I think Plymouth is using the EFI framebuffer for this splash screen, not the GPU. So, I reduced it to 2 seconds to make things faster.
