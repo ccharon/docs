@@ -1,6 +1,19 @@
 # hmmm
 
 ## Firmware Update for stable operation
+the initial firmware was unstable leading to modem crashes every minute. using fwupd, I upgraded the firmware to the latest available
+
+EM160R GL von EM160RGLAPR02A07M4G_10.010.10.010 auf
+EM160RGLAPR02A07M4G_25.025.25.025 aktualisieren?
+Firmware release EM160RGLAPR02A07M4G_25.025.25.025 packaged for LVFS.
+• Performance improvements
+• Stability improvements
+EM160R GL und alle angeschlossenen Geräte sind während der Aktualisterung möglicherweise nicht nutzbar.
+Operation durchführen? [Y|n]: y
+...
+
+The firmware now only crashes when the sysyem enters powersave mode. afer wakeup the modem gets reinitialized and reconnects. so this is "okish" 
+
 
 ## Manually getting the modem up
 
