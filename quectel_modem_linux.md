@@ -1,4 +1,4 @@
-# hmmm
+# Using Quectel EM160GL LTE Modem (1eac:1002) on Gentoo Linux
 
 ## Firmware Update for stable operation
 the initial firmware was unstable leading to modem crashes every minute. using fwupd, I upgraded the firmware to the latest available
