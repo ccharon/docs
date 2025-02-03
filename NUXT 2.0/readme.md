@@ -13,6 +13,7 @@ Things I want to do? generally explore the machine and its (in) abilities :P . P
 
 ## Hardware
 ### NUXT 2.0
+Using a NEC V20 is the only viable option for me. dosmax will not work on a 8088, also iomega drivers for my parallelport zip 250 need at least the nec cpu.
 
 ### 8-bit ISA Sound Blaster 1.5 clone with C/MS
 As Soundcard I chose a 8bit Soundblaster 1.5 Clone. Designed by [David's electronics](https://electronics.dose.se) in Sweden.
