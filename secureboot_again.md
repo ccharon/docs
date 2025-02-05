@@ -126,10 +126,22 @@ efi-updatevar -f PK.auth PK
 ```
 Successful execution of the last command exits Setup Mode and enters User Mode
 
+### Time to reboot and check if it worked
+in UEFI Setup there is sometimes a key management Tab, this should contain only the custom keys now, also Secureboot mode should be "User" now
+
+it might be a good time to setup an uefi password so that secureboot can not be disabled here
+
+#### after booting linux verify
+```bash
+dmesg | grep Secure
+[    0.015381] Secure boot enabled
+
+```
+
 
 ## Scripts to conveniently mount / unmount encypted container
 
-### mount_seboot.sh
+### mount_secboot.sh
 ```bash
 #!/bin/env bash
 
