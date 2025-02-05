@@ -10,6 +10,11 @@ https://wiki.gentoo.org/wiki/Secure_Boot
 
 ## Setup
 
+### install needed packages if not already done
+```bash
+emerge --ask app-crypt/efitools app-crypt/sbsigntools dev-libs/openssl
+```
+
 ### create encrypted container to keep keys
 i choose this because having private keys with password is not easy to work with when using emerge. I simply mount this container which is encrypted and password protected.
 
@@ -120,3 +125,22 @@ for db_type in db dbx; do sudo efi-updatevar -e -f ${db_type}.esl $db_type; done
 efi-updatevar -f PK.auth PK
 ```
 Successful execution of the last command exits Setup Mode and enters User Mode
+
+
+## Scripts to conveniently mount / unmount encypted container
+
+### mount_seboot.sh
+```bash
+#!/bin/env bash
+
+cryptsetup luksOpen /root/secureboot.luks secureboot
+mount /dev/mapper/secureboot /root/secureboot
+```
+
+### umount_secboot.sh
+```bash
+#!/bin/env bash
+
+umount /root/secureboot/custom_config
+cryptsetup luksClose secureboot
+```
