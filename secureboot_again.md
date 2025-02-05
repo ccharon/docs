@@ -1,6 +1,8 @@
 # Gentoo secureboot --- again 20250205
 (this time it worked) :P
 
+this is no comprehensive guide, just my notes based on my setup. Beware! :P
+
 my setup is still a UKI on an EFI partition, loaded by systemd boot
 
 ## Sources
@@ -39,6 +41,9 @@ uuidgen > uuid.txt
 # Generate Keys
 for key_type in PK KEK db dbx; do openssl req -new -x509 -newkey rsa:2048 -subj "/CN=Gentoo ${key_type}" -keyout ${key_type}.key -out ${key_type}.crt -days 9999 -noenc -sha256; done
 
+# Merge private + public db key for kernel module signing
+cat db.key db.cert > modules.key
+
 # Create Signature Lists
 for key_type in PK KEK db dbx; do cert-to-efi-sig-list -g $(< uuid.txt) ${key_type}.crt ${key_type}.esl; done
 
@@ -57,14 +62,13 @@ sign-efi-sig-list -k custom_config/PK.key -c custom_config/PK.crt KEK KEK.esl KE
 for db_type in db dbx; do sign-efi-sig-list -k custom_config/KEK.key -c custom_config/KEK.crt $db_type ${db_type}.esl ${db_type}.auth ; done
 
 ```
+### prepare the system to use the keys
 
-... details ...
-
-mount volume
-
-add key locations to /etc/portage/make.conf
-
+#### add key locations to /etc/portage/make.conf
 ```
+# Add to USE
+USE="secureboot modules-sign ..."
+
 # Secureboot keys
 SECUREBOOT_SIGN_KEY="/root/secureboot/custom_config/db.key"
 SECUREBOOT_SIGN_CERT="/root/secureboot/custom_config/db.crt"
@@ -73,20 +77,25 @@ SECUREBOOT_SIGN_CERT="/root/secureboot/custom_config/db.crt"
 MODULES_SIGN_KEY="/root/secureboot/custom_config/modules.key"
 ```
 
-in make.conf also add secureboot and modules-sign to USE=
+#### add key locations to /etc/dracut.conf
+```
+uefi_secureboot_cert="/root/secureboot/custom_config/db.crt"
+uefi_secureboot_key="/root/secureboot/custom_config/db.key"
+```
 
-USE="secureboot modules-sign ..."
-
-
-now rebuild kernel
+### now rebuild kernel
+```bash
 emerge -1 gentoo-kernel
+```
 
-now rebuild other stuff (non kernel tree modules will get a signature this way because of modules-sign in use
+### now rebuild other stuff 
+(non kernel tree modules will get a signature this way because of modules-sign in use)
+```bash
 emerge -uDNpv @world
+```
 
-
-
-is the bootloader signed?
+### is the bootloader signed?
+most likely not, check ...
 ```
 sbverify --cert /root/secureboot/custom_config/db.crt /efi/EFI/BOOT/BOOTX64.EFI
 sbverify --cert /root/secureboot/custom_config/db.crt /efi/EFI/systemd/systemd-bootx64.efi
@@ -95,7 +104,19 @@ sbverify --cert /root/secureboot/custom_config/db.crt /efi/EFI/systemd/systemd-b
 If not:
 ```
 sbsign --key custom_config/db.key --cert custom_config/db.crt --output /efi/EFI/BOOT/BOOTX64.EFI /efi/EFI/BOOT/BOOTX64.EFI
+
 sbsign --key custom_config/db.key --cert custom_config/db.crt --output /efi/EFI/systemd/systemd-bootx64.efi /efi/EFI/systemd/systemd-bootx64.efi
 ```
 
+### Install the secureboot keys
+Enter UEFI Setup, remove all keys and set secureboot to setup mode, save and leave Uefi setup
 
+### back in Linux install the keys
+```bash
+# mount the encrypted volume again
+cd /root/secureboot
+efi-updatevar -e -f KEK.esl KEK
+for db_type in db dbx; do sudo efi-updatevar -e -f ${db_type}.esl $db_type; done
+efi-updatevar -f PK.auth PK
+```
+Successful execution of the last command exits Setup Mode and enters User Mode
