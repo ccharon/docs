@@ -144,3 +144,11 @@ the attach command will start a resilver so that the data is actually mirrored. 
 2. Fill the now opened decrypted layer with zeroes, which get written as encrypted data: ```shred -v -n 0 -z /dev/mapper/name```
 3. Compare fresh zeroes with the decrypted layer: ```cmp -b /dev/zero /dev/mapper/name``` If it just stops with a message about end of file, the drive is fine. This method is also way faster than badblocks even with a single pass. As the command does a full write, any bad sectors (as known to the disk controller) should also be eliminated.
 
+## mismatch between system and pool hostid
+```bash
+rm /etc/hostid
+zgenhostid
+zpool set multihost=on rpool
+zpool set multihost=off rpool
+zpool status rpool
+```
