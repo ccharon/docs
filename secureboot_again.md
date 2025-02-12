@@ -1,9 +1,8 @@
-# Gentoo secureboot --- again 20250205
-(this time it worked) :P
+# Gentoo secureboot, again 20250205
+(this time it worked) 
+this is no comprehensive guide, just my notes based on my setup. Beware!
 
-this is no comprehensive guide, just my notes based on my setup. Beware! :P
-
-my setup is still a UKI on an EFI partition, loaded by systemd boot
+My setup is still a UKI on an EFI partition, loaded by systemd boot
 
 ## Sources
 https://wiki.gentoo.org/wiki/Secure_Boot
@@ -137,7 +136,6 @@ dmesg | grep Secure
 [    0.015381] Secure boot enabled
 
 ```
-
 
 ## Scripts to conveniently mount / unmount encypted container
 
