@@ -12,7 +12,8 @@ $ emerge dfu-util
 
 2. [download the flashfloppy release](https://github.com/keirf/flashfloppy/releases) and unpack it. There will be a dfu/ directory containing the firmware file. You want to use the .dfu file, not the .hex file.
 
-3. set the programming jumper on the gotek as per wiki
+3. set the programming jumper on the gotek
+   
    <img src="programming_jumper.jpg" alt="programming jumper" width="300"/>
 
 4. attach gotek to linux box via usb-a to usb-a cable
