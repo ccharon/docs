@@ -9,6 +9,7 @@ $ emerge dfu-util
 ```
 2. [download the flashfloppy release](https://github.com/keirf/flashfloppy/releases) and unpack it. There will be a dfu/ directory containing the firmware file. You want to use the .dfu file, not the .hex file.
 3. set the programming jumper on the gotek as per wiki
+  ![programming jumper](./programming_jumper.jpg)   
 4. attach gotek to linux box via usb-a to usb-a cable
 5. ```bash dfu-util --list``` This should display two entries for one device (just different alt numbers). If more than one device is shown, you'll have to add the --device option as per the dfu-util manpage
 6. ```bash dfu-util -D /path/to/flashfloppy-at415-st105-3.36.dfu -a 0 -s 0x08000000:unprotect:force ``` # this will fail with an error, but will unprotect the internal flash in the process
