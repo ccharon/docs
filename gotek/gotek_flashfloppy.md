@@ -1,5 +1,7 @@
 # Flasing a gotek floppy emulator with flashfloppy via usb
 
+
+## Programming the device
 perforn this as root:
 
 1. install dfu-util
@@ -16,3 +18,9 @@ $ emerge dfu-util
 6. ```bash dfu-util -D /path/to/flashfloppy-at415-st105-3.36.dfu -a 0 -s 0x08000000:unprotect:force ``` # this will fail with an error, but will unprotect the internal flash in the process
 7. ```bash dfu-util -D /path/to/flashfloppy-at415-st105-3.36.dfu -a 0 ``` # Now that the flash is unlocked, the device will be programmed. NOTE: if this step fails with "dfu-util: ERASE_PAGE not correctly executed" repeat step 6 and then this step again
 8. unplug usb cable. Move programming jumper back to non-programming position. Apply 5v to appropriate berg header pins. 7-segment display should read "F-F" if the programming was successful
+
+## Sources
+
+https://github.com/keirf/flashfloppy/wiki/Firmware-Programming
+
+https://github.com/keirf/flashfloppy/discussions/698#discussioncomment-3901322
