@@ -22,6 +22,10 @@ the steps have to be performed as root
    ```bash
    $ dfu-util --list
    ```
+   <details>
+   
+   <summary>Output</summary>
+
    ```
    dfu-util 0.11
    
@@ -34,11 +38,16 @@ the steps have to be performed as root
    Found DFU: [2e3c:df11] ver=0200, devnum=11, cfg=1, intf=0, path="1-10", alt=0, name="@Internal Flash  /0x08000000/ 128*1Kg", serial="AT32"
 
    ```
-   
+   </details>
+
 6. this will fail with an error, but will unprotect the internal flash in the process
    ```bash
    $ dfu-util -D flashfloppy-at415-st105-3.43.dfu -a 0 -s 0x08000000:unprotect:forcedfu-util 0.11
    ```
+   <details>
+      
+   <summary>Output</summary>
+
    ```
    Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
    Copyright 2010-2021 Tormod Volden and Stefan Schmidt
@@ -62,11 +71,17 @@ the steps have to be performed as root
    dfu-util: Wrong state after command "READ_UNPROTECT" download
 
    ``` 
+   </details>
+
 
 7. Now that the flash is unlocked, the device will be programmed. NOTE: if this step fails with "dfu-util: ERASE_PAGE not correctly executed" repeat step 6 and then this step again
    ```bash
    $ dfu-util -D flashfloppy-at415-st105-3.43.dfu -a 0 
    ```
+   <details>
+   
+   <summary>Output</summary>
+
    ```
    dfu-util 0.11
    
@@ -105,6 +120,7 @@ the steps have to be performed as root
    Download done.
    Done parsing DfuSe file
    ```
+   </details>
 
 8. unplug usb cable. Move programming jumper back to non-programming position. Apply 5v to appropriate berg header pins. 7-segment display should read "F-F" if the programming was successful
 
