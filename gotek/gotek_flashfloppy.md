@@ -20,7 +20,17 @@ the steps have to be performed as root
 
 5. This should display two entries for one device (just different alt numbers). If more than one device is shown, you'll have to add the --device option as per the dfu-util manpage
    ```bash
-   $ dfu-util --list
+   # dfu-util --list
+   dfu-util 0.11
+   
+   Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+   Copyright 2010-2021 Tormod Volden and Stefan Schmidt
+   This program is Free Software and has ABSOLUTELY NO WARRANTY
+   Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+   
+   Found DFU: [2e3c:df11] ver=0200, devnum=11, cfg=1, intf=0, path="1-10", alt=1, name="@Option Byte   /0x1FFFF800/02*016 e", serial="AT32"
+   Found DFU: [2e3c:df11] ver=0200, devnum=11, cfg=1, intf=0, path="1-10", alt=0, name="@Internal Flash  /0x08000000/ 128*1Kg", serial="AT32"
+
    ```
    
 6. this will fail with an error, but will unprotect the internal flash in the process
