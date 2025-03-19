@@ -21,6 +21,8 @@ the steps have to be performed as root
 5. This should display two entries for one device (just different alt numbers). If more than one device is shown, you'll have to add the --device option as per the dfu-util manpage
    ```bash
    $ dfu-util --list
+   ```
+   ```
    dfu-util 0.11
    
    Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
@@ -36,7 +38,8 @@ the steps have to be performed as root
 6. this will fail with an error, but will unprotect the internal flash in the process
    ```bash
    $ dfu-util -D flashfloppy-at415-st105-3.43.dfu -a 0 -s 0x08000000:unprotect:forcedfu-util 0.11
-
+   ```
+   ```
    Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
    Copyright 2010-2021 Tormod Volden and Stefan Schmidt
    This program is Free Software and has ABSOLUTELY NO WARRANTY
@@ -63,6 +66,8 @@ the steps have to be performed as root
 7. Now that the flash is unlocked, the device will be programmed. NOTE: if this step fails with "dfu-util: ERASE_PAGE not correctly executed" repeat step 6 and then this step again
    ```bash
    $ dfu-util -D flashfloppy-at415-st105-3.43.dfu -a 0 
+   ```
+   ```
    dfu-util 0.11
    
    Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
