@@ -41,7 +41,7 @@ $ emerge dfu-util
 Setting ibmpc mode (interface property) instead of default shugart, Jumper JC closed or [FF.CFG]([https://github.com/keirf/flashfloppy/blob/master/examples/FF.CFG](https://github.com/keirf/flashfloppy/blob/master/examples/FF.CFG#L21))
 
 ### usb stick
-use FAT32 and a MBR formatted USB Stick. EFI patition tables do not work
+use FAT32 and a MBR formatted USB Stick. EFI partition tables do not work
 
 ## Sources
 
