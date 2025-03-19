@@ -2,7 +2,7 @@
 
 
 ## Programming the device
-perforn this as root:
+the steps have to be performed as root
 
 1. install dfu-util
 
