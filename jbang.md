@@ -1,5 +1,13 @@
 # Example using jbang to have a script like Java program
 
+## install jbang
+on linux use your package manager or [sdkman](https://sdkman.io), on mac ``` brew install jbang ```
+
+## testing with this script
+- save as 'hello'
+- make executeable ``` chmod +x hello ```
+- run ``` ./hello ```
+ 
 ```java
 #!/usr/bin/env jbang
 
@@ -12,7 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 class Hello {
     public static void main(String[] args) {
         Gson gson = new Gson();
-        String messageText = "Hallo JAVA";
+        String messageText = "hallo JAVA";
 
         // Use StringUtils.capitalize()
         String capitalized = StringUtils.capitalize(messageText.toUpperCase());
