@@ -152,3 +152,16 @@ zpool set multihost=on rpool
 zpool set multihost=off rpool
 zpool status rpool
 ```
+
+## backup a whole pool
+```bash
+# create a snapshot
+zfs snapshot -r srcpool@poolbackup
+
+# send snapshot to destination
+zfs send  -Rpv  srcpool@poolbackup | zfs receive -dFu dstpool
+
+# destroy the snaphot on source and destination
+zfs destroy -rv srcpool@poolbackup
+zfs destroy -rv dstpool@poolbackup
+```
