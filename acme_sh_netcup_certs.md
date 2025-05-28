@@ -36,12 +36,23 @@ export NC_Apipw="<api password>"
 
 ### in server block ...
 ```
-    ssl_certificate /etc/nginx/ssl/startereignis.de/fullchain.pem;
-    ssl_certificate_key /etc/nginx/ssl/startereignis.de/key.pem;
+    ssl_certificate /etc/nginx/ssl/erdferkel.eu/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/erdferkel.eu/key.pem;
     include /etc/nginx/ssl/options.conf;
     ssl_dhparam /etc/nginx/ssl/dhparam.pem
 ```
+## dhparam.pem
+```bash
+# openssl dhparam -out dhparams.pem 4096
+```
 
-### options.conf taken at some point from certbot
-´´´
+## options.conf taken at some point from certbot
+```
+ssl_session_timeout 1440m;
+ssl_session_tickets off;
+
+ssl_protocols TLSv1.2 TLSv1.3;
+ssl_prefer_server_ciphers off;
+
+ssl_ciphers "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384";
 ```
