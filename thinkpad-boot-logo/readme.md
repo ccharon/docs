@@ -46,6 +46,8 @@ the usb drive will be completely wiped, all existing data is lost.
 selecting the wrong drive will also wipe that drive, so be careful!
 
 ### find your usb drive
+do lsblk before inserting your usb stick, then insert the usb stick and issue lsblk again, the added device should be your usb stick.
+
 ```bash
 lsblk
 ```
