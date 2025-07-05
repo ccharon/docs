@@ -99,7 +99,7 @@ press Y
 press Y
 
 ![step_04](./img/bios_update_05.webp)
-press <Enter>
+press Enter
 
 ![step_05](./img/bios_update_06.webp)
 press Y
@@ -108,7 +108,7 @@ press Y
 wait
 
 ![step_07](./img/bios_update_08.webp)
-press <Enter>
+press Enter
 
 ![step_08](./img/bios_update_09.webp)
 wait
