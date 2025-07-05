@@ -3,7 +3,10 @@
 
 **Also the usb device you use to flash the bios will be completely wiped, all existing data is lost. selecting the wrong drive will also wipe that drive, so be careful!**
 
-Source: https://blog.x4m3.rocks/thinkpad-custom-boot-logo/
+I had troubles finding a good guide until I found this blog post:
+https://blog.x4m3.rocks/thinkpad-custom-boot-logo/
+
+I decided it was not verbose enough, so I wrote my own guide, with more details and screenshots.
 
 I use this to add a custom Logo to my ThinkPad P15 Gen 2.
 
@@ -75,11 +78,48 @@ that's it, now its time to flash the bios.
 ## ❯ flash the BIOS update
 *flashing the bios can be dangerous, if you do it wrong, you can brick your computer. so make sure you have a backup of your data, and that you know what you are doing.*
 
-- reboot your computer, and boot on the usb flash drive. if you don't know how, the internet should help you with that.
+### prepare the laptop for flashing the bios:
+   - connect the power adapter
+   - enter setup, disable secure boot and disable secure roll back prevention (SRP) in the security menu.
+   - boot from the usb drive, and select the option to flash the bios update.
 
-- now that the flash utility has booted, choose the second option, and follow the instructions.
+### flashing the bios looks like this:
+![step_00](./img/bios_update_01.webp)
+press F12 to choose the boot device, and select the usb drive.
 
-- the computer will reboot, flash the update, and when it will reboot, you should get your custom boot logo!
+at the first screen press 2 to start the update.
+
+![step_01](./img/bios_update_02.webp)
+press Y
+
+![step_02](./img/bios_update_03.webp)
+press Y
+
+![step_03](./img/bios_update_04.webp)
+press Y
+
+![step_04](./img/bios_update_05.webp)
+press <Enter>
+
+![step_05](./img/bios_update_06.webp)
+press Y
+
+![step_06](./img/bios_update_07.webp)
+wait
+
+![step_07](./img/bios_update_08.webp)
+press <Enter>
+
+![step_08](./img/bios_update_09.webp)
+wait
+
+![step_09](./img/bios_update_10.webp)
+wait
+
+![step_10](./img/bios_update_11.webp)
+SUCCESS!
+
+Now enter the setup again, and re-enable secure boot and secure roll back prevention (SRP) in the security menu.
 
 ## ❯ removing the logo
 if you want to go back to the default logo, simply reflash the bios update, when when asked if you want to use your custom logo, say no, and the default logo will be put back.
