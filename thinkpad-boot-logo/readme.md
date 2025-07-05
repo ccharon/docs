@@ -41,7 +41,7 @@ output:
 ![geteltorito_output](./img/geteltorito.png)
 
 
-## ❯ ⚠ flash the image on your usb drive
+## ❯ ⚠ flash the image to your usb drive
 the usb drive will be completely wiped, all existing data is lost.
 selecting the wrong drive will also wipe that drive, so be careful!
 
