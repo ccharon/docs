@@ -104,10 +104,10 @@ press Y
 press Enter
 
 ![step_05](./img/bios_update_06.webp)
-press Y (CD means the USB stick, keep it plugged in!)
+press Y 
 
 ![step_06](./img/bios_update_07.webp)
-wait
+wait (CD means the USB stick, keep it plugged in!)
 
 ![step_07](./img/bios_update_08.webp)
 press Enter (CD means the USB stick, keep it plugged in!)
@@ -120,6 +120,8 @@ wait
 
 ![step_10](./img/bios_update_11.webp)
 SUCCESS!
+
+now the USB stick can be removed
 
 Now enter the setup again, and re-enable secure boot and secure roll back prevention (SRP) in the security menu.
 
