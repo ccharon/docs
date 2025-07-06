@@ -104,13 +104,13 @@ press Y
 press Enter
 
 ![step_05](./img/bios_update_06.webp)
-press Y
+press Y (CD means the USB stick, keep it plugged in!)
 
 ![step_06](./img/bios_update_07.webp)
 wait
 
 ![step_07](./img/bios_update_08.webp)
-press Enter
+press Enter (CD means the USB stick, keep it plugged in!)
 
 ![step_08](./img/bios_update_09.webp)
 wait
