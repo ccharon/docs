@@ -13,6 +13,9 @@ Things I want to do? generally explore the machine and its (in) abilities :P . P
 
 ## Hardware
 ### NUXT 2.0
+
+[Monotech Nuxt 2.0 Mainboard](https://monotech.fwscart.com/product/nuxt-v2-0---microatx-turbo-xt---10mhz-832k-xt-ide-multi-io-svga)
+
 Using a NEC V20 is the only viable option for me. dosmax will not work on a 8088, also iomega drivers for my parallelport zip 250 need at least the nec cpu. (which means 80286 Instructions ... which the nec cpu provides as it has 80186 instructions, a 286 has the same instruction set but also supports protected mode, the NEC V20 only has real mode)
 
 ### 8-bit ISA Sound Blaster 1.5 clone with C/MS
