@@ -93,6 +93,7 @@ emerge -1 gentoo-kernel
 emerge -1 all the external modules like zfs or nvidia
 emerge --config sys-kernel/gentoo-kernel:6.12.47 # use your actual kernel version here 
 emerge -1 systemd
+bootctl install --no-variables
 
 ```
 
