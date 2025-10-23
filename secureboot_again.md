@@ -46,7 +46,7 @@ uuidgen > uuid.txt
 for key_type in PK KEK db dbx; do openssl req -new -x509 -newkey rsa:2048 -subj "/CN=Gentoo ${key_type}" -keyout ${key_type}.key -out ${key_type}.crt -days 9999 -noenc -sha256; done
 
 # Merge private + public db key for kernel module signing
-cat db.key db.cert > modules.key
+cat db.key db.crt > modules.key
 
 # Create Signature Lists
 for key_type in PK KEK db dbx; do cert-to-efi-sig-list -g $(< uuid.txt) ${key_type}.crt ${key_type}.esl; done
