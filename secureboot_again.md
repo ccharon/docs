@@ -90,6 +90,10 @@ uefi_secureboot_key="/root/secureboot/custom_config/db.key"
 ### now rebuild kernel
 ```bash
 emerge -1 gentoo-kernel
+emerge -1 all the external modules like zfs or nvidia
+emerge --config sys-kernel/gentoo-kernel:6.12.47 # use your actual kernel version here 
+emerge -1 systemd
+
 ```
 
 ### now rebuild other stuff 
@@ -99,7 +103,7 @@ emerge -uDNpv @world
 ```
 
 ### is the bootloader signed?
-most likely not, check ...
+after systemd rebuild it should be ...
 ```
 sbverify --cert /root/secureboot/custom_config/db.crt /efi/EFI/BOOT/BOOTX64.EFI
 sbverify --cert /root/secureboot/custom_config/db.crt /efi/EFI/systemd/systemd-bootx64.efi
