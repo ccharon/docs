@@ -142,7 +142,7 @@ dmesg | grep Secure
 
 ```
 
-## Scripts to conveniently mount / unmount encypted container
+## Scripts to conveniently mount / unmount encrypted container
 
 ### mount_secboot.sh
 ```bash
