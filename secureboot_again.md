@@ -159,3 +159,70 @@ mount /dev/mapper/secureboot /root/secureboot
 umount /root/secureboot/custom_config
 cryptsetup luksClose secureboot
 ```
+
+
+## Getting Nvidia Graphics to work with self enrolled keys
+when trying to use secureboot on a new pc I got the message in UEFI that there is a Secure Boot Violation caused by firmware of one of my devices, which turned out to be the graphics card. So the nvidia card has an Option Rom that could not be loaded anymore after I removed the Microsoft keys.. WHAT THE HELL. 
+
+After some searching and then verifying the bios (extract it and use sbverify --list ) It turned out to be signed with "Microsoft Corporation UEFI CA 2011". Great so I can only have secureboot if this MS Cert is in my DB. ... and on top of all this .. the certificate will expire mid 2026. GREAT!
+
+So 2 Options, Install MS Certificate or disable Secureboot. ... or disable secureboot mid 2026 when the certificate expires. 
+
+BUT there is also the possibility to add the hash of the rom to the allow list, the hash does not expire and also this way no ms cert is needed.
+
+Lets do so.
+Sources:
+https://www.reddit.com/r/linuxquestions/comments/pi1daj/secure_boot_how_to_extract_nvidia_uefi_boot/
+
+### Tools and preparation
+- create a work directory, maybe "nvidia"
+- download https://github.com/n0bra1n3r/gpu-passthrough-for-clevo-p650hp6/blob/master/roms/GOPUpd/GOPupd.py (my local copy)
+- download https://github.com/andyvand/UEFIRomExtract/blob/master/UEFIRomExtract_Windows/Release/Win64/UEFIRomExtract.exe (my local copy)
+- UEFIRomExtract will sadly need wine to run so have wine installed too.
+
+### Extracting the BIOS
+there are several ways to get the rom, i used the sys filesystem, nvflash is an option too.
+```bash
+# find the rom to extract
+ls /sys/bus/pci/devices/*/rom
+# result: 
+# /sys/bus/pci/devices/0000:01:00.0/rom
+
+# so i have only one pci(e) device with a rom, lets verify the vendor
+cat /sys/bus/pci/devices/0000:01:00.0/vendor
+# result:
+# 0x10de (which identifies nvidia
+
+# ok now extract the rom (as root)
+echo 1  > /sys/bus/pci/devices/0000:01:00.0/rom
+cat /sys/bus/pci/devices/0000:01:00.0/rom > nvidia_rom.raw
+echo 0  > /sys/bus/pci/devices/0000:01:00.0/rom
+# now there is a nvidia_rom.raw
+
+# as normal user continue 
+./GOPupd.py nvidia_rom.raw ext_efirom
+# result (will differ for different cards)
+# ID of ROM file    = 10DE-2684 (and a directory nvidia_rom.raw_temp)
+
+# Next unpack the actual bin file
+wine UEFIRomExtract.exe nvidia_rom.raw_temp/nvidia_rom_compr.efirom nvidia_rom.bin
+# result
+# nvidia_rom.bin
+
+# if everything worked there is now a signature list on the extracted file
+sbverify --list nvidia_rom.bin
+# result
+#signature 1
+#image signature issuers:
+# - /C=US/ST=Washington/L=Redmond/O=Microsoft Corporation/CN=Microsoft Corporation UEFI CA 2011
+#image signature certificates:
+# - subject: /C=US/ST=Washington/L=Redmond/O=Microsoft Corporation/CN=Microsoft Windows UEFI Driver Publisher
+#   issuer:  /C=US/ST=Washington/L=Redmond/O=Microsoft Corporation/CN=Microsoft Corporation UEFI CA 2011
+
+```
+great thats extracting the rom
+
+### add rom hash value to db
+
+
+
