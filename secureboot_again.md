@@ -51,6 +51,12 @@ cat db.key db.crt > modules.key
 # Create Signature Lists
 for key_type in PK KEK db dbx; do cert-to-efi-sig-list -g $(< uuid.txt) ${key_type}.crt ${key_type}.esl; done
 
+#
+# this is the place where you could add more esl files to your db.esl for example if you created an esl for your graphics card, like described below, you would simply
+# cat db.esl nvidia.esl > db-merged.esl
+# mv db-merged.esl db.esl 
+#
+
 # Copying lists
 cd ..
 cp custom_config/*.esl .
@@ -177,9 +183,10 @@ https://www.reddit.com/r/linuxquestions/comments/pi1daj/secure_boot_how_to_extra
 ### Tools and preparation
 - create a work directory, maybe "nvidia"
 - download https://github.com/n0bra1n3r/gpu-passthrough-for-clevo-p650hp6/blob/master/roms/GOPUpd/GOPupd.py (my local copy)
-- download https://github.com/andyvand/UEFIRomExtract/blob/master/UEFIRomExtract_Windows/Release/Win64/UEFIRomExtract.exe (my local copy)
-- UEFIRomExtract will sadly need wine to run so have wine installed too.
-
+- UEFIRomExtract, I compiled a Linux Version of it, get it here: https://github.com/ccharon/UEFIRomExtract/releases
+- install pesign (emerge app-crypt/pesign)
+- install virt-firmware (emerge app-emulation/virt-firmware)
+  
 ### Extracting the BIOS
 there are several ways to get the rom, i used the sys filesystem, nvflash is an option too.
 ```bash
@@ -205,7 +212,7 @@ echo 0  > /sys/bus/pci/devices/0000:01:00.0/rom
 # ID of ROM file    = 10DE-2684 (and a directory nvidia_rom.raw_temp)
 
 # Next unpack the actual bin file
-wine UEFIRomExtract.exe nvidia_rom.raw_temp/nvidia_rom_compr.efirom nvidia_rom.bin
+./UEFIRomExtract nvidia_rom.raw_temp/nvidia_rom_compr.efirom nvidia_rom.bin
 # result
 # nvidia_rom.bin
 
@@ -224,5 +231,17 @@ great thats extracting the rom
 
 ### add rom hash value to db
 
+#### first we need to get the actual hash value, this is done with pesign
+```bash
+$ pesign -h -i nvidia_rom.bin
+# result:
+# 0a59ecea83664aafdba00e26b87e9a6b5e4e50a5d68e63582f10f982958d6767 nvidia_rom.bin
+``` 
 
+#### create a esl containing the hash value
+```bash
+$ ./virt-fw-sigdb --add-hash "$(< uuid.txt)" "0a59ecea83664aafdba00e26b87e9a6b5e4e50a5d68e63582f10f982958d6767" -o nvidia.esl
+```
 
+#### use the esl
+i decided to concat the nvidia.esl with the db.esl and install it in setup mode, see above
