@@ -162,7 +162,7 @@ mount /dev/mapper/secureboot /etc/secureboot
 ```bash
 #!/bin/env bash
 
-umount /etc/secureboot/custom_config
+umount /etc/secureboot
 cryptsetup luksClose secureboot
 ```
 
