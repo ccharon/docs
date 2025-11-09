@@ -18,18 +18,18 @@ emerge --ask app-crypt/efitools app-crypt/sbsigntools dev-libs/openssl
 i choose this because having private keys with password is not easy to work with when using emerge. I simply mount this container which is encrypted and password protected.
 
 ```bash
-cd /root
-mkdir secureboot
+mkdir /etc/secureboot
 
+cd /root
 dd if=/dev/zero of=secureboot.luks bs=1M count=32 status=progress
 cryptsetup luksFormat secureboot.luks
 cryptsetup open secureboot.luks secureboot # now available as /dev/mapper/secureboot
 mkfs.ext4 -L secureboot -t small -m 0 /dev/mapper/secureboot
-mount /dev/mapper/secureboot /root/secureboot
+mount /dev/mapper/secureboot /etc/secureboot
 ```
 ### backing up existing secureboot keys
 ```bash
-cd /root/secureboot
+cd /etc/secureboot
 mkdir factory_config
 cd factory_config
 for key_type in PK KEK db dbx; do efi-readvar -v $key_type -o ${key_type}.esl; done
@@ -37,7 +37,7 @@ for key_type in PK KEK db dbx; do efi-readvar -v $key_type -o ${key_type}.esl; d
 
 ### creating new keys
 ```bash
-cd /root/secureboot
+cd /etc/secureboot
 mkdir custom_config
 cd custom_config
 uuidgen > uuid.txt
@@ -80,17 +80,17 @@ for db_type in db dbx; do sign-efi-sig-list -k custom_config/KEK.key -c custom_c
 USE="secureboot modules-sign ..."
 
 # Secureboot keys
-SECUREBOOT_SIGN_KEY="/root/secureboot/custom_config/db.key"
-SECUREBOOT_SIGN_CERT="/root/secureboot/custom_config/db.crt"
+SECUREBOOT_SIGN_KEY="/etc/secureboot/custom_config/db.key"
+SECUREBOOT_SIGN_CERT="/etc/secureboot/custom_config/db.crt"
 
 # modules key: cat db.key db.crt > modules.key
-MODULES_SIGN_KEY="/root/secureboot/custom_config/modules.key"
+MODULES_SIGN_KEY="/etc/secureboot/custom_config/modules.key"
 ```
 
 #### add key locations to /etc/dracut.conf
 ```
-uefi_secureboot_cert="/root/secureboot/custom_config/db.crt"
-uefi_secureboot_key="/root/secureboot/custom_config/db.key"
+uefi_secureboot_cert="/etc/secureboot/custom_config/db.crt"
+uefi_secureboot_key="/etc/secureboot/custom_config/db.key"
 ```
 
 ### now rebuild kernel
@@ -112,8 +112,8 @@ emerge -uDNpv @world
 ### is the bootloader signed?
 after systemd rebuild it should be ...
 ```
-sbverify --cert /root/secureboot/custom_config/db.crt /efi/EFI/BOOT/BOOTX64.EFI
-sbverify --cert /root/secureboot/custom_config/db.crt /efi/EFI/systemd/systemd-bootx64.efi
+sbverify --cert /etc/secureboot/custom_config/db.crt /efi/EFI/BOOT/BOOTX64.EFI
+sbverify --cert /etc/secureboot/custom_config/db.crt /efi/EFI/systemd/systemd-bootx64.efi
 ```
 
 If not:
@@ -129,7 +129,7 @@ Enter UEFI Setup, remove all keys and set secureboot to setup mode, save and lea
 ### back in Linux install the keys
 ```bash
 # mount the encrypted volume again
-cd /root/secureboot
+cd /etc/secureboot
 efi-updatevar -e -f KEK.esl KEK
 for db_type in db dbx; do sudo efi-updatevar -e -f ${db_type}.esl $db_type; done
 efi-updatevar -f PK.auth PK
@@ -155,14 +155,14 @@ dmesg | grep Secure
 #!/bin/env bash
 
 cryptsetup luksOpen /root/secureboot.luks secureboot
-mount /dev/mapper/secureboot /root/secureboot
+mount /dev/mapper/secureboot /etc/secureboot
 ```
 
 ### umount_secboot.sh
 ```bash
 #!/bin/env bash
 
-umount /root/secureboot/custom_config
+umount /etc/secureboot/custom_config
 cryptsetup luksClose secureboot
 ```
 
