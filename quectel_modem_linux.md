@@ -44,7 +44,7 @@ ModemManager provides an fcc unlock script for quectel devices which needs to be
 
 ```bash
 mkdir -p  /etc/ModemManager/fcc-unlock.d
-ln -sft /etc/ModemManager/fcc-unlock.d/1eac:1002 /usr/share/ModemManager/fcc-unlock.available.d/1eac
+ln -sf /usr/share/ModemManager/fcc-unlock.available.d/1eac\:1001 /etc/ModemManager/fcc-unlock.d/1eac:1002
 ```
 activate ModemManager
 
