@@ -3,11 +3,6 @@
 
 **Also the usb device you use to flash the bios will be completely wiped, all existing data is lost. selecting the wrong drive will also wipe that drive, so be careful!**
 
-I had troubles finding a good guide until I found this blog post:
-https://blog.x4m3.rocks/thinkpad-custom-boot-logo/
-
-I decided it was not verbose enough, so I wrote my own guide, with more details and screenshots.
-
 I use this to add a custom Logo to my ThinkPad P15 Gen 2.
 
 ## ❯ I want to use the 25 year anniversary logo
