@@ -16,22 +16,22 @@ https://archive.org/details/logo_20200118
 ![25 Years Anniversaru](./img/LOGO.GIF)
 
 
-The general approach is to download a bios update iso from lenovo, extract the iso, and replace the logo file with your own. Then you can flash the bios with the modified iso.
+The general approach is to download a bios update iso from lenovo, extract the bootable image, and replace the logo file with your own. Then you can flash the bios with the modified bootable image.
 
 ## ❯ get the bios update iso
 https://support.lenovo.com/de/de/downloads/ds551321-bios-update-utility-bootable-cd-for-windows-10-64-bit-thinkpad-p15-gen-2-p17-gen-2-t15g-gen-2
 
 In my case I downloaded the file ```n37ur22w.iso```, which is the latest bios 1.38 for my ThinkPad P15 Gen 2.
 
-## ❯ convert the iso image
-to use it with an usb stick you need to convert the iso image to a raw image.
+## ❯ extract the eltorito boot image
+to use it with an usb stick you need to extract the boot image from the iso.
 
 ### install geteltorito
 ```bash
 sudo emerge --ask app-cdr/geteltorito 
 ```
 
-### convert the iso to a raw image
+### get the eltorito boot image
 
 ```bash
 geteltorito -o n37ur22w.img n37ur22w.iso
