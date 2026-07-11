@@ -186,382 +186,442 @@ player_add (O)Powdermelon 1        # Powdermelon
 
 ### Fried Egg
 
+```
 player_add (O)176 1    # Egg (White)
-
+```
 
 ### Omelette
 
+```
 player_add (O)176 1     # Egg (White)
 player_add (O)184 1     # Milk
-
+```
 
 ### Salad
 
+```
 player_add (O)20  1     # Leek
 player_add (O)22  1     # Dandelion
 player_add (O)419 1     # Vinegar
-
+```
 
 ### Cheese Cauliflower
 
+```
 player_add (O)190 1     # Cauliflower
 player_add (O)424 1     # Cheese
-
+```
 
 ### Baked Fish
 
+```
 player_add (O)132 1     # Bream
 player_add (O)145 1     # Sunfish
 player_add (O)246 1     # Wheat Flour
-
+```
 
 ### Parsnip Soup
 
+```
 player_add (O)24  1     # Parsnip
 player_add (O)184 1     # Milk
 player_add (O)419 1     # Vinegar
-
+```
 
 ### Vegetable Medley
 
+```
 player_add (O)256 1     # Tomato
 player_add (O)284 1     # Beet
-
+```
 
 ### Complete Breakfast
 
+```
 player_add (O)184 1     # Milk
 Fried Egg
 Hashbrowns
 Pancakes
-
+```
 
 ### Fried Calamri
 
+```
 player_add (O)151 1     # Squid
 player_add (O)246 1     # Wheat Flour
 player_add (O)247 1     # Oil
-
+```
 
 ### Strange Bun
 
+```
 player_add (O)722 1     # Periwinkle
 player_add (O)246 1     # Wheat Flour
 player_add (O)308 1     # Void Mayonnaise
-
+```
 
 ### Lucky Lunch
 
+```
 Tortilla
 player_add (O)154 1     # Sea Cucumber
 player_add (O)597 1     # Blue Jazz
-
+```
 
 ### Pizza
 
+```
 player_add (O)246 1     # Wheat Flour
 player_add (O)256 1     # Tomato
 player_add (O)424 1     # Cheese
-
+```
 
 ### Bean Hotpot
 
+```
 player_add (O)188 2     # Green Bean
-
+```
 
 ### Glazed Yams
 
+```
 player_add (O)280 1     # Yam
 player_add (O)245 1     # Sugar
-
+```
 
 ### Carp Suprise
 
+```
 player_add (O)142 4     # Carp
-
+```
 
 ### Hashbrowns
 
+```
 player_add (O)192 1     # Potato
 player_add (O)247 1     # Oil
-
+```
 
 ### Pancakes
 
+```
 player_add (O)246 1     # Wheat Flour
 player_add (O)176 1     # Egg (White)
-
+```
 
 ### Salmon Dinner
 
+```
 player_add (O)139 1     # Salmon
 player_add (O)300 1     # Amaranth
 player_add (O)250 1     # Kale
-
+```
 
 ### Fish Taco
 
+```
 Tortilla
 player_add (O)130 1     # Tuna
 player_add (O)266 1     # Red Cabbage
 player_add (O)306 1     # Mayonnaise
-
+```
 
 ### Crispy Bass
 
+```
 player_add (O)136 1     # Largmouth Bass
 player_add (O)246 1     # Wheat Flour
 player_add (O)247 1     # Oil
-
+```
 
 ### Pepper Popper
 
+```
 player_add (O)260 1     # Hot Pepper
 player_add (O)424 1     # Cheese
-
+```
 
 ### Bread
 
+```
 player_add (O)246 1     # Wheat Flour
-
+```
 
 ## Tom Kha Soup
 
+```
 player_add (O)404 1     # Common Mushroom
 player_add (O)88  1     # Coconut
 player_add (O)720 1     # Shrimp
-
+```
 
 ### Trout Soup
 
+```
 player_add (O)138 1     # Rainbow Trout
 player_add (O)153 1     # Green Algae
-
+```
 
 ### Chocolate Cake
 
+```
 player_add (O)246 1     # Wheat Flour
 player_add (O)245 1     # Sugar
 player_add (O)176 1     # Egg (White)
-
+```
 
 ### Pink Cake
 
+```
 player_add (O)254 1     # Melon
 player_add (O)246 1     # Wheat Flour
 player_add (O)245 1     # Sugar
 player_add (O)176 1     # Egg (White)
-
+```
 
 ## Rhubarb Pie
 
+```
 player_add (O)252 1     # Rhubarb
 player_add (O)246 1     # Wheat Flour
 player_add (O)245 1     # Sugar
-
+```
 
 ### Cookies
 
+```
 player_add (O)246 1     # Wheat Flour
 player_add (O)245 1     # Sugar
 player_add (O)176 1     # Egg (White)
-
+```
 
 ### Spaghetti
 
+```
 player_add (O)246 1     # Wheat Flour
 player_add (O)256 1     # Tomato
-
+```
 
 ### Fried Eel
 
+```
 player_add (O)148 1     # Eel
 player_add (O)247 1     # Oil
-
+```
 
 ### Spicy Eel
 
+```
 player_add (O)148 1     # Eel
 player_add (O)260 1     # Hot Pepper
-
+```
 
 ### Sashimi (any fish)
 
+```
 player_add (O)130 1     # Tuna
-
+```
 
 ### Maki Roll (any fish)
 
+```
 player_add (O)130 1     # Tuna
 player_add (O)423 1     # Rice
 player_add (O)152 1     # Seaweed
-
+```
 
 ### Tortilla
 
+```
 player_add (O)270 1     # Corn
-
+```
 
 ### Red Plate
 
+```
 player_add (O)266 1     # Red Cabbage
 player_add (O)264 1     # Radish
-
+```
 
 ### Eggplant Parmesan
 
+```
 player_add (O)272 1     # Eggplant
 player_add (O)256 1     # Tomato
-
+```
 
 ### Rice Pudding
 
+```
 player_add (O)184 1     # Milk
 player_add (O)245 1     # Sugar
 player_add (O)423 1     # Rice
-
+```
 
 ### Icecream
 
+```
 player_add (O)184 1     # Milk
 player_add (O)245 1     # Sugar
-
+```
 
 ### Blueberry Tart
 
+```
 player_add (O)258 1     # Blueberry
 player_add (O)246 1     # Wheat Flour
 player_add (O)245 1     # Sugar
 player_add (O)176 1     # Egg (White)
-
+```
 
 ### Autumns Bounty
 
+```
 player_add (O)280 1     # Yam
 player_add (O)276 1     # Pumpkin
-
+```
 
 ### Pumpkin Soup
 
+```
 player_add (O)276 1     # Pumpkin
 player_add (O)184 1     # Milk
-
+```
 
 ### Super Meal
 
+```
 player_add (O)278 1     # Bok Choy
 player_add (O)282 1     # Cranberries
 player_add (O)274 1     # Artichoke
-
+```
 
 ### Cranberry Sauce
 
+```
 player_add (O)282 1     # Cranberries
 player_add (O)245 1     # Sugar
-
+```
 
 ### Stuffing
 
+```
 Bread
 player_add (O)282 1     # Cranberries
 player_add (O)408 1     # Hazelnut
-
+```
 
 ### Farmers Lunch
 
+```
 Omelette
 player_add (O)24  1     # Parsnip
-
+```
 
 ### Survival Burger
 
+```
 Bread
 player_add (O)78  1     # Cave Carrot
 player_add (O)272 1     # Eggplant
-
+```
 
 ### Dish O' The Sea
 
+```
 Hashbrowns
 player_add (O)131 2     # Sardine
-
+```
 
 ### Miners Treat
 
+```
 player_add (O)184 1     # Milk
 player_add (O)245 1     # Sugar
 player_add (O)78  2     # Cave Carrot
-
+```
 
 ### Triple Shot Espresso
 
+```
 Coffee 3x
 player_add (O)245 1
+```
 
 ### Seafoam Pudding
 
+```
 player_add (O)269 1     # Midnight Carp
 player_add (O)267 1     # Flounder
 player_add (O)814 1     # Squid Ink
-
+```
 
 ### Algae Soup
 
+```
 player_add (O)153 4     # Green Algae
-
+```
 
 ### Pale Broth
 
+```
 player_add (O)157 2     # White Algae
-
+```
 
 ### Plum Pudding
 
+```
 player_add (O)406 2     # Wild Plum
 player_add (O)246 1     # Wheat Flour
 player_add (O)245 1     # Sugar
-
+```
 
 ### Artichoke Dip
 
+```
 player_add (O)274 1     # Artichoke
 player_add (O)184 1     # Milk
-
+```
 
 ### Stir Fry
 
+```
 player_add (O)78  1     # Cave Carrot
 player_add (O)404 1     # Common Mushroom
 player_add (O)247 1     # Oil
 player_add (O)250 1     # Kale
-
+```
 
 ### Roasted Hazelnuts
 
+```
 player_add (O)408 3     # Hazelnut
-
+```
 
 ### Pumpkin Pie
 
+```
 player_add (O)276 1     # Pumpkin
 player_add (O)246 1     # Wheat Flour
 player_add (O)184 1     # Milk
 player_add (O)245 1     # Sugar
-
+```
 
 ### Radish Salad
 
+```
 player_add (O)247 1     # Oil
 player_add (O)419 1     # Vinegar
 player_add (O)264 1     # Radish
-
+```
 
 ### Fruit Salad
 
+```
 player_add (O)258 1     # Blueberry
 player_add (O)634 1     # Apricot
 player_add (O)254 1     # Melon
-
+```
 
 
 
@@ -578,6 +638,7 @@ player_add (O)254 1     # Melon
 
 ## Misc other items
 
+```
 player_add (O)395 3 # Cofee
 player_add (O)128 1 # Pufferfish
 player_add (O)705 1 # Albacore
@@ -679,7 +740,7 @@ player_add (O)91 11      # Banana
 player_add (O)834 11     # Mango
 player_add (O)830 14     # Taro Root
 player_add (O)832 11     # Pineapple
-
+```
 
 
 
