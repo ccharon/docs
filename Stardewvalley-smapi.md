@@ -623,147 +623,155 @@ player_add (O)634 1     # Apricot
 player_add (O)254 1     # Melon
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Misc other items
+### Blackberry Cobbler
 
 ```
-player_add (O)395 3 # Cofee
-player_add (O)128 1 # Pufferfish
-player_add (O)705 1 # Albacore
-player_add (O)707 1 # Lingcod
-player_add (O)715 1 # Lobster
-
-player_add (O)151 1 # Squid
-
-player_add (O)227 1 # Sashimi
-
-
-player_add (O)344/88 1 # Coconut Jelly
-
-
-player_add (O)398/Powdermelon # Dried Powdermelon
-
-
-
-
-
-player_add (O)582 1 # Skeletal Hand
-
-player_add (O)100 1 # Chipped Amphora
-
-
-player_add (O)159 1 # Crimson Fish
-
-
-
-player_add (O)163 6 # Legend
-
-debug friendship Leah 2000
-debug friendship Wizard 2500
-
-debug friendall [value]        # maxes friendship with all NPCs (default 2500 = 10 hearts)
-debug friendship <name> <value> # set one specific NPC
-debug befriendpets              # max friendship with all pets
-debug befriendanimals [value]   # max friendship with farm animals in current location
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-player_add (O)20 11      # Leek
-player_add (O)22 11      # Dandelion
-player_add (O)190 11     # Cauliflower
-player_add (O)424 13     # Cheese
-player_add (O)24 12      # Parsnip
-player_add (O)256 18     # Tomato
-player_add (O)284 11     # Beet
-player_add (O)597 11     # Blue Jazz
-player_add (O)404 13     # Common Mushroom
-player_add (O)257 11     # Morel
-player_add (O)188 12     # Green Bean
-player_add (O)280 12     # Yam
-player_add (O)192 11     # Potato
-player_add (O)300 11     # Amaranth
-player_add (O)250 12     # Kale
-player_add (O)266 13     # Red Cabbage
-player_add (O)306 12     # Mayonnaise
-player_add (O)260 13     # Hot Pepper
-player_add (O)88 13      # Coconut
-player_add (O)252 11     # Rhubarb
-player_add (O)270 11     # Corn
-player_add (O)264 12     # Radish
-player_add (O)272 12     # Eggplant
-player_add (O)258 12     # Blueberry
-player_add (O)276 13     # Pumpkin
-player_add (O)278 11     # Bok Choy
-player_add (O)282 14     # Cranberries
-player_add (O)274 12     # Artichoke
-player_add (O)408 14     # Hazelnut
-player_add (O)78 15      # Cave Carrot
-player_add (O)412 11     # Winter Root
-player_add (O)814 12     # Squid Ink
-player_add (O)406 12     # Wild Plum
-player_add (O)634 11     # Apricot
-player_add (O)254 12     # Melon
-player_add (O)410 12     # Blackberry
-player_add (O)613 11     # Apple
-player_add (O)259 11     # Fiddlehead Fern
-player_add (O)248 12     # Garlic
-player_add (O)376 11     # Poppy
-player_add (O)724 11     # Maple Syrup
-player_add (O)16 11      # Wild Horseradish
-player_add (O)829 13     # Ginger
-player_add (O)91 11      # Banana
-player_add (O)834 11     # Mango
-player_add (O)830 14     # Taro Root
-player_add (O)832 11     # Pineapple
+player_add (O)410 2     # Blackberry
+player_add (O)246 1     # Wheat Flour
+player_add (O)245 1     # Sugar
 ```
 
+### Cranberry Candy
 
+```
+player_add (O)613 1     # Apple
+player_add (O)282 1     # Cranberries
+player_add (O)245 1     # Sugar
+```
 
+### Bruschetta
 
+```
+Bread
+player_add (O)247 1     # Oil
+player_add (O)256 1     # Tomato
+```
 
+### Coleslaw
 
+```
+player_add (O)266 1     # Red Cabbage
+player_add (O)419 1     # Vinegar
+player_add (O)306 1     # Mayonnaise
+```
 
+### Fiddlehead Risotto
 
+```
+player_add (O)247 1     # Oil
+player_add (O)259 1     # Fiddlehead Fern
+player_add (O)248 1     # Garlic
+```
 
+### Poppyseed Muffin
 
+```
+player_add (O)376 1     # Poppy
+player_add (O)245 1     # Sugar
+player_add (O)246 1     # Wheat Flour
+```
 
+### Chowder
 
+```
+player_add (O)372 1     # Clam
+player_add (O)184 1     # Milk
+```
 
+### Fish Stew
 
+```
+player_add (O)719 1     # Mussel
+player_add (O)716 1     # Crayfish
+player_add (O)722 1     # Periwinkle
+player_add (O)256 1     # Tomato
+```
 
+### Escargot
 
+```
+player_add (O)721 1     # Snail
+player_add (O)248 1     # Garlic
+```
 
+### Lobster Bisque
 
+```
+player_add (O)715 1     # Lobster
+player_add (O)184 1     # Milk
+```
 
+### Maple Bar
 
+```
+player_add (O)724 1     # Maple Syrup
+player_add (O)245 1     # Sugar
+player_add (O)246 1     # Wheat Flour
+```
 
+### Crab Cakes
 
+```
+player_add (O)717 1     # Crab
+player_add (O)246 1     # Wheat Flour
+player_add (O)247 1     # Oil
+```
 
+### Shrimp Cocktail
 
+```
+player_add (O)720 1     # Shrimp
+player_add (O)256 1     # Tomato
+player_add (O)16  1     # Wild Horseradish
+```
 
+### Ginger Ale
 
+```
+player_add (O)829 3     # Ginger
+player_add (O)245 1     # Sugar
+```
+
+### Banana Pudding
+
+```
+player_add (O)91  1     # Banana
+player_add (O)184 1     # Milk
+player_add (O)245 1     # Sugar
+```
+
+### Mango Sticky Rice
+
+```
+player_add (O)834 1     # Mango
+player_add (O)88  1     # Coconut
+player_add (O)423 1     # Rice
+```
+
+### Poi
+
+```
+player_add (O)830 4     # Taro Root
+```
+
+### Tropical Curry
+
+```
+player_add (O)88  1     # Coconut
+player_add (O)832 1     # Pineapple
+player_add (O)260 1     # Hot Pepper
+```
+
+### Squid Ink Ravioli
+
+```
+player_add (O)246 1     # Wheat Flour
+player_add (O)256 1     # Tomato
+player_add (O)814 1     # Squid Ink
+```
+
+### Moss Soup
+
+```
+player_add (O)Moss 20   # Moss
+```
