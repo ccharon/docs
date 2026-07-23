@@ -172,11 +172,11 @@ when trying to use secureboot on a new pc I got the message in UEFI that there i
 
 After some searching and then verifying the bios (extract it and use sbverify --list ) It turned out to be signed with "Microsoft Corporation UEFI CA 2011". Great so I can only have secureboot if this MS Cert is in my DB. ... and on top of all this .. the certificate will expire mid 2026. GREAT!
 
-So 2 Options, Install MS Certificate or disable Secureboot. ... or disable secureboot mid 2026 when the certificate expires. 
+So, Install MS Certificate or disable Secureboot.
 
 BUT there is also the possibility to add the hash of the rom to the allow list, the hash does not expire and also this way no ms cert is needed.
 
-Lets do so.
+Lets do so. ( I do not actually recommend to follow this way of getting the hash, there are easier ways, I just wanted to see if i could extract it myself)
 Sources:
 https://www.reddit.com/r/linuxquestions/comments/pi1daj/secure_boot_how_to_extract_nvidia_uefi_boot/
 
